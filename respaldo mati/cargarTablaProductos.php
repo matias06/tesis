@@ -1,4 +1,8 @@
- 
+<?php
+    require_once '../clases/Conexion.php';
+    $conexion = new Conexion();
+    $conexion->consultarSesion();
+?> 
      <div class="col-xs-8 col-sm-6 col-md-4 col-lg-3">
                            
                             <div class="caption">
@@ -73,7 +77,7 @@
                                     <div style="animation-delay: 0.5s;" class="col-md-3 animated-panel zoomIn">
                                         <div class="form-group">
                                             <label for="rutProveedor">Rut proovedor:</label>
-                                            <input class="form-control" readOnly id="txt_proveedor_modificar" name="txt_proveedor_modificar" placeholder="Rut proveedor" type="">
+                                            <input class="form-control" id="txt_proveedor_modificar" name="txt_proveedor_modificar" placeholder="Rut proveedor" type="">
                                         </div>
                                     </div> 
                                 </div> 
@@ -143,7 +147,6 @@
                             </div>  <!-- table -->
 
                             <script>
-                           
 
                 $("#formProductoModificar").submit(function(){//ENVIA FORMULARIO DE MODIFICACION DE REGISTRO
                     event.preventDefault();
@@ -164,14 +167,12 @@
                         }
                     });
             });
-                           $('#modificar').click(function(){
-                            $('.modal-backdrop').fadeOut('fast');
-                               });    
 
 
               
                                 // $("#formProductoModificar").validate();
-                                   
+                                               
+                                               
                                
 
                         </script>
@@ -185,8 +186,7 @@
     });
     }
                 
-                                          
-                                              
+                 
 
     </script>   
   

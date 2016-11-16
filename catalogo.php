@@ -33,146 +33,82 @@ require_once'admin/comun/comun.php';
 menuPublico();
 ?>
 
-<!-- END MODAL-->
+
 
 <main class="contenido-principal"><!--contenido-principal-->
 <div class="container">
-    <div class="row">
+    
 
         <h4 class="lead text-center titulo-catalogo">
             Catalogo de Productos
         </h4>
-
-         <div class="col-xs-12 contenido-categoria cb2"> <!--contenido-principal-->
-
-            <div class="col-xs-12 col-sm-6 col-md-3">
-              <span class="lead titulo-categoria text-center c2">Audio</span>
-
-              <hr>
-
-            <ul class="nav nav-pills nav-stacked">
-                <li><a href="catalogo_2.php">Parlantes</a></li>
-                <li><a href="catalogo_2.php">Conectores</a></li>
-                <li><a href="catalogo_2.php">Antenas</a></li>
-            </ul>
-
-            </div>
-
-            <div class="col-xs-12 col-sm-6 col-md-9">
-                <br>
-                <div class="well well-cw col-xs-12 col-sm-6 col-md-4">
-                    <a href="ficha.php">
-                        <img src="imagenes/productos/Audio/bass-min.jpg" class="img-responsive" alt="">
-                        <span>nombre del producto</span>
-                    </a>
-                </div>     
-
-                <div class="well well-cw col-xs-12 col-sm-6 col-md-4">
-                    <a href="ficha.php">
-                        <img src="imagenes/productos/Audio/20161018_143957-min.jpg" class="img-responsive" alt="">
-                        <span>nombre del producto</span>
-                    </a>
-                </div>     
-
-                <div class="well well-cw col-xs-12 col-sm-6 col-md-4">
-                    <a href="ficha.php">
-                        <img src="imagenes/productos/Audio/20161018_152018-min.jpg" class="img-responsive" alt="">
-                        <span>nombre del producto</span>
-                    </a>
-                </div>         
-            </div>
-
-        </div><!--final-contenido-x-categoria-->
-
-        <div class="col-xs-12 contenido-categoria cb1"><!--contenido-x-categoria-->
-
-            <div class="col-xs-12 col-sm-6 col-md-3">
-              <span class="lead titulo-categoria text-center c1">Iluminación</span>
-
-              <hr>
-
-            <ul class="nav nav-pills nav-stacked">
-                <li><a href="catalogo_2.php">Ampolletas</a></li>
-                <li><a href="catalogo_2.php">Led</a></li>
-                <li><a href="catalogo_2.php">Focos</a></li>
-            </ul>
-
-            </div>
-
-            <div class="col-xs-12 col-sm-6 col-md-9">
-                <br>
-                <div class="well well-cw col-xs-12 col-sm-6 col-md-4">
-                    <a href="ficha2.php">
-                        <img src="imagenes/productos/Iluminacion/20161018_144046-min.jpg" class="img-responsive" alt="">
-                        <span>nombre del producto</span>
-                    </a>
-                </div>     
-
-                <div class="well well-cw col-xs-12 col-sm-6 col-md-4">
-                    <a href="ficha2.php">
-                        <img src="imagenes/productos/Iluminacion/20161018_152057-min.jpg" class="img-responsive" alt="">
-                        <span>nombre del producto</span>
-                    </a>
-                </div>    
-
-                <div class="well well-cw col-xs-12 col-sm-6 col-md-4">
-                    <a href="ficha2.php">
-                        <img src="imagenes/productos/Iluminacion/20161018_150159-min.jpg" class="img-responsive" alt="">
-                        <span>nombre del producto</span>
-                    </a>
-                </div>       
+         
+        <?php include_once("admin/clases/claseCategoriaProducto.php");
+                include_once("admin/clases/claseProductos.php");
+                $categp = new CategoriaProducto();
+                $producto = new Productos();
+        
                 
-            </div>
 
-        </div><!--final-contenido-x-categoria-->
-
-
-        <div class="col-xs-12 contenido-categoria cb3"><!--contenido-x-categoria-->
-
-            <div class="col-xs-12 col-sm-6 col-md-3">
-              <span class="lead titulo-categoria text-center c3">Tuning</span>
-
-              <hr>
-
-            <ul class="nav nav-pills nav-stacked">
-                <li><a href="catalogo_2.php">Accesorios Interior</a></li>
-                <li><a href="catalogo_2.php">Accesorios Exterior</a></li>
-                <li><a href="catalogo_2.php">Stickers</a></li>
-            </ul>
-
-            </div>
-
-            <div class="col-xs-12 col-sm-6 col-md-9">
-                <br>
-
-                <div class="well well-cw col-xs-12 col-sm-6 col-md-4">
-                    <a href="ficha.php">
-                        <img src="imagenes/productos/Tuning/20161018_151206-min.jpg" class="img-responsive" alt="">
-                        <span>nombre del producto</span>
-                    </a>
-                </div>     
-
-                <div class="well well-cw col-xs-12 col-sm-6 col-md-4">
-                    <a href="ficha.php">
-                        <img src="imagenes/productos/Tuning/20161018_150633-min.jpg" class="img-responsive" alt="">
-                        <span>nombre del producto</span>
-                    </a>
-                </div>    
-
-                <div class="well well-cw col-xs-12 col-sm-6 col-md-4">
-                    <a href="ficha.php">
-                        <img src="imagenes/productos/Tuning/20161018_145516-min.jpg" class="img-responsive" alt="">
-                        <span>nombre del producto</span>
-                    </a>
-                </div>           
+        $categoria = $categp->listarCategoriaProducto();    
+                $contador = 0;
+                foreach($categoria as $vercategoria){
                 
-            </div>
+                $categorias = $vercategoria['id_categoria_producto'];    
+                $descategoria = $vercategoria['descripcion_categoria_producto'];                    
+                $contador++;
+                    echo '
+                    <div class="row">
+                    <br>
+                    <div class="col-xs-12 contenido-categoria cb';
+                    echo $contador;
+                    echo'" style="margin-top:3rem;"> <!--contenido-principal-->';
+                        echo '<div class="col-xs-12 col-sm-6 col-md-3">
+                              <span class="lead titulo-categoria text-center c';
+                                 echo $contador;
+                                    echo'">';
+                                echo $descategoria.'</span>              <hr>
 
-        </div><!--final-contenido-x-categoria-->
+                            <ul class="nav nav-pills nav-stacked">
+                                <li><a href="catalogo_2.php">Parlantes</a></li>
+                                <li><a href="catalogo_2.php">Conectores</a></li>
+                                <li><a href="catalogo_2.php">Antenas</a></li>
+                            </ul>
 
+                        </div>';
+                echo '<div class="col-xs-12 col-sm-6 col-md-9"><br>';
+                
+                $listap = $producto->listar_producto_x_categoria($categorias);
+                
+                foreach($listap as $verproducto){
+                    
+        
+                ?>
+                    
+                            <br>
+                            <div class="well well-cw col-xs-12 col-sm-6 col-md-4">
+                                <a href="ficha.php">
+                                    <img src="imagenes/productos/<?php echo $verproducto['imagen']; ?>" class="img-responsive" alt="<?php echo $verproducto['descripcion_producto']; ?>">
+                                    <span><?php echo $verproducto['valor_producto']; ?></span>
+                                </a>
+                            </div>     
+                    
+                   
+                    <?php } 
+                        echo '</div>';
+                        }  
+                echo '</div>
+                
+                </div>'; ?>
+    
+                
+                
+    
     </div>
-</div>
-</main><!--contenido-principal-->
+    
+        
+</main>   
+<!--contenido-principal-->
 
 <footer>
     

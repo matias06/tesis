@@ -1,5 +1,5 @@
 <?php
-require_once '../clases/Conexion.php';
+require_once 'Conexion.php';
 class Productos extends Conexion{
 
 	private $id_producto;
@@ -127,6 +127,12 @@ class Productos extends Conexion{
 		    	echo "ERROR AL MODIFICAR PRODUCTO; ERROR: ".$consulta;
 		    }
     
+    }
+    
+    public function listar_producto_x_categoria($idcategoria){
+        $consulta = $this->consultarRegistros("SELECT * FROM producto WHERE id_categoria_producto = ".$idcategoria."");
+       // echo "SELECT * FROM producto WHERE id_categoria_producto = ".$idcategoria."";
+        return $consulta;
     }
 
  

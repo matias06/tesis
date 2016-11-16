@@ -1,4 +1,9 @@
-<div class="container">
+<?php
+    require_once '../clases/Conexion.php';
+    $conexion = new Conexion();
+    $conexion->consultarSesion();
+?>
+  <div class="container">
    <div class="col-xs-4 col-xs-offset-4">
                   <div class="input-group">
                     <span class="input-group-addon "></span>
@@ -7,7 +12,7 @@
                 </div>
 
                 <div class="col-xs-4">
-
+                    
                     <label class="control-label col-xs-3" for="cmb_cantidadRegistros">Mostrar</label>
                     <div class="col-xs-6">
                         <select onChange="listarTabla()" name="cmb_cantidadRegistros" class="form-control" id="cmb_cantidadRegistros">
@@ -21,19 +26,19 @@
 </div>
 <br>
 <div class="container-fluid">
-
-            <div class="col-md-10-centered">
+          
+            <div class="col-md-10-centered">                      
 
                     <div class="panel panel-default">
                         <div class="panel-heading">
                                 <h3 class="panel-title">Mantenedor Productos</h3>
                         </div>
                             <div class="panel-body">
-
+                                
                                <!-- <form> -->
-                        <form action="" id="formularioProducto" name="formularioProducto" enctype="multipart/form-data" method="POST">
+                        <form action="" id="formularioProducto" name="formularioProducto" method="POST">
                             <fieldset>
-
+                              
                                 <div class="row">
                                    <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
                                         <div class="form-group">
@@ -47,21 +52,19 @@
                                             <input class="form-control" id="txt_descripcion" name="txt_descripcion" placeholder="Descripción de productos" type="text">
                                         </div>
                                     </div>
-                                    <div style="animation-delay: 0.2s;" class="col-md-2 animated-panel zoomIn">
+                                    <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
                                         <div class="form-group">
                                             <label for="valor">Valor:</label>
                                             <input class="form-control" id="txt_valor" name="txt_valor" placeholder="Valor del producto" type="text">
                                         </div>
-                                    </div>
+                                    </div> 
                                    <!--  imagen cambiar el txt_imagen -->
-                                    <div style="animation-delay: 0.2s;" class="col-md-2 animated-panel zoomIn">
+                                    <div style="animation-delay: 0.2s; height:200px" class="col-md-3 animated-panel zoomIn">
                                         <div class="form-group">
-                                            <label for="imagen">Subir Imagen</label>
-                                            <input type="file" id="txt_imagen" name="txt_imagen">
-                                            <!-- <input class="form-control" id="txt_imagen" name="txt_imagen" placeholder="" type=""> -->
+                                            <label for="password">Imagen</label>
+                                            <input class="img-responsive" alt="Imagen responsive" id="txt_imagen" name="txt_imagen" placeholder="" type="">
                                         </div>
-
-                                    </div>
+                                    </div> 
 
                                 </div>
 
@@ -73,7 +76,7 @@
 
                                             <label for="cmb_proveedores">Proveedores</label>
                                                  <select class="form-control" name="cmb_proveedores" id="cmb_proveedores">
-                                                    <?php
+                                                    <?php 
                                                         require_once '../clases/claseProveedor.php';
                                                         $prov= new Proveedor();
                                                         $filasProv= $prov->listarProveedor();
@@ -81,7 +84,7 @@
                                                             echo '<option value="'.$tipo['rut'].'" >'.$tipo['razon_social'].'</option>';
                                                         }
                                                      ?>
-                                          </select>
+                                          </select> 
                                         </div>
                                     </div>
 
@@ -91,7 +94,7 @@
 
                                             <label for="tipoUsuario">Estado producto</label>
                                                  <select class="form-control" name="cmb_estado_producto" id="cmb_estado_producto">
-                                                    <?php
+                                                    <?php 
                                                         require_once '../clases/claseEstadoProducto.php';
                                                         $prod= new EstadoProducto();
                                                         $filasProduc= $prod->listarEstadoProducto();
@@ -101,19 +104,19 @@
                                                         }
 
                                                      ?>
-                                                </select>
+                                                </select> 
 
                                         </div>
 
                                     </div>
 
-                                   <div style="animation-delay: 0.5s;" class="col-md-2 animated-panel zoomIn">
+                                   <div style="animation-delay: 0.5s;" class="col-md-3 animated-panel zoomIn">
 
                                         <div class="form-group">
 
                                             <label for="tipoUsuario">Categoria producto</label>
                                                  <select class="form-control" name="cmb_categoria_producto" id="cmb_categoria_producto">
-                                                    <?php
+                                                    <?php 
                                                         require_once '../clases/claseCategoriaProducto.php';
                                                         $cat= new CategoriaProducto();
                                                         $filasCat= $cat->listarCategoriaProducto();
@@ -123,7 +126,7 @@
                                                         }
 
                                                      ?>
-                                                </select>
+                                                </select> 
 
                                         </div>
 
@@ -145,29 +148,20 @@
                         </div>
                 </div>
                 <!-- tabla -->
-
+                      
             </div>
            </div> <!-- container -->
-               <div id="tablas">
-                    <!-- carga la tabla producto por metodo ajax -->
-
-                </div>
 
            <script>
-                //INSERTA TODO EL FORMULARIO Y LA IMAGEN
+
                              $("#formularioProducto").submit(function(){//captura cuando se envia el formulario
                                 event.preventDefault();//detiene el envio del formulario
 
 
-                                     var formData = new FormData(document.getElementById("formularioProducto"));
-                         //alert("llega");
                                     $.ajax({//realiza el envio del formulario pero por ajax para no tener que recargar pagina
+                                       
                                         url:"mantenedoresIngresar.php?mant=2&prod=1", //donde se va a ingresar "mantenedoresIngresar.php"
-                                        data:formData,
-                                        type:'POST',
-                                        cache:false,
-                                        contentType:false,
-                                        processData:false,
+                                        data:$("#formularioProducto").serialize(),
                                         success:function(respuesta){
                                                  alert(respuesta);
                                                 //$("#formularioProducto").html(respuesta);
@@ -177,33 +171,45 @@
                                                // eventoAlertCorrecto();
                                         }
                                     });
-
+                                  
                             });
 
 
+                    
+                              //  $("#formularioProducto").validate();
+
+
+                        </script>
+              <script>          
               function eventoAlertCorrecto(){
               swal("Exito!", "Se ha agregado correctamente!", "success")
                // swal("Se ha agregado correctamente!", "You clicked the button!", "success")
               }
+              </script> 
 
+                <script>
              function eventoAlertEliminar(){
                 swal("Exito!", "Se ha eliminado correctamente!", "success")
                  // swal("Se ha agregado correctamente!", "You clicked the button!", "success")
                 }
 
-
+                </script>   
+                         <script type="text/javascript"> 
                             function eliminarCamposProducto(){ /*AQUI LE DOY UN NOMBRE CUALQUIERA A LA FUNCION*/
                                     $("#txt_id_producto").val("");
                                     $("#txt_descripcion").val("");
                                     $("#txt_valor").val("");
                                     $("#txt_imagen").val("");
                                     $("#txt_proveedor").val("");
-
+                                   
                             }
                             </script>
 
-
-
+                 <div id="tablas">
+                    <!-- carga la tabla producto por metodo ajax -->
+                    
+                </div>
+                            
 
                             <script>
 
@@ -215,25 +221,27 @@
                                 });
                             }
 
+
+
                            cargarDivTablaProducto();
 
 
                               function eliminarProductos(idProd){
                                     // alert(id);
-                                    swal({
-                                        title: "Eliminar?",
-                                        text: "Producto!",
-                                        type: "warning",
-                                        showCancelButton: true,
-                                        confirmButtonColor: "#DD6B55",
-                                        confirmButtonText: "Yes, cambiar estado!",
-                                        cancelButtonText: "No, cancelar!",
-                                        closeOnConfirm: false,
-                                        closeOnCancel: false },
-                                        function(isConfirm){
-                                            if (isConfirm) {
+                                    swal({   
+                                        title: "Eliminar?",   
+                                        text: "Producto!",   
+                                        type: "warning",   
+                                        showCancelButton: true,   
+                                        confirmButtonColor: "#DD6B55",   
+                                        confirmButtonText: "Yes, cambiar estado!",   
+                                        cancelButtonText: "No, cancelar!",   
+                                        closeOnConfirm: false,   
+                                        closeOnCancel: false }, 
+                                        function(isConfirm){   
+                                            if (isConfirm) {   
                                                  $.ajax({//realiza el envio del formulario pero por ajax para no tener que recargar pagina
-
+                                               
                                                     url:"mantenedoresIngresar.php?mant=2&prod=3", // donde se va a ingresar "mantenedoresIngresar.php"
                                                    data:"idProd="+idProd,
                                                     success:function(respuesta){
@@ -241,18 +249,18 @@
                                                              cargarDivTablaProducto();
                                                              cambiarPagina(1);
                                                     }
-                                                });
-                                                swal("Modificado!", "", "success");
-                                            } else {
-                                                swal("Cancelado", "", "error");
-                                            }
+                                                });  
+                                                swal("Modificaro!", "", "success");   
+                                            } else {    
+                                                swal("Cancelado", "", "error");   
+                                            } 
                                         });
 
-
-
+                            
+                                     
                                 }
                             </script>
-
+                           
              <script>
                 var pagina;
                 //INICIO SCRIPT PARA CARGAR TABLA Y PAGINADA
@@ -279,3 +287,4 @@
                   }
                   cambiarPagina(1); //FIN SCRIPT PARA CARGAR TABLA Y PAGINADA
                 </script>
+                           

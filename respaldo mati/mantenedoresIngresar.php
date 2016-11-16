@@ -1,5 +1,8 @@
 <?php
 
+    require_once '../clases/Conexion.php';
+    $conexion = new Conexion();
+    $conexion->consultarSesion();
 require_once '../clases/usuario.php';
 	switch($_REQUEST['mant']){
             case "1": //echo " Mantenedor usuario";
@@ -70,7 +73,7 @@ require_once '../clases/usuario.php';
                                         <?php 
                                             $usuario = new Usuario();
                                             $buscar = filter_var($_REQUEST['buscar'], FILTER_SANITIZE_STRING);
-                                            $filas = $usuario->BuscarFiltarRegistros("vistausuario","campoBuscar",$buscar,$_REQUEST['pag'],$_REQUEST['cantidadReg']);
+                                            $filas = $usuario->BuscarFiltarRegistros("vistausuario","nombre",$buscar,$_REQUEST['pag'],$_REQUEST['cantidadReg']);
                                            
 
                                             $contador=0;
@@ -127,59 +130,22 @@ require_once '../clases/usuario.php';
 			switch($_REQUEST['prod']){
 
 								case "1": //echo "se ingresa";
-
-
-                                $codigo = filter_var($_REQUEST['txt_id_producto'], FILTER_SANITIZE_NUMBER_INT);
+                                    $codigo = filter_var($_REQUEST['txt_id_producto'], FILTER_SANITIZE_NUMBER_INT);
                                     $productos->setid_producto($codigo);
                     
-                                    $descripcion = filter_var($_REQUEST['txt_descripcion'], FILTER_SANITIZE_STRING);
-                                    $productos->setdescripcion_producto($descripcion);
+						            $descripcion = filter_var($_REQUEST['txt_descripcion'], FILTER_SANITIZE_STRING);
+									$productos->setdescripcion_producto($descripcion);
                     
                                     $valor = filter_var($_REQUEST['txt_valor'], FILTER_SANITIZE_NUMBER_INT);
-                                    $productos->setvalor_producto($valor);
+									$productos->setvalor_producto($valor);
                     
-                                    // $imagen = filter_var($_REQUEST['txt_imagen'], FILTER_SANITIZE_STRING);
-                                    //$productos->setimagen($imagen);
+                                    $imagen = filter_var($_REQUEST['txt_imagen'], FILTER_SANITIZE_STRING);
+									$productos->setimagen($imagen);
                     
-                                    $productos->setrut($_REQUEST['cmb_proveedores']);
+									$productos->setrut($_REQUEST['cmb_proveedores']);
                     
-                                    $productos->setestado_producto($_REQUEST['cmb_estado_producto']);
-                                    $productos->setcategoria_producto($_REQUEST['cmb_categoria_producto']);
-
-
-
-                                        $img = $_FILES['txt_imagen'];
-                                        $nombreImg = $img['name'];
-                                        $tipoImg = $img['type'];
-                                        $rutaPrevisional = $img['tmp_name'];
-                                        $size = $img['size'];
-                                        $dimensiones = getimagesize($rutaPrevisional);
-                                        $width = $dimensiones[0];
-                                        $height = $dimensiones[1];
-                                        $carpeta = "../../imagenes/productos";
-
-
-                                        if($tipoImg != 'image/jpeg' && $tipoImg != 'image/jpeg' && $tipoImg != 'image/png'){
-                                            echo "El Archivo a subir no es una imagen";
-                                        }else if($size > 1024*1024){
-                                            echo "Tamaño de imagen muy grande";
-                                        }else if($width > 5000 || $height > 5000){
-                                            echo "La anchura y altura maxima para la imagen es 5000px";
-                                        }else if($width < 60 || $height < 60){
-                                            echo "La anchura y altura minima para la imagen es de 60px";
-                                        }else{
-                                            //consulta
-                                           // $resultado = $portada->actualizarPortada($id, $titulo, $src, $contenido);
-                                           
-                                               // $file_upload_to= SITE_ROOT . DS . $carpeta;
-                                                move_uploaded_file($rutaPrevisional, $carpeta."/". $nombreImg);
-
-                                                $productos->setimagen($nombreImg);
-
-                                                echo "Imagen actualizada con exito";
-
-                                        }
-                                    
+									$productos->setestado_producto($_REQUEST['cmb_estado_producto']);
+									$productos->setcategoria_producto($_REQUEST['cmb_categoria_producto']);
                                     
 									
                                     $productos->insertarProductos();
@@ -244,7 +210,7 @@ require_once '../clases/usuario.php';
                                
                                         <?php 
                                             $producto = new Productos();
-                                            $filas = $producto->BuscarFiltarRegistros("vistaproducto","campoBuscar",$_REQUEST['buscar'],$_REQUEST['pag'],$_REQUEST['cantidadReg']);
+                                            $filas = $producto->BuscarFiltarRegistros("vistaproducto","descripcion_producto",$_REQUEST['buscar'],$_REQUEST['pag'],$_REQUEST['cantidadReg']);
                                            
 
                                         $contador=0;
@@ -366,7 +332,7 @@ require_once '../clases/usuario.php';
                                            
                                             $proveedor = new Proveedor();
                                             $buscar = filter_var($_REQUEST['buscar'], FILTER_SANITIZE_STRING);
-                                            $filas = $proveedor->BuscarFiltarRegistros("vistaproveedor","campoBuscar",$buscar,$_REQUEST['pag'],$_REQUEST['cantidadReg']);
+                                            $filas = $proveedor->BuscarFiltarRegistros("vistaproveedor","razon_social",$buscar,$_REQUEST['pag'],$_REQUEST['cantidadReg']);
 
                                         $contador=0;
                                         foreach($filas[0][0] as $user){
@@ -504,7 +470,7 @@ require_once '../clases/usuario.php';
                                                         require_once'../clases/claseRegion.php'; 
                                                         $region = new Region();
                                                         $buscar = filter_var($_REQUEST['buscar'], FILTER_SANITIZE_STRING);
-                                                        $filas = $region->BuscarFiltarRegistros("vistaregion","campoBuscar",$buscar,$_REQUEST['pag'],$_REQUEST['cantidadReg']);
+                                                        $filas = $region->BuscarFiltarRegistros("vistaregion","nombre_region",$buscar,$_REQUEST['pag'],$_REQUEST['cantidadReg']);
 
                                                         $contador=0;
                                                     
@@ -606,7 +572,7 @@ require_once '../clases/usuario.php';
                                                         require_once'../clases/claseCiudad.php'; 
                                                         $ciu = new Ciudad();
                                                         $buscar = filter_var($_REQUEST['buscar'], FILTER_SANITIZE_STRING);
-                                                        $filas = $ciu->BuscarFiltarRegistros("vistaciudad","campoBuscar",$buscar,$_REQUEST['pag'],$_REQUEST['cantidadReg']);
+                                                        $filas = $ciu->BuscarFiltarRegistros("vistaciudad","nombre_ciudad",$buscar,$_REQUEST['pag'],$_REQUEST['cantidadReg']);
 
                                                         $contador=0;
                                                     
@@ -812,7 +778,7 @@ require_once '../clases/usuario.php';
                                                         require_once'../clases/claseTrabajos.php'; 
                                                         $trab = new Trabajo();
                                                         $buscar = filter_var($_REQUEST['buscar'], FILTER_SANITIZE_STRING);
-                                                        $filas = $trab->BuscarFiltarRegistros("vistatrabajos","campoBuscar",$buscar,$_REQUEST['pag'],$_REQUEST['cantidadReg']);
+                                                        $filas = $trab->BuscarFiltarRegistros("vistatrabajos","nombre_trabajo",$buscar,$_REQUEST['pag'],$_REQUEST['cantidadReg']);
 
                                                         $contador=0;
                                                     
