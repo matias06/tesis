@@ -10,7 +10,7 @@ class TipoUsuario extends Conexion{
 	}
 
 	public function listarTipoUsuario(){
-		$tipoUsuario = $this->consultarRegistros("SELECT * FROM figuesep.tipousuario;");
+		$tipoUsuario = $this->consultarRegistros("SELECT * FROM tipousuario;");
 		return $tipoUsuario;
 
 }

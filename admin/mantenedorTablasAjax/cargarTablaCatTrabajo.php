@@ -1,9 +1,4 @@
-<?php
-    require_once '../clases/Conexion.php';
-    $conexion = new Conexion();
-    $conexion->consultarSesion();
-?>
-                                 <div class="table-responsive">
+  <div class="table-responsive">
                                 <table class="table table-bordered table-hover table-condensed"> 
                                         <tr class="active danger">
                                             <th>Id</th>

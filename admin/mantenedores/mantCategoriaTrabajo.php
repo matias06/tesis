@@ -1,9 +1,4 @@
-<?php
-    require_once '../clases/Conexion.php';
-    $conexion = new Conexion();
-    $conexion->consultarSesion();
-?>
-         <div class="container-fluid">
+<div class="container-fluid">
           
             <div class="col-md-10-centered">                      
 

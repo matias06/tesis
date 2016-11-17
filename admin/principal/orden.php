@@ -1,6 +1,5 @@
 <?php
   include '../comun/comun.php';
-  
   ?>
 
 <!DOCTYPE html>
@@ -16,154 +15,117 @@
   </header> 
        <body>           
              <br>
+                      <div class="container">
+                          <div class="col-xs-8 col-sm-8 col-md-3">
+                                <label for="numero">Nº Orden</label>
+                                <input class="form-control" type="text" placeholder="Nº de orden">
+                          </div>
+                      </div>
                          
           <!-- Venta -->
           <div class="container">
-                        <section class="row">
+                      <section class="row">
                             
-                           <article class="col-xs-12 col-sm-6 col-md-6 col-lg-8">
-                          <label for="nombre">Código de barra:<span class="glyphicon glyphicon-search"></span></label><br>
-                            <input class="form-control" type="text" placeholder="Producto">
-                            <br>
-                            <label for="nombre">Descripcion producto:</label>
-                                <input class="form-control" type="text" placeholder="Descripcion producto">
-                                <label for="nombre">Precio:</label>
-                                <input class="form-control" type="text" placeholder="$$$">
-                                <label for="nombre">Stock:</label>
-                                <input class="form-control" type="text" placeholder="Stock">
-                                <br>
-                         <div class="container">
-                                <div class="col-md-12">
-                                    <button class="btn btn-success">Ingresar</button>
-                                            
-                                    </div>
-                                    <br>
-                                    </div>
-                                
-                              
+                                        <div class="form-group col-xs-12 col-sm-8 col-md-3">
+                                            <label for="id">Código:</label>
+                                            <input class="form-control" id="txt_id_producto" name="txt_id_producto" placeholder="Código de producto" type="text">
+                                        </div>
+                                        <div class="form-group col-xs-12 col-sm-8 col-md-3">
+                                            <label for="descripcion">Descripción:</label>
+                                            <input class="form-control" id="txt_descripcion" name="txt_descripcion" placeholder="Descripción de productos" type="text">
+                                        </div>
+                                   
+                                    
+                                        <div class="form-group col-xs-12 col-sm-8 col-md-3">
+                                            <label for="valor">Valor:</label>
+                                            <input class="form-control" id="txt_valor" name="txt_valor" placeholder="Valor del producto" type="text">
+                                        </div>
+                                   
+                                        <!-- <div class="form-group">
+                                            <label for="imagen">Subir Imagen</label>
+                                            <input type="file" id="txt_imagen" name="txt_imagen">
+                                            <!-- <input class="form-control" id="txt_imagen" name="txt_imagen" placeholder="" type=""> -->
+                         
+                          </section>
+                       
+                
+                                  <div class="row">
+                                         <div class="form-group col-xs-12 col-sm-8 col-md-3">
+                                            <label for="cmb_proveedores">Proveedores</label>
+                                                 <select class="form-control" name="cmb_proveedores" id="cmb_proveedores">
+                                                    <?php 
+                                                        require_once '../clases/claseProveedor.php';
+                                                        $prov= new Proveedor();
+                                                        $filasProv= $prov->listarProveedor();
+                                                        foreach($filasProv as $tipo){
+                                                            echo '<option value="'.$tipo['rut'].'" >'.$tipo['razon_social'].'</option>';
+                                                        }
+                                                     ?>
+                                                  </select> 
+                                         </div>
+                                 
 
-                          </article> 
-                        
-                    
-                           <aside class="col-xs-12 col-sm-8 col-md-4 col-lg-4">
+                                    
+                                          <div class="form-group col-xs-12 col-sm-8 col-md-3">
+                                            <label for="tipoUsuario">Estado producto</label>
+                                                  <select class="form-control" name="cmb_estado_producto" id="cmb_estado_producto">
+                                                    <?php 
+                                                        require_once '../clases/claseEstadoProducto.php';
+                                                        $prod= new EstadoProducto();
+                                                        $filasProduc= $prod->listarEstadoProducto();
+                                                        foreach($filasProduc as $tipo){
+                                                            echo '<option value="'.$tipo['id_estado_producto'].'" >'.$tipo['descripcion_estado_producto'].'</option>';
+                                                        }
+                                                     ?>
+                                                  </select> 
+                                          </div>
 
-                            
-                           <div class="thumbnail">
-                            <img src="../imagenes/images.jpg" alt="">
-                            <div class="caption">
-                            <!-- <p>Producto#1</p> -->
-                            <!-- Ventana modal -->
-                            <!-- <a href="#ventana1" class="btn btn-primary btn-xs" data-toggle="modal">Ver Proveedor</a> -->
-                            <div class="modal fade" id="ventana1">
-                                   <div class="modal-dialog">
-                                       <div class="modal-content">
-                                          <div class="modal-header">
-                                              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                              <!-- <h3 class="modal-title">Proveedor</h3> -->
+                                          <div class="form-group col-xs-12 col-sm-8 col-md-3">
+                                            <label for="tipoUsuario">Categoria producto</label>
+                                                 <select class="form-control" name="cmb_categoria_producto" id="cmb_categoria_producto">
+                                                    <?php 
+                                                        require_once '../clases/claseCategoriaProducto.php';
+                                                        $cat= new CategoriaProducto();
+                                                        $filasCat= $cat->listarCategoriaProducto();
+                                                        foreach($filasCat as $tipo){
+                                                            echo '<option value="'.$tipo['id_categoria_producto'].'" >'.$tipo['descripcion_categoria_producto'].'</option>';
+                                                        }
+                                                     ?>
+                                                </select> 
                                           </div>
-                                          <div class="modal-body">
-                                               <!-- <img src="imagenes/usuario.jpg" alt="" class="img-responsive"> -->
-                                               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At, doloremque?</p>
-                                          </div>
-                                          <div class="modal-footer">
-                                              <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar Ventana</button>
-                                          </div>
-                                       </div>
-                                   </div> 
+
                                 </div>
-                                <!-- Termino ventana modal -->
-                            
-                            </div>
-                           </div>
-                      
-                            
-                            
-                           </aside> 
-                         </section>
-                         </div>
+
+
+                                <div class="row">
+                                    
+                                        <div class="form-group col-xs-12 col-sm-8 col-md-3">
+                                            <label for="run">Run:</label>
+                                            <input class="form-control" onBlur="validarRun(this)" title="Debe ingresar un rut valido" required id="txt_run" name="txt_run" placeholder="Rut Usuario" type="text">
+                                        </div>
+                                 
+                                    
+                                        <div class="form-group col-xs-12 col-sm-8 col-md-3">
+                                            <label for="nombre">Nombre</label>
+                                            <input class="form-control" title="Debe ingresar su nombre" required id="txt_nombre" name="txt_nombre" placeholder="Nombre Usuario" type="text">
+                                        </div>
+                                   
+                                    
+                                        <div class="form-group col-xs-12 col-sm-8 col-md-3">
+                                            <label for="apellido">Apellido</label>
+                                            <input class="form-control" title="Debe ingresar su apellido" required id="txt_apellido" name="txt_apellido" placeholder="Apellido Usuario" type="text">
+                                        </div>
+                                  
+                                    
+
+                                </div>
+
+
+
+          </div>             
 
 <!-- Detalle venta -->
-            <div class="container-fluid">
-                        <section class="main">
-                            
-                           <article class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
-                            <br>
-                            <br>
-                            
-                            <div class="table-responsive">
-                                <table class="table table-bordered table-hover"> 
-                                        <tr class="active danger">
-                                            <th>Cantidad</th>
-                                            <th>Id</th>
-                                            <th>Precio</th>
-                                            <th>Descuento</th>
-                                            <th>Stock</th>
-                                            <th>Total</th>
-                                            <th>Eliminar</th>
-                                        </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>1234</td>
-                                            <td>12000</td>
-                                            <td>-1200</td>
-                                            <td>4</td>
-                                            <td>$10800</td>
-                                            <td><button type="button" class="btn btn-default" aria-label="left aling"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
-                                            <buttontype="button" class="btn btn-default" aria-label="left aling"> 
-                                            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button></td>
+          
 
-                                        </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>21233</td>      
-                                            <td>10200</td>
-                                            <td>-1020</td>
-                                            <td>3</td>
-                                            <td>$9180</td>
-                                            <td><button type="button" class="btn btn-default" aria-label="left aling"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
-                                            <buttontype="button" class="btn btn-default" aria-label="left aling"> 
-                                            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button></td>
-                                                          </tr>
-                                </table>
-                                        
-
-                        </div>  
-                         <div class="container">
-                                    <div class="col-md-4">
-                                        
-                                            <button class="btn btn-success">Finalizar venta</button>
-                                            <button class="btn btn-primary">Limpiar</button>                                           
-                                           
-                                        </div>
-                                        </div>
-                          </article> 
-                        
-                    
-                           <aside class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                            <br>
-                            <br>
-                            
-                                <label for="nombre">Cantidad de productos:</label>
-                                <input class="form-control" type="text" placeholder="?">
-                                <label for="nombre">Iva:</label>
-                                <input class="form-control" type="text" placeholder="Iva">
-                                <label for="nombre">Total final:</label>
-                                <input class="form-control" type="text" placeholder="Total final">
-                        
-                           </aside> 
-                         </section>
-                         </div>
-           
-                        
-                        
-
-    
-   <!--  <footer>
-        <div class="container">
-            <h3>Final de pagina</h3>
-        </div>
-    </footer> -->
-    <script src="../js/jquery.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
 </body>
 </html>

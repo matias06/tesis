@@ -21,7 +21,7 @@ require_once '../clases/usuario.php';
 									$usuario->setestado_usuario($_REQUEST['estadousuario']);
 
 									$usuario->insertarUsuario();
-											
+
 								break;
 
 								case "2": //echo "SE MODIFICA";
@@ -51,13 +51,13 @@ require_once '../clases/usuario.php';
 
 									break;
 
-								case "4": 
+								case "4":
 								?>
  				<!-- tabla -->
 
  						<div class="table-responsive">
-                                <table class="table table-bordered table-hover table-condensed" id="fondo"> 
-                                        <thead class="active danger">                                       	 
+                                <table class="table table-bordered table-hover table-condensed" id="fondo">
+                                        <thead class="active danger">
                                             <th>Run</th>
                                             <th>Nombre</th>
                                             <th>Apellido</th>
@@ -65,18 +65,18 @@ require_once '../clases/usuario.php';
                                             <th>Tipo usuario</th>
                                             <th>Estado usuario</th>
                                             <th>Eliminar Editar </th>
-                                        </thead> 
-                               
-                                        <?php 
+                                        </thead>
+
+                                        <?php
                                             $usuario = new Usuario();
                                             $buscar = filter_var($_REQUEST['buscar'], FILTER_SANITIZE_STRING);
                                             $filas = $usuario->BuscarFiltarRegistros("vistausuario","campoBuscar",$buscar,$_REQUEST['pag'],$_REQUEST['cantidadReg']);
-                                           
+
 
                                             $contador=0;
                                         foreach($filas[0][0] as $user){
                                                     $contador++;
-                                         
+
                                         echo'
                                         <div class="container">
                                         <tr>
@@ -90,10 +90,10 @@ require_once '../clases/usuario.php';
 
                                             <td><span class="hidden" id="txt_descripcion_Estado1'.$contador.'">'.$user['id_estado_usuario'].'</span>
                                             <span id="txt_estadoTipo'.$contador.'">'.$user['descripcion_estado_usuario'].'</span></td>
-                                            
+
 
                                             <!--  botones editar -->
-                                            <td><button type="button" onclick="cargarDatosModal('.$contador.')" data-toggle="modal" data-target="#modificar" class="btn btn-warning"> 
+                                            <td><button type="button" onclick="cargarDatosModal('.$contador.')" data-toggle="modal" data-target="#modificar" class="btn btn-warning">
                                             <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
 
                                             <!--  botones eliminar -->
@@ -102,7 +102,7 @@ require_once '../clases/usuario.php';
                                         </tr>
                                         </div>';
 
-                                         } ?> 
+                                         } ?>
 										    <tr>
                                               <td colspan="7">
                                                 <center>
@@ -113,10 +113,10 @@ require_once '../clases/usuario.php';
                                               </td>
                                             </tr>
                                 </table>
-                            </div>    
+                            </div>
                                  <?php
-								break;	
-						}		
+								break;
+						}
 			break;
 
 			case "2": //echo " Mantenedor producto";
@@ -131,18 +131,18 @@ require_once '../clases/usuario.php';
 
                                 $codigo = filter_var($_REQUEST['txt_id_producto'], FILTER_SANITIZE_NUMBER_INT);
                                     $productos->setid_producto($codigo);
-                    
+
                                     $descripcion = filter_var($_REQUEST['txt_descripcion'], FILTER_SANITIZE_STRING);
                                     $productos->setdescripcion_producto($descripcion);
-                    
+
                                     $valor = filter_var($_REQUEST['txt_valor'], FILTER_SANITIZE_NUMBER_INT);
                                     $productos->setvalor_producto($valor);
-                    
+
                                     // $imagen = filter_var($_REQUEST['txt_imagen'], FILTER_SANITIZE_STRING);
                                     //$productos->setimagen($imagen);
-                    
+
                                     $productos->setrut($_REQUEST['cmb_proveedores']);
-                    
+
                                     $productos->setestado_producto($_REQUEST['cmb_estado_producto']);
                                     $productos->setcategoria_producto($_REQUEST['cmb_categoria_producto']);
 
@@ -156,7 +156,7 @@ require_once '../clases/usuario.php';
                                         $dimensiones = getimagesize($rutaPrevisional);
                                         $width = $dimensiones[0];
                                         $height = $dimensiones[1];
-                                        $carpeta = "../../imagenes/productos";
+                                        $carpeta = "../imagenes/imgProductos";
 
 
                                         if($tipoImg != 'image/jpeg' && $tipoImg != 'image/jpeg' && $tipoImg != 'image/png'){
@@ -170,7 +170,7 @@ require_once '../clases/usuario.php';
                                         }else{
                                             //consulta
                                            // $resultado = $portada->actualizarPortada($id, $titulo, $src, $contenido);
-                                           
+
                                                // $file_upload_to= SITE_ROOT . DS . $carpeta;
                                                 move_uploaded_file($rutaPrevisional, $carpeta."/". $nombreImg);
 
@@ -179,11 +179,11 @@ require_once '../clases/usuario.php';
                                                 echo "Imagen actualizada con exito";
 
                                         }
-                                    
-                                    
-									
+
+
+
                                     $productos->insertarProductos();
-											
+
 								break;
 
 								case "2": //echo "SE MODIFICA";
@@ -202,7 +202,7 @@ require_once '../clases/usuario.php';
 
                                     $proveedorModificar = filter_var($_REQUEST['txt_proveedor_modificar'], FILTER_SANITIZE_STRING);
 									$productos->setrut($proveedorModificar);
-                                    
+
 									$productos->setestado_producto($_REQUEST['cmb_estado_producto_modificar']);
 									$productos->setcategoria_producto($_REQUEST['cmb_categoria_producto_modificar']);
 
@@ -218,61 +218,61 @@ require_once '../clases/usuario.php';
 									$productos->setid_producto($_REQUEST['idProd']);
 									$productos->setestado_producto("2");
 
-									
+
 									$productos->eliminarProductos();
 
       //                 if($verificarExito==true){
       //                       echo "2";
       //                 }
-								
-								case "4": 
+
+								case "4":
 								?>
  				<!-- tabla -->
 
  						<div class="table-responsive">
-                                <table class="table table-bordered table-hover table-condensed" id="fondo"> 
+                                <table class="table table-bordered table-hover table-condensed" id="fondo">
                                           <thead class="active danger">
-                                            
+
                                             <th>Codigo</th>
                                             <th>Descripción</th>
-                                            <th>Valor</th>                                
+                                            <th>Valor</th>
                                             <th>Rut</th>
                                             <th>Estado producto</th>
                                             <th>Categoría producto</th>
                                             <th>Eliminar Editar </th>
                                         </thead>
-                               
-                                        <?php 
+
+                                        <?php
                                             $producto = new Productos();
                                             $filas = $producto->BuscarFiltarRegistros("vistaproducto","campoBuscar",$_REQUEST['buscar'],$_REQUEST['pag'],$_REQUEST['cantidadReg']);
-                                           
+
 
                                         $contador=0;
                                         foreach($filas[0][0] as $user){
                                         $contador++;
-                                         
+
                                         echo'
                                         <div class="container">
                                         <tr>
-                                            
+
                                           <td><span id="txt_id_producto'.$contador.'">'.$user['id_producto'].'</span></td>
                                             <td><span id="txt_descripcion'.$contador.'">'.$user['descripcion_producto'].'</span></td>
                                             <td><span id="txt_valor'.$contador.'">'.$user['valor_producto'].'</span></td>
                                             <span class="hidden" id="txt_imagen'.$contador.'">'.$user['imagen'].'</span>
                                             <td><span id="txt_proveedor'.$contador.'">'.$user['rut'].'</span></td>
                                             <!-- combobox -->
-                                             
-                                             
+
+
 
                                             <td><span class="hidden" id="cmb_id_estado_producto'.$contador.'">'.$user['id_estado_producto'].'</span>
                                             <span id="cmb_estado_producto'.$contador.'">'.$user['descripcion_estado_producto'].'</span></td>
 
                                             <td><span class="hidden" id="cmb_id_categoria_producto'.$contador.'">'.$user['id_categoria_producto'].'</span>
                                             <span id="cmb_categoria_producto'.$contador.'">'.$user['descripcion_categoria_producto'].'</span></td>
-                                            
-                                    
-                                            
-                                            <td><button type="button" onclick="cargarDatosModal('.$contador.')" data-toggle="modal" data-target="#modificar" class="btn btn-warning"> 
+
+
+
+                                            <td><button type="button" onclick="cargarDatosModal('.$contador.')" data-toggle="modal" data-target="#modificar" class="btn btn-warning">
                                             <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
 
                                           <button type="button" class="btn btn-danger" onclick="eliminarProductos(\''.$user['id_producto'].'\');" aria-label="left aling">
@@ -280,7 +280,7 @@ require_once '../clases/usuario.php';
                                             </tr>
                                         </div>';
 
-                                        } ?> 
+                                        } ?>
 										    <tr>
                                               <td colspan="7">
                                                 <center>
@@ -291,24 +291,24 @@ require_once '../clases/usuario.php';
                                               </td>
                                             </tr>
                                 </table>
-                            </div>    
+                            </div>
                                  <?php
-								break;	
-						}		
+								break;
+						}
 			break;
-            
+
 			case "3": //echo " Mantenedor proveedor";
 				         require_once'../clases/claseProveedor.php';
 			             switch($_REQUEST['prov']){
 
 								case "1": //echo " se ingresa";
-								
+
 
 									$proveedor = new Proveedor();
 
                                     $rutProv = filter_var($_REQUEST['txt_rut'], FILTER_SANITIZE_STRING);
 									$proveedor->setrut($rutProv);
-                                    $razonSocial = filter_var($_REQUEST['txt_razon_social'], FILTER_SANITIZE_STRING); 
+                                    $razonSocial = filter_var($_REQUEST['txt_razon_social'], FILTER_SANITIZE_STRING);
 									$proveedor->setrazon_social($razonSocial);
                                     $direccion = filter_var($_REQUEST['txt_direccion'], FILTER_SANITIZE_STRING);
 									$proveedor->setdireccion_proveedor($direccion);
@@ -318,7 +318,7 @@ require_once '../clases/usuario.php';
 									$proveedor->setcorreo($correo);
 									$proveedor->setid_estado($_REQUEST['cmb_estado']);
 									$proveedor->insertarProveedor();
-											
+
 								break;
 
 								case "2": //echo "SE MODIFICA";
@@ -336,7 +336,7 @@ require_once '../clases/usuario.php';
 									$proveedor->setcorreo($correoMod);
 									$proveedor->setid_estado($_REQUEST['cmb_estado_modificar']);
 									$proveedor->actualizarProveedor();
-											
+
 								break;
 								case "3": //echo "SE ELIMINA";
 								$proveedor = new Proveedor();
@@ -344,15 +344,15 @@ require_once '../clases/usuario.php';
                                     $proveedor->setrut($_REQUEST['id']);
                                     $proveedor->setid_estado("4");
 
-                                    
+
                                     $proveedor->eliminarProveedor();
 
 								case "4": //PAGINADOR
 								?>
 									<div class="table-responsive">
-                                <table class="table table-bordered table-hover table-condensed"> 
+                                <table class="table table-bordered table-hover table-condensed">
                                         <thead class="active danger">
-                                           
+
                                             <th>Razón Social</th>
                                             <th>Direccion</th>
                                             <th>Telefono</th>
@@ -360,10 +360,10 @@ require_once '../clases/usuario.php';
                                             <th>Estado</th>
                                             <th>Eliminar Editar </th>
                                         </thead>
-                   
-                                        
-                                        <?php 
-                                           
+
+
+                                        <?php
+
                                             $proveedor = new Proveedor();
                                             $buscar = filter_var($_REQUEST['buscar'], FILTER_SANITIZE_STRING);
                                             $filas = $proveedor->BuscarFiltarRegistros("vistaproveedor","campoBuscar",$buscar,$_REQUEST['pag'],$_REQUEST['cantidadReg']);
@@ -371,7 +371,7 @@ require_once '../clases/usuario.php';
                                         $contador=0;
                                         foreach($filas[0][0] as $user){
                                         $contador++;
-                                     
+
                                     echo'
                                     <div class="container">
                                         <tr>
@@ -383,10 +383,10 @@ require_once '../clases/usuario.php';
 
                                             <td><span class="hidden" id="id_estado'.$contador.'">'.$user['id_estado'].'</span>
                                             <span id="cmb_estado_modificar'.$contador.'">'.$user['descripcion_estado'].'</span></td>
-                                            
+
 
                                             <!--  botones editar -->
-                                            <td><button type="button" onclick="cargarDatosModal('.$contador.')" data-toggle="modal" data-target="#modificar" class="btn btn-warning"> 
+                                            <td><button type="button" onclick="cargarDatosModal('.$contador.')" data-toggle="modal" data-target="#modificar" class="btn btn-warning">
                                             <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
 
                                             <!--  botones eliminar -->
@@ -394,7 +394,7 @@ require_once '../clases/usuario.php';
                                             <span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button></td>
                                         </tr>
                                         </div>';
-                                          } ?> 
+                                          } ?>
                                             <tr>
                                               <td colspan="7">
                                                 <center>
@@ -405,23 +405,23 @@ require_once '../clases/usuario.php';
                                               </td>
                                             </tr>
                                 </table>
-                            </div>    
+                            </div>
                                  <?php
-                                break;  
-                        }       
+                                break;
+                        }
             break;
-			
+
 			case "4": echo " Mantenedor Categoria Trabajo";
 				        require_once'../clases/claseCategoriaTrabajo.php';
 
 			            switch($_REQUEST['catTrab']){
 
 								case "1": //echo " SE INGRESA";
-							
+
 									$categoriaTrabajo = new CategoriaTrabajo();
 									$categoriaTrabajo->setdescripcion_categoria_trabajo($_REQUEST['txt_descripcion_categoria']);
                                     $categoriaTrabajo->insertarCatTrabajos();
-											
+
 								break;
 
 								case "2": //echo "SE MODIFICA";
@@ -429,7 +429,7 @@ require_once '../clases/usuario.php';
 									$CategoriaTrabajo->setid_categoria_trabajo($_REQUEST['txt_rut_modificar']);
 									$CategoriaTrabajo->setdescripcion_categoria_trabajo($_REQUEST['txt_razon_social_modificar']);
 									$CategoriaTrabajo->actualizarProveedores();
-											
+
 								break;
 								case "3": //echo "SE ELIMINA";
 									// $categoriaTrabajo = new CategoriaTrabajo();
@@ -451,7 +451,7 @@ require_once '../clases/usuario.php';
 						          break;
 						}
             break;
-    
+
 
             case "5":
                         require_once'../clases/claseRegion.php';
@@ -460,9 +460,9 @@ require_once '../clases/usuario.php';
 
                                                 $reg=new Region();
 
-                                                
+
                                                 $reg->setnombreRegion($_REQUEST['txt_region']);
-                                                
+
                                                 $reg->insertarRegion();
 
                                             break;
@@ -484,7 +484,7 @@ require_once '../clases/usuario.php';
 
                                                 break;
 
-                            case "4": 
+                            case "4":
                                                  ?>
 
 
@@ -493,21 +493,21 @@ require_once '../clases/usuario.php';
                                              <div class="table-responsive">
 
 
-                                            <table class="table table-bordered table-hover table-condensed" id="tablaRegion"> 
+                                            <table class="table table-bordered table-hover table-condensed" id="tablaRegion">
                                                     <tr class="active danger" >
                                                         <th>Numero Región</th>
                                                         <th>Nombre Región</th>
 
                                                         <th>Editar Eliminar </th>
                                                     </tr>
-                                                    <?php 
-                                                        require_once'../clases/claseRegion.php'; 
+                                                    <?php
+                                                        require_once'../clases/claseRegion.php';
                                                         $region = new Region();
                                                         $buscar = filter_var($_REQUEST['buscar'], FILTER_SANITIZE_STRING);
                                                         $filas = $region->BuscarFiltarRegistros("vistaregion","campoBuscar",$buscar,$_REQUEST['pag'],$_REQUEST['cantidadReg']);
 
                                                         $contador=0;
-                                                    
+
                                                         foreach($filas[0][0] as $reg){
                                                                 $contador++;
 
@@ -517,14 +517,14 @@ require_once '../clases/usuario.php';
                                                         <td><span id="txt_region'.$contador.'">'.$reg['nombre_region'].'</span></td>
 
                                                         <!--  botones editar -->
-                                                        <td><button type="button" onclick="cargarDatosModal('.$contador.')" data-toggle="modal" data-target="#modificarRegion" class="btn btn-warning"> 
+                                                        <td><button type="button" onclick="cargarDatosModal('.$contador.')" data-toggle="modal" data-target="#modificarRegion" class="btn btn-warning">
                                                         <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
 
                                                         <!--  botones eliminar -->
                                                         <button type="button" class="btn btn-danger" onclick="eliminarRegion(\''.$reg['id_region'].'\');" aria-label="left aling">
                                                         <span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button></td>
                                                     </tr>';
-                                                     } ?> 
+                                                     } ?>
                                                      <tr>
                                                          <td colspan="7">
                                                              <center>
@@ -537,10 +537,10 @@ require_once '../clases/usuario.php';
                                             </table>
                                             </div>
                                              <?php
-                                            break;	
-                            }		
+                                            break;
+                            }
             break;
-            
+
             case "6":
                         require_once'../clases/claseCiudad.php';
                         switch($_REQUEST['func']){
@@ -561,17 +561,17 @@ require_once '../clases/usuario.php';
 
                             case "2": //echo "SE MODIFICA";
                                             $city=new Ciudad();
-                                
+
                                             $city->setidCiudad($_REQUEST['txt_idciudad_modificar']);
-                                            
+
                                             $nombreciudad = filter_var($_REQUEST['txt_nombreCiudad_modificar'], FILTER_SANITIZE_STRING);
                                             $city->setnombreCiudad($nombreciudad);
-                                
+
                                             $idregion = filter_var($_REQUEST['cmb_region_modificar'], FILTER_SANITIZE_NUMBER_INT);
                                             $city->setidRegion($idregion);
-                                
+
                                             echo"idcity:".$_REQUEST['txt_idciudad_modificar'];
-                                            echo"nombrecity:".$_REQUEST['txt_nombreCiudad_modificar'];   
+                                            echo"nombrecity:".$_REQUEST['txt_nombreCiudad_modificar'];
                                             echo"idregion:".$_REQUEST['cmb_region_modificar'];
                                             $city->insertarCiudad();
 
@@ -586,7 +586,7 @@ require_once '../clases/usuario.php';
 
                                                 break;
 
-                            case "4": 
+                            case "4":
                                                  ?>
 
 
@@ -595,42 +595,42 @@ require_once '../clases/usuario.php';
                                              <div class="table-responsive">
 
 
-                                            <table class="table table-bordered table-hover table-condensed" id="tablaCiudad"> 
+                                            <table class="table table-bordered table-hover table-condensed" id="tablaCiudad">
                                                     <tr class="active danger" >
                                                         <th>Ciudad</th>
                                                         <th>Region</th>
 
                                                         <th>Editar Eliminar </th>
                                                     </tr>
-                                                    <?php 
-                                                        require_once'../clases/claseCiudad.php'; 
+                                                    <?php
+                                                        require_once'../clases/claseCiudad.php';
                                                         $ciu = new Ciudad();
                                                         $buscar = filter_var($_REQUEST['buscar'], FILTER_SANITIZE_STRING);
                                                         $filas = $ciu->BuscarFiltarRegistros("vistaciudad","campoBuscar",$buscar,$_REQUEST['pag'],$_REQUEST['cantidadReg']);
 
                                                         $contador=0;
-                                                    
+
                                                         foreach($filas[0][0] as $ciudades){
                                                                 $contador++;
 
                                                     echo'
                                                     <tr>
-                                                    
-                                                    
+
+
                                                         <td><span class="hidden" id="txt_idciudad'.$contador.'">'.$ciudades['id_ciudad'].'</span>
                                                         <span id="txt_nombreCiudad'.$contador.'">'.$ciudades['nombre_ciudad'].'</span></td>
                                                         <td><span class="hidden" id="txt_idregion'.$contador.'">'.$ciudades['id_region'].'</span>
                                                         <span id="txt_nombreRegion'.$contador.'">'.$ciudades['nombre_region'].'</span></td>
 
                                                         <!--  botones editar -->
-                                                        <td><button type="button" onclick="cargarDatosModal('.$contador.')" data-toggle="modal" data-target="#modificarCiudad" class="btn btn-warning"> 
+                                                        <td><button type="button" onclick="cargarDatosModal('.$contador.')" data-toggle="modal" data-target="#modificarCiudad" class="btn btn-warning">
                                                         <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
 
                                                         <!--  botones eliminar -->
                                                         <button type="button" class="btn btn-danger" onclick="eliminarCiudad(\''.$ciudades['id_ciudad'].'\');" aria-label="left aling">
                                                         <span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button></td>
                                                     </tr>';
-                                                     } ?> 
+                                                     } ?>
                                                      <tr>
                                                          <td colspan="7">
                                                              <center>
@@ -643,10 +643,10 @@ require_once '../clases/usuario.php';
                                             </table>
                                             </div>
                                              <?php
-                                            break;	
-                            }		
+                                            break;
+                            }
             break;
-			
+
             case "7" :
                         require_once'../clases/claseServicio.php';
                         switch($_REQUEST['func']){
@@ -655,7 +655,7 @@ require_once '../clases/usuario.php';
                                                 $serv=new Servicio();
 
                                                 $serv->setdescripcionServicio($_REQUEST['txt_descripcionServicio']);
-                                                
+
                                                 $serv->insertarServicio();
 
                                             break;
@@ -677,7 +677,7 @@ require_once '../clases/usuario.php';
 
                                                 break;
 
-                            case "4": 
+                            case "4":
                                                  ?>
 
 
@@ -686,21 +686,21 @@ require_once '../clases/usuario.php';
                                              <div class="table-responsive">
 
 
-                                            <table class="table table-bordered table-hover table-condensed" id="tablaServicio"> 
+                                            <table class="table table-bordered table-hover table-condensed" id="tablaServicio">
                                                     <tr class="active danger" >
                                                         <th>Numero Servicio</th>
                                                         <th>Servicio</th>
 
                                                         <th>Editar Eliminar </th>
                                                     </tr>
-                                                    <?php 
-                                                        require_once'../clases/claseServicio.php'; 
+                                                    <?php
+                                                        require_once'../clases/claseServicio.php';
                                                         $servicio = new Servicio();
                                                         $buscar = filter_var($_REQUEST['buscar'], FILTER_SANITIZE_STRING);
                                                         $filas = $servicio->BuscarFiltarRegistros("servicio","descripcion_servicio",$buscar,$_REQUEST['pag'],$_REQUEST['cantidadReg']);
 
                                                         $contador=0;
-                                                    
+
                                                         foreach($filas[0][0] as $servicio){
                                                                 $contador++;
 
@@ -710,14 +710,14 @@ require_once '../clases/usuario.php';
                                                         <td><span id="txt_descripcionServicio'.$contador.'">'.$servicio['descripcion_servicio'].'</span></td>
 
                                                         <!--  botones editar -->
-                                                        <td><button type="button" onclick="cargarDatosModal('.$contador.')" data-toggle="modal" data-target="#modificarServicio" class="btn btn-warning"> 
+                                                        <td><button type="button" onclick="cargarDatosModal('.$contador.')" data-toggle="modal" data-target="#modificarServicio" class="btn btn-warning">
                                                         <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
 
                                                         <!--  botones eliminar -->
                                                         <button type="button" class="btn btn-danger" onclick="eliminarServicio(\''.$servicio['id_servicio'].'\');" aria-label="left aling">
                                                         <span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button></td>
                                                     </tr>';
-                                                     } ?> 
+                                                     } ?>
                                                      <tr>
                                                          <td colspan="7">
                                                              <center>
@@ -730,10 +730,10 @@ require_once '../clases/usuario.php';
                                             </table>
                                             </div>
                                              <?php
-                                            break;	
-                            }		
+                                            break;
+                            }
             break;
-            
+
             case "8":
                         require_once'../clases/claseTrabajos.php';
                         switch($_REQUEST['func']){
@@ -742,16 +742,16 @@ require_once '../clases/usuario.php';
                                                 $trabajo=new Trabajo();
                                                 $nombreTrabajo = filter_var($_REQUEST['txt_nombreTrabajo'], FILTER_SANITIZE_STRING);
                                                 $trabajo->setnombreTrabajo($nombreTrabajo);
-                                                
+
                                                 $descripcionTrabajo = filter_var($_REQUEST['txt_descripcionTrabajo'], FILTER_SANITIZE_STRING);
                                                 $trabajo->setdescripcionTrabajo($descripcionTrabajo);
-                                                
+
                                                 $costo = filter_var($_REQUEST['txt_costo'], FILTER_SANITIZE_NUMBER_INT);
                                                 $trabajo->setcosto($costo);
-                                                
+
                                                 $idservicio = filter_var($_REQUEST['servicio'], FILTER_SANITIZE_NUMBER_INT);
                                                 $trabajo->setidServicio($idservicio);
-                                                
+
                                                 if($trabajo->insertarTrabajo()){
                                                     echo"1";
                                                 }else{
@@ -762,21 +762,21 @@ require_once '../clases/usuario.php';
 
                             case "2": //echo "SE MODIFICA";
                                             $trabajo = new Trabajo();
-                                
+
                                             $trabajo->setidTrabajo($_REQUEST['txt_idtrabajo_modificar']);
-                                
+
                                             $nombreTrabajo = filter_var($_REQUEST['txt_nombreTrabajo_modificar'], FILTER_SANITIZE_STRING);
                                                 $trabajo->setnombreTrabajo($nombreTrabajo);
-                                                
+
                                                 $descripcionTrabajo = filter_var($_REQUEST['txt_descripcionTrabajo_modificar'], FILTER_SANITIZE_STRING);
                                                 $trabajo->setdescripcionTrabajo($descripcionTrabajo);
-                                                
+
                                                 $costo = filter_var($_REQUEST['txt_costo_modificar'], FILTER_SANITIZE_NUMBER_INT);
                                                 $trabajo->setcosto($costo);
-                                                
+
                                                 $idservicio = filter_var($_REQUEST['cmb_servicio_modificar'], FILTER_SANITIZE_NUMBER_INT);
                                                 $trabajo->setidServicio($idservicio);
-                
+
                                             $trabajo->insertarTrabajo();
 
                                             break;
@@ -790,7 +790,7 @@ require_once '../clases/usuario.php';
 
                                                 break;
 
-                            case "4": 
+                            case "4":
                                                  ?>
 
 
@@ -799,7 +799,7 @@ require_once '../clases/usuario.php';
                                              <div class="table-responsive">
 
 
-                                            <table class="table table-bordered table-hover table-condensed" id="tablaTrabajo"> 
+                                            <table class="table table-bordered table-hover table-condensed" id="tablaTrabajo">
                                                     <tr class="active danger" >
                                                         <th>Trabajo</th>
                                                         <th>Descripcion</th>
@@ -808,21 +808,21 @@ require_once '../clases/usuario.php';
 
                                                         <th>Editar Eliminar </th>
                                                     </tr>
-                                                    <?php 
-                                                        require_once'../clases/claseTrabajos.php'; 
+                                                    <?php
+                                                        require_once'../clases/claseTrabajos.php';
                                                         $trab = new Trabajo();
                                                         $buscar = filter_var($_REQUEST['buscar'], FILTER_SANITIZE_STRING);
                                                         $filas = $trab->BuscarFiltarRegistros("vistatrabajos","campoBuscar",$buscar,$_REQUEST['pag'],$_REQUEST['cantidadReg']);
 
                                                         $contador=0;
-                                                    
+
                                                         foreach($filas[0][0] as $trabajos){
                                                                 $contador++;
 
                                                     echo'
                                                     <tr>
-                                                    
-                                                    
+
+
                                                         <td><span class="hidden" id="txt_idTrabajo'.$contador.'">'.$trabajos['id_trabajo'].'</span>
                                                         <span id="txt_nombreTrabajo'.$contador.'">'.$trabajos['nombre_trabajo'].'</span></td>
                                                         <td><span id="txt_descripcionTrabajo'.$contador.'">'.$trabajos['descripcion_trabajo'].'</span></td>
@@ -831,14 +831,14 @@ require_once '../clases/usuario.php';
                                                         <span id="txt_descripcionServicio'.$contador.'">'.$trabajos['descripcion_servicio'].'</span></td>
 
                                                         <!--  botones editar -->
-                                                        <td><button type="button" onclick="cargarDatosModal('.$contador.')" data-toggle="modal" data-target="#modificarTrabajo" class="btn btn-warning"> 
+                                                        <td><button type="button" onclick="cargarDatosModal('.$contador.')" data-toggle="modal" data-target="#modificarTrabajo" class="btn btn-warning">
                                                         <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
 
                                                         <!--  botones eliminar -->
                                                         <button type="button" class="btn btn-danger" onclick="eliminarTrabajo(\''.$trabajos['id_trabajo'].'\');" aria-label="left aling">
                                                         <span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button></td>
                                                     </tr>';
-                                                     } ?> 
+                                                     } ?>
                                                      <tr>
                                                          <td colspan="7">
                                                              <center>
@@ -851,10 +851,102 @@ require_once '../clases/usuario.php';
                                             </table>
                                             </div>
                                              <?php
-                                            break;	
-                            }		
-            break;
-            
-	}
-			
+																						 break;
+																			 }
+																			 break;
+											// Mantenedor SUBCATEGORIA
+													case "9" :
+																			require_once'../clases/claseCategoriaProducto.php';
+																			 switch($_REQUEST['func']){
+															case "1": //echo "se ingresa";
+
+																			 					$catProd=new CategoriaProducto();
+
+																			 					$catProd->setdescripcion_categoria_producto($_REQUEST['txt_catProd']);
+
+																			 					if($catProd->insertarCatProducto()){
+																									echo "1";
+																								}else{
+																									echo "error al ingresar.";
+																								}
+
+																			 			break;
+															case "2": //echo "SE MODIFICA";
+	                                            $catProd=new CategoriaProducto();
+	                                            $catProd->setid_categoria_producto($_REQUEST['txt_num_Modificar']);
+	                                            $catProd->setdescripcion_categoria_producto($_REQUEST['txt_catProdModificar']);
+	                                            $catProd->insertarCatProducto();
+
+	                                            break;
+
+
+															 case "3": //echo "SE ELIMINA";
+																			 					$catProd=new CategoriaProducto();
+
+																			 					$catProd->setid_categoria_producto($_REQUEST['id']);
+
+																			 					$catProd->eliminarCatProducto();
+
+
+																			 					break;
+
+															 case "4":
+																			 					 ?>
+
+
+																			 			 <!-- tabla -->
+
+																			 			 <div class="table-responsive">
+
+
+																			 			<table class="table table-bordered table-hover table-condensed" id="tablaCatProducto">
+																			 							<tr class="active danger" >
+																			 									<th>Numero categoría</th>
+																			 									<th>Categoría producto</th>
+
+																			 									<th>Editar Eliminar </th>
+																			 							</tr>
+																			 							<?php
+																			 									require_once'../clases/claseCategoriaProducto.php';
+																	 											$catProducto = new CategoriaProducto();
+																			 									$buscar = filter_var($_REQUEST['buscar'], FILTER_SANITIZE_STRING);
+																			 									$filas = $catProducto->BuscarFiltarRegistros("categoriaproducto","descripcion_categoria_producto",$buscar,$_REQUEST['pag'],$_REQUEST['cantidadReg']);
+
+																			 									$contador=0;
+
+																			 									foreach($filas[0][0] as $categoriaProducto){
+																			 													$contador++;
+
+																			 							echo'
+																			 							<tr>
+																			 									<td><span id="txt_num'.$contador.'">'.$categoriaProducto['id_categoria_producto'].'</span></td>
+																			 									<td><span id="txt_catProd'.$contador.'">'.$categoriaProducto['descripcion_categoria_producto'].'</span></td>
+
+																			 									<!--  botones editar -->
+																			 									<td><button type="button" onclick="cargarDatosModal('.$contador.')" data-toggle="modal" data-target="#modificarCatProd" class="btn btn-warning">
+																			 									<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+
+
+
+																			 									<!--  botones eliminar -->
+																			 									<button type="button" class="btn btn-danger" onclick="eliminarCatProducto(\''.$categoriaProducto['id_categoria_producto'].'\');" aria-label="left aling">
+																			 									<span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button></td>
+																			 							</tr>';
+																			 							 } ?>
+																			 							 <tr>
+																			 									 <td colspan="7">
+																			 											 <center>
+																			 													<?php
+																			 															echo $filas[0][1];
+																			 													 ?>
+																			 											 </center>
+																			 									 </td>
+																			 							 </tr>
+																			 			</table>
+																			 			</div>
+																						<?php
+break;
+}
+break;
+}
 ?>

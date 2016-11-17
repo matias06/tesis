@@ -1,8 +1,5 @@
 <?php
 	include '../comun/comun.php';
-    require_once '../clases/Conexion.php';
-    $conexion = new Conexion();
-    $conexion->consultarSesion();
 ?>
 
 <!DOCTYPE html>

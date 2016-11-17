@@ -13,8 +13,8 @@ class Conexion{
 
    		$this->host="localhost";
    		$this->usuario="root";
-   		$this->clave="";
-   		$this->baseDatos="figuesep";
+   		$this->clave="johnnyslayer";
+   		$this->baseDatos="figuesepPrototipo";
 
 
    		// -> llama a los metodos de un clase
@@ -93,9 +93,7 @@ class Conexion{
 
 
 // paginador
-   
-
-public function BuscarFiltarRegistros($arg_tabla,$arg_campoBuscar,$arg_palabraBuscar,$arg_pagina,$arg_cantidadRegistros){
+  public function BuscarFiltarRegistros($arg_tabla,$arg_campoBuscar,$arg_palabraBuscar,$arg_pagina,$arg_cantidadRegistros){
       $arg_palabraBuscar=filter_var($arg_palabraBuscar, FILTER_SANITIZE_STRING);
 
       $consulta="";
@@ -128,15 +126,5 @@ public function BuscarFiltarRegistros($arg_tabla,$arg_campoBuscar,$arg_palabraBu
 
         return $devuelve;
     }
-
-public function consultarSesion(){
-    @session_start();
-    if(isset($_SESSION['id'])){
-        
-    }else{
-       header('location: ../../index.php');     
-     }
 }
-}
-
 ?>

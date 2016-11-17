@@ -150,9 +150,7 @@
            </div> <!-- container -->
                <div id="tablas">
                     <!-- carga la tabla producto por metodo ajax -->
-
                 </div>
-
            <script>
                 //INSERTA TODO EL FORMULARIO Y LA IMAGEN
                              $("#formularioProducto").submit(function(){//captura cuando se envia el formulario

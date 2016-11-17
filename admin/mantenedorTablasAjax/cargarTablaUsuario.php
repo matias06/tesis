@@ -1,8 +1,4 @@
-<?php
-    require_once '../clases/Conexion.php';
-    $conexion = new Conexion();
-    $conexion->consultarSesion();
-?>
+
                         <div class="col-xs-8 col-sm-6 col-md-4 col-lg-3">
                            
                             <div class="caption">

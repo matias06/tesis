@@ -16,7 +16,7 @@ class Trabajo extends Conexion{
 	}
 
 	public function listarTrabajo(){
-		$trabajo = $this->consultarRegistros("SELECT * FROM figuesep.trabajo;");
+		$trabajo = $this->consultarRegistros("SELECT * FROM trabajo;");
 		return $trabajo;
 		
 	}

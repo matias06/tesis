@@ -10,7 +10,7 @@ class EstadoProducto extends Conexion{
 	}
 
 public function listarEstadoProducto(){
-	$estadoProduc = $this->consultarRegistros("SELECT * FROM figuesep.estadoproducto;");
+	$estadoProduc = $this->consultarRegistros("SELECT * FROM estadoproducto;");
 		return $estadoProduc;
 		
 	}

@@ -15,7 +15,7 @@ class Ciudad extends Conexion{
 	}
 
 	public function listarCiudad(){
-		$ciudad = $this->consultarRegistros("SELECT * FROM figuesep.ciudad;");
+		$ciudad = $this->consultarRegistros("SELECT * FROM ciudad;");
 		return $ciudad;
 		
 	}

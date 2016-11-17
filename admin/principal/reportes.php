@@ -229,6 +229,8 @@ $(function () {
 	<script src="js/jqueryLab.js"></script>
 	<script src="https://code.highcharts.com/highcharts.js"></script>
 	<script src="https://code.highcharts.com/modules/exporting.js"></script>
+	<script type="js/highcharts.js"></script>
+	<script type="js/highexporting.js"></script>
 	
 	
 

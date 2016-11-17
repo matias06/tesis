@@ -142,7 +142,6 @@ body {
 
 .contenido-principal .contenido-categoria{
     margin-bottom: 3rem;
-    float: left;
     background:#f5f5f5;
     border-radius: 4px;
 }
@@ -194,33 +193,6 @@ body {
     background-color: #8b5013;
 }
 
-.cb4{
-    border-top: 2px solid #8b5013;
-}
-
-.c4{
-    border: 2px solid #8b5013;
-    background-color: #8b5013;
-}
-
-.cb5{
-    border-top: 2px solid #8b5013;
-}
-
-.c5{
-    border: 2px solid #8b5013;
-    background-color: #8b5013;
-}
-
-.cb6{
-    border-top: 2px solid #8b5013;
-}
-
-.c6{
-    border: 2px solid #8b5013;
-    background-color: #8b5013;
-}
-
 .titulo-categoria{
     color: #ffffff;
     padding: 1rem;
@@ -228,7 +200,6 @@ body {
 
 .well-cw{
     padding: 1rem 0 !important; 
-    margin: 1rem;
     background-color: #ffffff !important;
 }
 

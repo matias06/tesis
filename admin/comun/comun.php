@@ -1,5 +1,4 @@
 <?php session_start();
-
 global $con;
 
 
@@ -39,20 +38,19 @@ function cargarMenu(){
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                             </button>
-                            <img src="../comun/logo/fsp.png" alt="" width="220" height="50">
+                            <a href="../indexAdmin.php" class="navbar-brand">FIGUESEP</a>
                         </div>
                         <div class="collapse navbar-collapse" id="navbar-1">
                             <ul class="nav navbar-nav">
+                                <li><a href="../principal/indexAdmin.php">Index Administrador</a></li>
                                 <li><a href="../principal/reportes.php">Reportes</a></li>
                                 <li><a href="../mantenedores/mantenedores.php">Mantenedores</a></li>
                                 <li><a href="../principal/proveedores.php">Proveedores</a></li>
                                 <li><a href="../principal/clientes.php">Clientes</a></li>
                                 <li><a href="../principal/orden.php">Orden de trabajo</a></li>
-                                <li><a href="../comun/destruirSesion.php">Cerrar Sesión</a></li>
                             </ul>
-                                                   
+                                                            
                         </div>
-                        
                         
                     </div>                    
                 </nav>
@@ -91,7 +89,7 @@ function menuPublico(){
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <div><img src="admin/comun/logo/fsp.png" alt="" width="245" height="55"></div>
+            <a class="navbar-brand" href="index.php">FIGUESEP</a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav navbar-right">

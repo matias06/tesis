@@ -10,7 +10,7 @@ class EstadoUsuario extends Conexion{
 	}
 
 public function listarEstadoUsuario(){
-	$estado = $this->consultarRegistros("SELECT * FROM figuesep.estadousuario;");
+	$estado = $this->consultarRegistros("SELECT * FROM estadousuario;");
 		return $estado;
 		
 	}

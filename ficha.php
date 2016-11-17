@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Ficha de Producto</title>
+    <title>Titulo de La Pagina</title>
     <meta name="Author" content="nvm" />
 
     <!-- > css generales < -->
@@ -96,7 +96,7 @@ menuPublico();
                 <h4 class="lead ficha-titulo">SubWoofer 1400 watts</h4>
 
                 <div class="ficha-imagen">
-                    <img src="imagenes/productos/Audio/bass-min.jpg" alt="wall" class="img-responsive">
+                    <img src="imagenes/productos/Audio/bass.jpg" alt="wall" class="img-responsive">
                 </div>
 
                 <div class="ficha-content">

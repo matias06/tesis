@@ -1,17 +1,12 @@
-<?php
-    require_once '../clases/Conexion.php';
-    $conexion = new Conexion();
-    $conexion->consultarSesion();
-?>
-  <div class="container">
-   <div class="col-xs-4 col-xs-offset-4">
+<div class="container">
+   <div class="col-xs-12 col-md-4 col-md-offset-4">
                   <div class="input-group">
                     <span class="input-group-addon "></span>
                     <input placeholder="Buscar" onKeyUp="listarTabla()" id="txt_buscar" type="text" class="form-control">
                   </div>
                 </div>
 
-                <div class="col-xs-4">
+                <div class="col-xs-12 col-md-4">
                     
                     <label class="control-label col-xs-3" for="cmb_cantidadRegistros">Mostrar</label>
                     <div class="col-xs-6">
@@ -147,12 +142,16 @@
                         </div>
 
                         </div>
+
+                         <div id="tablas">
+                    <!-- carga la tabla usuario por metodo ajax -->
+                    
+                </div>
                    <script>
                     
-    function eventoAlertCorrecto(){
-    swal("Exito!", "Se ha agregado correctamente!", "success")
-     // swal("Se ha agregado correctamente!", "You clicked the button!", "success")
-    }
+              function eventoAlertCorrecto(){
+              swal("Exito!", "Se ha agregado correctamente!", "success")
+              }
   
 
                              $("#formularioRegistro").submit(function(){//captura cuando se envia el formulario
@@ -188,10 +187,7 @@
                             }
                             </script>
 
-                 <div id="tablas">
-                    <!-- carga la tabla usuario por metodo ajax -->
-                    
-                </div>
+                
                             
 
                             <script>

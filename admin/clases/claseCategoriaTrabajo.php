@@ -21,20 +21,20 @@ public function setdescripcion_categoria_trabajo ($arg_descripcion_categoria_tra
 	}
 
 	public function listarCategoriaTrabajo(){
-		$categoriaTrabajo = $this->consultarRegistros("SELECT * FROM figuesep.categoriatrabajo;");
+		$categoriaTrabajo = $this->consultarRegistros("SELECT * FROM categoriatrabajo;");
 		return $categoriaTrabajo;
 
 }
 
 public function insertarCatTrabajos(){
-				$consulta= "INSERT INTO figuesep.categoriatrabajo (id_categoria_trabajo, descripcion_categoria_trabajo)
+				$consulta= "INSERT INTO categoriatrabajo (id_categoria_trabajo, descripcion_categoria_trabajo)
 				 VALUES (null, '".$this->descripcion_categoria_trabajo."');";
 				//echo $consulta;	
 				$agregarCatTrabajo = $this->insertarRegistros($consulta);
 }
 
 public function eliminarCatTrabajo(){
-        $verificar= $this->insertarRegistros("DELETE FROM figuesep.categoriatrabajo WHERE id_categoria_trabajo='".$this->id_categoria_trabajo."';");
+        $verificar= $this->insertarRegistros("DELETE FROM categoriatrabajo WHERE id_categoria_trabajo='".$this->id_categoria_trabajo."';");
 
                 // if($verificar){
                 //       return truer;

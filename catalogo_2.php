@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Productos</title>
+    <title>Titulo de La Pagina</title>
     <meta name="Author" content="nvm" />
 
     <!-- > css generales < -->
@@ -63,63 +63,63 @@ menuPublico();
                 <br>
                 <div class="well well-cw col-xs-12 col-sm-6 col-md-4">
                     <a href="ficha.php">
-                        <img src="imagenes/productos/Audio/bass-min.jpg" class="img-responsive" alt="">
+                        <img src="imagenes/productos/Audio/bass.jpg" class="img-responsive" alt="">
                         <span>nombre del producto</span>
                     </a>
                 </div>     
 
                 <div class="well well-cw col-xs-12 col-sm-6 col-md-4">
                     <a href="#">
-                        <img src="imagenes/productos/Audio/parlante1-min.jpg" class="img-responsive" alt="">
+                        <img src="imagenes/productos/Audio/parlante1.jpg" class="img-responsive" alt="">
                         <span>nombre del producto</span>
                     </a>
                 </div>     
 
                 <div class="well well-cw col-xs-12 col-sm-6 col-md-4">
                     <a href="ficha.html">
-                        <img src="imagenes/productos/Audio/parlante2-min.jpg" class="img-responsive" alt="">
+                        <img src="imagenes/productos/Audio/parlante2.jpg" class="img-responsive" alt="">
                         <span>nombre del producto</span>
                     </a>
                 </div>  
 
                 <div class="well well-cw col-xs-12 col-sm-6 col-md-4">
                     <a href="ficha.html">
-                        <img src="imagenes/productos/Audio/parlante2-min.jpg" class="img-responsive" alt="">
+                        <img src="imagenes/productos/Audio/parlante2.jpg" class="img-responsive" alt="">
                         <span>nombre del producto</span>
                     </a>
                 </div>     
 
                 <div class="well well-cw col-xs-12 col-sm-6 col-md-4">
                     <a href="ficha.html">
-                        <img src="imagenes/productos/Audio/bass-min.jpg" class="img-responsive" alt="">
+                        <img src="imagenes/productos/Audio/bass.jpg" class="img-responsive" alt="">
                         <span>nombre del producto</span>
                     </a>
                 </div>     
 
                 <div class="well well-cw col-xs-12 col-sm-6 col-md-4">
                     <a href="ficha.html">
-                        <img src="imagenes/productos/Audio/parlante1-min.jpg" class="img-responsive" alt="">
+                        <img src="imagenes/productos/Audio/parlante1.jpg" class="img-responsive" alt="">
                         <span>nombre del producto</span>
                     </a>
                 </div>  
 
                 <div class="well well-cw col-xs-12 col-sm-6 col-md-4">
                     <a href="ficha.html">
-                        <img src="imagenes/productos/Audio/parlante1-min.jpg" class="img-responsive" alt="">
+                        <img src="imagenes/productos/Audio/parlante1.jpg" class="img-responsive" alt="">
                         <span>nombre del producto</span>
                     </a>
                 </div>     
 
                 <div class="well well-cw col-xs-12 col-sm-6 col-md-4">
                     <a href="ficha.html">
-                        <img src="imagenes/productos/Audio/parlante2-min.jpg" class="img-responsive" alt="">
+                        <img src="imagenes/productos/Audio/parlante2.jpg" class="img-responsive" alt="">
                         <span>nombre del producto</span>
                     </a>
                 </div>     
 
                 <div class="well well-cw col-xs-12 col-sm-6 col-md-4">
                     <a href="ficha.html">
-                        <img src="imagenes/productos/Audio/bass-min.jpg" class="img-responsive" alt="">
+                        <img src="imagenes/productos/Audio/bass.jpg" class="img-responsive" alt="">
                         <span>nombre del producto</span>
                     </a>
                 </div>  

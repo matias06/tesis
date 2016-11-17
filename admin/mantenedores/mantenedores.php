@@ -1,10 +1,5 @@
 <?php
     include '../comun/comun.php';
-
-    require_once '../clases/Conexion.php';
-    $conexion = new Conexion();
-    $conexion->consultarSesion();
-
  ?>
 
 <!DOCTYPE html>
@@ -14,7 +9,7 @@
      <link rel="stylesheet" href="../css/estilo.css">
 </head>
 <title>Mantenedores</title>
-     
+
 
 <body>
 
@@ -34,7 +29,7 @@
               <!--   <a class="navbar-brand" href="index.html">Figuesep</a> -->
             </div>
             <!-- Top Menu Items -->
-           
+
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav" id="fondo">
@@ -42,8 +37,8 @@
                         <a href="mantenedores.php" value="Usuario" onclick="cargarDivUsuario();"> Usuario</a>
                     </li>
 
-        
-        <script type="text/javascript"> 
+
+        <script type="text/javascript">
             function cargarDivUsuario(){ /*AQUI LE DOY UN NOMBRE CUALQUIERA A LA FUNCION*/
 
                     $.ajax({url: '../mantenedores/mantUsuario.php',
@@ -53,16 +48,16 @@
                                 });
                             }
                             </script>
-                
+
                     <li class="lineaLi">
                         <a href="#" value="Productos" onclick="cargarDivProductos();">Producto</a>
 
-        <script type="text/javascript"> 
+        <script type="text/javascript">
             function cargarDivProductos(){ /*AQUI LE DOY UN NOMBRE CUALQUIERA A LA FUNCION*/
 
             $.ajax({url: '../mantenedores/mantProductos.php',
                 success:function(data){
-                $("#page-wrapper").html(data); 
+                $("#page-wrapper").html(data);
                                       }
                     });
                                       }
@@ -70,7 +65,7 @@
                     </li>
                     <li class="lineaLi">
                         <a href="#" value="proveedor" onclick="cargarDivProveedor();">Proveedor</a>
-                        <script type="text/javascript"> 
+                        <script type="text/javascript">
                             function cargarDivProveedor(){ /*AQUI LE DOY UN NOMBRE CUALQUIERA A LA FUNCION*/
 
                                 $.ajax({url: '../mantenedores/mantProveedor.php',
@@ -81,10 +76,10 @@
                             }
                             </script>
                     </li>
-                    
+
                <!--     <li class="lineaLi">
                         <a href="#" value="categoria" onclick="cargarDivCategoria();">Categoria trabajo</a>
-                        <script type="text/javascript"> 
+                        <script type="text/javascript">
                             function cargarDivCategoria(){ /*AQUI LE DOY UN NOMBRE CUALQUIERA A LA FUNCION*/
 
                                 $.ajax({url: '../mantenedores/mantCategoriaTrabajo.php',
@@ -97,7 +92,7 @@
                     </li>-->
                     <!--            <li class="lineaLi">
                         <a href="#" value="direccion" onclick="cargarDivDireccion();">Dirección</a>
-                         <script type="text/javascript"> 
+                         <script type="text/javascript">
                             function cargarDivDireccion(){ /*AQUI LE DOY UN NOMBRE CUALQUIERA A LA FUNCION*/
 
                                 $.ajax({url: '../mantenedores/mantDireccion.php',
@@ -110,7 +105,7 @@
                     </li>-->
                     <!--<li class="lineaLi">
                         <a href="#" value="tipoUsuario" onclick="cargarDivTipoUsuario();">Tipo de usuario</a>
-                        <script type="text/javascript"> 
+                        <script type="text/javascript">
                             function cargarDivTipoUsuario(){ /*AQUI LE DOY UN NOMBRE CUALQUIERA A LA FUNCION*/
 
                                 $.ajax({url: '../mantenedores/mantTipoUsuario.php',
@@ -121,10 +116,10 @@
                             }
                             </script>
                     </li>-->
-                    
+
                     <li class="lineaLi">
                         <a href="#" value="servicios" onclick="cargarDivServicios();">Servicios</a>
-                        <script type="text/javascript"> 
+                        <script type="text/javascript">
                             function cargarDivServicios(){ /*AQUI LE DOY UN NOMBRE CUALQUIERA A LA FUNCION*/
 
                                 $.ajax({url: '../mantenedores/mantServicios.php',
@@ -136,8 +131,8 @@
                             </script>
                     </li>
                     <li class="lineaLi">
-                        <a href="#" value="subCategoria" onclick="cargarDivTrabajos();">Trabajos</a>
-                        <script type="text/javascript"> 
+                        <a href="#" value="trabajos" onclick="cargarDivTrabajos();">Trabajos</a>
+                        <script type="text/javascript">
                             function cargarDivTrabajos(){ /*AQUI LE DOY UN NOMBRE CUALQUIERA A LA FUNCION*/
 
                                 $.ajax({url: '../mantenedores/mantTrabajos.php',
@@ -150,7 +145,7 @@
                     </li>
                     <li class="lineaLi">
                         <a href="#" value="servicios" onclick="cargarDivRegion();">Región</a>
-                        <script type="text/javascript"> 
+                        <script type="text/javascript">
                             function cargarDivRegion(){ /*AQUI LE DOY UN NOMBRE CUALQUIERA A LA FUNCION*/
 
                                 $.ajax({url: '../mantenedores/mantRegion.php',
@@ -163,7 +158,7 @@
                     </li>
                     <li class="lineaLi">
                         <a href="#" value="ciudad" onclick="cargarDivCiudad();">Ciudad</a>
-                        <script type="text/javascript"> 
+                        <script type="text/javascript">
                             function cargarDivCiudad(){ /*AQUI LE DOY UN NOMBRE CUALQUIERA A LA FUNCION*/
 
                                 $.ajax({url: '../mantenedores/mantCiudad.php',
@@ -174,61 +169,39 @@
                             }
                             </script>
                     </li>
-                </ul>
+
+                <li class="lineaLi">
+                    <a href="#" value="CatProducto" onclick="cargarDivCatProducto();">Categoria producto</a>
+                    <script type="text/javascript">
+                        function cargarDivCatProducto(){ /*AQUI LE DOY UN NOMBRE CUALQUIERA A LA FUNCION*/
+
+                            $.ajax({url: '../mantenedores/mantCatProducto.php',
+                                    success:function(data){
+                                        $("#page-wrapper").html(data);
+                                    }
+                            });
+                        }
+                        </script>
+                </li>
+            </ul>
             </div>
             <!-- /.navbar-collapse -->
-        
-<br>  
-        
-           <!--  Se cargan todas las paginas en este Div  -->
-              <script type="text/javascript"> 
-            // function cargarDivUsuario(){ /*AQUI LE DOY UN NOMBRE CUALQUIERA A LA FUNCION*/
 
-            //         $.ajax({url: '../mantenedores/mantUsuario.php',
-            //              success:function(data){
-            //                 $("#page-wrapper").html(data);
-            //                             }
-            //                     });
-            //                 }
-
-        
-        cargarDivUsuario();
-           
-
-
-
-
-                            
-                            </script>
+<br>
 <div id="page-wrapper">
-    
-</div>           
-               <!-- paginador -->
-                            <!-- <div class="container-fluid">
-                                <div class="col-md-12">
-                            <nav>
-                            <ul class="pager">
-                                
-                                <li class="previous"><a href="#">&larr; Anterior</a></li>
-                                 <li class="next"><a href="#">Siguiente &rarr;</a></li>
-                            </ul>
-                            </nav>
-                            </div>
-                         </div>   -->
-                          
-                        
-          
-     
-   <!-- /.container-fluid -->
 
-     
+</div>
+
+           <!--  Se cargan todas las paginas en este Div  -->
+              <script type="text/javascript">
+
+        cargarDivUsuario();
+
+                            </script>
+
+   <!-- /.container-fluid -->
 
     </div>
     <!-- /#wrapper -->
-
-
-
-
-
 </body>
 </html>
