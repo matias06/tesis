@@ -1,5 +1,8 @@
 <?php
 	include '../comun/comun.php';
+	require_once '../clases/Conexion.php';
+	$conexion = new Conexion();
+	$conexion->consultarSesion();
 ?>
 
 <!DOCTYPE html>
@@ -10,15 +13,15 @@
 
 </head>
 <body>
-    
+
 	<header>
 		<?php cargarMenu(); ?>
-	</header>		
+	</header>
 
 <div id="contenedorimagenc">
 		<img src="../imagenes/2.png" alt="" class="img-responsive center-block" />
 		<!-- <img src="../imagenes/logo.png" alt=""> -->
-	
+
 	</div>
 
 </body>

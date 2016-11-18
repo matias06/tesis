@@ -11,18 +11,18 @@ html, body {
   margin: 0;
   height: 100%;
   max-width: 100%;
-  font-family: "ABeeZee", sans-serif; 
+  font-family: "ABeeZee", sans-serif;
 }
 
 body {
-  background: #ffffff; 
+  background: #ffffff;
 }
 
 
 /*-- .navbar CSS --*/
 
 .navbar{
-    padding: 2rem 0 !important; 
+    padding: 2rem 0 !important;
     background-color: #ffffff;
     z-index: 2 !important;
     border-bottom: 1px solid #c0c0c0 !important;
@@ -31,7 +31,7 @@ body {
 .navbar a{
     color: #000;
     font-size: 2rem;
-    
+
     transition: all 1s;
 }
 
@@ -55,7 +55,7 @@ body {
 
 /*-- .carousel CSS --*/
 
-.carousel-informacion{  
+.carousel-informacion{
     min-width: 100%;
     height: auto !important;
     float: left;
@@ -65,7 +65,7 @@ body {
 .carousel-inner > .item > a > img, .carousel-inner > .item > img, .img-responsive, .thumbnail a > img, .thumbnail > img {
     width: 100%;
     height: 50%;
-    margin: auto; 
+    margin: auto;
 }
 
 .carousel-inner > .item > img{
@@ -74,7 +74,7 @@ body {
 }
 
 .carousel-caption {
-    top: 25% !important; 
+    top: 25% !important;
 }
 
 /*-- .servicios CSS --*/
@@ -142,6 +142,7 @@ body {
 
 .contenido-principal .contenido-categoria{
     margin-bottom: 3rem;
+    float: left;
     background:#f5f5f5;
     border-radius: 4px;
 }
@@ -192,6 +193,32 @@ body {
     border: 2px solid #8b5013;
     background-color: #8b5013;
 }
+.cb4{
+    border-top: 2px solid #8b5013;
+}
+
+.c4{
+    border: 2px solid #8b5013;
+    background-color: #8b5013;
+}
+
+.cb5{
+    border-top: 2px solid #8b5013;
+}
+
+.c5{
+    border: 2px solid #8b5013;
+    background-color: #8b5013;
+}
+
+.cb6{
+    border-top: 2px solid #8b5013;
+}
+
+.c6{
+    border: 2px solid #8b5013;
+    background-color: #8b5013;
+}
 
 .titulo-categoria{
     color: #ffffff;
@@ -199,7 +226,8 @@ body {
 }
 
 .well-cw{
-    padding: 1rem 0 !important; 
+    padding: 1rem 0 !important;
+    margin: 1rem;
     background-color: #ffffff !important;
 }
 
@@ -237,7 +265,7 @@ body {
     height: 80px;
     padding: 1rem 0;
     color: #ffffff;
-    margin-left: 1rem;  
+    margin-left: 1rem;
     float: left;
     border-radius: 50%;
     background:#950808;
@@ -292,5 +320,5 @@ footer li a:hover{
     padding: 1rem 0;
     text-align: center;
     color: #ffffff;
-    background-color: #333;   
+    background-color: #333;
 }

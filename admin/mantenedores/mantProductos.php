@@ -1,4 +1,9 @@
-<div class="container">
+<?php
+    require_once '../clases/Conexion.php';
+    $conexion = new Conexion();
+    $conexion->consultarSesion();
+?>
+  <div class="container">
    <div class="col-xs-4 col-xs-offset-4">
                   <div class="input-group">
                     <span class="input-group-addon "></span>
@@ -31,7 +36,7 @@
                             <div class="panel-body">
 
                                <!-- <form> -->
-                        <form action="" id="formularioProducto" name="formularioProducto" enctype="multipart/form-data" method="POST">
+                        <form action="" id="formularioProducto" name="formularioProducto" method="POST">
                             <fieldset>
 
                                 <div class="row">
@@ -47,20 +52,18 @@
                                             <input class="form-control" id="txt_descripcion" name="txt_descripcion" placeholder="Descripción de productos" type="text">
                                         </div>
                                     </div>
-                                    <div style="animation-delay: 0.2s;" class="col-md-2 animated-panel zoomIn">
+                                    <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
                                         <div class="form-group">
                                             <label for="valor">Valor:</label>
                                             <input class="form-control" id="txt_valor" name="txt_valor" placeholder="Valor del producto" type="text">
                                         </div>
                                     </div>
                                    <!--  imagen cambiar el txt_imagen -->
-                                    <div style="animation-delay: 0.2s;" class="col-md-2 animated-panel zoomIn">
+                                    <div style="animation-delay: 0.2s; height:200px" class="col-md-3 animated-panel zoomIn">
                                         <div class="form-group">
-                                            <label for="imagen">Subir Imagen</label>
-                                            <input type="file" id="txt_imagen" name="txt_imagen">
-                                            <!-- <input class="form-control" id="txt_imagen" name="txt_imagen" placeholder="" type=""> -->
+                                            <label for="password">Imagen</label>
+                                            <input class="img-responsive" alt="Imagen responsive" id="txt_imagen" name="txt_imagen" placeholder="" type="">
                                         </div>
-
                                     </div>
 
                                 </div>
@@ -107,7 +110,7 @@
 
                                     </div>
 
-                                   <div style="animation-delay: 0.5s;" class="col-md-2 animated-panel zoomIn">
+                                   <div style="animation-delay: 0.5s;" class="col-md-3 animated-panel zoomIn">
 
                                         <div class="form-group">
 
@@ -148,24 +151,21 @@
 
             </div>
            </div> <!-- container -->
+
                <div id="tablas">
                     <!-- carga la tabla producto por metodo ajax -->
                 </div>
+
            <script>
-                //INSERTA TODO EL FORMULARIO Y LA IMAGEN
+
                              $("#formularioProducto").submit(function(){//captura cuando se envia el formulario
                                 event.preventDefault();//detiene el envio del formulario
 
 
-                                     var formData = new FormData(document.getElementById("formularioProducto"));
-                         //alert("llega");
                                     $.ajax({//realiza el envio del formulario pero por ajax para no tener que recargar pagina
+
                                         url:"mantenedoresIngresar.php?mant=2&prod=1", //donde se va a ingresar "mantenedoresIngresar.php"
-                                        data:formData,
-                                        type:'POST',
-                                        cache:false,
-                                        contentType:false,
-                                        processData:false,
+                                        data:$("#formularioProducto").serialize(),
                                         success:function(respuesta){
                                                  alert(respuesta);
                                                 //$("#formularioProducto").html(respuesta);
@@ -179,17 +179,26 @@
                             });
 
 
+
+                              //  $("#formularioProducto").validate();
+
+
+                        </script>
+              <script>
               function eventoAlertCorrecto(){
               swal("Exito!", "Se ha agregado correctamente!", "success")
                // swal("Se ha agregado correctamente!", "You clicked the button!", "success")
               }
+              </script>
 
+                <script>
              function eventoAlertEliminar(){
                 swal("Exito!", "Se ha eliminado correctamente!", "success")
                  // swal("Se ha agregado correctamente!", "You clicked the button!", "success")
                 }
 
-
+                </script>
+                         <script type="text/javascript">
                             function eliminarCamposProducto(){ /*AQUI LE DOY UN NOMBRE CUALQUIERA A LA FUNCION*/
                                     $("#txt_id_producto").val("");
                                     $("#txt_descripcion").val("");
@@ -200,7 +209,10 @@
                             }
                             </script>
 
+                 <div id="tablas">
+                    <!-- carga la tabla producto por metodo ajax -->
 
+                </div>
 
 
                             <script>
@@ -212,6 +224,8 @@
                                         }
                                 });
                             }
+
+
 
                            cargarDivTablaProducto();
 

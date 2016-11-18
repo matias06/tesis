@@ -1,3 +1,8 @@
+<?php
+    require_once '../clases/Conexion.php';
+    $conexion = new Conexion();
+    $conexion->consultarSesion();
+?>
 <div class="container">
    <div class="col-xs-4 col-xs-offset-4">
                   <div class="input-group">
@@ -7,7 +12,7 @@
                 </div>
 
                 <div class="col-xs-4">
-                    
+
                     <label class="control-label col-xs-3" for="cmb_cantidadRegistros">Mostrar</label>
                     <div class="col-xs-6">
                         <select onChange="listarTabla()" name="cmb_cantidadRegistros" class="form-control" id="cmb_cantidadRegistros">
@@ -19,24 +24,24 @@
                     </div>
                 </div>
 </div>
-<br>    
-               
+<br>
 
-               
+
+
                <div class="container-fluid">
-                <div class="col-md-10-centered">  
-                                  
+                <div class="col-md-10-centered">
+
 
                     <div class="panel panel-default">
                         <div class="panel-heading">
                                 <h3 class="panel-title">Mantenedor Ciudades</h3>
                         </div>
                             <div class="panel-body">
-                                
+
                                <!-- <form> -->
                         <form action="" id="formularioCiudad" name="formularioCiudad" method="POST">
                             <fieldset>
-                            
+
                                 <div class="row">
                                     <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
                                         <div class="form-group">
@@ -49,7 +54,7 @@
 
                                             <label for="region">Region</label>
                                                  <select class="form-control" name="region" id="region">
-                                                    <?php 
+                                                    <?php
                                                         require_once '../clases/claseRegion.php';
                                                         $regi= new Region();
                                                         $filasRegion= $regi->listarRegion();
@@ -59,11 +64,11 @@
                                                         }
 
                                                      ?>
-                                                </select> 
+                                                </select>
 
                                         </div>
                                     </div>
-                                    
+
                                 </div>
                                 <div class="container">
                                         <div class="col-md-3">
@@ -78,9 +83,9 @@
                               </div>
                             </fieldset>
                         </form>
-                     
-                        
-                            
+
+
+
                             </div>
                            </div>
                         </div>
@@ -88,9 +93,9 @@
 
                          <div id="tablas">
                     <!-- carga la tabla usuario por metodo ajax -->
-                    
+
                         </div>
-                            
+
 
 
                           <script>
@@ -100,7 +105,7 @@
 
 
                                     $.ajax({//realiza el envio del formulario pero por ajax para no tener que recargar pagina
-                                       
+
                                         url:"mantenedoresIngresar.php?mant=6&func=1", //donde se va a ingresar "mantenedoresIngresar.php"
                                         data:$("#formularioCiudad").serialize(),
                                         success:function(respuesta){
@@ -112,23 +117,23 @@
                                             }else{
                                                 alert("Ha ocurrido un error.");
                                             }
-                                                
+
                                         }
                                     });
                                     return false;
                             });
 
 
-                    
+
                                 //$("#formularioRegistro").validate();
 
 
                             function eliminarCamposCiudad(){ /*AQUI LE DOY UN NOMBRE CUALQUIERA A LA FUNCION*/
                                     $("#txt_ciudad").val("");
                                     $("#region").val("");
-                                    
+
                             }
-                       
+
             function cargarDivTablaCiudad(){
                                 $.ajax({url: '../mantenedorTablasAjax/cargarTablaCiudad.php',
                                         success:function(data){
@@ -141,8 +146,8 @@
 
                            cargarDivTablaCiudad();
 
-       
-                    
+
+
     function eventoAlertCorrecto(){
     swal("Exito!", "Se ha agregado correctamente!", "success")
      // swal("Se ha agregado correctamente!", "You clicked the button!", "success")

@@ -13,8 +13,8 @@ class Conexion{
 
    		$this->host="localhost";
    		$this->usuario="root";
-   		$this->clave="johnnyslayer";
-   		$this->baseDatos="figuesepPrototipo";
+   		$this->clave="";
+   		$this->baseDatos="figuesep";
 
 
    		// -> llama a los metodos de un clase
@@ -30,7 +30,7 @@ class Conexion{
 
 
 	}
-   
+
    public function cantidadRegistros($arg_consulta){
       $resultado= $this->con->query($arg_consulta);
 
@@ -60,7 +60,7 @@ class Conexion{
 
 
          }
-      
+
 
          public function insertarRegistros($arg_consulta){
                if($this->con->query($arg_consulta)){
@@ -72,7 +72,7 @@ class Conexion{
 // modifiar un archivo
         public function consultarExistencia($arg_consulta){
 
-            
+
       $resultado= $this->con->query($arg_consulta);
 
         if (!$resultado) {
@@ -126,5 +126,13 @@ class Conexion{
 
         return $devuelve;
     }
+		public function consultarSesion(){
+		    @session_start();
+		    if(isset($_SESSION['id'])){
+
+		    }else{
+		       header('location: ../../index.php');
+		     }
+		}
 }
 ?>

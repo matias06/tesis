@@ -1,3 +1,8 @@
+<?php
+    require_once '../clases/Conexion.php';
+    $conexion = new Conexion();
+    $conexion->consultarSesion();
+?>
 <div class="container">
    <div class="col-xs-4 col-xs-offset-4">
                   <div class="input-group">
@@ -7,7 +12,7 @@
                 </div>
 
                 <div class="col-xs-4">
-                    
+
                     <label class="control-label col-xs-3" for="cmb_cantidadRegistros">Mostrar</label>
                     <div class="col-xs-6">
                         <select onChange="listarTabla()" name="cmb_cantidadRegistros" class="form-control" id="cmb_cantidadRegistros">
@@ -21,15 +26,15 @@
 </div>
 <br>
 <div class="container-fluid">
-          
-            <div class="col-md-10-centered">                      
+
+            <div class="col-md-10-centered">
 
                     <div class="panel panel-default">
                         <div class="panel-heading">
                                 <h3 class="panel-title">Mantenedor Proveedores</h3>
                         </div>
                             <div class="panel-body">
-                                
+
                                <!-- <form> -->
                         <form action="" id="formularioProveedor" name="formularioProveedor" method="POST">
                             <fieldset>
@@ -52,8 +57,8 @@
                                             <label for="direccion">Dirección:</label>
                                             <input class="form-control" id="txt_direccion" name="txt_direccion" placeholder="Dirección" type="text">
                                         </div>
-                                    </div> 
-                                    
+                                    </div>
+
                                 </div>
                                 <div class="row">
                                     <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
@@ -61,7 +66,7 @@
                                             <label for="telefono">Teléfono:</label>
                                             <input class="form-control" id="txt_telefono" name="txt_telefono" placeholder="Numero teléfonico" type="">
                                         </div>
-                                    </div> 
+                                    </div>
                                     <div style="animation-delay: 0.5s;" class="col-md-3 animated-panel zoomIn">
                                         <div class="form-group">
                                             <label for="txt_correo">Correo electrónico:</label>
@@ -74,7 +79,7 @@
 
                                             <label for="estado">Estado</label>
                                                  <select class="form-control" name="cmb_estado" id="cmb_estado">
-                                                    <?php 
+                                                    <?php
                                                         require_once '../clases/claseEstado.php';
                                                         $est= new Estado();
                                                         $filasEst= $est->listarEstado();
@@ -84,12 +89,12 @@
                                                         }
 
                                                      ?>
-                                                </select> 
+                                                </select>
 
                                         </div>
 
                                     </div>
-                                    
+
                                 </div>
 
                                 <div class="container">
@@ -108,7 +113,7 @@
                     </div>
                 </div>
                 <!-- tabla -->
-                     
+
             </div>
            </div> <!-- container -->
 
@@ -118,13 +123,13 @@
 
                              $("#formularioProveedor").submit(function(){//captura cuando se envia el formulario
                                 event.preventDefault();//detiene el envio del formulario
-                                    
+
                                     $.ajax({//realiza el envio del formulario pero por ajax para no tener que recargar pagina
-                                       
+
                                         url:"mantenedoresIngresar.php?mant=3&prov=1", //donde se va a ingresar "mantenedoresIngresar.php"
                                         data:$("#formularioProveedor").serialize(),
                                         success:function(respuesta){
-                                            
+
                                             cargarDivTablaProveedores();
                                                     eliminarCamposProveedores();
                                                     cambiarPagina(1);
@@ -132,74 +137,74 @@
                                                 //alert(respuesta);
                                                 //$("#formularioProveedor").html(respuesta);  //muestra el resultado de la consulta si es error o no
                                                //   if(respuesta=="2"){
-                                                  
-                                                    
+
+
                                                // }else{
                                                //       $("#error").html(respuesta);
                                                // }
-                                              
+
                                         }
                                     });
-                                
+
                             });
 
  </script>
            <script>
-                    
+
     function eventoAlertCorrecto(){
     swal("Exito!", "Se ha agregado correctamente!", "success")
      // swal("Se ha agregado correctamente!", "You clicked the button!", "success")
     }
-    </script>  
+    </script>
 
-         
+
     <script>
  function eventoAlertEliminar(){
     swal("Exito!", "Se ha eliminado correctamente!", "success")
      // swal("Se ha agregado correctamente!", "You clicked the button!", "success")
     }
 
-    </script>            
-                           
+    </script>
 
 
-                  
-                         
 
 
-                <script type="text/javascript"> 
+
+
+
+                <script type="text/javascript">
                             function eliminarCamposProveedores(){ /*AQUI LE DOY UN NOMBRE CUALQUIERA A LA FUNCION*/
                                     $("#txt_rut").val("");
                                     $("#txt_razon_social").val("");
                                     $("#txt_direccion").val("");
                                     $("#txt_telefono").val("");
                                     $("#txt_correo").val("");
-                                
+
                             }
                 </script>
 
                  <div id="tablas">
                     <!-- carga la tabla usuario por metodo ajax -->
-                    
+
                 </div>
                     <script>
                        function eliminarProveedor(id){
                                     // alert(id);
-                                     swal({   
-                                        title: "Eliminar?",   
-                                        text: "Proveedor!",   
-                                        type: "warning",   
-                                        showCancelButton: true,   
-                                        confirmButtonColor: "#DD6B55",   
-                                        confirmButtonText: "Yes, cambiar estado!",   
-                                        cancelButtonText: "No, cancelar!",   
-                                        closeOnConfirm: false,   
-                                        closeOnCancel: false }, 
-                                        function(isConfirm){   
-                                            if (isConfirm) {  
+                                     swal({
+                                        title: "Eliminar?",
+                                        text: "Proveedor!",
+                                        type: "warning",
+                                        showCancelButton: true,
+                                        confirmButtonColor: "#DD6B55",
+                                        confirmButtonText: "Yes, cambiar estado!",
+                                        cancelButtonText: "No, cancelar!",
+                                        closeOnConfirm: false,
+                                        closeOnCancel: false },
+                                        function(isConfirm){
+                                            if (isConfirm) {
 
                                      $.ajax({//realiza el envio del formulario pero por ajax para no tener que recargar pagina
-                                       
+
                                         url:"mantenedoresIngresar.php?mant=3&prov=3", // donde se va a ingresar "mantenedoresIngresar.php"
                                         data:"id="+id,
                                         success:function(respuesta){
@@ -208,19 +213,19 @@
                                                 cargarDivTablaProveedores();
                                                 eventoAlertEliminar();
                                      }
-                                                });  
-                                                swal("Modificado!", "", "success");   
-                                            } else {    
-                                                swal("Cancelado", "", "error");   
-                                            } 
+                                                });
+                                                swal("Modificado!", "", "success");
+                                            } else {
+                                                swal("Cancelado", "", "error");
+                                            }
                                         });
 
-                            
-                                     
+
+
                                 }
 
-                                </script>  
-                            
+                                </script>
+
 
                             <script>
 
@@ -263,5 +268,3 @@
                   }
                   cambiarPagina(1); //FIN SCRIPT PARA CARGAR TABLA Y PAGINADA
                 </script>
-                           
-

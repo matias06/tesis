@@ -1,3 +1,8 @@
+<?php
+    require_once '../clases/Conexion.php';
+    $conexion = new Conexion();
+    $conexion->consultarSesion();
+?>
 <div class="container">
    <div class="col-xs-4 col-xs-offset-4">
                   <div class="input-group">

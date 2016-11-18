@@ -1,3 +1,8 @@
+<?php
+    require_once '../clases/Conexion.php';
+    $conexion = new Conexion();
+    $conexion->consultarSesion();
+?>
 <div class="container">
    <div class="col-xs-12 col-md-4 col-md-offset-4">
                   <div class="input-group">
@@ -7,7 +12,7 @@
                 </div>
 
                 <div class="col-xs-12 col-md-4">
-                    
+
                     <label class="control-label col-xs-3" for="cmb_cantidadRegistros">Mostrar</label>
                     <div class="col-xs-6">
                         <select onChange="listarTabla()" name="cmb_cantidadRegistros" class="form-control" id="cmb_cantidadRegistros">
@@ -19,13 +24,13 @@
                     </div>
                 </div>
 </div>
-<br>                
+<br>
  <div class="container-fluid">
 
- 
-                <div class="col-md-10-centered">  
-                                  
-             
+
+                <div class="col-md-10-centered">
+
+
 
                     <div class="panel panel-default">
                         <div class="panel-heading">
@@ -33,11 +38,11 @@
 
                         </div>
                             <div class="panel-body">
-                                
+
                                <!-- <form> -->
                         <form action="" id="formularioRegistro" name="formularioRegistro" method="POST">
                             <fieldset>
-                            
+
                                 <div class="row">
                                     <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
                                         <div class="form-group">
@@ -56,8 +61,8 @@
                                             <label for="apellido">Apellido</label>
                                             <input class="form-control" title="Debe ingresar su apellido" required id="txt_apellido" name="txt_apellido" placeholder="Apellido Usuario" type="text">
                                         </div>
-                                    </div> 
-                                    
+                                    </div>
+
 
                                 </div>
 
@@ -80,7 +85,7 @@
 
                                             <label for="tipoUsuario">Tipo Usuario</label>
                                                  <select class="form-control" name="tipousuario" id="tipousuario">
-                                                    <?php 
+                                                    <?php
                                                         require_once '../clases/claseTipoUsuario.php';
                                                         $TipoU= new TipoUsuario();
                                                         $filasTipoU= $TipoU->listarTipoUsuario();
@@ -90,7 +95,7 @@
                                                         }
 
                                                      ?>
-                                                </select> 
+                                                </select>
 
                                         </div>
 
@@ -102,7 +107,7 @@
 
                                             <label for="estado">Estado usuario</label>
                                                  <select class="form-control" name="estadousuario" id="">
-                                                    <?php 
+                                                    <?php
                                                         require_once '../clases/claseEstadoUsuario.php';
                                                         $estadoUsuario= new EstadoUsuario();
                                                         $filasEstado= $estadoUsuario->listarEstadoUsuario();
@@ -112,21 +117,21 @@
                                                         }
 
                                                      ?>
-                                                </select> 
+                                                </select>
 
                                         </div>
 
                                     </div>
-                                      
+
 
                                 </div>
                                 <div class="container">
                                         <div class="col-md-3">
                                             <input type="submit" id="btn_insert" class="btn btn-success" value="Agregar" name="btn_registrar">
-                
+
                                         </div>
                                     </div>
-                                    <!--BOTON QUE ABRE MODAL DE CREAR NUEVO -->  
+                                    <!--BOTON QUE ABRE MODAL DE CREAR NUEVO -->
               <div class="row">
                 <br>
                 <div id="contenedorMantenedor"></div><!-- DIV DONDE SE CARGA LA TABLA-->
@@ -134,9 +139,9 @@
 
                             </fieldset>
                         </form>
-                     
-                        
-                            
+
+
+
                             </div>
                            </div>
                         </div>
@@ -145,26 +150,26 @@
 
                          <div id="tablas">
                     <!-- carga la tabla usuario por metodo ajax -->
-                    
+
                 </div>
                    <script>
-                    
+
               function eventoAlertCorrecto(){
               swal("Exito!", "Se ha agregado correctamente!", "success")
               }
-  
+
 
                              $("#formularioRegistro").submit(function(){//captura cuando se envia el formulario
                                 event.preventDefault();//detiene el envio del formulario
 
 
                                     $.ajax({//realiza el envio del formulario pero por ajax para no tener que recargar pagina
-                                       
+
                                         url:"mantenedoresIngresar.php?mant=1&func=1", //donde se va a ingresar "mantenedoresIngresar.php"
                                         data:$("#formularioRegistro").serialize(),
                                         success:function(respuesta){
                                              //alert("Usuario Agregado correctamente");
-                                                
+
                                                 //alert(respuesta);
                                                 //$("#formularioProveedor").html(respuesta);
                                                 cambiarPagina(1);
@@ -177,18 +182,18 @@
                                     return false;
                             });
 
-              
+
       function eliminarCamposUsuario(){ /*AQUI LE DOY UN NOMBRE CUALQUIERA A LA FUNCION*/
            $("#txt_run").val("");
            $("#txt_nombre").val("");
            $("#txt_apellido").val("");
            $("#txt_password").val("");
-                                
+
                             }
                             </script>
 
-                
-                            
+
+
 
                             <script>
 
@@ -202,7 +207,7 @@
 
                            cargarDivTablaUsuario();
 
-                        
+
                 var pagina;
                 //INICIO SCRIPT PARA CARGAR TABLA Y PAGINADA
                   function cambiarPagina(arg_pagina){
@@ -228,4 +233,3 @@
                   }
                   cambiarPagina(1); //FIN SCRIPT PARA CARGAR TABLA Y PAGINADA
                 </script>
-                           

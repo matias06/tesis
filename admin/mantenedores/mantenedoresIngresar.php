@@ -1,5 +1,8 @@
 <?php
 
+    require_once '../clases/Conexion.php';
+    $conexion = new Conexion();
+    $conexion->consultarSesion();
 require_once '../clases/usuario.php';
 	switch($_REQUEST['mant']){
             case "1": //echo " Mantenedor usuario";
@@ -73,6 +76,7 @@ require_once '../clases/usuario.php';
                                             $filas = $usuario->BuscarFiltarRegistros("vistausuario","campoBuscar",$buscar,$_REQUEST['pag'],$_REQUEST['cantidadReg']);
 
 
+
                                             $contador=0;
                                         foreach($filas[0][0] as $user){
                                                     $contador++;
@@ -127,9 +131,7 @@ require_once '../clases/usuario.php';
 			switch($_REQUEST['prod']){
 
 								case "1": //echo "se ingresa";
-
-
-                                $codigo = filter_var($_REQUEST['txt_id_producto'], FILTER_SANITIZE_NUMBER_INT);
+                                    $codigo = filter_var($_REQUEST['txt_id_producto'], FILTER_SANITIZE_NUMBER_INT);
                                     $productos->setid_producto($codigo);
 
                                     $descripcion = filter_var($_REQUEST['txt_descripcion'], FILTER_SANITIZE_STRING);
@@ -180,9 +182,21 @@ require_once '../clases/usuario.php';
 
                                         }
 
+						            $descripcion = filter_var($_REQUEST['txt_descripcion'], FILTER_SANITIZE_STRING);
+									$productos->setdescripcion_producto($descripcion);
 
+                                    $valor = filter_var($_REQUEST['txt_valor'], FILTER_SANITIZE_NUMBER_INT);
+									$productos->setvalor_producto($valor);
 
-                                    $productos->insertarProductos();
+                                    $imagen = filter_var($_REQUEST['txt_imagen'], FILTER_SANITIZE_STRING);
+									$productos->setimagen($imagen);
+
+									$productos->setrut($_REQUEST['cmb_proveedores']);
+
+									$productos->setestado_producto($_REQUEST['cmb_estado_producto']);
+									$productos->setcategoria_producto($_REQUEST['cmb_categoria_producto']);
+
+								  $productos->insertarProductos();
 
 								break;
 
@@ -244,7 +258,8 @@ require_once '../clases/usuario.php';
 
                                         <?php
                                             $producto = new Productos();
-                                            $filas = $producto->BuscarFiltarRegistros("vistaproducto","campoBuscar",$_REQUEST['buscar'],$_REQUEST['pag'],$_REQUEST['cantidadReg']);
+
+          $filas = $producto->BuscarFiltarRegistros("vistaproducto","campoBuscar",$_REQUEST['buscar'],$_REQUEST['pag'],$_REQUEST['cantidadReg']);
 
 
                                         $contador=0;
@@ -366,7 +381,7 @@ require_once '../clases/usuario.php';
 
                                             $proveedor = new Proveedor();
                                             $buscar = filter_var($_REQUEST['buscar'], FILTER_SANITIZE_STRING);
-                                            $filas = $proveedor->BuscarFiltarRegistros("vistaproveedor","campoBuscar",$buscar,$_REQUEST['pag'],$_REQUEST['cantidadReg']);
+            $filas = $proveedor->BuscarFiltarRegistros("vistaproveedor","campoBuscar",$buscar,$_REQUEST['pag'],$_REQUEST['cantidadReg']);
 
                                         $contador=0;
                                         foreach($filas[0][0] as $user){
@@ -910,7 +925,7 @@ require_once '../clases/usuario.php';
 																			 									require_once'../clases/claseCategoriaProducto.php';
 																	 											$catProducto = new CategoriaProducto();
 																			 									$buscar = filter_var($_REQUEST['buscar'], FILTER_SANITIZE_STRING);
-																			 									$filas = $catProducto->BuscarFiltarRegistros("categoriaproducto","descripcion_categoria_producto",$buscar,$_REQUEST['pag'],$_REQUEST['cantidadReg']);
+																			 									$filas = $catProducto->BuscarFiltarRegistros("categoriaproducto","campoBuscar",$buscar,$_REQUEST['pag'],$_REQUEST['cantidadReg']);
 
 																			 									$contador=0;
 

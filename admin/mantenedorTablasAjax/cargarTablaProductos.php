@@ -1,11 +1,15 @@
- 
+<?php
+    require_once '../clases/Conexion.php';
+    $conexion = new Conexion();
+    $conexion->consultarSesion();
+?>
      <div class="col-xs-8 col-sm-6 col-md-4 col-lg-3">
-                           
+
                             <div class="caption">
                            <!-- Esta funcion carga el modal para modificar datos de la tabla -->
                      <script>
                                function cargarDatosModal(fila){
-                                
+
                                 $("#txt_id_producto_modificar").val($("#txt_id_producto"+fila).html());
 
                                 $("#txt_descripcion_modificar").val($("#txt_descripcion"+fila).html());
@@ -18,10 +22,10 @@
 
                                 $("#cmb_id_categoria_producto").val($("#cmb_id_categoria_producto"+fila).html());
                                 $("#cmb_categoria_producto_modificar").val($("#cmb_id_categoria_producto"+fila).html());
-                               
 
 
-                              
+
+
                                 }
                         </script>
 
@@ -35,14 +39,14 @@
                                               <h3 class="modal-title">Modificar Producto</h3>
                                           </div>
                                           <!-- Comienzo formulario -->
-                 <div class="container">                       
+                 <div class="container">
                     <form action="" id="formProductoModificar" name="formProductoModificar">
                             <fieldset>
                                 <!--campos ocultos para guardar -->
                                  <input type="hidden" id="txt_id_producto_modificar" name="txt_id_producto_modificar" >
                                 <input type="hidden" id="cmb_id_estado_producto" name="txt_id_estado_producto_modificar" >
                                 <input type="hidden" id="cmb_id_categoria_producto" name="txt_id_categoria_producto_modificar" >
-                                
+
 
                                 <div class="row">
                                     <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
@@ -51,40 +55,40 @@
                                             <input class="form-control" id="txt_descripcion_modificar" name="txt_descripcion_modificar" placeholder="Descripción de productos" type="text">
                                         </div>
                                     </div>
-                                </div> 
-                                <div class="row">   
+                                </div>
+                                <div class="row">
                                     <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
                                         <div class="form-group">
                                             <label for="valor">Valor:</label>
                                             <input class="form-control" id="txt_valor_modificar" name="txt_valor_modificar" placeholder="Valor del producto" type="text">
                                         </div>
-                                    </div> 
-                                </div>     
+                                    </div>
+                                </div>
                                    <!--  imagen cambiar el txt_imagen -->
-                                 <div class="row">    
+                                 <div class="row">
                                     <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
                                         <div class="form-group">
                                             <label for="imagen">Imagen</label>
                                             <input class="form-control" id="txt_imagen_modificar" name="txt_imagen_modificar" placeholder="" type="">
                                         </div>
-                                    </div> 
-                                </div> 
-                                 <div class="row"> 
+                                    </div>
+                                </div>
+                                 <div class="row">
                                     <div style="animation-delay: 0.5s;" class="col-md-3 animated-panel zoomIn">
                                         <div class="form-group">
                                             <label for="rutProveedor">Rut proovedor:</label>
-                                            <input class="form-control" readOnly id="txt_proveedor_modificar" name="txt_proveedor_modificar" placeholder="Rut proveedor" type="">
+                                            <input class="form-control" id="txt_proveedor_modificar" name="txt_proveedor_modificar" placeholder="Rut proveedor" type="">
                                         </div>
-                                    </div> 
-                                </div> 
-                                <div class="row"> 
+                                    </div>
+                                </div>
+                                <div class="row">
                                     <div style="animation-delay: 0.5s;" class="col-md-3 animated-panel zoomIn">
 
                                         <div class="form-group">
 
                                             <label for="estadoProducto">Estado producto</label>
                                                  <select class="form-control" name="cmb_estado_producto_modificar" id="cmb_estado_producto_modificar">
-                                                    <?php 
+                                                    <?php
                                                         require_once '../clases/claseEstadoProducto.php';
                                                         $prod= new EstadoProducto();
                                                         $filasProduc= $prod->listarEstadoProducto();
@@ -94,7 +98,7 @@
                                                         }
 
                                                      ?>
-                                                </select> 
+                                                </select>
 
                                         </div>
 
@@ -105,7 +109,7 @@
                                         <div class="form-group">
                                             <label for="tipoUsuario">Categoria producto</label>
                                                  <select class="form-control" name="cmb_categoria_producto_modificar" id="cmb_categoria_producto_modificar">
-                                                    <?php 
+                                                    <?php
                                                         require_once '../clases/claseCategoriaProducto.php';
                                                         $cat= new CategoriaProducto();
                                                         $filasCat= $cat->listarCategoriaProducto();
@@ -114,7 +118,7 @@
                                                             echo '<option value="'.$tipo['id_categoria_producto'].'" >'.$tipo['descripcion_categoria_producto'].'</option>';
                                                         }
                                                      ?>
-                                                </select> 
+                                                </select>
                                         </div>
                                     </div>
                                 </div>
@@ -126,24 +130,23 @@
                                     </div>
                             </fieldset>
                         </form>
-                    </div> 
+                    </div>
 
                                           <!-- Fin formulario -->
                                           <div class="modal-footer">
                                               <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar Ventana</button>
                                           </div>
                                        </div>
-                                   </div> 
+                                   </div>
 
                                 <!-- Termino ventana modal -->
                                 </div>
                                 </table>
-                                        
+
 
                             </div>  <!-- table -->
 
                             <script>
-                           
 
                 $("#formProductoModificar").submit(function(){//ENVIA FORMULARIO DE MODIFICACION DE REGISTRO
                     event.preventDefault();
@@ -152,27 +155,25 @@
                     $.ajax({
                         url:"mantenedoresIngresar.php?mant=2&prod=2",
                         data: $("#formProductoModificar").serialize(),
-                       
-                        success:function(resultado){     
+
+                        success:function(resultado){
                              //alert("MODIFICADO CORRECTAMENTE");
                               cambiarPagina(1);
                               cargarDivTablaProducto();
                               eventoAlertActualizar();
                               //cambiarPagina(1);
-                                      
+
 
                         }
                     });
             });
-                           $('#modificar').click(function(){
-                            $('.modal-backdrop').fadeOut('fast');
-                               });    
 
 
-              
+
                                 // $("#formProductoModificar").validate();
-                                   
-                               
+
+
+
 
                         </script>
 
@@ -184,10 +185,7 @@
         $('.modal-backdrop').fadeOut('fast');
     });
     }
-                
-                                          
-                                              
 
-    </script>   
-  
 
+
+    </script>

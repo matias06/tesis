@@ -1,5 +1,10 @@
+<?php
+    require_once '../clases/Conexion.php';
+    $conexion = new Conexion();
+    $conexion->consultarSesion();
+?>
 <div class="container-fluid">
-          
+
             <div class="col-md-10-centered">                      
 
                     <div class="panel panel-default">
@@ -7,7 +12,7 @@
                                 <h3 class="panel-title">Mantenedor Categoría de trabajos</h3>
                         </div>
                             <div class="panel-body">
-                                
+
                                <!-- <form> -->
                     <form action="" id="formularioCatTrabajo" name="formularioCatTrabajo" method="POST">
                             <fieldset>
@@ -33,7 +38,7 @@
                         </div>
                 </div>
                 <!-- tabla -->
-              
+
 
            </div> <!-- container -->
 
@@ -45,12 +50,12 @@
 
 
                                     $.ajax({//realiza el envio del formulario pero por ajax para no tener que recargar pagina
-                                       
+
                                         url:"mantenedoresIngresar.php?mant=4&catTrab=1", //donde se va a ingresar "mantenedoresIngresar.php"
                                         data:$("#formularioCatTrabajo").serialize(),
                                         success:function(respuesta){
                                                 //alert(respuesta);
-                                                
+
                                                 cargarDivTablaCatTrabAjo();
                                                 eliminarCamposCatTrabajo();
                                         }
@@ -59,7 +64,7 @@
                             });
 
 
-                    
+
                                 //$("#formularioRegistro").validate();
 
 
@@ -67,7 +72,7 @@
 
                          <div id="tablas">
                     <!-- carga la tabla usuario por metodo ajax -->
-                    
+
                 </div>
 
                          <script>
@@ -86,15 +91,12 @@
 
                             </script>
 
-                               <script type="text/javascript"> 
+                               <script type="text/javascript">
                             function eliminarCamposCatTrabajo(){ /*AQUI LE DOY UN NOMBRE CUALQUIERA A LA FUNCION*/
                                     $("#txt_descripcion_categoria").val("");
-                                   
-                                
+
+
                             }
 
-                           
+
                             </script>
-
-
-                           
