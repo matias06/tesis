@@ -1,5 +1,5 @@
 <?php
-require_once '../clases/Conexion.php';
+require_once 'Conexion.php';
 class CategoriaProducto extends Conexion{
 
 	private $id_categoria_producto;

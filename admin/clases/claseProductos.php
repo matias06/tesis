@@ -1,5 +1,5 @@
 <?php
-require_once '../clases/Conexion.php';
+require_once 'Conexion.php';
 class Productos extends Conexion{
 
 	private $id_producto;
@@ -12,13 +12,13 @@ class Productos extends Conexion{
 
 	public function __construct(){
 		parent::__construct();
-		
+
 
 	}
 	// mostrar todos los datos de la base datos de productos
 	 public function listarProductos(){
-	 	$productos = $this->consultarRegistros("SELECT id_producto, descripcion_producto, valor_producto, 
-	 		imagen, rut, producto.id_estado_producto, descripcion_estado_producto, producto.id_categoria_producto, descripcion_categoria_producto 
+	 	$productos = $this->consultarRegistros("SELECT id_producto, descripcion_producto, valor_producto,
+	 		imagen, rut, producto.id_estado_producto, descripcion_estado_producto, producto.id_categoria_producto, descripcion_categoria_producto
 	 	from producto
 	 	inner join estadoproducto on estadoproducto.id_estado_producto = producto.id_estado_producto
 	 	inner join categoriaproducto on categoriaproducto.id_categoria_producto = producto.id_categoria_producto;");
@@ -55,7 +55,7 @@ class Productos extends Conexion{
 
 
 	public function insertarProductos(){
-        
+
         $verificar = $this->consultarExistencia("SELECT id_producto from producto where id_producto= '".$this->id_producto."'");
 
 
@@ -86,11 +86,11 @@ class Productos extends Conexion{
 					'".$this->id_categoria_producto."')");
             return $agregarProducto;
 		}
-        
-        
+
+
 				/*$consulta= "INSERT INTO figuesep.producto values ('".$this->id_producto."', '".$this->descripcion_producto."' ,".$this->valor_producto.",
 				'".$this->imagen."','".$this->rut."','".$this->id_estado_producto."','".$this->id_categoria_producto."')";
-				//echo $consulta;	
+				//echo $consulta;
 				$agregarProductos = $this->insertarRegistros($consulta);
 
                 if($consulta){
@@ -102,7 +102,7 @@ class Productos extends Conexion{
 
     public function eliminarProductos(){
         $verificar= $this->insertarRegistros("UPDATE producto set
-                                    id_estado_producto=".$this->id_estado_producto." 
+                                    id_estado_producto=".$this->id_estado_producto."
                                     where id_producto='".$this->id_producto."'");
 
                 if($verificar){
@@ -115,7 +115,7 @@ class Productos extends Conexion{
     public function modificarProductos(){
     $consulta="UPDATE producto SET descripcion_producto='".$this->descripcion_producto."',
 		   valor_producto='".$this->valor_producto."', imagen='".$this->imagen."', rut='".$this->rut."',
-		    id_estado_producto='".$this->id_estado_producto."', id_categoria_producto='".$this->id_categoria_producto."' 
+		    id_estado_producto='".$this->id_estado_producto."', id_categoria_producto='".$this->id_categoria_producto."'
 		    WHERE id_producto='".$this->id_producto."';";
 
     $modificarProducto = $this->insertarRegistros($consulta);
@@ -126,9 +126,13 @@ class Productos extends Conexion{
 		    else{
 		    	echo "ERROR AL MODIFICAR PRODUCTO; ERROR: ".$consulta;
 		    }
-    
-    }
 
- 
+    }
+		public function listar_producto_x_categoria($idcategoria){
+				$consulta = $this->consultarRegistros("SELECT * FROM producto WHERE id_categoria_producto = ".$idcategoria."");
+			 // echo "SELECT * FROM producto WHERE id_categoria_producto = ".$idcategoria."";
+				return $consulta;
+		}
+
 }
 ?>
