@@ -4,7 +4,7 @@ global $con;
 
 function cargarHeader(){
 ?>
-<meta charset="UTF-8">   
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 <script src="../js/jquery.js"></script>
 <script src="../js/bootstrap.min.js"></script>
@@ -38,31 +38,32 @@ function cargarMenu(){
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                             </button>
-                            <a href="../indexAdmin.php" class="navbar-brand">FIGUESEP</a>
+                          <img src="../comun/logo/fsp.png" alt="" width="220" height="50">
                         </div>
                         <div class="collapse navbar-collapse" id="navbar-1">
                             <ul class="nav navbar-nav">
-                                <li><a href="../principal/indexAdmin.php">Index Administrador</a></li>
+
                                 <li><a href="../principal/reportes.php">Reportes</a></li>
                                 <li><a href="../mantenedores/mantenedores.php">Mantenedores</a></li>
                                 <li><a href="../principal/proveedores.php">Proveedores</a></li>
                                 <li><a href="../principal/clientes.php">Clientes</a></li>
                                 <li><a href="../principal/orden.php">Orden de trabajo</a></li>
+                                <li><a href="../comun/destruirSesion.php">Cerrar Sesión</a></li>
                             </ul>
-                                                            
+
                         </div>
-                        
-                    </div>                    
+
+                    </div>
                 </nav>
             </header>
         </div>
         </div>
-<?php        
+<?php
 }
 
 // function cargarAjaxMantenedor(){
     ?>
-    <script type="text/javascript"> 
+    <script type="text/javascript">
     //                         function cargarDivUsuario(){ /*AQUI LE DOY UN NOMBRE CUALQUIERA A LA FUNCION*/
 
     //                             $.ajax({url: '../mantenedores/mantUsuario.php',
@@ -72,7 +73,7 @@ function cargarMenu(){
     //                             });
     //                         }
     //                         </script>
-                            <?php 
+                            <?php
 // }
 
 
@@ -89,7 +90,7 @@ function menuPublico(){
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.php">FIGUESEP</a>
+            <div><img src="admin/comun/logo/fsp.png" alt="" width="245" height="55"></div>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav navbar-right">
@@ -111,14 +112,14 @@ function menuPublico(){
                         <li><a data-toggle="modal" href='#modal-id-1'>Iniciar Sesion</a></li>
                         <li><a href="registro.php">Registro</a></li>
                     </ul>
-                </li>                    
+                </li>
             </ul>
         </div>
 
     </div>
 </div>
         //modal//
-        
+
         <div class="modal" id="modal-id-1">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -139,7 +140,7 @@ function menuPublico(){
                 </div>
                 <input type="submit" value="Aceptar" class="btn btn-success">
             </form>
-        
+
             </div>
             <div class="modal-footer">
                 <button type="submit" class="btn btn-default" data-dismiss="modal">Cerrar</button>
@@ -147,12 +148,12 @@ function menuPublico(){
         </div>
     </div>
 </div>
-                    
+
                     //script sesion
-                    
-                    
+
+
        <?php
-        
+
 }
 
 function footerPublico(){
@@ -175,5 +176,3 @@ function footerPublico(){
 }
 
 ?>
-
-
