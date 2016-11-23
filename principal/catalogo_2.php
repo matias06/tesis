@@ -29,7 +29,7 @@
 
 <!--MENU-->
 <?php
-require_once'admin/comun/comun.php';
+require_once'comun/comun.php';
 menuPublico();
 ?>
 
@@ -66,63 +66,63 @@ menuPublico();
                         <img src="imagenes/productos/Audio/bass.jpg" class="img-responsive" alt="">
                         <span>nombre del producto</span>
                     </a>
-                </div>     
+                </div>
 
                 <div class="well well-cw col-xs-12 col-sm-6 col-md-4">
                     <a href="#">
                         <img src="imagenes/productos/Audio/parlante1.jpg" class="img-responsive" alt="">
                         <span>nombre del producto</span>
                     </a>
-                </div>     
+                </div>
 
                 <div class="well well-cw col-xs-12 col-sm-6 col-md-4">
                     <a href="ficha.html">
                         <img src="imagenes/productos/Audio/parlante2.jpg" class="img-responsive" alt="">
                         <span>nombre del producto</span>
                     </a>
-                </div>  
+                </div>
 
                 <div class="well well-cw col-xs-12 col-sm-6 col-md-4">
                     <a href="ficha.html">
                         <img src="imagenes/productos/Audio/parlante2.jpg" class="img-responsive" alt="">
                         <span>nombre del producto</span>
                     </a>
-                </div>     
+                </div>
 
                 <div class="well well-cw col-xs-12 col-sm-6 col-md-4">
                     <a href="ficha.html">
                         <img src="imagenes/productos/Audio/bass.jpg" class="img-responsive" alt="">
                         <span>nombre del producto</span>
                     </a>
-                </div>     
+                </div>
 
                 <div class="well well-cw col-xs-12 col-sm-6 col-md-4">
                     <a href="ficha.html">
                         <img src="imagenes/productos/Audio/parlante1.jpg" class="img-responsive" alt="">
                         <span>nombre del producto</span>
                     </a>
-                </div>  
+                </div>
 
                 <div class="well well-cw col-xs-12 col-sm-6 col-md-4">
                     <a href="ficha.html">
                         <img src="imagenes/productos/Audio/parlante1.jpg" class="img-responsive" alt="">
                         <span>nombre del producto</span>
                     </a>
-                </div>     
+                </div>
 
                 <div class="well well-cw col-xs-12 col-sm-6 col-md-4">
                     <a href="ficha.html">
                         <img src="imagenes/productos/Audio/parlante2.jpg" class="img-responsive" alt="">
                         <span>nombre del producto</span>
                     </a>
-                </div>     
+                </div>
 
                 <div class="well well-cw col-xs-12 col-sm-6 col-md-4">
                     <a href="ficha.html">
                         <img src="imagenes/productos/Audio/bass.jpg" class="img-responsive" alt="">
                         <span>nombre del producto</span>
                     </a>
-                </div>  
+                </div>
 
             </div><!--final-contenido-central-->
 
@@ -133,7 +133,7 @@ menuPublico();
 </main><!--contenido-principal-->
 
 <footer>
-    
+
 <?php
 require_once'admin/comun/comun.php';
 footerPublico();
@@ -158,17 +158,17 @@ footerPublico();
             url:"admin/comun/validarSesion.php",
             data:$('#inicio_sesion').serialize(),
             success:function(respuesta){
-            
+
             if(respuesta == '1'){
             window.location = 'admin/principal/indexAdmin.php';
             }else if(respuesta == '2'){
                 window.location = '#';
-                  
+
             }else{
                  alert("Incorrecto");
             }
         }
-            
+
         });
     });
 </script>

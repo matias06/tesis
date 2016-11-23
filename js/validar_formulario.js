@@ -26,16 +26,8 @@ $(document).ready(function(){
 		},
 
 
-	
+
 	});
 
-	$("#btn_insert").on('click',function(){
 
-        if(formulario.form())
-        {
-            swal("Operacion realizada con exito", "Registro guardado!!!", "success");
-           
-        }
-
-    });
 })

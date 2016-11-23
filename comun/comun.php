@@ -21,6 +21,7 @@ function cargarHeader(){
 <link rel="stylesheet" type="text/css" href="../css/sweet-alert.css">
 
 
+
 <?php
 }
 
@@ -38,7 +39,7 @@ function cargarMenu(){
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                             </button>
-                          <img src="../comun/logo/fsp.png" alt="" width="220" height="50">
+                        <a href="../principal/indexAdmin.php"><img src="../comun/logo/fsp.png" alt="" width="220" height="50"></a>
                         </div>
                         <div class="collapse navbar-collapse" id="navbar-1">
                             <ul class="nav navbar-nav">
@@ -61,7 +62,10 @@ function cargarMenu(){
 <?php
 }
 
-// function cargarAjaxMantenedor(){
+    function cargarMenuPublico() {
+
+
+    }
     ?>
     <script type="text/javascript">
     //                         function cargarDivUsuario(){ /*AQUI LE DOY UN NOMBRE CUALQUIERA A LA FUNCION*/
@@ -90,27 +94,27 @@ function menuPublico(){
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <div><img src="admin/comun/logo/fsp.png" alt="" width="245" height="55"></div>
+            <div><img src="../comun/logo/fsp.png" alt="" width="245" height="55"></div>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a href="index.php">Inicio</a>
+                    <a href="../principal/index.php">Inicio</a>
                 </li>
                 <li>
-                    <a href="servicios.php">Servicios</a>
+                    <a href="../principal/servicios.php">Servicios</a>
                 </li>
                 <li>
-                    <a href="catalogo.php">Catálogo</a>
+                    <a href="../principal/catalogo.php">Catálogo</a>
                 </li>
                 <li>
-                    <a href="contacto.php">Contacto</a>
+                    <a href="../principal/contacto.php">Contacto</a>
                 </li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Ingresar <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li><a data-toggle="modal" href='#modal-id-1'>Iniciar Sesion</a></li>
-                        <li><a href="registro.php">Registro</a></li>
+                        <li><a href="../principal/registro.php">Registro</a></li>
                     </ul>
                 </li>
             </ul>
@@ -118,6 +122,7 @@ function menuPublico(){
 
     </div>
 </div>
+
         //modal//
 
         <div class="modal" id="modal-id-1">
@@ -132,7 +137,7 @@ function menuPublico(){
             <form id="inicio_sesion" name="inicio_sesion" action="#" align="center">
                 <div class="form-group">
                 <label for="run">Digite su RUN:</label><br>
-                <input class="" name="run_usuario" type="text" placeholder="Run Usuario" OnBlur="validaRut(this.value)">
+                <input class="" name="run_usuario" type="text" placeholder="Run Usuario">
                 </div><br>
                 <div class="form-group">
                 <label for="password">Ingrese Contraseña:</label><br>
@@ -148,6 +153,50 @@ function menuPublico(){
         </div>
     </div>
 </div>
+// <!-- Modal -->
+
+// echo'<div class="modal fade" id=" " role="dialog">';
+//   echo'<div class="modal-dialog">';
+//
+//     // <!-- Modal content-->
+//     <div class="modal-content">
+//       <div class="modal-header" style="padding:35px 50px;">
+//         <button type="button" class="close" data-dismiss="modal">&times;</button>
+//         <h4><span class="glyphicon glyphicon-lock"></span> Login</h4>
+//       </div>
+//       <div class="modal-body" style="padding:40px 50px;">
+//         <form role="form">
+//           <div class="form-group">
+//             <label for="usrname"><span class="glyphicon glyphicon-user"></span> Username</label>
+//             <input type="text" class="form-control" id="usrname" placeholder="Enter email">
+//           </div>
+//           <div class="form-group">
+//             <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
+//             <input type="text" class="form-control" id="psw" placeholder="Enter password">
+//           </div>
+//           <div class="checkbox">
+//             <label><input type="checkbox" value="" checked>Remember me</label>
+//           </div>
+//             <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span> Login</button>
+//         </form>
+//       </div>
+//       <div class="modal-footer">
+//         <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+//         <p>Not a member? <a href="#">Sign Up</a></p>
+//         <p>Forgot <a href="#">Password?</a></p>
+//       </div>
+//     </div>
+//
+//   </div>
+// </div>
+// <script>
+// $(document).ready(function(){
+//     $("#myBtn").click(function(){
+//         $("# ").modal();
+//     });
+// });
+// </script>
+
 
                     //script sesion
 
@@ -175,49 +224,6 @@ function footerPublico(){
 <?php
 }
 
-function validaRut(str)
-      {
-          var rut = str.replace(/\./gi, "");
 
-          //Valor acumulado para el calculo de la formula
-          var nAcumula = 0;
-          //Factor por el cual se debe multiplicar el valor de la posicion
-          var nFactor = 2;
-          //Dígito verificador
-          var nDv = 0;
-
-          //extraemos el digito verificador (La K corresponde a 10)
-          if(rut.charAt(rut.length-1).toUpperCase()=='K'){
-              nDvReal = 10;
-          //el 0 corresponde a 11
-          }else{
-                  if(rut.charAt(rut.length-1)==0){
-                      nDvReal = 11;
-                  }else{
-                      nDvReal = rut.charAt(rut.length-1);
-                  }
-          }
-
-                 for(nPos=rut.length-2; nPos>0; nPos--){
-
-                          var numero = rut.charAt(nPos-1).valueOf();
-                          nAcumula =nAcumula+( numero*nFactor);
-
-                          nFactor= nFactor+1;
-                          if (nFactor==8){
-                               nFactor = 2;
-                          }
-
-                  }
-
-         nDv = 11-(nAcumula%11);
-
-          if (nDv == nDvReal){
-                  return true;
-          }else{
-              return false;
-          }
-
-      }
 
 ?>

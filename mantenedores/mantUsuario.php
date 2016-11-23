@@ -26,12 +26,7 @@
 </div>
 <br>
  <div class="container-fluid">
-
-
                 <div class="col-md-10-centered">
-
-
-
                     <div class="panel panel-default">
                         <div class="panel-heading">
                                 <h3 class="panel-title">Mantenedor Usuarios</h3>

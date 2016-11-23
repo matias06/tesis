@@ -186,6 +186,23 @@
                         }
                         </script>
                 </li>
+
+                <li class="lineaLi">
+                    <a href="#" value="SubCatProducto" onclick="cargarDivSubCatProducto();">Sub Categoria producto</a>
+                    <script type="text/javascript">
+                        function cargarDivSubCatProducto(){ /*AQUI LE DOY UN NOMBRE CUALQUIERA A LA FUNCION*/
+
+                            $.ajax({url: '../mantenedores/mantSubCatProducto.php',
+                                    success:function(data){
+                                        $("#page-wrapper").html(data);
+                                    }
+                            });
+                        }
+                        </script>
+                </li>
+                <li class="lineaLi">
+                    <a href="../principal/indexAdmin.php" value="SubCatProducto" onclick="cargarDivSubCatProducto();">Inicio</a>
+                </li>
             </ul>
             </div>
             <!-- /.navbar-collapse -->

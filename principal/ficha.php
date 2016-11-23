@@ -26,10 +26,10 @@
     <![endif]-->
 </head>
 <body>
-    
+
 <!--MENU-->
 <?php
-require_once'admin/comun/comun.php';
+require_once'comun/comun.php';
 menuPublico();
 ?>
 <!-- END MODAL-->
@@ -52,7 +52,7 @@ menuPublico();
                     <li><a href="catalogo.php">Volver a Catálogo</a></li>
                     <!--<li><a href="catalogo_2.html">Sub_categoria</a></li>-->
                 </ul>
-             
+
               <hr>
             </div>
 
@@ -117,7 +117,7 @@ menuPublico();
 </main><!--contenido-principal-->
 
 <footer>
-    
+
 </footer>
 <div class="sub_footer">
     <span>&copy;Todos Los Derechos Reservados</span>
@@ -137,17 +137,17 @@ menuPublico();
             url:"admin/comun/validarSesion.php",
             data:$('#inicio_sesion').serialize(),
             success:function(respuesta){
-            
+
             if(respuesta == '1'){
             window.location = 'admin/principal/indexAdmin.php';
             }else if(respuesta == '2'){
                 window.location = '#';
-                  
+
             }else{
                  alert("Incorrecto");
             }
         }
-            
+
         });
     });
 </script>
