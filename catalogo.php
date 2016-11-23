@@ -80,7 +80,7 @@ menuPublico();
                           <br>
                           <div class="well well-cw col-xs-12 col-sm-6 col-md-4">
                               <a href="ficha.php">
-                                  <img src="imagenes/productos/<?php echo $verproducto['imagen']; ?>" class="img-responsive" alt="<?php echo $verproducto['descripcion_producto']; ?>">
+                                  <img src="imagenes/productos/<?php echo $verproducto['imagen']; ?>" class="img-responsive" alt="<?php echo $verproducto['descripcion_producto']; ?>"/>
                                   <span><?php echo $verproducto['valor_producto']; ?></span>
                                 </a>
                             </div>

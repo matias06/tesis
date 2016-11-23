@@ -132,7 +132,7 @@ function menuPublico(){
             <form id="inicio_sesion" name="inicio_sesion" action="#" align="center">
                 <div class="form-group">
                 <label for="run">Digite su RUN:</label><br>
-                <input class="" name="run_usuario" type="text" placeholder="Run Usuario">
+                <input class="" name="run_usuario" type="text" placeholder="Run Usuario" OnBlur="validaRut(this.value)">
                 </div><br>
                 <div class="form-group">
                 <label for="password">Ingrese Contraseña:</label><br>
@@ -174,5 +174,50 @@ function footerPublico(){
 </div>
 <?php
 }
+
+function validaRut(str)
+      {
+          var rut = str.replace(/\./gi, "");
+
+          //Valor acumulado para el calculo de la formula
+          var nAcumula = 0;
+          //Factor por el cual se debe multiplicar el valor de la posicion
+          var nFactor = 2;
+          //Dígito verificador
+          var nDv = 0;
+
+          //extraemos el digito verificador (La K corresponde a 10)
+          if(rut.charAt(rut.length-1).toUpperCase()=='K'){
+              nDvReal = 10;
+          //el 0 corresponde a 11
+          }else{
+                  if(rut.charAt(rut.length-1)==0){
+                      nDvReal = 11;
+                  }else{
+                      nDvReal = rut.charAt(rut.length-1);
+                  }
+          }
+
+                 for(nPos=rut.length-2; nPos>0; nPos--){
+
+                          var numero = rut.charAt(nPos-1).valueOf();
+                          nAcumula =nAcumula+( numero*nFactor);
+
+                          nFactor= nFactor+1;
+                          if (nFactor==8){
+                               nFactor = 2;
+                          }
+
+                  }
+
+         nDv = 11-(nAcumula%11);
+
+          if (nDv == nDvReal){
+                  return true;
+          }else{
+              return false;
+          }
+
+      }
 
 ?>

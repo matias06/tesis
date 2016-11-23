@@ -188,7 +188,7 @@ require_once '../clases/usuario.php';
                                     $valor = filter_var($_REQUEST['txt_valor'], FILTER_SANITIZE_NUMBER_INT);
 									$productos->setvalor_producto($valor);
 
-                                    $imagen = filter_var($_REQUEST['txt_imagen'], FILTER_SANITIZE_STRING);
+                  $imagen = filter_var($_REQUEST['txt_imagen'], FILTER_SANITIZE_STRING);
 									$productos->setimagen($imagen);
 
 									$productos->setrut($_REQUEST['cmb_proveedores']);

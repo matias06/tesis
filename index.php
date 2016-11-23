@@ -50,53 +50,53 @@ menuPublico();
         <li data-target="#carousel-id" data-slide-to="1" class=""></li>
         <li data-target="#carousel-id" data-slide-to="2" class=""></li>
         <li data-target="#carousel-id" data-slide-to="3" class=""></li>
-        
-        
+
+
     </ol>
     <div class="carousel-inner">
         <div class="item active">
-            <img src="imagenes/slide/gal1.jpg." alt="slider-1" />
+            <img src="imagenes/slide/gal1-min.jpg." alt="slider-1" />
             <div class="container">
                 <!--<div class="carousel-caption">
                     <h1>Texto </h1>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt eaque doloribus, veritatis dolor odit minus nemo ipsum commodi amet aspernatur cumque necessitatibus voluptates enim sapiente recusandae autem sequi suscipit? Dignissimos!</p>
-                
+
                     <button type="button" class="btn btn-success">Enviar</button>
 
                 </div>-->
             </div>
         </div>
         <div class="item">
-            <img src="imagenes/slide/gal2.jpg" alt="slider-1" />
+            <img src="imagenes/slide/gal2-min.jpg" alt="slider-1" />
             <div class="container">
                 <!--<div class="carousel-caption">
                     <h1>Texto </h1>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt eaque doloribus, veritatis dolor odit minus nemo ipsum commodi amet aspernatur cumque necessitatibus voluptates enim sapiente recusandae autem sequi suscipit? Dignissimos!</p>
-                
+
                     <button type="button" class="btn btn-success">Enviar</button>
 
                 </div>-->
             </div>
         </div>
         <div class="item">
-            <img src="imagenes/slide/gal3.jpg" alt="slider-1" />
+            <img src="imagenes/slide/gal3-min.jpg" alt="slider-1" />
             <div class="container">
                 <!--<div class="carousel-caption">
                     <h1>Texto </h1>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt eaque doloribus, veritatis dolor odit minus nemo ipsum commodi amet aspernatur cumque necessitatibus voluptates enim sapiente recusandae autem sequi suscipit? Dignissimos!</p>
-                
+
                 <button type="button" class="btn btn-success">Enviar</button>
 
                 </div>-->
             </div>
         </div>
         <div class="item">
-            <img src="imagenes/slide/gal4.jpg" alt="slider-1" />
+            <img src="imagenes/slide/gal4-min.jpg" alt="slider-1" />
             <div class="container">
                 <!--<div class="carousel-caption">
                     <h1>Texto </h1>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt eaque doloribus, veritatis dolor odit minus nemo ipsum commodi amet aspernatur cumque necessitatibus voluptates enim sapiente recusandae autem sequi suscipit? Dignissimos!</p>
-                
+
                 <button type="button" class="btn btn-success">Enviar</button>
 
                 </div>-->
@@ -117,7 +117,7 @@ menuPublico();
             <div class="col-xs-12">
                 <h4 class="text-center">
                     Nuestros Servicios <br/>
-                    
+
                     <small> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates alias, porro consequatur  </small>
 
                 </h4>
@@ -168,7 +168,7 @@ menuPublico();
             <a href="imagenes/galeriaInicio/556242.jpg" data-lightbox="image-1" data-title="Informacion sobre la imagen">
             <img src="imagenes/galeriaInicio/556242.jpg" alt="wall" class="img-responsive img-rounded"></a>
         </div>
-        
+
         <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
             <a href="imagenes/galeriaInicio/audio2.jpg" data-lightbox="image-1" data-title="Informacion sobre la imagen">
             <img src="imagenes/galeriaInicio/audio2.jpg" alt="wall" class="img-responsive img-rounded"></a>
@@ -190,12 +190,12 @@ menuPublico();
             <a href="imagenes/galeriaInicio/faros.jpg" data-lightbox="image-1" data-title="Informacion sobre la imagen">
             <img src="imagenes/galeriaInicio/faros.jpg" alt="wall" class="img-responsive img-rounded"></a>
         </div>
-        
+
         <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
             <a href="imagenes/galeriaInicio/img.jpg" data-lightbox="image-1" data-title="Informacion sobre la imagen">
             <img src="imagenes/galeriaInicio/img.jpg" alt="wall" class="img-responsive img-rounded"></a>
         </div>
-        
+
         <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
             <a href="imagenes/galeriaInicio/teaserbox_5225130.png" data-lightbox="image-1" data-title="Informacion sobre la imagen">
             <img src="imagenes/galeriaInicio/teaserbox_5225130.png" alt="wall" class="img-responsive img-rounded"></a>
@@ -208,7 +208,7 @@ menuPublico();
 </section>
 
 <section class="sobre_nosotros">
-    
+
 <div class="container">
 
     <div class="row">
@@ -216,7 +216,7 @@ menuPublico();
         <div class="col-xs-12 col-sm-6 col-md-4">
             <h4 class="text-center">
                 Nuestros Servicios <br/>
-                
+
                 <small> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates alias, porro consequatur  </small>
 
             </h4>
@@ -225,7 +225,7 @@ menuPublico();
         <div class="col-xs-12 col-sm-6 col-md-4">
             <h4 class="text-center">
                 Nuestros Servicios <br/>
-                
+
                 <small> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates alias, porro consequatur  </small>
 
             </h4>
@@ -234,7 +234,7 @@ menuPublico();
         <div class="col-xs-12 col-sm-6 col-md-4">
             <h4 class="text-center">
                 Nuestros Servicios <br/>
-                
+
                 <small> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates alias, porro consequatur  </small>
 
             </h4>
@@ -243,11 +243,11 @@ menuPublico();
     </div>
 
 </div>
-    
+
 </section>
 
 <footer>
-    
+
 <?php
 require_once'admin/comun/comun.php';
 footerPublico();
@@ -274,7 +274,7 @@ footerPublico();
       'maxWidth':1024
     })
 </script>
-
+//este script discrimina tipo de usuario (recibe de validarSesion.php)//
 <script>
     $('#inicio_sesion').submit(function(){
         event.preventDefault();
@@ -282,17 +282,17 @@ footerPublico();
             url:"admin/comun/validarSesion.php",
             data:$('#inicio_sesion').serialize(),
             success:function(respuesta){
-            
+
             if(respuesta == '1'){
             window.location = 'admin/principal/indexAdmin.php';
             }else if(respuesta == '2'){
                 window.location = '#';
-                  
+
             }else{
                  alert("Incorrecto");
             }
         }
-            
+
         });
     });
 </script>

@@ -52,17 +52,17 @@
                                             <input class="form-control" id="txt_descripcion" name="txt_descripcion" placeholder="Descripción de productos" type="text">
                                         </div>
                                     </div>
-                                    <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
+                                    <div style="animation-delay: 0.2s;" class="col-md-2 animated-panel zoomIn">
                                         <div class="form-group">
                                             <label for="valor">Valor:</label>
                                             <input class="form-control" id="txt_valor" name="txt_valor" placeholder="Valor del producto" type="text">
                                         </div>
                                     </div>
                                    <!--  imagen cambiar el txt_imagen -->
-                                    <div style="animation-delay: 0.2s; height:200px" class="col-md-3 animated-panel zoomIn">
+                                    <div style="animation-delay: 0.2s;" class="col-md-2 animated-panel zoomIn">
                                         <div class="form-group">
-                                            <label for="password">Imagen</label>
-                                            <input class="img-responsive" alt="Imagen responsive" id="txt_imagen" name="txt_imagen" placeholder="" type="">
+                                          <label for="imagen">Subir Imagen</label>
+                                          <input type="file" id="txt_imagen" name="txt_imagen">
                                         </div>
                                     </div>
 
@@ -110,7 +110,7 @@
 
                                     </div>
 
-                                   <div style="animation-delay: 0.5s;" class="col-md-3 animated-panel zoomIn">
+                                   <div style="animation-delay: 0.5s;" class="col-md-2 animated-panel zoomIn">
 
                                         <div class="form-group">
 
@@ -160,12 +160,17 @@
 
                              $("#formularioProducto").submit(function(){//captura cuando se envia el formulario
                                 event.preventDefault();//detiene el envio del formulario
-
+                                var formData = new FormData(document.getElementById("formularioProducto"));
+                                //alert("llega");
 
                                     $.ajax({//realiza el envio del formulario pero por ajax para no tener que recargar pagina
 
                                         url:"mantenedoresIngresar.php?mant=2&prod=1", //donde se va a ingresar "mantenedoresIngresar.php"
-                                        data:$("#formularioProducto").serialize(),
+                                        data:formData,
+                                        type:'POST',
+                                        cache:false,
+                                        contentType:false,
+                                        processData:false,
                                         success:function(respuesta){
                                                  alert(respuesta);
                                                 //$("#formularioProducto").html(respuesta);
@@ -183,22 +188,18 @@
                               //  $("#formularioProducto").validate();
 
 
-                        </script>
-              <script>
+
               function eventoAlertCorrecto(){
               swal("Exito!", "Se ha agregado correctamente!", "success")
                // swal("Se ha agregado correctamente!", "You clicked the button!", "success")
               }
-              </script>
 
-                <script>
              function eventoAlertEliminar(){
                 swal("Exito!", "Se ha eliminado correctamente!", "success")
                  // swal("Se ha agregado correctamente!", "You clicked the button!", "success")
                 }
 
-                </script>
-                         <script type="text/javascript">
+
                             function eliminarCamposProducto(){ /*AQUI LE DOY UN NOMBRE CUALQUIERA A LA FUNCION*/
                                     $("#txt_id_producto").val("");
                                     $("#txt_descripcion").val("");
@@ -208,13 +209,6 @@
 
                             }
                             </script>
-
-                 <div id="tablas">
-                    <!-- carga la tabla producto por metodo ajax -->
-
-                </div>
-
-
                             <script>
 
             function cargarDivTablaProducto(){
