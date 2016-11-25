@@ -9,7 +9,6 @@ function cargarHeader(){
 <script src="../js/jquery.js"></script>
 <script src="../js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="../css/bootstrap.min.css">
-<link rel="stylesheet" href="../css/estilo.css">
 <link href="../css/sb-admin.css" rel="stylesheet"> <!-- menu botones del mantenedor -->
 <!-- <link href="../css/plugins/morris.css" rel="stylesheet"> -->
 <!-- <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
@@ -19,6 +18,7 @@ function cargarHeader(){
 <!-- <link rel="stylesheet" href="../js/validaciones.js">
 <link rel="stylesheet" href="../js/validar_formulario.js"> -->
 <link rel="stylesheet" type="text/css" href="../css/sweet-alert.css">
+<link rel="stylesheet" href="../css/estilo.css">
 
 
 

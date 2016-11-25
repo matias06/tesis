@@ -56,5 +56,64 @@ label.error, label span.error {
     margin: 5px 0 0 0;
     font-weight: 400;
 }
-/*un ejemplo dentro de una empresa
-algoritmo de la mochila */
+.content-central{
+  width: 100%;
+  display:flex;
+  flex-flow: column wrap;
+  /*justify-content: center; centra */
+  align-items: center;
+}
+.content-proveedor{
+  background: rgba(36, 44, 44, 0.5);
+  width: 90%;
+  height: 100vh;
+}
+#mostrarProveedor{
+  background-color: #F8F8F8;
+}
+.titleh2{
+  font-weight: bold;
+  color:#0B4C5
+  F;
+  text-shadow: 1px 1px gray;
+  font-size: 2em;
+}
+/*diseño tabla*/
+.tablaGeneral{
+  background:#fff;
+  color:black;
+  text-align: center;
+  border-radius: 10px;
+
+}
+
+.tablaHead{
+  background:teal;
+  text-align: center;
+  color:#fff;
+
+}
+ th,td{
+  text-align: center;
+
+}
+.botonPaginador{
+  background: #FE2E2E;
+  color:#fff;
+  margin-right: 5px;
+
+}
+
+.tablaFilas:nth-child(even){
+  background:#E6E6E6;
+}
+@media (max-width: 1300px) {
+  .content-proveedor{
+    background:red;
+
+  }
+  .tablaGeneral{
+    max-width: : 1300px;
+  }
+
+}

@@ -36,9 +36,22 @@
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav" id="fondo">
-                    
+
                 <li class="lineaLi">
-                    <a href="../principal/indexAdmin.php" value="SubCatProducto" onclick="cargarDivSubCatProducto();">Inicio</a>
+                    <a href="../principal/indexAdmin.php" value="SubCatProducto" onclick="cargarDivStock();">Inicio</a>
+                </li>
+
+                <li class="lineaLi">
+                    <a href="#" value="Productos" onclick="cargarDivStock();">Producto más vendidos</a>
+                        <script type="text/javascript">
+                            function cargarDivStock(){ /*AQUI LE DOY UN NOMBRE CUALQUIERA A LA FUNCION*/
+                            $.ajax({url: '../mantenedores/stock.php',
+                                success:function(data){
+                                $("#page-wrapper").html(data);
+                                                      }
+                                    });
+                                  }
+                        </script>
                 </li>
             </ul>
             </div>

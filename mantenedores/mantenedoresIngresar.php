@@ -101,7 +101,7 @@ require_once '../clases/usuario.php';
                                             <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
 
                                             <!--  botones eliminar -->
-                                            <button type="button" class="btn btn-danger" onclick="eliminarUsuario(\''.$user['run'].'\');" aria-label="left aling">
+                                            <button type="button" class="btn btn-danger bottonEliminar" onclick="eliminarUsuario(\''.$user['run'].'\');" aria-label="left aling">
                                             <span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button></td>
                                         </tr>
                                         </div>';
@@ -410,7 +410,65 @@ require_once '../clases/usuario.php';
                             </div>
                                  <?php
                                 break;
-                        }
+                case "5": //PAGINADOR
+                ?>
+                  <div class="table-responsive">
+                                <table class="table table-bordered table-hover table-condensed tablaGeneral">
+                                        <thead class="active danger tablaHead">
+                                            <th>Razón Social</th>
+                                            <th>Direccion</th>
+                                            <th>Telefono</th>
+                                            <th>Correo</th>
+                                            <th>Estado</th>
+                                            <th>Eliminar Editar </th>
+                                        </thead>
+
+
+                                        <?php
+
+                                            $proveedor = new Proveedor();
+                                            $buscar = filter_var($_REQUEST['buscar'], FILTER_SANITIZE_STRING);
+            $filas = $proveedor->BuscarFiltarRegistros("vistaproveedor","campoBuscar",$buscar,$_REQUEST['pag'],$_REQUEST['cantidadReg']);
+
+                                        $contador=0;
+                                        foreach($filas[0][0] as $user){
+                                        $contador++;
+
+                                    echo'
+                                    <div class="container">
+                                        <tr class="tablaFilas">
+                                            <span class="hidden" id="txt_rut'.$contador.'">'.$user['rut'].'</span>
+                                            <td><span id="txt_razon_social'.$contador.'">'.$user['razon_social'].'</span></td>
+                                            <td><span id="txt_direccion'.$contador.'">'.$user['direccion_proveedor'].'</span></td>
+                                            <td><span id="txt_telefono'.$contador.'">'.$user['telefono'].'</span></td>
+                                            <td><span id="txt_correo'.$contador.'">'.$user['correo'].'</span></td>
+
+                                            <td><span class="hidden" id="id_estado'.$contador.'">'.$user['id_estado'].'</span>
+                                            <span id="cmb_estado_modificar'.$contador.'">'.$user['descripcion_estado'].'</span></td>
+
+
+                                            <!--  botones e-mail -->
+                                            <td><button type="button" onclick="" data-toggle="modal" data-target="#modificar" class="btn btn-warning">
+                                            <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></a>
+
+
+                                        </tr>
+                                        </div>';
+                                          } ?>
+                                            <tr>
+                                              <td colspan="7">
+                                                <center>
+                                                <?php
+                                                  echo $filas[0][1];
+                                                ?>
+                                              </center>
+                                              </td>
+                                            </tr>
+                                </table>
+                            </div>
+                                 <?php
+                                break;
+        }
             break;
 
 			case "4": echo " Mantenedor Categoria Trabajo";

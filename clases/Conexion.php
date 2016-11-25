@@ -119,7 +119,7 @@ class Conexion{
 
             $paginador="";
                 for($c=1; $c<=$cantidad; $c++){
-                   $paginador.='<a class="btn btn-default" href="javascript:cambiarPagina('.$c.')">'.$c.'</a>';
+                   $paginador.='<a class="btn btn-default botonPaginador" href="javascript:cambiarPagina('.$c.')">'.$c.'</a>';
                 }
         $devuelve[0][0] = $resultado;
         $devuelve[0][1] = $paginador;
