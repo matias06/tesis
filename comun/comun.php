@@ -48,6 +48,7 @@ function cargarMenu(){
                                 <li><a href="../mantenedores/mantenedores.php">Mantenedores</a></li>
                                 <li><a href="../principal/proveedores.php">Proveedores</a></li>
                                 <li><a href="../principal/clientes.php">Clientes</a></li>
+                                <li><a href="../principal/comprasProveedor.php">Compras proveedor</a></li>
                                 <li><a href="../principal/orden.php">Orden de trabajo</a></li>
                                 <li><a href="../comun/destruirSesion.php">Cerrar Sesión</a></li>
                             </ul>

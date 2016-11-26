@@ -60,7 +60,7 @@ require_once '../clases/usuario.php';
 
  						<div class="table-responsive">
                                 <table class="table table-bordered table-hover table-condensed" id="fondo">
-                                        <thead class="active danger">
+                                        <thead class="active danger tablaHead">
                                             <th>Run</th>
                                             <th>Nombre</th>
                                             <th>Apellido</th>
@@ -83,7 +83,7 @@ require_once '../clases/usuario.php';
 
                                         echo'
                                         <div class="container">
-                                        <tr>
+                                        <tr class="tablaFilas">
                                             <td><span id="txt_run'.$contador.'">'.$user['run'].'</span></td>
                                             <td><span id="txt_nombre'.$contador.'">'.$user['nombre'].'</span></td>
                                             <td><span id="txt_apellido'.$contador.'">'.$user['apellido'].'</span></td>
@@ -232,7 +232,7 @@ require_once '../clases/usuario.php';
 
  						<div class="table-responsive">
                                 <table class="table table-bordered table-hover table-condensed" id="fondo">
-                                          <thead class="active danger">
+                                          <thead class="active danger tablaHead">
 
                                             <th>Codigo</th>
                                             <th>Descripción</th>
@@ -255,7 +255,7 @@ require_once '../clases/usuario.php';
 
                                         echo'
                                         <div class="container">
-                                        <tr>
+                                        <tr class="tablaFilas">
 
                                           <td><span id="txt_id_producto'.$contador.'">'.$user['id_producto'].'</span></td>
                                             <td><span id="txt_descripcion'.$contador.'">'.$user['descripcion_producto'].'</span></td>
@@ -352,8 +352,8 @@ require_once '../clases/usuario.php';
 								case "4": //PAGINADOR
 								?>
 									<div class="table-responsive">
-                                <table class="table table-bordered table-hover table-condensed">
-                                        <thead class="active danger">
+                                <table class="table table-bordered table-hover table-condensed tablaGeneral">
+                                        <thead class="active danger tablaHead">
 
                                             <th>Razón Social</th>
                                             <th>Direccion</th>
@@ -376,7 +376,7 @@ require_once '../clases/usuario.php';
 
                                     echo'
                                     <div class="container">
-                                        <tr>
+                                        <tr class="tablaFilas">
                                             <span class="hidden" id="txt_rut'.$contador.'">'.$user['rut'].'</span>
                                             <td><span id="txt_razon_social'.$contador.'">'.$user['razon_social'].'</span></td>
                                             <td><span id="txt_direccion'.$contador.'">'.$user['direccion_proveedor'].'</span></td>
@@ -564,12 +564,12 @@ require_once '../clases/usuario.php';
 
 
                                             <table class="table table-bordered table-hover table-condensed" id="tablaRegion">
-                                                    <tr class="active danger" >
+                                                    <thead class="active danger tablaHead">
                                                         <th>Numero Región</th>
                                                         <th>Nombre Región</th>
 
                                                         <th>Editar Eliminar </th>
-                                                    </tr>
+                                                    </thead>
                                                     <?php
                                                         require_once'../clases/claseRegion.php';
                                                         $region = new Region();
@@ -666,12 +666,12 @@ require_once '../clases/usuario.php';
 
 
                                             <table class="table table-bordered table-hover table-condensed" id="tablaCiudad">
-                                                    <tr class="active danger" >
+                                                    <thead class="active danger tablaHead">
                                                         <th>Ciudad</th>
                                                         <th>Region</th>
 
                                                         <th>Editar Eliminar </th>
-                                                    </tr>
+                                                    </thead>
                                                     <?php
                                                         require_once'../clases/claseCiudad.php';
                                                         $ciu = new Ciudad();
@@ -757,12 +757,12 @@ require_once '../clases/usuario.php';
 
 
                                             <table class="table table-bordered table-hover table-condensed" id="tablaServicio">
-                                                    <tr class="active danger" >
+                                                    <thead class="active danger tablaHead">
                                                         <th>Numero Servicio</th>
                                                         <th>Servicio</th>
 
                                                         <th>Editar Eliminar </th>
-                                                    </tr>
+                                                    </thead>
                                                     <?php
                                                         require_once'../clases/claseServicio.php';
                                                         $servicio = new Servicio();
@@ -870,14 +870,14 @@ require_once '../clases/usuario.php';
 
 
                                             <table class="table table-bordered table-hover table-condensed" id="tablaTrabajo">
-                                                    <tr class="active danger" >
+                                                  <thead class="active danger tablaHead">
                                                         <th>Trabajo</th>
                                                         <th>Descripcion</th>
                                                         <th>Costo</th>
                                                         <th>Servicio</th>
 
                                                         <th>Editar Eliminar </th>
-                                                    </tr>
+                                                    </thead>
                                                     <?php
                                                         require_once'../clases/claseTrabajos.php';
                                                         $trab = new Trabajo();
@@ -976,12 +976,12 @@ require_once '../clases/usuario.php';
 
 
 																			 			<table class="table table-bordered table-hover table-condensed" id="tablaCatProducto">
-																			 							<tr class="active danger" >
+																			 							<thead class="active danger tablaHead">
 																			 									<th>Numero categoría</th>
 																			 									<th>Categoría producto</th>
 
 																			 									<th>Editar Eliminar </th>
-																			 							</tr>
+																			 							</thead>
 																			 							<?php
 																			 									require_once'../clases/claseCategoriaProducto.php';
 																	 											$catProducto = new CategoriaProducto();
@@ -1079,13 +1079,13 @@ break;
 
 
                         <table class="table table-bordered table-hover table-condensed" id="tablaSubCatProducto">
-                                <tr class="active danger" >
+                                <thead class="active danger tablaHead">
                                     <th>Numero Sub Categoría</th>
                                     <th>Sub Categoría producto</th>
                                     <th>Categoría producto</th>
 
                                     <th>Editar Eliminar </th>
-                                </tr>
+                                </thead>
                                 <?php
                                     require_once'../clases/claseSubCatProducto.php';
                                     $SubCatProd = new SubCatProducto();
@@ -1130,5 +1130,107 @@ break;
 break;
 }
 break;
-}
-?>
+
+case "11" :
+require_once'../clases/claseCompra.php';
+$compra=new Compra();
+
+switch($_REQUEST['func']){
+
+    case "1": //echo "se ingresa";
+
+
+
+                        $fecha = $_REQUEST['fecha'];
+                        $idUsuario = $_SESSION['id'];
+                        $idProveedor = $_REQUEST['cmb_proveedores'];
+
+                        $compra->setfecha($fecha);
+                        $compra->setidUsuario($idUsuario);
+                        $compra->setrut($idProveedor);
+
+
+                      if($compra->insertarCompra()){
+                        echo "id de compra en sesion: ".$_SESSION['idCompra'];
+                      }else{
+                        echo "ERROR AL INGRESAR";
+                      }
+
+    break;
+
+    case "2":
+
+                  $producto= $_REQUEST['cmb_productos'];
+                  $cantidad= $_REQUEST['txt_cantidad'];
+                  $valor= $_REQUEST['txt_valor'];
+
+                  $compra->setIdCompra($_SESSION['idCompra']);
+                  $compra->setProducto($producto);
+                  $compra->setcantidad($cantidad);
+                  $compra->setvalor($valor);
+
+                  if($compra->insertarDetalle()){
+                      echo "INGRESADO CORRECTAMENTE";
+                  }else{
+                    echo "2";
+                  }
+
+                break;
+
+                    case '3':
+                    ?>
+                    <div class="container">
+                                   <div class="col-md-10-centered">
+                                       <div class="panel panel-default">
+                                           <div class="panel-heading">
+                                                   <h3 class="panel-title">Ingreso de productos</h3>
+                                           </div>
+                                               <div class="panel-body">
+                      <form id="formularioCompra" class="form-horizontal" action="" method="post">
+
+                        <div style="animation-delay: 0.5s;" class="col-md-3 animated-panel zoomIn">
+                             <div class="form-group">
+                      <label for="cmb_proveedores">Productos</label>
+                           <select class="form-control" name="cmb_productos" id="cmb_productos">
+                              <?php
+                                  require_once '../clases/claseProductos.php';
+                                  $prod= new Productos();
+                                  $filasProd= $prod->listarProductos();
+                                  foreach($filasProd as $tipo){
+                                      echo '<option value="'.$tipo['id_producto'].'" >'.$tipo['descripcion_producto'].'</option>';
+                                  }
+                               ?>
+                    </select>
+                    </div>
+                      </div>
+
+                    <div style="animation-delay: 0.5s;" class="col-md-3 animated-panel zoomIn">
+                        <div class="form-group">
+                            <label for="apellido">Cantidad</label>
+                            <input class="form-control" title="Debe ingresar fecha" required id="txt_cantidad" name="txt_cantidad" placeholder="" type="txt">
+                        </div>
+                    </div>
+                    <div style="animation-delay: 0.5s;" class="col-md-3 animated-panel zoomIn">
+                        <div class="form-group">
+                            <label for="apellido">Valor</label>
+                            <input class="form-control" title="Valor" required id="txt_valor" name="txt_valor" placeholder="$$$$$$$$" type="txt">
+                        </div>
+                    </div>
+
+
+                      <input type="submit" id="btn_insert" class="btn btn-success" value="Agregar" name="btn_registrar" >
+                      </form>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    <?php
+                      break;
+
+                  }
+
+      break;
+
+
+      }
+      ?>

@@ -56,20 +56,22 @@ label.error, label span.error {
     margin: 5px 0 0 0;
     font-weight: 400;
 }
-.content-central{
+/*.content-central{
   width: 100%;
   display:flex;
-  flex-flow: column wrap;
+  /*flex-flow: column wrap;*/
   /*justify-content: center; centra */
-  align-items: center;
-}
-.content-proveedor{
+
+
+/*.content-proveedor{
   background: rgba(36, 44, 44, 0.5);
   width: 90%;
   height: 100vh;
-}
-#mostrarProveedor{
+}*/
+.fondoCalendario{
   background-color: #F8F8F8;
+  width: 60%;
+
 }
 .titleh2{
   font-weight: bold;
@@ -107,7 +109,7 @@ label.error, label span.error {
 .tablaFilas:nth-child(even){
   background:#E6E6E6;
 }
-@media (max-width: 1300px) {
+/*@media (max-width: 1300px) {
   .content-proveedor{
     background:red;
 
@@ -115,5 +117,8 @@ label.error, label span.error {
   .tablaGeneral{
     max-width: : 1300px;
   }
+  .contenedorProveedor{
+    max-width: : 1300px;
+  }
 
-}
+}*/

@@ -43,19 +43,19 @@
                                     <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
                                         <div class="form-group">
                                             <label for="rut">Rut:</label>
-                                            <input class="form-control" onBlur="validarRut(this)" id="txt_rut" name="txt_rut" placeholder="Rut Proveedor" type="text">
+                                            <input class="form-control" onBlur="validarRut(this)" id="txt_rut" name="txt_rut" required placeholder="Rut Proveedor" type="text">
                                         </div>
                                     </div>
                                     <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
                                         <div class="form-group">
                                             <label for="razon_social">Razón social:</label>
-                                            <input class="form-control" id="txt_razon_social" name="txt_razon_social" placeholder="Razón social" type="text">
+                                            <input class="form-control" id="txt_razon_social" name="txt_razon_social" required placeholder="Razón social" type="text">
                                         </div>
                                     </div>
                                     <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
                                         <div class="form-group">
                                             <label for="direccion">Dirección:</label>
-                                            <input class="form-control" id="txt_direccion" name="txt_direccion" placeholder="Dirección" type="text">
+                                            <input class="form-control" id="txt_direccion" name="txt_direccion" required placeholder="Dirección" type="text">
                                         </div>
                                     </div>
 
@@ -64,13 +64,13 @@
                                     <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
                                         <div class="form-group">
                                             <label for="telefono">Teléfono:</label>
-                                            <input class="form-control" id="txt_telefono" name="txt_telefono" placeholder="Numero teléfonico" type="">
+                                            <input class="form-control" id="txt_telefono" name="txt_telefono" required placeholder="Numero teléfonico" type="">
                                         </div>
                                     </div>
                                     <div style="animation-delay: 0.5s;" class="col-md-3 animated-panel zoomIn">
                                         <div class="form-group">
                                             <label for="txt_correo">Correo electrónico:</label>
-                                            <input class="form-control" id="txt_correo" name="txt_correo" placeholder="Correo electrónico" type="">
+                                            <input class="form-control" id="txt_correo" name="txt_correo" required placeholder="Correo electrónico" type="">
                                         </div>
                                     </div>
                                      <div style="animation-delay: 0.5s;" class="col-md-3 animated-panel zoomIn">

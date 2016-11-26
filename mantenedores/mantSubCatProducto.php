@@ -47,7 +47,7 @@
                                     <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
                                         <div class="form-group">
                                             <label for="descripcionCat">Sub categoría:</label>
-                                            <input class="form-control" id="txt_subCat" name="txt_subCat" placeholder="Descripcion Sub categoría" type="text">
+                                            <input class="form-control" id="txt_subCat" name="txt_subCat" required placeholder="Descripcion Sub categoría" type="text">
                                         </div>
                                     </div>
                                     <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">

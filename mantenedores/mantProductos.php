@@ -38,19 +38,19 @@
                                    <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
                                         <div class="form-group">
                                             <label for="id">Código:</label>
-                                            <input class="form-control" id="txt_id_producto" name="txt_id_producto" placeholder="Código de producto" type="text">
+                                            <input class="form-control" id="txt_id_producto" name="txt_id_producto" required placeholder="Código de producto" type="text">
                                         </div>
                                     </div>
                                     <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
                                         <div class="form-group">
                                             <label for="descripcion">Descripción:</label>
-                                            <input class="form-control" id="txt_descripcion" name="txt_descripcion" placeholder="Descripción de productos" type="text">
+                                            <input class="form-control" id="txt_descripcion" name="txt_descripcion" required placeholder="Descripción de productos" type="text">
                                         </div>
                                     </div>
                                     <div style="animation-delay: 0.2s;" class="col-md-2 animated-panel zoomIn">
                                         <div class="form-group">
                                             <label for="valor">Valor:</label>
-                                            <input class="form-control" id="txt_valor" name="txt_valor" placeholder="Valor del producto" type="text">
+                                            <input class="form-control" id="txt_valor" name="txt_valor" required placeholder="Valor del producto" type="text">
                                         </div>
                                     </div>
                                    <!--  imagen cambiar el txt_imagen -->

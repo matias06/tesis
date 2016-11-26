@@ -46,19 +46,19 @@
                                     <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
                                         <div class="form-group">
                                             <label for="nombreTrabajo">Trabajo:</label>
-                                            <input class="form-control" id="txt_nombreTrabajo" name="txt_nombreTrabajo" placeholder="Nombre Trabajo" type="text">
+                                            <input class="form-control" id="txt_nombreTrabajo" name="txt_nombreTrabajo" required placeholder="Nombre Trabajo" type="text">
                                         </div>
                                     </div>
                                     <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
                                         <div class="form-group">
                                             <label for="descripcionTrabajo">Detalle:</label>
-                                            <input class="form-control" id="txt_descripcionTrabajo" name="txt_descripcionTrabajo" placeholder="Descripción del Trabajo" type="text">
+                                            <input class="form-control" id="txt_descripcionTrabajo" name="txt_descripcionTrabajo" required placeholder="Descripción del Trabajo" type="text">
                                         </div>
                                     </div>
                                     <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
                                         <div class="form-group">
                                             <label for="costo">Valor:</label>
-                                            <input class="form-control" id="txt_costo" name="txt_costo" placeholder="$$$$$" type="text">
+                                            <input class="form-control" id="txt_costo" name="txt_costo" required placeholder="$$$$$" type="text">
                                         </div>
                                     </div>
                                     <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">

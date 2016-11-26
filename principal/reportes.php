@@ -42,10 +42,22 @@
                 </li>
 
                 <li class="lineaLi">
-                    <a href="#" value="Productos" onclick="cargarDivStock();">Producto más vendidos</a>
+                    <a href="#" value="ProductosVendidos" onclick="cargarDivVendidos();">Producto más vendidos</a>
+                        <script type="text/javascript">
+                            function cargarDivVendidos(){ /*AQUI LE DOY UN NOMBRE CUALQUIERA A LA FUNCION*/
+                            $.ajax({url: '../reportes/vendidos.php',
+                                success:function(data){
+                                $("#page-wrapper").html(data);
+                                                      }
+                                    });
+                                  }
+                        </script>
+                </li>
+                <li class="lineaLi">
+                    <a href="#" value="stock" onclick="cargarDivStock();">Stock</a>
                         <script type="text/javascript">
                             function cargarDivStock(){ /*AQUI LE DOY UN NOMBRE CUALQUIERA A LA FUNCION*/
-                            $.ajax({url: '../mantenedores/stock.php',
+                            $.ajax({url: '../reportes/stockProductos.php',
                                 success:function(data){
                                 $("#page-wrapper").html(data);
                                                       }

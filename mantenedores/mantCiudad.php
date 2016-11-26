@@ -46,7 +46,7 @@
                                     <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
                                         <div class="form-group">
                                             <label for="nombreCiudad">Ciudad:</label>
-                                            <input class="form-control" id="txt_ciudad" name="txt_ciudad" placeholder="Nombre Ciudad" type="text">
+                                            <input class="form-control" id="txt_ciudad" name="txt_ciudad" required placeholder="Nombre Ciudad" type="text">
                                         </div>
                                     </div>
                                     <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
