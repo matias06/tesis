@@ -63,7 +63,7 @@ $nuevoId= $resultado[0]['id'];
 }
 public function insertarDetalle(){
 
-if($this->insertarRegistros("INSERT INTO detallecompra (`cantidad`, `valor`, `id_compra`, `id_producto`) VALUES ('".$this->cantidad."', '".$this->valor."', '".$this->idCompra."', '".$this->producto."');")){
+if($this->insertarRegistros("INSERT INTO detallecompra (cantidad, valor, id_compra, id_producto) VALUES (NULL, '".$this->cantidad."', '".$this->valor."', '".$this->idCompra."', '".$this->producto."');")){
 
         return true;
   }else{

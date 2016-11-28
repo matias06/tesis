@@ -126,6 +126,7 @@ class Conexion{
 
         return $devuelve;
     }
+	
 		public function consultarSesion(){
 		    @session_start();
 		    if(isset($_SESSION['id'])){

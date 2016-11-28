@@ -42,8 +42,9 @@
                                     <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
                                         <div class="form-group">
                                             <label for="run">Run:</label>
-                                            <input class="form-control" onBlur="validarRun(this)" title="Debe ingresar un rut valido" required id="txt_run" name="txt_run" placeholder="Rut Usuario" type="text">
+                                            <input class="form-control"  onBlur="validarRun(this) " title="Debe ingresar un rut valido" required id="txt_run" name="txt_run" placeholder="Rut Usuario" type="text">
                                         </div>
+                                        <!--onkeypress="tecladoooooo"  -->
                                     </div>
                                     <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
                                         <div class="form-group">

@@ -80,6 +80,7 @@
 
 
     function cargarTablaDetalle(){
+
       $.ajax({//realiza el envio del formulario pero por ajax para no tener que recargar pagina
 
           url:"../mantenedores/mantenedoresIngresar.php?mant=11&func=3", //donde se va a ingresar "mantenedoresIngresar.php"

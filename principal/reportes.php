@@ -65,6 +65,18 @@
                                   }
                         </script>
                 </li>
+                <li class="lineaLi">
+                    <a href="#" value="clientes" onclick="cargarDivClientes();">Clientes</a>
+                        <script type="text/javascript">
+                            function cargarDivClientes(){ /*AQUI LE DOY UN NOMBRE CUALQUIERA A LA FUNCION*/
+                            $.ajax({url: '../reportes/clientes.php',
+                                success:function(data){
+                                $("#page-wrapper").html(data);
+                                                      }
+                                    });
+                                  }
+                        </script>
+                </li>
             </ul>
             </div>
             <!-- /.navbar-collapse -->

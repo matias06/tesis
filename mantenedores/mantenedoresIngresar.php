@@ -120,6 +120,58 @@ require_once '../clases/usuario.php';
                             </div>
                                  <?php
 								break;
+                case "5":
+								?>
+ 				<!-- tabla -->
+
+ 						<div class="table-responsive">
+                                <table class="table table-bordered table-hover table-condensed" id="fondo">
+                                        <thead class="active danger tablaHead">
+                                            <th>Run</th>
+                                            <th>Nombre</th>
+                                            <th>Apellido</th>
+                                            <th>Tipo usuario</th>
+
+                                        </thead>
+
+                                        <?php
+                                            $usuario = new Usuario();
+                                            $buscar = filter_var($_REQUEST['buscar'], FILTER_SANITIZE_STRING);
+                                            $filas = $usuario->BuscarFiltarRegistros("vistaclientes","campoBuscar",$buscar,$_REQUEST['pag'],$_REQUEST['cantidadReg']);
+
+
+
+                                            $contador=0;
+                                        foreach($filas[0][0] as $user){
+                                                    $contador++;
+
+                                        echo'
+                                        <div class="container">
+                                        <tr class="tablaFilas">
+                                            <td><span id="txt_run'.$contador.'">'.$user['run'].'</span></td>
+                                            <td><span id="txt_nombre'.$contador.'">'.$user['nombre'].'</span></td>
+                                            <td><span id="txt_apellido'.$contador.'">'.$user['apellido'].'</span></td>
+
+                                            <td><span class="hidden" id="txt_descripcionTipo1'.$contador.'">'.$user['id_tipo_usuario'].'</span>
+                                            <span id="txt_descripcionTipo'.$contador.'">'.$user['descripcion_tipo_usuario'].'</span></td>
+
+
+                                        </div>';
+
+                                         } ?>
+										    <tr>
+                                              <td colspan="7">
+                                                <center>
+                                                <?php
+                                                  echo $filas[0][1];
+                                                ?>
+                                              </center>
+                                              </td>
+                                            </tr>
+                                </table>
+                            </div>
+                                 <?php
+								break;
 						}
 			break;
 
@@ -151,37 +203,35 @@ require_once '../clases/usuario.php';
 
 
 
-                                $img = $_FILES['txt_imagen'];
-                                $nombreImg = $img['name'];
-                                $tipoImg = $img['type'];
-                                $rutaPrevisional = $img['tmp_name'];
-                                $size = $img['size'];
-                                $dimensiones = getimagesize($rutaPrevisional);
-                                $width = $dimensiones[0];
-                                $height = $dimensiones[1];
-                                $carpeta = "../imagenes/productos";
+                            $img = $_FILES['txt_imagen'];
+                                      $nombreImg = $img['name'];
+                                      $tipoImg = $img['type'];
+                                      $rutaPrevisional = $img['tmp_name'];
+                                      $size = $img['size'];
+                                      $dimensiones = getimagesize($rutaPrevisional);
+                                      $width = $dimensiones[0];
+                                      $height = $dimensiones[1];
+                                      $carpeta = "../imagenes/productos";
 
 
-                                if($tipoImg != 'image/jpeg' && $tipoImg != 'image/jpeg' && $tipoImg != 'image/png'){
-                                    echo "El Archivo a subir no es una imagen";
-                                }else if($size > 1024*1024){
-                                    echo "Tamaño de imagen muy grande";
-                                }else if($width > 5000 || $height > 5000){
-                                    echo "La anchura y altura maxima para la imagen es 5000px";
-                                }else if($width < 60 || $height < 60){
-                                    echo "La anchura y altura minima para la imagen es de 60px";
-                                }else{
-                                    //consulta
-                                   // $resultado = $portada->actualizarPortada($id, $titulo, $src, $contenido);
+                                      if($tipoImg != 'image/jpeg' && $tipoImg != 'image/jpeg' && $tipoImg != 'image/png'){
+                                          echo "El Archivo a subir no es una imagen";
+                                      }else if($size > 1024*1024){
+                                          echo "Tamaño de imagen muy grande";
+                                      }else if($width > 5000 || $height > 5000){
+                                          echo "La anchura y altura maxima para la imagen es 5000px";
+                                      }else if($width < 60 || $height < 60){
+                                          echo "La anchura y altura minima para la imagen es de 60px";
+                                      }else{
+                                          //consulta
+                                         // $resultado = $portada->actualizarPortada($id, $titulo, $src, $contenido);
 
-                                       // $file_upload_to= SITE_ROOT . DS . $carpeta;
-                                        move_uploaded_file($rutaPrevisional, $carpeta."/". $nombreImg);
-                                      $imagen = filter_var($_REQUEST['txt_imagen'], FILTER_SANITIZE_STRING);
-									                    $productos->setimagen($imagen);
+                                             // $file_upload_to= SITE_ROOT . DS . $carpeta;
+                                              move_uploaded_file($rutaPrevisional, $carpeta."/". $nombreImg);
+
+                                              $productos->setimagen($nombreImg);
 
                                 }
-
-
 
                             $productos->insertarProductos();
 
