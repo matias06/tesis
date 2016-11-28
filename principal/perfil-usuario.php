@@ -1,5 +1,9 @@
+<?php
+    require_once '../clases/Conexion.php';
+    $conexion = new Conexion();
+    $conexion->consultarSesion();
+?>
 <!DOCTYPE html>
-<!--developers-->
 <html lang="es" class="no-js">
 <head>
     <meta charset="utf-8">
@@ -21,17 +25,17 @@
 </head>
 <body>
 <!--MENU-->
-<?php
-require_once'../comun/comun.php';
-menuPublico();
-?>
+    <?php
+    require_once'../comun/comun.php';
+    cargarMenuUsuario();
+    ?>
 <!--FinalMenu-->
 
 <main class="perfil-usuario"><!--perfil-usuario-->
 <div class="container">
     <div class="row">
 
-    <h4 class="lead">Perfil de: Nombre del Usuario</h4>
+    <h4 class="lead">Perfil de: <?php echo $_SESSION['nombre']." ".$_SESSION['apellido']; ?></h4>
 
         <div class="col-xs-12 col-sm-6 col-md-3">
             <div class="mini-u">

@@ -90,50 +90,8 @@ menuPublico();
                 </div>
 
             </div>
-
-            <!--<div class="col-xs-12 col-sm-6 col-md-4 col-xs-offset-1 col-sm-offset-0 text-center box-servicios">
-
-                <div class="icon-cuadrado">
-                    <i class="fa fa-clone fa-3x"></i>
-                </div>
-                <div class="contenido-servicio">
-                    <span class="lead">Titulo del Servicio</span> <br>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos non minima expedita repellat sit,.</p>
-                    <a href="#" class="btn btn-default">Ver Mas</a>
-                </div>
-
-            </div>
-
-            <div class="col-xs-12 col-sm-6 col-md-4 col-xs-offset-1 col-sm-offset-0 text-center box-servicios">
-
-                <div class="icon-cuadrado">
-                    <i class="fa fa-clone fa-3x"></i>
-                </div>
-                <div class="contenido-servicio">
-                    <span class="lead">Titulo del Servicio</span> <br>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos non minima expedita repellat sit,.</p>
-                    <a href="#" class="btn btn-default">Ver Mas</a>
-                </div>
-
-            </div>
-
-            <div class="col-xs-12 col-sm-6 col-md-4 col-xs-offset-1 col-sm-offset-0 text-center box-servicios">
-
-                <div class="icon-cuadrado">
-                    <i class="fa fa-clone fa-3x"></i>
-                </div>
-                <div class="contenido-servicio">
-                    <span class="lead">Titulo del Servicio</span> <br>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos non minima expedita repellat sit,.</p>
-                    <a href="#" class="btn btn-default">Ver Mas</a>
-                </div>
-
-            </div>-->
-
         </div>
-
     </div>
-
 </main><!--contenido-principal-->
 
 <!--section modal-->
@@ -145,7 +103,7 @@ menuPublico();
             <div class="modal-header">
                 <div class="row">
                     <div class="col-xs-10">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                        Servicio de Lavado Automotriz.
                     </div>
                     <div class="col-xs-2">
                          <a data-dismiss="modal"><i class="fa fa-close fa-2x pull-right"></i></a>
@@ -177,7 +135,7 @@ menuPublico();
             <div class="modal-header">
                 <div class="row">
                     <div class="col-xs-10">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                        Servicio de Mantención Automotriz
                     </div>
                     <div class="col-xs-2">
                          <a data-dismiss="modal"><i class="fa fa-close fa-2x pull-right"></i></a>
@@ -209,7 +167,7 @@ menuPublico();
             <div class="modal-header">
                 <div class="row">
                     <div class="col-xs-10">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                        Venta de Accesorios y Repuestos
                     </div>
                     <div class="col-xs-2">
                          <a data-dismiss="modal"><i class="fa fa-close fa-2x pull-right"></i></a>

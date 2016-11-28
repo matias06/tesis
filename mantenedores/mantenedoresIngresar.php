@@ -164,20 +164,20 @@ require_once '../clases/usuario.php';
 
                                 if($tipoImg != 'image/jpeg' && $tipoImg != 'image/jpeg' && $tipoImg != 'image/png'){
                                     echo "El Archivo a subir no es una imagen";
-                                }else if($size > 1024*1024){
+                                }else if($size > 2048*1024){
                                     echo "Tamaño de imagen muy grande";
-                                }else if($width > 5000 || $height > 5000){
-                                    echo "La anchura y altura maxima para la imagen es 5000px";
-                                }else if($width < 60 || $height < 60){
-                                    echo "La anchura y altura minima para la imagen es de 60px";
-                                }else{
+                                 }else //if($width > 5000 || $height > 5000){
+                                //     echo "La anchura y altura maxima para la imagen es 5000px";
+                                // }else if($width < 60 || $height < 60){
+                                //     echo "La anchura y altura minima para la imagen es de 60px";
+                                /* }else*/{
                                     //consulta
                                    // $resultado = $portada->actualizarPortada($id, $titulo, $src, $contenido);
 
                                        // $file_upload_to= SITE_ROOT . DS . $carpeta;
                                         move_uploaded_file($rutaPrevisional, $carpeta."/". $nombreImg);
-                                      $imagen = filter_var($_REQUEST['txt_imagen'], FILTER_SANITIZE_STRING);
-									                    $productos->setimagen($imagen);
+                                    //  $imagen = filter_var($_FILES['txt_imagen']['name'], FILTER_SANITIZE_STRING);
+									                    $productos->setimagen($nombreImg);
 
                                 }
 

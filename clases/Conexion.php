@@ -131,7 +131,7 @@ class Conexion{
 		    if(isset($_SESSION['id'])){
 
 		    }else{
-		       header('location: ../../index.php');
+		       header('location: ../principal/index.php');
 		     }
 		}
 }
