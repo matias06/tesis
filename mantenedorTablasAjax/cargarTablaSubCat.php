@@ -73,7 +73,8 @@
                                 url:"mantenedoresIngresar.php?mant=10&func=2", // donde se va a ingresar "mantenedoresIngresar.php"
                                 data:$("#formModificarSubCat").serialize(),
                                 success:function(respuesta){
-                                      alert(respuesta);
+                                //alert("hola");
+                                      //alert(respuesta);
                                 cambiarPagina(1);
                                 cargarDivTablaSubCat();
                                 eventoAlertActualizar();

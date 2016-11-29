@@ -36,6 +36,14 @@ class SubCatProducto extends Conexion{
 				("DELETE FROM subcategoria WHERE id_subcategoria_producto = '".$this->id_categoria_producto."'" );
 	}
 
+	public function modificarSubCat(){
+			$modificarSubCat = $this->insertarRegistros
+			("UPDATE subcategoriaproducto
+						 SET descripcion_subcategoria_producto='".$this->descripcion_subcategoria_producto."',
+						 id_categoria_producto='".$this->id_categoria_producto."'
+						 WHERE id_subcategoria_producto='".$this->id_subcategoria_producto."';");
+	}
+
     public function insertarSubCategoria(){
 
 

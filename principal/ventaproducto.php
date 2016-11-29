@@ -65,15 +65,18 @@
 </section>
 <br>
 
-<div class="row col-xs-12 col-sm-12">
+<div class="row">
+  <div class="col-xs-12">
     <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
         <div class="form-group">
             <label for="run">Vendedor:</label>
             <input class="form-control"  onBlur="validarRun(this) " title="Debe ingresar un rut valido" required id="txt_run" name="txt_run" placeholder="Rut Usuario" type="text">
         </div>
+    </div>
 </div>
     </div>
-<div class="row col-xs-12 col-sm-12">
+<div class="row">
+  <div class="col-xs-12">
     <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
         <div class="form-group">
             <label for="nombre">Cliente</label>
@@ -83,6 +86,7 @@
         <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
           </div>
     </div>
+  </div>
   </div>
 
   <div class="col-xs-12 col-md-12">
@@ -103,11 +107,13 @@
     </div>
 
     <div class="row">
+      <div class="col-xs-12">
         <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
             <div class="form-group">
                 <label for="nombre">Total venta:</label>
                 <textarea class="form-control col-xs-12" id="mensaje"  placeholder=""></textarea>
         </div>
+      </div>
       </div>
 <br>
 <br>

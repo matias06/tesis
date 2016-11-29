@@ -1104,7 +1104,7 @@ break;
                           $subCatProd->setid_subcategoria_producto($descSubCatMod);
 
                           $subCatProd->setdescripcion_subcategoria_producto($_REQUEST['cmb_SubCat_modificar']);
-                          $subCatProd->insertarCatProducto();
+                          $subCatProd->modificarSubCat();
 
                           break;
 
