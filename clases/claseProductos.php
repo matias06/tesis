@@ -133,6 +133,11 @@ class Productos extends Conexion{
 			 // echo "SELECT * FROM producto WHERE id_categoria_producto = ".$idcategoria."";
 				return $consulta;
 		}
+		public function listar_producto_x_subcategoria($idcategoria,$idsubcategoria){
+				$consulta = $this->consultarRegistros("SELECT id_producto, descripcion_producto, valor_producto, imagen, producto.id_categoria_producto, producto.id_subcategoria_producto, descripcion_subcategoria_producto FROM producto inner join subcategoriaproducto on subcategoriaproducto.id_subcategoria_producto = producto.id_subcategoria_producto WHERE producto.id_categoria_producto = ".$idcategoria." and producto.id_subcategoria_producto = ".$idsubcategoria."");
+			 // echo "SELECT * FROM producto WHERE id_categoria_producto = ".$idcategoria."";
+				return $consulta;
+		}
 
 }
 ?>

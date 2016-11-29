@@ -82,13 +82,19 @@
         <div class="col-xs-12 col-sm-6 col-md-3">
             <div class="mini-u">
 
-            Hora: 00-00
+              <?php
+                $hora = date('H:i:s');
+                echo $hora;
+               ?>
 
             </div>
 
             <div class="mini-u" style="margin-top: 1rem;">
 
-            Fecha: Miercoles 24 2016
+            <?php
+              $fecha = date('d-M-Y');
+              echo $fecha;
+             ?>
 
             </div>
 

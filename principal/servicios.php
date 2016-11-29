@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <!--developers-->
 <html lang="es" class="no-js">
-<!--#####-nvm-#####-->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Titulo de La Pagina</title>
-    <meta name="Author" content="nvm" />
+    <title>Servicios</title>
+    <meta name="Author" content="" />
 
     <!-- > css generales < -->
     <link href="../css/style.css" rel="stylesheet" />
@@ -225,9 +224,9 @@ footerPublico();
             success:function(respuesta){
 
             if(respuesta == '1'){
-            window.location = '../principal/indexAdmin.php';
+            window.location = 'indexAdmin.php';
             }else if(respuesta == '2'){
-                window.location = '#';
+                window.location = 'perfil-usuario.php';
 
             }else{
                  alert("Incorrecto");

@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<!--developers-->
+
 <html lang="es" class="no-js">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Titulo de La Pagina</title>
-    <meta name="Author" content="nvm" />
+    <title>Figuesep</title>
+    <meta name="Author" content="" />
 
     <!-- > css generales < -->
     <link href="../css/style.css" rel="stylesheet" />
@@ -35,8 +35,6 @@
   <!--FinalMenu-->
 
   <!--MODAL-->
-
-
 
 <!-- END MODAL-->
 

@@ -124,8 +124,7 @@ require_once '../clases/usuario.php';
 			break;
 
 			case "2": //echo " Mantenedor producto";
-
-			require_once'../clases/claseProductos.php';
+      require_once'../clases/claseProductos.php';
 
 			$productos=new Productos();
 			switch($_REQUEST['prod']){
@@ -151,15 +150,16 @@ require_once '../clases/usuario.php';
 
 
 
-                                $img = $_FILES['txt_imagen'];
-                                $nombreImg = $img['name'];
-                                $tipoImg = $img['type'];
-                                $rutaPrevisional = $img['tmp_name'];
-                                $size = $img['size'];
-                                $dimensiones = getimagesize($rutaPrevisional);
-                                $width = $dimensiones[0];
-                                $height = $dimensiones[1];
-                                $carpeta = "../imagenes/productos";
+                            $img = $_FILES['txt_imagen'];
+                                      $nombreImg = $img['name'];
+                                      $tipoImg = $img['type'];
+                                      $rutaPrevisional = $img['tmp_name'];
+                                      $size = $img['size'];
+                                      $dimensiones = getimagesize($rutaPrevisional);
+                                      $width = $dimensiones[0];
+                                      $height = $dimensiones[1];
+                                      $carpeta = "../imagenes/productos";
+
 
 
                                 if($tipoImg != 'image/jpeg' && $tipoImg != 'image/jpeg' && $tipoImg != 'image/png'){
@@ -180,8 +180,6 @@ require_once '../clases/usuario.php';
 									                    $productos->setimagen($nombreImg);
 
                                 }
-
-
 
                             $productos->insertarProductos();
 
@@ -232,7 +230,7 @@ require_once '../clases/usuario.php';
 
  						<div class="table-responsive">
                                 <table class="table table-bordered table-hover table-condensed" id="fondo">
-                                          <thead class="active danger">
+                                          <thead class="active danger tablaHead">
 
                                             <th>Codigo</th>
                                             <th>Descripción</th>
@@ -255,7 +253,7 @@ require_once '../clases/usuario.php';
 
                                         echo'
                                         <div class="container">
-                                        <tr>
+                                        <tr class="tablaFilas">
 
                                           <td><span id="txt_id_producto'.$contador.'">'.$user['id_producto'].'</span></td>
                                             <td><span id="txt_descripcion'.$contador.'">'.$user['descripcion_producto'].'</span></td>

@@ -169,12 +169,12 @@
                                         contentType:false,
                                         processData:false,
                                         success:function(respuesta){
-                                                 alert(respuesta);
+                                                 //alert(respuesta);
                                                 //$("#formularioProducto").html(respuesta);
                                                  cambiarPagina(1);
                                                 cargarDivTablaProducto();
                                                 eliminarCamposProducto();
-                                               // eventoAlertCorrecto();
+                                                eventoAlertCorrecto();
                                         }
                                     });
 

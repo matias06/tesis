@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <!--developers-->
 <html lang="es" class="no-js">
-<!--#####-nvm-#####-->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Productos</title>
-    <meta name="Author" content="nvm" />
+    <meta name="Author" content="" />
 
     <!-- > css generales < -->
     <link href="../css/style.css" rel="stylesheet" />
-    <link href="..7css/normalize.css" rel="stylesheet" />
+    <link href="../css/normalize.css" rel="stylesheet" />
 
     <!-- > Bootstrap v3.3.7 and Font Awesome v4.6.3 < -->
     <link href="../css/bootstrap.min.css" rel="stylesheet" />
@@ -38,8 +37,10 @@ menuPublico();
           <h4 class="lead text-center titulo-catalogo">
             Catalogo de Productos
         </h4>
-        <?php include_once("../clases/claseCategoriaProducto.php");
+        <?php   include_once("../clases/claseCategoriaProducto.php");
+                include_once("../clases/claseSubCatProducto.php");
                 include_once("../clases/claseProductos.php");
+                $subcategoria = new SubCatProducto();
                 $categp = new CategoriaProducto();
                 $producto = new Productos();
 
@@ -63,14 +64,25 @@ menuPublico();
                                  echo $contador;
                                     echo'">';
                                 echo $descategoria.'</span>              <hr>
+                                      <ul class="nav nav-pills nav-stacked">';
 
-            <ul class="nav nav-pills nav-stacked">
-                <li><a href="../catalogo_2.php">Parlantes</a></li>
-                <li><a href="../catalogo_2.php">Conectores</a></li>
-                <li><a href="../catalogo_2.php">Antenas</a></li>
-            </ul>
-            </div>';
-            echo '<div class="col-xs-12 col-sm-6 col-md-9"><br>';
+                                        $subcatpro = $subcategoria->listarSubCatProducto($categorias);
+
+                                        foreach($subcatpro as $versubcategoria){
+
+                                        $idsubcategorias = $versubcategoria['id_subcategoria_producto'];
+                                        $descsubcategoria = $versubcategoria['descripcion_subcategoria_producto'];
+
+                                        echo '
+                                              <li><a href="catalogo_2.php?id='.$idsubcategorias.'&categoria='.$categorias.'" >'; echo $descsubcategoria.'</a></li>';
+
+                                            }
+                                        echo  '</ul> </div>
+
+
+
+
+            <div class="col-xs-12 col-sm-6 col-md-9">';
 
             $listap = $producto->listar_producto_x_categoria($categorias);
 
@@ -83,7 +95,7 @@ menuPublico();
 
                                   <img src="../imagenes/productos/<?php echo $verproducto['imagen']; ?>" class="img-responsive" alt="<?php echo $verproducto['descripcion_producto']; ?>">
 
-                                  <span><?php echo $verproducto['valor_producto']; ?></span>
+                                  <span><?php echo $verproducto['descripcion_producto'].", valor $".$verproducto['valor_producto']; ?></span>
                                 </a>
                             </div>
 
@@ -125,9 +137,9 @@ footerPublico();
             success:function(respuesta){
 
             if(respuesta == '1'){
-            window.location = '../principal/indexAdmin.php';
+            window.location = 'indexAdmin.php';
             }else if(respuesta == '2'){
-                window.location = '#';
+                window.location = 'perfil-usuario.php';
 
             }else{
                  alert("Incorrecto");
