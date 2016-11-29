@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Titulo de La Pagina</title>
+    <title>Registro</title>
     <meta name="Author" content="" />
 
     <!-- > css generales < -->
@@ -40,19 +40,24 @@ menuPublico();
 <div class="container">
     <div class="row">
 
-        <div class="col-xs-12 col-sm-6 col-md-5 form-reg">
+        <div class="col-xs-12 col-sm-6 col-md-5 col-md-offset-3 form-reg">
 
             <form action="#" method="POST" role="form">
                 <legend>Registrate</legend>
 
                 <div class="form-group col-xs-12 col-sm-7">
                     <label for="nombre">Nombre</label>
-                    <input type="text" class="form-control" id="nombre" placeholder="nombres">
+                    <input type="text" class="form-control" id="nombre" placeholder="Nombre">
                 </div>
 
                 <div class="form-group col-xs-12 col-sm-7">
                     <label for="apellido">Apellidos</label>
-                    <input type="text" class="form-control" id="apellido" placeholder="apellidos">
+                    <input type="text" class="form-control" id="apellido" placeholder="Apellido">
+                </div>
+
+                <div class="form-group col-xs-12 col-sm-7">
+                    <label for="Run">Run</label>
+                    <input type="text" class="form-control" id="run" placeholder="Ej.11111111-1">
                 </div>
 
                 <div class="form-group col-xs-12 col-sm-7">
@@ -73,7 +78,7 @@ menuPublico();
 
         </div>
 
-        <div class="col-xs-12 col-sm-6 col-md-5 form-reg">
+      <!-- <div class="col-xs-12 col-sm-6 col-md-5 form-reg">
 
             <form action="#" method="POST" role="form">
                 <legend>Iniciar Sesion</legend>
@@ -93,7 +98,7 @@ menuPublico();
                 </div>
             </form>
 
-        </div>
+        </div> -->
 
         <div class="col-xs-12">
             <hr>
@@ -169,9 +174,9 @@ footerPublico();
             success:function(respuesta){
 
             if(respuesta == '1'){
-            window.location = '../principal/indexAdmin.php';
+            window.location = 'indexAdmin.php';
             }else if(respuesta == '2'){
-                window.location = '#';
+                window.location = 'perfil-usuario.php';
 
             }else{
                  alert("Incorrecto");
