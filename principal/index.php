@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <!--developers-->
 <html lang="es" class="no-js">
-<!--#####-nvm-#####-->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -290,9 +289,9 @@ footerPublico();
             success:function(respuesta){
 
             if(respuesta == '1'){
-            window.location = '../principal/indexAdmin.php';
+            window.location = 'indexAdmin.php';
             }else if(respuesta == '2'){
-                window.location = '#';
+                window.location = 'perfil-usuario.php';
 
             }else{
                  alert("Incorrecto");

@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <!--developers-->
 <html lang="es" class="no-js">
-<!--#####-nvm-#####-->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Titulo de La Pagina</title>
-    <meta name="Author" content="nvm" />
+    <meta name="Author" content="" />
 
     <!-- > css generales < -->
     <link href="../css/style.css" rel="stylesheet" />
@@ -47,7 +46,7 @@ menuPublico();
                 <legend>Registrate</legend>
 
                 <div class="form-group col-xs-12 col-sm-7">
-                    <label for="nombre">Nombres</label>
+                    <label for="nombre">Nombre</label>
                     <input type="text" class="form-control" id="nombre" placeholder="nombres">
                 </div>
 

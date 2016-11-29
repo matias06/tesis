@@ -2,6 +2,7 @@
 require_once '../clases/Conexion.php';
 class Compra extends Conexion{
 
+  private $idDetalle;
   private $idCompra;
 	private $fecha;
   private $idUsuario;
@@ -18,6 +19,9 @@ class Compra extends Conexion{
 
 
 	}
+public function setidDetalle($arg_idDetalle){
+    $this->idDetalle=$arg_idDetalle;
+}
 
 public function setIdCompra($arg_idCompra){
   		$this->idCompra=$arg_idCompra;
@@ -63,12 +67,25 @@ $nuevoId= $resultado[0]['id'];
 }
 public function insertarDetalle(){
 
-if($this->insertarRegistros("INSERT INTO detallecompra (cantidad, valor, id_compra, id_producto) VALUES (NULL, '".$this->cantidad."', '".$this->valor."', '".$this->idCompra."', '".$this->producto."');")){
-
+if($this->insertarRegistros("INSERT INTO detallecompra (id_detalle_compra, cantidad, valor, id_compra, id_producto)
+ VALUES (NULL,'".$this->cantidad."', '".$this->valor."', '".$this->idCompra."', '".$this->producto."');")){
+    // INSERT INTO detallecompra (id_detalle_compra, cantidad, valor, id_compra, id_producto) VALUES ('4', '2', '50', '1','15');
         return true;
   }else{
       return false;
   }
+
+}
+
+public function listarDetalleCompra(){
+  $consulta="select * from vistaDetalleCompraProducto where id_compra=".$this->idCompra;
+  $resultado= $this->consultarRegistros($consulta);
+  return $resultado;
+}
+
+public function eliminarDetalle(){
+  $eliminarDetalleCompra = $this->insertarRegistros
+    ("DELETE FROM detallecompra WHERE id_detalle_compra='".$this->idDetalle."'");
 
 }
 

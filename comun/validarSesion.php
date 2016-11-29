@@ -11,20 +11,21 @@ $user->setpassword($password);
 
 if($user->validarUsuario()){
   $resultado = $user->cargarUsuario();
-    
+
 session_start();
-    
+
     $_SESSION['id']=$resultado[0]['run'];
     $_SESSION['nombre']=$resultado[0]['nombre'];
+    $_SESSION['apellido']=$resultado[0]['apellido'];
     $_SESSION['tipo']=$resultado[0]['id_tipo_usuario'];
-    
+
     if($_SESSION['tipo'] == '1'){
         echo "1";
     }else{
         echo "2";
     }
-    
-    
+
+
 }else{
     echo "0";
 }

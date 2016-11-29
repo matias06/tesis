@@ -7,14 +7,11 @@
 <head>
    <title>Proveedores</title>
   <?php   cargarHeader(); ?>
-
 </head>
 <body>
-
   <header>
     <?php cargarMenu(); ?>
   </header>
-
 <?php
     require_once '../clases/Conexion.php';
     $conexion = new Conexion();
@@ -66,11 +63,9 @@
  </div> <!-- cierre del contenedor (proveedor, fecha) -->
 
 
-<div class="" id="divFormularioDetalleCompra">
+<div class="" id="divFormularioDetalleCompra"></div>
 
-</div>
-
-
+<div class="" id="divTablaDetalleCompra"></div>
 
 
 </body>
@@ -79,21 +74,10 @@
 
 
 
-    function cargarTablaDetalle(){
-
-      $.ajax({//realiza el envio del formulario pero por ajax para no tener que recargar pagina
-
-          url:"../mantenedores/mantenedoresIngresar.php?mant=11&func=3", //donde se va a ingresar "mantenedoresIngresar.php"
-          data:$("#form_calendario").serialize(),
-          success:function(respuesta){
-                alert(respuesta);
-               $("#divFormularioDetalleCompra").html(respuesta);
-              }
-      });
-    }
 
 
-$("#form_calendario").submit(function(){//captura cuando se envia el formulario
+
+$("#form_calendario").submit(function(){//IGRESA GUIA Y DEVUELVE ID EN SESSION
    event.preventDefault();//detiene el envio del formulario
 
 
@@ -102,33 +86,92 @@ $("#form_calendario").submit(function(){//captura cuando se envia el formulario
            url:"../mantenedores/mantenedoresIngresar.php?mant=11&func=1", //donde se va a ingresar "mantenedoresIngresar.php"
            data:$("#form_calendario").serialize(),
            success:function(respuesta){
-                    alert(respuesta);
+                    // $(document).ready(function(){
 
-                    $(document).ready(function(){
-
-                      cargarTablaDetalle();
-                    });
+                      cargarFormularioDetalle();
+                    // });
                }
        });
-       return false;
 });
 
+function cargarFormularioDetalle(){// muestra formulario ingreso de detalle compra
 
-$("#formularioCompra").submit(function(){//captura cuando se envia el formulario
-   event.preventDefault();//detiene el envio del formulario
+  $.ajax({//realiza el envio del formulario pero por ajax para no tener que recargar pagina
+      url:"../mantenedores/mantenedoresIngresar.php?mant=11&func=3", //donde se va a ingresar "mantenedoresIngresar.php"
+      data:$("#form_calendario").serialize(),
+      success:function(respuesta){
+
+           $("#divFormularioDetalleCompra").html(respuesta);
+           cargarTablaDetalle();
+          }
+  });
+}
+
+function guardarDetalle(){
 
        $.ajax({//realiza el envio del formulario pero por ajax para no tener que recargar pagina
-
+// alert("hola");
            url:"../mantenedores/mantenedoresIngresar.php?mant=11&func=2", //donde se va a ingresar "mantenedoresIngresar.php"
            data:$("#formularioCompra").serialize(),
            success:function(respuesta){
-                    alert(respuesta);
 
-                      cargarTablaDetalle();
+                      if(respuesta==1){
+                        cargarTablaDetalle();
+                      }else{
+                        alert(respuesta);
+                        cargarTablaDetalle();
+                      }
 
                }
        });
-});
+
+}
+
+function cargarTablaDetalle(){// muestra formulario ingreso de detalle compra
+
+  $.ajax({//realiza el envio del formulario pero por ajax para no tener que recargar pagina
+
+      url:"../mantenedores/mantenedoresIngresar.php?mant=11&func=4",
+      success:function(respuesta){
+
+           $("#divTablaDetalleCompra").html(respuesta);
+      }
+  });
+}
+
+function eliminarDetalle(id){
+
+  alert(id);
+  swal({
+      title: "Eliminar?",
+      text: "PRODUCTO!",
+      type: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#DD6B55",
+      cancelButtonText: "Cancelar!",
+      closeOnConfirm: false,
+      closeOnCancel: false },
+      function(isConfirm){
+          if (isConfirm) {
+               $.ajax({//realiza el envio del formulario pero por ajax para no tener que recargar pagina
+                  url:"../mantenedores/mantenedoresIngresar.php?mant=11&func=5", // donde se va a ingresar "mantenedoresIngresar.php"
+                  data:"id="+id,
+
+                  success:function(respuesta){
+                          // alert(respuesta);
+                            alert("hola");
+                          cargarTablaDetalle();
+                  }
+              });
+              swal("Modificado!", "", "success");
+          } else {
+              swal("Cancelado", "", "error");
+          }
+      });
+
+
+
+}
 
 
 

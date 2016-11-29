@@ -3,6 +3,8 @@
 	require_once '../clases/Conexion.php';
 	$conexion = new Conexion();
 	$conexion->consultarSesion();
+	
+	echo $_SESSION['id'];
 ?>
 
 <!DOCTYPE html>

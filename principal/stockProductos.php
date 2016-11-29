@@ -20,8 +20,9 @@
     $conexion = new Conexion();
     $conexion->consultarSesion();
 ?>
-
-      <div class="container">
+        <div class="container">
+          <br>
+          <br>
           <div class="col-xs-12 col-md-12">
                       <div class="table-responsive">
                           <table class="table table-bordered table-hover table-condensed tablaGeneral">
@@ -36,6 +37,6 @@
                           </table>
                       </div>
             </div>
-      </div>
+        </div>
 </body>
 </html>
