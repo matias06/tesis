@@ -346,10 +346,48 @@ require_once '../clases/usuario.php';
                             </div>
                                  <?php
 								break;
+
+                //Stock productos
+                case "5":
+                ?>
+
+                <table class="table table-bordered table-hover table-condensed" id="tablaStock" id="fondo">
+                        <thead class="active danger tablaHead">
+                            <th>Código producto</th>
+                            <th>Producto</th>
+                            <th>Valor</th>
+                            <th>Estado producto</th>
+                            <th>Stock</th>
+
+                        </thead>
+                        <tbody>
+                        <?php
+
+                        // $productos->setStock($_REQUEST['stock']);
+                        $filas= $productos->listarStock();
+
+                        foreach($filas as $columnas){
+
+                     ?>
+                        <tr>
+                          <td><?php echo $columnas['id_producto'];  ?></td>
+                          <td><?php echo $columnas['descripcion_producto'];  ?></td>
+                          <td><?php echo $columnas['valor_producto'];  ?></td>
+                          <td><?php echo $columnas['id_estado_producto'];  ?></td>
+                          <td><?php echo $columnas['stock'];  ?></td>
+
+                <?php      } ?>
+                  </tbody>
+                </table>
+  <?php
+
+
+
 						}
 			break;
 
 			case "3": //echo " Mantenedor proveedor";
+
 				         require_once'../clases/claseProveedor.php';
 			             switch($_REQUEST['prov']){
 
@@ -402,7 +440,7 @@ require_once '../clases/usuario.php';
 								case "4": //PAGINADOR
 								?>
 									<div class="table-responsive">
-                                <table class="table table-bordered table-hover table-condensed tablaGeneral">
+                                <table class="table table-bordered table-hover table-condensed tablaGeneral" id="fondo">
                                         <thead class="active danger tablaHead">
 
                                             <th>Razón Social</th>
@@ -632,7 +670,7 @@ require_once '../clases/usuario.php';
                                                                 $contador++;
 
                                                     echo'
-                                                    <tr>
+                                                    <tr class="tablaFilas">
                                                         <td><span id="txt_idregion'.$contador.'">'.$reg['id_region'].'</span></td>
                                                         <td><span id="txt_region'.$contador.'">'.$reg['nombre_region'].'</span></td>
 
@@ -734,7 +772,7 @@ require_once '../clases/usuario.php';
                                                                 $contador++;
 
                                                     echo'
-                                                    <tr>
+                                                    <tr class="tablaFilas">
 
 
                                                         <td><span class="hidden" id="txt_idciudad'.$contador.'">'.$ciudades['id_ciudad'].'</span>
@@ -825,7 +863,7 @@ require_once '../clases/usuario.php';
                                                                 $contador++;
 
                                                     echo'
-                                                    <tr>
+                                                    <tr class="tablaFilas">
                                                         <td><span id="txt_idServicio'.$contador.'">'.$servicio['id_servicio'].'</span></td>
                                                         <td><span id="txt_descripcionServicio'.$contador.'">'.$servicio['descripcion_servicio'].'</span></td>
 
@@ -940,7 +978,7 @@ require_once '../clases/usuario.php';
                                                                 $contador++;
 
                                                     echo'
-                                                    <tr>
+                                                    <tr class="tablaFilas">
 
 
                                                         <td><span class="hidden" id="txt_idTrabajo'.$contador.'">'.$trabajos['id_trabajo'].'</span>
@@ -1044,7 +1082,7 @@ require_once '../clases/usuario.php';
 																			 													$contador++;
 
 																			 							echo'
-																			 							<tr>
+																			 							<tr class="tablaFilas">
 																			 									<td><span id="txt_num'.$contador.'">'.$categoriaProducto['id_categoria_producto'].'</span></td>
 																			 									<td><span id="txt_catProd'.$contador.'">'.$categoriaProducto['descripcion_categoria_producto'].'</span></td>
 
@@ -1075,7 +1113,7 @@ break;
 }
 break;
 
-      case "10" :
+      case "10":
                   require_once'../clases/claseSubCatProducto.php';
                    switch($_REQUEST['func']){
           case "1": //echo "se ingresa";
@@ -1098,23 +1136,22 @@ break;
 
                         break;
           case "2": //echo "SE MODIFICA";
-                          $subCatProd=new SubCatProducto();
+           $subCat=new SubCatProducto();
 
-                          $descSubCatMod = filter_var($_REQUEST['txt_subCat_modificar'], FILTER_SANITIZE_STRING);
-                          $subCatProd->setid_subcategoria_producto($descSubCatMod);
+          $subCat->setid_subcategoria_producto($_REQUEST['txt_id_SubProducto_modificar']);
+          $subCat->setdescripcion_subcategoria_producto($_REQUEST['txt_subCat_modificar']);
+          $subCat->setid_categoria_producto($_REQUEST['cmb_SubCat_modificar']);
 
-                          $subCatProd->setdescripcion_subcategoria_producto($_REQUEST['cmb_SubCat_modificar']);
-                          $subCatProd->modificarSubCat();
-
-                          break;
-
+          $subCat->modificarSubCat();
+          break;
 
            case "3": //echo "SE ELIMINA";
-                            $catProd=new SubCatProducto();
+                            $subCat=new SubCatProducto();
 
-                            $catProd->setid_categoria_producto($_REQUEST['id']);
+                            //$subCat->id_subcategoria_producto($_REQUEST['id']);
+                            	$subCat->setid_subcategoria_producto($_REQUEST['id']);
 
-                            $catProd->eliminarCatProducto();
+                            $subCat->eliminarSubCat();
 
 
                             break;
@@ -1128,7 +1165,7 @@ break;
                          <div class="table-responsive">
 
 
-                        <table class="table table-bordered table-hover table-condensed" id="tablaSubCatProducto">
+                        <table class="table table-bordered table-hover table-condensed" id="fondo">
                                 <thead class="active danger tablaHead">
                                     <th>Numero Sub Categoría</th>
                                     <th>Sub Categoría producto</th>
@@ -1148,8 +1185,8 @@ break;
                                             $contador++;
 
                                 echo'
-                                <tr>
-                                    <td><span id="txt_numSubCat'.$contador.'">'.$SubCatProducto['id_subcategoria_producto'].'</span></td>
+                                <tr class="tablaFilas">
+                                    <td><span id="txt_id_SubProducto'.$contador.'">'.$SubCatProducto['id_subcategoria_producto'].'</span></td>
                                     <td><span id="txt_subCat'.$contador.'">'.$SubCatProducto['descripcion_subcategoria_producto'].'</span></td>
                                     <td><span class="hidden" id="txt_idCat'.$contador.'">'.$SubCatProducto['id_categoria_producto'].'</span>
                                     <span id="cmb_SubCat'.$contador.'">'.$SubCatProducto['descripcion_categoria_producto'].'</span></td>
@@ -1227,7 +1264,7 @@ switch($_REQUEST['func']){
 
                 break;
 
-                    case '3':
+                    case "3":
                     ?>
                     <div class="container">
                                    <div class="col-md-10-centered">
@@ -1236,7 +1273,7 @@ switch($_REQUEST['func']){
                                                    <h3 class="panel-title">Ingreso de productos</h3>
                                            </div>
                                                <div class="panel-body">
-                      <form id="formularioCompra" class="form-horizontal" action="" method="post">
+                      <form id="formularioCompra" class="form-horizontal" action="javascript:guardarDetalle();" method="post">
 
                         <div style="animation-delay: 0.5s;" class="col-md-3 animated-panel zoomIn">
                              <div class="form-group">
@@ -1277,10 +1314,43 @@ switch($_REQUEST['func']){
                     <?php
                       break;
 
+                      case "4":
+                      ?>
+                    <div class="container">
+                      <table class="table table-bordered table-hover table-condensed" id="fondo">
+                              <thead class="active danger tablaHead">
+                                  <th>Numero boleta</th>
+                                  <th>Cantidad</th>
+                                  <th>Valor</th>
+
+                                  <th>Editar Eliminar </th>
+                              </thead>
+                              <tbody>
+                              <?php
+                              $compra->setIdCompra($_SESSION['idCompra']);
+                              $filas= $compra->listarDetalleCompra();
+                              foreach($filas as $columnas){
+                           ?>
+                              <tr class="tablaFilas">
+                                <td><?php echo $columnas['id_detalle_compra'];  ?></td>
+                                <td><?php echo $columnas['cantidad'];  ?></td>
+                                <td><?php echo $columnas['valor'];  ?></td>
+
+
+                                <!--  botones eliminar -->
+                                <td><button type="button" class="btn btn-danger" onclick="eliminarDetalle(\''.$columnas['id_detalle_compra'].'\');" aria-label="left aling">
+                                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button></td>
+</tr>
+                      <?php      } ?>
+                        </tbody>
+                      </table>
+                    </div>
+<?php
+
                   }
 
       break;
 
-
       }
+
       ?>

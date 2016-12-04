@@ -5,6 +5,8 @@ global $con;
 function cargarHeader(){
 ?>
 <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="Author" content="nvm" />
 <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 <script src="../js/jquery.js"></script>
 <script src="../js/bootstrap.min.js"></script>
@@ -19,6 +21,7 @@ function cargarHeader(){
 <link rel="stylesheet" href="../js/validar_formulario.js"> -->
 <link rel="stylesheet" type="text/css" href="../css/sweet-alert.css">
 <link rel="stylesheet" href="../css/estilo.css">
+
 
 
 

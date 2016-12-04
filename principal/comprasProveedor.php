@@ -71,77 +71,54 @@
 </body>
 </html>
 <script>
-
-
-
-
-
-
 $("#form_calendario").submit(function(){//IGRESA GUIA Y DEVUELVE ID EN SESSION
    event.preventDefault();//detiene el envio del formulario
-
-
        $.ajax({//realiza el envio del formulario pero por ajax para no tener que recargar pagina
-
            url:"../mantenedores/mantenedoresIngresar.php?mant=11&func=1", //donde se va a ingresar "mantenedoresIngresar.php"
            data:$("#form_calendario").serialize(),
            success:function(respuesta){
                     // $(document).ready(function(){
-
                       cargarFormularioDetalle();
                     // });
                }
        });
 });
-
 function cargarFormularioDetalle(){// muestra formulario ingreso de detalle compra
-
   $.ajax({//realiza el envio del formulario pero por ajax para no tener que recargar pagina
       url:"../mantenedores/mantenedoresIngresar.php?mant=11&func=3", //donde se va a ingresar "mantenedoresIngresar.php"
       data:$("#form_calendario").serialize(),
       success:function(respuesta){
-
            $("#divFormularioDetalleCompra").html(respuesta);
            cargarTablaDetalle();
           }
   });
 }
-
 function guardarDetalle(){
-
        $.ajax({//realiza el envio del formulario pero por ajax para no tener que recargar pagina
 // alert("hola");
            url:"../mantenedores/mantenedoresIngresar.php?mant=11&func=2", //donde se va a ingresar "mantenedoresIngresar.php"
            data:$("#formularioCompra").serialize(),
            success:function(respuesta){
-
                       if(respuesta==1){
                         cargarTablaDetalle();
                       }else{
                         alert(respuesta);
                         cargarTablaDetalle();
                       }
-
                }
        });
-
 }
-
 function cargarTablaDetalle(){// muestra formulario ingreso de detalle compra
-
   $.ajax({//realiza el envio del formulario pero por ajax para no tener que recargar pagina
-
       url:"../mantenedores/mantenedoresIngresar.php?mant=11&func=4",
       success:function(respuesta){
-
+        alert(respuesta);
            $("#divTablaDetalleCompra").html(respuesta);
       }
   });
 }
-
 function eliminarDetalle(id){
-
-  alert(id);
+  // alert(id);
   swal({
       title: "Eliminar?",
       text: "PRODUCTO!",
@@ -156,10 +133,9 @@ function eliminarDetalle(id){
                $.ajax({//realiza el envio del formulario pero por ajax para no tener que recargar pagina
                   url:"../mantenedores/mantenedoresIngresar.php?mant=11&func=5", // donde se va a ingresar "mantenedoresIngresar.php"
                   data:"id="+id,
-
                   success:function(respuesta){
                           // alert(respuesta);
-                            alert("hola");
+                            // alert("hola");
                           cargarTablaDetalle();
                   }
               });
@@ -168,11 +144,5 @@ function eliminarDetalle(id){
               swal("Cancelado", "", "error");
           }
       });
-
-
-
 }
-
-
-
 </script>

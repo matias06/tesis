@@ -30,7 +30,6 @@ public function setProducto($arg_producto){
   $this->producto=$arg_producto;
 }
 
-
 public function setfecha ($arg_fecha){
 		$this->fecha=$arg_fecha;
 	}

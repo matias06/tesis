@@ -24,22 +24,23 @@ class SubCatProducto extends Conexion{
 
 	}
 
-	public function setid_subcategoria_producto ($arg_idsubcategoria_producto){
+	public function setid_subcategoria_producto($arg_idsubcategoria_producto){
 		$this->id_subcategoria_producto=$arg_idsubcategoria_producto;
 	}
 
-	public function setdescripcion_subcategoria_producto ($arg_descripcion_subcategoria_producto){
+	public function setdescripcion_subcategoria_producto($arg_descripcion_subcategoria_producto){
 		$this->descripcion_subcategoria_producto=$arg_descripcion_subcategoria_producto;
 	}
 
-	public function setid_categoria_producto ($arg_id_categoria_producto){
+	public function setid_categoria_producto($arg_id_categoria_producto){
 		$this->id_categoria_producto=$arg_id_categoria_producto;
 	}
 
 
 	public function eliminarSubCat(){
 			$eliminarSubCat = $this->insertarRegistros
-				("DELETE FROM subcategoria WHERE id_subcategoria_producto = '".$this->id_categoria_producto."'" );
+				("DELETE FROM subcategoriaproducto WHERE id_subcategoria_producto = '".$this->id_subcategoria_producto."'");
+			//	DELETE FROM subcategoriaproducto WHERE id_subcategoria_producto='3';
 	}
 
 	public function modificarSubCat(){
@@ -48,6 +49,8 @@ class SubCatProducto extends Conexion{
 						 SET descripcion_subcategoria_producto='".$this->descripcion_subcategoria_producto."',
 						 id_categoria_producto='".$this->id_categoria_producto."'
 						 WHERE id_subcategoria_producto='".$this->id_subcategoria_producto."';");
+
+			return $modificarSubCat;
 	}
 
     public function insertarSubCategoria(){

@@ -1,12 +1,17 @@
 <?php ob_start();
 # Cargamos la librería dompdf.
-require_once ('dompdf/dompdf_config.inc.php');
-require_once'../clases/usuario.php';
+require_once '../clases/Conexion.php';
 $conexion = new Conexion();
-$user=new Usuario();
+$conexion->consultarSesion();
+require_once ('dompdf/dompdf_config.inc.php');
 
 
-// Introducimos HTML
+require_once'../clases/claseProductos.php';
+
+$productos=new Productos();
+
+
+// Introducimos HTML1 de prueba
 ?>
 
 
@@ -27,28 +32,36 @@ $user=new Usuario();
 	      <a href="../principal/indexAdmin.php"><img src="../comun/logo/fsp.png" alt="" width="230" height="60"></a>
 	  </div>
 
-		<center><h1> Lista de Clientes Activos </h1></center>
+		<center><h1> Lista Stock </h1></center>
 				<div style="text-align:center;">
-										<table style="margin: 0 auto;" class="tg">
-										<tr>
-											<th>run</th>
-											<th>nombre</th>
-											<th>apellido</th>
+					<table class="table table-bordered table-hover table-condensed" id="tablaStock">
+									<thead class="active danger tablaHead">
+											<th>Código producto</th>
+											<th>Producto</th>
+											<th>Valor</th>
+											<th>Estado producto</th>
+											<th>Stock</th>
 
-										</tr>
-										<?php
+									</thead>
+									<tbody>
+									<?php
 
-										$filas= $user->listarUsuarios();
-										foreach($filas as $columnas){
-								 ?>
-										<tr>
-											<td><?php echo $columnas['run'];  ?></td>
-											<td><?php echo $columnas['nombre'];  ?></td>
-											<td><?php echo $columnas['apellido'];  ?></td>
+									// $productos->setStock($_REQUEST['stock']);
+									$filas= $productos->listarStock();
 
-							</tr>
-							  <?php      } ?>
-									</table>
+									foreach($filas as $columnas){
+
+							 ?>
+									<tr>
+										<td><?php echo $columnas['id_producto'];  ?></td>
+										<td><?php echo $columnas['descripcion_producto'];  ?></td>
+										<td><?php echo $columnas['valor_producto'];  ?></td>
+										<td><?php echo $columnas['id_estado_producto'];  ?></td>
+										<td><?php echo $columnas['stock'];  ?></td>
+
+					<?php      } ?>
+						</tbody>
+					</table>
 					</div>
 	</body>
 </html>
@@ -65,7 +78,7 @@ $dompdf->load_html(ob_get_clean());
 // Renderizamos el documento PDF.
 $dompdf->render();
 $pdf= $dompdf->output();
-$nombreArchivo='clientesActivos.pdf';
+$nombreArchivo='stockProductos.pdf';
 // Enviamos el fichero PDF al navegador.
 
 $dompdf->stream($nombreArchivo, array('Attachment' => 0));

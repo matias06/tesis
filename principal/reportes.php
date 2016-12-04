@@ -82,9 +82,12 @@
             <!-- /.navbar-collapse -->
 
 <br>
-<div id="page-wrapper">
 
+
+<div id="page-wrapper">
 </div>
+
+
 
            <!--  Se cargan todas las paginas en este Div  -->
               <script type="text/javascript">

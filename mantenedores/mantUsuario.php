@@ -102,7 +102,7 @@
                                         <div class="form-group">
 
                                             <label for="estado">Estado usuario</label>
-                                                 <select class="form-control" name="estadousuario" id="">
+                                                 <select class="form-control" name="estadousuario" id="estadousuario">
                                                     <?php
                                                         require_once '../clases/claseEstadoUsuario.php';
                                                         $estadoUsuario= new EstadoUsuario();

@@ -9,6 +9,7 @@ class Productos extends Conexion{
 	private $rut;
 	private $id_estado_producto;
 	private $id_categoria_producto;
+	private $stock;
 
 	public function __construct(){
 		parent::__construct();
@@ -25,6 +26,21 @@ class Productos extends Conexion{
 	 	return $productos;
 
 	 	}
+
+		public function listarStock(){
+		  $consulta="select * from vistastockproductos";
+		  $resultado= $this->consultarRegistros($consulta);
+		  return $resultado;
+		}
+		// public function listarDetalleCompra(){
+		//   $consulta="select * from vistaDetalleCompraProducto where id_compra=".$this->idCompra;
+		//   $resultado= $this->consultarRegistros($consulta);
+		//   return $resultado;
+		// }
+
+		public function setStock ($arg_stock){
+			$this->stock=$arg_stock;
+		}
 
 	public function setid_producto ($arg_id_producto){
 		$this->id_producto=$arg_id_producto;

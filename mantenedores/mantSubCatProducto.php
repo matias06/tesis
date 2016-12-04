@@ -41,6 +41,7 @@
                                <!-- <form> -->
                         <form action="" id="formularioSubCat" name="formularioSubCat" method="POST">
                           <!-- <input type="hidden" id="txt_id_SubProducto" name="txt_id_SubProducto"> -->
+                          <!-- <input type="hidden" id="txt_id_CatProducto" name="txt_id_CatProducto" > -->
                             <fieldset>
 
                                 <div class="row">
@@ -107,8 +108,9 @@
                                         url:"mantenedoresIngresar.php?mant=10&func=1", //donde se va a ingresar "mantenedoresIngresar.php"
                                         data:$("#formularioSubCat").serialize(),
                                         success:function(respuesta){
-                                        //  alert(respuesta);
+                                        //alert("hola");
                                                 if(respuesta == 1){
+                                                //alert("hola");
                                                 cambiarPagina(1);
                                                 cargarDivTablaSubCat();
                                                 eliminarCamposSubCat();

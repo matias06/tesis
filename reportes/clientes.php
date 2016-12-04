@@ -73,6 +73,11 @@
                     <div id="contenedorCliente" class="tablaGeneral"></div><!-- DIV DONDE SE CARGA LA TABLA-->
 
                   </div>
+
+                          <div class="col-md-3">
+                      <input type="button" class="btn btn-success" onclick=" location.href='../reportes/clientepdf.php' " value="Generar reporte" name="boton" />
+                          </div>
+
           </div>
 
         </div>

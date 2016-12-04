@@ -12,18 +12,24 @@ class Usuario extends Conexion{
 
 	public function __construct(){
 		parent::__construct();
-		
+
 
 	}
 
-	/*public function listarUsuarios(){
-		$usuarios = $this->consultarRegistros("SELECT run, nombre, apellido, password, usuario.id_tipo_usuario, descripcion_tipo_usuario, usuario.id_estado_usuario, descripcion_estado_usuario
-			FROM usuario 
-			inner join tipousuario on tipousuario.id_tipo_usuario = usuario.id_tipo_usuario 
-			inner join estadousuario on estadousuario.id_estado_usuario = usuario.id_estado_usuario;");
-		return $usuarios;
-		
-	}*/
+	// public function listarUsuarios(){
+	// 	$usuarios = $this->consultarRegistros("SELECT run, nombre, apellido, password, usuario.id_tipo_usuario, descripcion_tipo_usuario, usuario.id_estado_usuario, descripcion_estado_usuario
+	// 		FROM usuario
+	// 		inner join tipousuario on tipousuario.id_tipo_usuario = usuario.id_tipo_usuario
+	// 		inner join estadousuario on estadousuario.id_estado_usuario = usuario.id_estado_usuario;");
+	// 	return $usuarios;
+	//
+	// }
+
+	public function listarUsuarios(){
+	  $consulta="select * from vistaclientes";
+	  $resultado= $this->consultarRegistros($consulta);
+	  return $resultado;
+	}
 
 
 	public function setrun ($arg_run){
@@ -65,7 +71,7 @@ class Usuario extends Conexion{
 
 		if($verificar==true){
 
-			echo "si hay";
+			// echo "si hay";
 
 			$modificarUsuarios = $this->insertarRegistros
 				("update usuario
@@ -80,7 +86,7 @@ class Usuario extends Conexion{
 		}
 		else{
 
-			echo "no existe rut";
+			// echo "no existe rut";
 				$agregarUsuarios = $this->insertarRegistros
 				("INSERT INTO usuario values ('".$this->run."', '".$this->nombre."' ,'".$this->apellido."',
 				'".$this->password."','".$this->id_tipo_usuario."','".$this->id_estado_usuario."')");

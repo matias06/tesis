@@ -3,10 +3,11 @@
   ?>
 
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="no-js">
 <head>
    <title>Proveedores</title>
   <?php   cargarHeader(); ?>
+  <!-- <link href="../css/style.css" rel="stylesheet" /> -->
 
 </head>
 <body>
@@ -21,262 +22,259 @@
     $conexion->consultarSesion();
 ?>
 <br>
-<div class="content-central">
 
+<div class="contenido-ventas">
 
+    <div class="container-fluid">
 
-<div class="container">
+        <div class="row">
 
-  <div class="col-xs-12 col-sm-6 col-md-6">
-      <a href="../principal/indexAdmin.php"><img src="../comun/logo/fsp.png" alt="" width="230" height="60"></a>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 tablaHead">
-    <script type="text/javascript">
-    var d=new Date();
-    var dia=new Array(7);
-    dia[0]="Domingo";
-    dia[1]="Lunes";
-    dia[2]="Martes";
-    dia[3]="Miercoles";
-    dia[4]="Jueves";
-    dia[5]="Viernes";
-    dia[6]="Sabado";
-    document.write("" + dia[d.getDay()]);
+            <div class="col-xs-12 col-sm-4 col-md-3 col-lg-2">
 
-    var d = new Date();
-    document.write(' '+d.getDate(),' / '+d.getMonth(), ' / '+d.getFullYear(),'<br>Hora: '+d.getHours(),' : '+d.getMinutes(),' : '+d.getSeconds());
-    </script>
-  </div>
-</div>
+                <nav class="navbar navbar-default sidebar" role="navigation">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
+                            <span class="sr-only">Menú</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                          </button>
+                        </div>
+                        <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
+                          <ul class="nav navbar-nav">
+                            <li class="active"><a href="#">Inicio<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
+                            <li class="dropdown">
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Datos usuario <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a>
+                              <ul class="dropdown-menu forAnimate" role="menu">
+                                <li><a href="#" onclick="cargarDatosModal()" data-toggle="modal" data-target="#modificar">Crear Usuario</a></li>
+                                <li><a href="#">Sub Menu 2</a></li>
+                                <li><a href="#">Sub Menu 3</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">Sub Menu 4</a></li>
+                              </ul>
+                            </li>
+                            <li ><a href="#">Menu 2<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-th-list"></span></a></li>
+                            <li ><a href="#">Menu 3<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a></li>
+                          </ul>
+                        </div>
+                    </div>
+                </nav>
 
+            </div>
 
-<section class="sobre_nosotros">
+            <div class="col-xs-12 col-sm-8 col-md-9 col-lg-10">
 
-<div class="container">
+                <div class="col-xs-12">
 
-    <div class="col-xs-12 col-sm-12 col-md-12">
-        <h2 class="text-center titleh2">
-            Venta Productos
-          </h2>
+                <form action="" method="POST" role="form">
+                    <legend>Datos:</legend>
+
+                    <div class="form-group col-xs-12">
+                        <label class="pull-left">Fecha: 20/05/2016</label>
+                        <label class="pull-right">Numero Boleta: 1022</label>
+                    </div>
+
+                    <div class="form-group col-xs-12 col-sm-4">
+                        <input type="text" class="form-control" id="" placeholder="Rut">
+                    </div>
+                    <div class="form-group col-xs-12 col-sm-4">
+                        <input type="text" class="form-control" id="" placeholder="Nombre">
+                    </div>
+                    <div class="form-group col-xs-12 col-sm-4">
+                        <input type="text" class="form-control" id="" placeholder="Apellido">
+                    </div>
+
+                    <div class="form-group col-xs-12 col-sm-4">
+                        <input type="text" class="form-control" id="" placeholder="Descripcion Producto">
+                    </div>
+                    <div class="form-group col-xs-12 col-sm-4">
+                        <input type="text" class="form-control" id="" placeholder="Proveedor">
+                    </div>
+                    <div class="form-group col-xs-12 col-sm-4">
+                        <input type="text" class="form-control" id="" placeholder="Valores">
+                    </div>
+
+                    <button type="submit" id="btn--" class="btn btn-xs btn-primary">BUSCAR &nbsp; <i class="fa fa-search fa-1g"></i></button>
+
+                </form>
+
+                </div>
+
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+                    <div class="table-responsive">
+                    <center><h4 class="lead">Nombre de la Tabla</h4></center>
+                        <table class="table table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Item 1</th>
+                                    <th>Item 2</th>
+                                    <th>Item 3</th>
+                                    <th>Item 4</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>ItemDesc1</td>
+                                    <td>ItemDesc2</td>
+                                    <td>ItemDesc3</td>
+                                    <td>ItemDesc4</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
     </div>
 
-
 </div>
-</section>
-<br>
 
-<div class="row">
-  <div class="col-xs-12">
-    <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
-        <div class="form-group">
-            <label for="run">Vendedor:</label>
-            <input class="form-control"  onBlur="validarRun(this) " title="Debe ingresar un rut valido" required id="txt_run" name="txt_run" placeholder="Rut Usuario" type="text">
+<!-- Ventana modal -->
+<div class="modal fade" id="modificar">
+       <div class="modal-dialog">
+           <div class="modal-content">
+              <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                  <h3 class="modal-title">Crear Usuario</h3>
+              </div>
+              <!-- Comienzo formulario -->
+<div class="container">
+<form action="" id="formularioRegistro" name="formularioRegistro" method="POST">
+<fieldset>
+
+    <div class="row">
+        <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
+            <div class="form-group">
+                <label for="run">Run:</label>
+                <input class="form-control" id="txt_run" name="txt_run" placeholder="Rut Usuario" type="text">
+            </div>
         </div>
     </div>
-</div>
+    <div class="row">
+        <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
+            <div class="form-group">
+                <label for="nombre">Nombre</label>
+                <input class="form-control" id="txt_nombre" name="txt_nombre" placeholder="Nombre Usuario" type="text">
+            </div>
+        </div>
     </div>
-<div class="row">
-  <div class="col-xs-12">
-    <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
-        <div class="form-group">
-            <label for="nombre">Cliente</label>
-            <input class="form-control" title="Debe ingresar su nombre" required id="txt_nombre" name="txt_nombre" placeholder="Nombre Usuario" type="text">
-
-        <button type="button" data-toggle="modal" data-target="#ventanaModalCrear" class="btn btn-warning">
-        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-          </div>
-    </div>
-  </div>
-  </div>
-
-  <div class="col-xs-12 col-md-12">
-              <div class="table-responsive">
-                  <table class="table table-bordered table-hover table-condensed tablaGeneral">
-                          <thead class="active danger tablaHead">
-                              <th>Código producto</th>
-                              <th>Nombre producto</th>
-                              <th>Valor unitario</th>
-                              <th>Cantidad</th>
-                              <th>Valor Total</th>
-                          </thead>
-
-
-
-                  </table>
-              </div>
+    <div class="row">
+        <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
+            <div class="form-group">
+                <label for="apellido">Apellido</label>
+                <input class="form-control" id="txt_apellido" name="txt_apellido" placeholder="Apellido Usuario" type="text">
+            </div>
+        </div>
     </div>
 
     <div class="row">
-      <div class="col-xs-12">
-        <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
+         <div style="animation-delay: 0.5s;" class="col-md-3 animated-panel zoomIn">
             <div class="form-group">
-                <label for="nombre">Total venta:</label>
-                <textarea class="form-control col-xs-12" id="mensaje"  placeholder=""></textarea>
-        </div>
-      </div>
-      </div>
-<br>
-<br>
-<br>
-      <div class="container">
-              <div class="col-md-3">
-                  <input type="submit" id="btn_insert" class="btn btn-success" value="Aceptar" name="btn_registrar">
-
-              </div>
-          </div>
-
-
-          <!-- MODAL NUEVO  NO SE MUESTRA HASTA QUE SE PRESIONA EL BOTON NUEVO-->
-      <div class="modal fade" id="ventanaModalCrear" role="dialog">
-        <div class="modal-dialog modal-md">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal">&times;</button>
-              <h4 class="modal-title">Crear Usuario</h4>
+                <label for="apellido">Contraseña</label>
+                <input class="form-control" id="txt_password" name="txt_password" placeholder="Contraseña Usuario" type="text">
             </div>
-            <div id="modbody" class="modal-body">
-
-              <form action="" id="formularioRegistro" name="formularioRegistro" method="POST">
-                  <fieldset>
-
-                      <div class="row">
-                          <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
-                              <div class="form-group">
-                                  <label for="run">Run:</label>
-                                  <input class="form-control" title="Debe ingresar un rut valido" required id="txt_run" name="txt_run" placeholder="Rut Usuario" type="text">
-                              </div>
-
-                          </div>
-                          <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
-                              <div class="form-group">
-                                  <label for="nombre">Nombre</label>
-                                  <input class="form-control" title="Debe ingresar su nombre" required id="txt_nombre" name="txt_nombre" placeholder="Nombre Usuario" type="text">
-                              </div>
-                          </div>
-                          <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
-                              <div class="form-group">
-                                  <label for="apellido">Apellido</label>
-                                  <input class="form-control" title="Debe ingresar su apellido" required id="txt_apellido" name="txt_apellido" placeholder="Apellido Usuario" type="text">
-                              </div>
-                          </div>
-
-
-                      </div>
-
-
-                      <div class="row">
-
-                           <div style="animation-delay: 0.5s;" class="col-md-3 animated-panel zoomIn">
-
-                              <div class="form-group">
-                                  <label for="apellido">Contraseña</label>
-                                  <input class="form-control" title="Debe ingresar contraseña" required id="txt_password" name="txt_password" placeholder="Contraseña Usuario" type="password">
-                              </div>
-
-                          </div>
-
-
-                          <div style="animation-delay: 0.5s;" class="col-md-3 animated-panel zoomIn">
-
-                              <div class="form-group">
-
-                                  <label for="tipoUsuario">Tipo Usuario</label>
-                                       <select class="form-control" name="tipousuario" id="tipousuario">
-                                          <?php
-                                              require_once '../clases/claseTipoUsuario.php';
-                                              $TipoU= new TipoUsuario();
-                                              $filasTipoU= $TipoU->listarTipoUsuario();
-
-                                              foreach($filasTipoU as $tipo){
-                                                  echo '<option value="'.$tipo['id_tipo_usuario'].'" >'.$tipo['descripcion_tipo_usuario'].'</option>';
-                                              }
-
-                                           ?>
-                                      </select>
-
-                              </div>
-
-                          </div>
-
-                          <div style="animation-delay: 0.5s;" class="col-md-3 animated-panel zoomIn">
-
-                              <div class="form-group">
-
-                                  <label for="estado">Estado usuario</label>
-                                       <select class="form-control" name="estadousuario" id="">
-                                          <?php
-                                              require_once '../clases/claseEstadoUsuario.php';
-                                              $estadoUsuario= new EstadoUsuario();
-                                              $filasEstado= $estadoUsuario->listarEstadoUsuario();
-
-                                              foreach($filasEstado as $tipoEst){
-                                                  echo '<option value="'.$tipoEst['id_estado_usuario'].'" >'.$tipoEst['descripcion_estado_usuario'].'</option>';
-                                              }
-
-                                           ?>
-                                      </select>
-
-                              </div>
-
-                          </div>
-
-
-                      </div>
-                      <div class="container">
-                              <div class="col-md-3">
-                                  <input type="submit" id="btn_insert" class="btn btn-success" value="Agregar" name="btn_registrar">
-
-                              </div>
-                          </div>
-
-
-                  </fieldset>
-              </form>
-
-
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-            </div>
-          </div>
         </div>
-      </div>
+    </div>
+    <div class="row">
+        <div style="animation-delay: 0.5s;" class="col-md-3 animated-panel zoomIn">
+            <div class="form-group">
+                <label for="tipoUsuario">Tipo Usuario</label>
+                     <select class="form-control" name="tipousuario" id="tipousuario">
+                        <?php
+                            require_once '../clases/claseTipoUsuario.php';
+                            $TipoU= new TipoUsuario();
+                            $filasTipoU= $TipoU->listarTipoUsuario();
 
+                            foreach($filasTipoU as $tipo){
+                                echo '<option value="'.$tipo['id_tipo_usuario'].'" >'.$tipo['descripcion_tipo_usuario'].'</option>';
+                            }
 
-
-
-
-
+                         ?>
+                    </select>
+            </div>
         </div>
-          </body>
-          </html>
-
-          <script>
-          $("#formularioRegistro").submit(function(){//captura cuando se envia el formulario
-             event.preventDefault();//detiene el envio del formulario
+    </div>
 
 
-                 $.ajax({//realiza el envio del formulario pero por ajax para no tener que recargar pagina
+    <div style="animation-delay: 0.5s;" class="col-md-3 animated-panel zoomIn">
 
-                     url:"../mantenedores/mantenedoresIngresar.php?mant=1&func=1", //donde se va a ingresar "mantenedoresIngresar.php"
-                     data:$("#formularioRegistro").serialize(),
-                     success:function(respuesta){
-                          //alert("Usuario Agregado correctamente");
+            <div class="form-group">
 
-                             //alert(respuesta);
-                             //$("#formularioProveedor").html(respuesta);
+                <label for="estado">Estado usuario</label>
+                     <select class="form-control" name="estadousuario" id="estadousuario">
+                        <?php
+                            require_once '../clases/claseEstadoUsuario.php';
+                            $estadoUsuario= new EstadoUsuario();
+                            $filasEstado= $estadoUsuario->listarEstadoUsuario();
 
-                             eventoAlertCorrecto();
+                            foreach($filasEstado as $tipoEst){
+                                echo '<option value="'.$tipoEst['id_estado_usuario'].'" >'.$tipoEst['descripcion_estado_usuario'].'</option>';
+                            }
+                         ?>
+                    </select>
+            </div>
+        </div>
+        <br>
+        <div class="container">
+                <div class="col-md-3">
+                    <input type="submit" id="btn_insert" class="btn btn-success" value="Agregar" name="btn_registrar">
 
-                     }
-                 });
-                 return false;
-         });
+                </div>
+            </div>
+
+
+</fieldset>
+</form>
+</div>
 
 
 
-         function eventoAlertCorrecto(){
-         swal("Exito!", "Se ha agregado correctamente!", "success")
-         }
+</body>
+</html>
 
-            </script>
+                        <script>
+
+
+                        $("#formularioRegistro").submit(function(){//captura cuando se envia el formulario
+                           event.preventDefault();//detiene el envio del formulario
+
+
+                               $.ajax({//realiza el envio del formulario pero por ajax para no tener que recargar pagina
+
+                                   url:"../mantenedores/mantenedoresIngresar.php?mant=1&func=1", //donde se va a ingresar "mantenedoresIngresar.php"
+                                   data:$("#formularioRegistro").serialize(),
+                                   success:function(respuesta){
+                                        //alert("Usuario Agregado correctamente");
+
+                                           alert(respuesta);
+                                           //$("#formularioProveedor").html(respuesta);
+                                           cambiarPagina(1);
+                                          //  cargarDivTablaUsuario();
+                                          //  eliminarCamposUsuario();
+                                           eventoAlertCorrecto();
+
+                                   }
+                               });
+                               return false;
+                        });
+
+              function eventoAlertCorrecto(){
+              swal("Exito!", "Se ha agregado correctamente!", "success")
+              }
+
+              function mostarDatosUsuario(fila){
+
+               $("#txt_run_modificar").val($("#txt_run"+fila).html());
+               $("#txt_nombre_modificar").val($("#txt_nombre"+fila).html());
+               $("#txt_apellido_modificar").val($("#txt_apellido"+fila).html());
+
+
+
+               }
+                        </script>

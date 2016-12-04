@@ -3,8 +3,10 @@
                            <!-- Esta funcion carga el modal para modificar datos de la tabla -->
         <script>
             function cargarDatosModal(fila){
+
                 $("#txt_id_SubProducto_modificar").val($("#txt_id_SubProducto"+fila).html());
                 $("#txt_subCat_modificar").val($("#txt_subCat"+fila).html());
+              //  $("#txt_id_producto_modificar").val($("#txt_id_producto"+fila).html());
                 $("#cmb_SubCat_modificar").val($("#txt_idCat"+fila).html());
 
             }
@@ -23,6 +25,7 @@
          <div class="modal-body">
             <form id="formModificarSubCat" name="formModificarSubCat">
               <input type="hidden" id="txt_id_SubProducto_modificar" name="txt_id_SubProducto_modificar" >
+              <input type="hidden" id="txt_id_producto_modificar" name="txt_id_producto_modificar" >
                 <fieldset>
                   <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
                       <div class="form-group">
@@ -68,20 +71,23 @@
                 <script>
                             $("#formModificarSubCat").submit(function(){//captura cuando se envia el formulario
                             event.preventDefault();//detiene el envio del formulario
-
-                                $.ajax({//realiza el envio del formulario pero por ajax para no tener que recargar pagina
-                                url:"mantenedoresIngresar.php?mant=10&func=2", // donde se va a ingresar "mantenedoresIngresar.php"
-                                data:$("#formModificarSubCat").serialize(),
-                                success:function(respuesta){
                                 //alert("hola");
-                                      //alert(respuesta);
-                                cambiarPagina(1);
-                                cargarDivTablaSubCat();
-                                eventoAlertActualizar();
-                                                                }
-                                                            });
-                                                            return false;
-                                                    });
+                                    $.ajax({//realiza el envio del formulario pero por ajax para no tener que recargar pagina
+                                        url:"mantenedoresIngresar.php?mant=10&func=2", // donde se va a ingresar "mantenedoresIngresar.php"
+                                        data:$("#formModificarSubCat").serialize(),
+                                        success:function(respuesta){
+                                          //alert(respuesta);
+                                          //$("#formModificarSubCat").html(respuesta);
+                                      //alert("hola");
+                                      //alert(id);
+                                            //alert(respuesta);
+                                        cambiarPagina(1);
+                                        cargarDivTablaSubCat();
+                                        //eventoAlertActualizar();
+                                          }
+                                    });
+                                        return false;
+                            });
 
 
                 // dejar inactivo a un usuario
@@ -107,7 +113,7 @@
                                         url:"mantenedoresIngresar.php?mant=10&func=3", // donde se va a ingresar "mantenedoresIngresar.php"
                                         data:"id="+id,
                                         success:function(respuesta){
-                                                // alert(respuesta);
+                                                //alert(respuesta);
                                                 cambiarPagina(1);
                                                 cargarDivTablaSubCat();
                                                 eventoAlertEliminar();
