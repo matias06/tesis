@@ -10,6 +10,7 @@
 <head>
      <?php cargarHeader(); ?>
      <link rel="stylesheet" href="../css/estilo.css">
+     <meta charset = "UTF-8">
 </head>
 <title>Mantenedores</title>
 

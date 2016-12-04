@@ -155,10 +155,23 @@
 
             <span><b>Mis Reservas</b></span>
             <br>
+                  <table class="table table-responsive">
+                      <tr>
+                        <th>Patente</th>
+                        <th>Marca</th>
+                        <th>Modelo</th>
+                        <th>Servicio</th>
+                        <th>Problema</th>
+                        <th>Estado</th>
+                        <th>Modificar</th>
+                        <th>Eliminar</th>
+                      </tr>
+                    <tbody id="cargarReservas">
 
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </tbody>
+                  </table>
 
-        </div>
+            </div>
 
         <div class="despegable-menu" id="autos-despegable">
 
@@ -304,6 +317,19 @@ footerPublico();
 <!-- > js agregados por nosotros < -->
 <script src="../js/main.js"></script>
 <script src="../js/validar_sesion.js"></script>
+
+
+
+
+<script type="text/javascript">
+$.ajax({
+  url:'../mantenedorTablasAjax/cargarTablaReserva.php',
+  success:function(resultado){
+    $("#cargarReservas").html(resultado);
+
+    }
+});
+</script>
 <script>
 
 
