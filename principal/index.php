@@ -52,7 +52,7 @@
     </ol>
     <div class="carousel-inner">
         <div class="item active">
-            <img src="../imagenes/slide/gal1-min.jpg." alt="slider-1" />
+            <img src="../imagenes/slide/gal1.jpg." alt="slider-1" />
             <div class="container">
                 <!--<div class="carousel-caption">
                     <h1>Texto </h1>
@@ -65,7 +65,7 @@
         </div>
         <div class="item">
 
-            <img src="../imagenes/slide/gal2-min.jpg" alt="slider-1" />
+            <img src="../imagenes/slide/gal2.jpg" alt="slider-1" />
 
             <div class="container">
                 <!--<div class="carousel-caption">
@@ -79,7 +79,7 @@
         </div>
         <div class="item">
 
-            <img src="../imagenes/slide/gal3-min.jpg" alt="slider-1" />
+            <img src="../imagenes/slide/gal3.jpg" alt="slider-1" />
 
             <div class="container">
                 <!--<div class="carousel-caption">
@@ -93,7 +93,7 @@
         </div>
         <div class="item">
 
-            <img src="../imagenes/slide/gal4-min.jpg" alt="slider-1" />
+            <img src="../imagenes/slide/gal4.jpg" alt="slider-1" />
 
             <div class="container">
                 <!--<div class="carousel-caption">

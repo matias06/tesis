@@ -22,6 +22,7 @@ class Usuario extends Conexion{
 	  $consulta="select * from vistaclientes";
 	  $resultado= $this->consultarRegistros($consulta);
 	  return $resultado;
+	}
 
 
 
