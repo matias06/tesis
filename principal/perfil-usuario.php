@@ -105,10 +105,10 @@
         <div class="despegable-menu" id="datos-despegable">
 
                 <span class="lead">Mis Datos
-                    <a class="btn btn-info btn-xs" data-toggle="modal" href='#modal-datos'><i class="fa fa-edit fa-1g"></i> Modificar Datos</a>
+                    <!-- <a class="btn btn-info btn-xs" data-toggle="modal" href='#modal-datos'><i class="fa fa-edit fa-1g"></i> Modificar Datos</a> -->
                 </span>
 
-                <div class="modal fade" id="modal-datos"><!-- modal para modificar datos-->
+                <!-- <div class="modal fade" id="modal-datos">! modal para modificar datos
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -142,12 +142,24 @@
                             </form>
                         </div>
                     </div>
-                </div><!-- final modal para modificar datos-->
+                </div>--><!-- final modal para modificar datos-->
             <br>
+            <table class="table table-responsive">
+                <tr>
+                  <th>Run</th>
+                  <th>Nombre</th>
+                  <th>Apellido</th>
+                  <th>Password</th>
+                  <th>Telefono</th>
+                  <th>Correo</th>
+                  <th>Modificar</th>
 
-            <b>Nombre: </b><br>
-            <b>Correo:</b><br>
-            <b>Fecha de Nacimiento:</b>
+                </tr>
+              <tbody id="cargarDatos">
+
+              </tbody>
+            </table>
+
 
         </div>
 
@@ -176,11 +188,24 @@
         <div class="despegable-menu" id="autos-despegable">
 
                 <span class="lead">Mis Automoviles
-                    <a class="btn btn-info btn-xs" data-toggle="modal" href='#modal-auto'><i class="fa fa-plus-circle fa-1g"></i>  Agregar Autos</a>
+                    <!-- <a class="btn btn-info btn-xs" data-toggle="modal" href='#modal-auto'><i class="fa fa-plus-circle fa-1g"></i>  Agregar Autos</a> -->
                 </span>
+                  <br>
+                <table class="table table-responsive">
+                    <tr>
+                      <th>Patente</th>
+                      <th>Marca</th>
+                      <th>Modelo</th>
+                      <th>Modificar</th>
+                      <th>Eliminar</th>
+                    </tr>
+                  <tbody id="cargarVehiculos">
+
+                  </tbody>
+                </table>
 
 
-                <div class="modal fade" id="modal-auto"><!-- modal para agregar vehiculo-->
+                <!-- <div class="modal fade" id="modal-auto"><!modal para agregar vehiculo
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -219,34 +244,14 @@
                             </form>
                         </div>
                     </div>
-                </div><!-- final modal para agregar nuevo vehiculo-->
-            <br>
+                </div> --> <!-- final modal para agregar nuevo vehiculo -->
 
 
 
-            <div class="table-responsive">
 
-                <table class="table table-hover">
-                    <thead>
-                        <tr>
-                            <th>Patente</th><th>Marca</th><th>Modelo</th><th>Año</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>BC-51-52</td><td>Chevrolet</td><td>Silverado</td><td>2015</td>
-                            <td><a data-toggle="modal" href='#modal-modificar-auto'><i class="fa fa-cog fa-2x"></i></a></td>
-                        </tr>
-                        <tr>
-                            <td>BB-15-22</td><td>Dodge</td><td>Ram 1500</td><td>2013</td>
-                            <td><a data-toggle="modal" href='#modal-modificar-auto'><i class="fa fa-cog fa-2x"></i></a></td>
-                        </tr>
-                    </tbody>
-                </table>
+              <!-- modal modificacion del vehiculo-->
 
-                <!-- modal modificacion del vehiculo-->
-
-                <div class="modal fade" id="modal-modificar-auto">
+                <!-- <div class="modal fade" id="modal-modificar-auto">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -285,7 +290,7 @@
                             </form>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
             </div>
 
@@ -319,20 +324,35 @@ footerPublico();
 <script src="../js/validar_sesion.js"></script>
 
 
+<script type="text/javascript">
+$.ajax({
+  url:'../cliente/cargarTablaCliente.php',
+  success:function(resultado){
+    $("#cargarDatos").html(resultado);
 
+    }
+});
+</script>
 
 <script type="text/javascript">
 $.ajax({
-  url:'../mantenedorTablasAjax/cargarTablaReserva.php',
+  url:'../cliente/cargarTablaReserva.php',
   success:function(resultado){
     $("#cargarReservas").html(resultado);
 
     }
 });
 </script>
+<script type="text/javascript">
+$.ajax({
+  url:'../cliente/cargarTablaVehiculos.php',
+  success:function(resultado){
+    $("#cargarVehiculos").html(resultado);
+
+    }
+});
+</script>
 <script>
-
-
 $("#datos-despegable").show();
 $("#reservas-despegable").hide();
 $("#autos-despegable").hide();

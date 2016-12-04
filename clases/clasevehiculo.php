@@ -10,7 +10,7 @@ class Vehiculo extends Conexion{
 
 	public function __construct(){
 		parent::__construct();
-		
+
 
 	}
 
@@ -33,7 +33,11 @@ public function setmodelo ($arg_modelo){
 public function setrun ($arg_run){
 		$this->run=$arg_run;
 	}
-
+	public function cargarVehiculos($runVehiculo){
+		$consulta = 'SELECT * FROM vervehiculos WHERE run = "'.$runVehiculo.'"';
+		$resultado = $this->consultar($consulta);
+		return $resultado;
+	}
 
 }
 ?>
