@@ -8,21 +8,22 @@ class Usuario extends Conexion{
 	private $password;
 	private $id_tipo_usuario;
 	private $id_estado_usuario;
+	protected $con;
 
 
 	public function __construct(){
 		parent::__construct();
-		
+
 
 	}
 
 	/*public function listarUsuarios(){
 		$usuarios = $this->consultarRegistros("SELECT run, nombre, apellido, password, usuario.id_tipo_usuario, descripcion_tipo_usuario, usuario.id_estado_usuario, descripcion_estado_usuario
-			FROM usuario 
-			inner join tipousuario on tipousuario.id_tipo_usuario = usuario.id_tipo_usuario 
+			FROM usuario
+			inner join tipousuario on tipousuario.id_tipo_usuario = usuario.id_tipo_usuario
 			inner join estadousuario on estadousuario.id_estado_usuario = usuario.id_estado_usuario;");
 		return $usuarios;
-		
+
 	}*/
 
 
@@ -96,6 +97,11 @@ class Usuario extends Conexion{
         $consulta = $this->consultarRegistros("SELECT * from usuario where run= '".$this->run."'");
         return $consulta;
     }
+		public function cargarReservas($runReserva){
+			$consulta = 'SELECT * FROM verreserva WHERE run = "'.$runReserva.'"';
+			$resultado = $this->consultar($consulta);
+			return $resultado;
+		}
 }
 
 ?>

@@ -6,7 +6,7 @@ class Conexion{
 	private $usuario; //root usuario con privilegio de la BD
 	private $clave; //clave base datos
 	private $baseDatos; //base datos a cual esta referida
-   protected $con; //clase coneccion se hereda
+   protected $con; //clase conexion se hereda
 
 
    	public function __construct(){
@@ -60,6 +60,61 @@ class Conexion{
 
 
          }
+
+				 function consultar($consulta){
+				 		// echo $consulta;
+				 		$resultado = $this->con->query($consulta);
+				 			if (!$resultado) {
+				 				echo "SQL ERROR :".$this->con->error;
+				 				exit;
+				 			}
+				 			return $resultado;
+				 	}
+
+				 	function convertir_array($consulta){
+				 		// echo $consulta;
+				 			return mysqli_fetch_array($consulta);
+				 	}
+
+				 	function mostrar_filas($consulta){
+				 		return $this->con->mysqli_num($consulta);
+				 		 //echo "la consulta es: ".$consulta;
+
+				 	}
+					public function cantRegistros($arg_consulta){
+	    		$resultado = $this->con->query($arg_consulta);
+
+	      if (!$resultado) {
+	          echo "Lo sentimos, este sitio web está experimentando problemas.";
+	          echo "Error: La ejecución de la consulta falló debido a: \n";
+	          echo "Query: " . $arg_consulta . "\n";
+	          echo "Errno: " . $this->con->errno . "\n";
+	          echo "Error: " . $this->con->error . "\n";
+	          exit;
+	      }else{
+	          $cantidad= $resultado->num_rows;
+	          return $cantidad;
+	      }
+	  }
+
+		// public function cantidadRegis($arg_consulta){
+    //   $resultado= $this->con->query($arg_consulta);
+		//
+    //     if (!$resultado) {
+    //         echo "Lo sentimos, este sitio web está experimentando problemas.";
+    //         echo "Error: La ejecución de la consulta falló debido a: \n";
+    //         echo "Query: " . $arg_consulta . "\n";
+    //         echo "Errno: " . $this->con->errno . "\n";
+    //         echo "Error: " . $this->con->error . "\n";
+    //         exit;
+    //     }else{
+    //       if($resultado->num_rows>0){
+    //           return $resultado->num_rows;
+    //       }else{
+    //         return 0;
+    //       }
+    //     }
+    // }
 
 
          public function insertarRegistros($arg_consulta){
