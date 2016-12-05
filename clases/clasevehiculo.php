@@ -14,13 +14,19 @@ class Vehiculo extends Conexion{
 
 	}
 
-	public function listarVehiculos(){
-		$vehiculos = $this->consultarRegistros("SELECT patente, marca, modelo, vehiculo.run, nombre, apellido
- 			FROM vehiculo
-            inner join usuario on usuario.run = vehiculo.run;");
+// 	public function listarVehiculos(){
+// 		$vehiculos = $this->consultarRegistros("SELECT patente, marca, modelo, vehiculo.run, nombre, apellido
+//  			FROM vehiculo
+//             inner join usuario on usuario.run = vehiculo.run;");
+// 		return $vehiculos;
+//
+// }
+public function listarVehiculos(){
+		$vehiculos = $this->consultarRegistros("SELECT * FROM vehiculo;");
 		return $vehiculos;
 
 }
+
 public function setpatente ($arg_patente){
 		$this->patente=$arg_patente;
 	}
@@ -60,7 +66,11 @@ public function setrun ($arg_run){
 					("INSERT INTO vehiculo (patente, marca, modelo, run) VALUES ('".$this->patente."', '".$this->marca."', '".$this->modelo."', '".$this->run."');");
 			}
 		}
-
+		public function cargarVehiculos($runVehiculo){
+				$consulta = 'SELECT * FROM vervehiculos WHERE run = "'.$runVehiculo.'"';
+				$resultado = $this->consultar($consulta);
+				return $resultado;
+			}
 
 }
 ?>

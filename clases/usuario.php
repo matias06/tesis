@@ -6,6 +6,8 @@ class Usuario extends Conexion{
 	private $nombre;
 	private $apellido;
 	private $password;
+	private $telefono;
+	private $correo;
 	private $id_tipo_usuario;
 	private $id_estado_usuario;
 	protected $con;
@@ -49,6 +51,14 @@ class Usuario extends Conexion{
 		$this->password=$arg_pass;
 	}
 
+	public function settelefono ($arg_tel){
+		$this->telefono=$arg_tel;
+	}
+
+	public function setcorreo ($arg_correo){
+		$this->correo=$arg_correo;
+	}
+
 	public function settipo_usuario ($arg_tipouser){
 		$this->id_tipo_usuario=$arg_tipouser;
 	}
@@ -80,6 +90,8 @@ class Usuario extends Conexion{
 					nombre='".$this->nombre."',
 					apellido='".$this->apellido."',
 					password='".$this->password."',
+					telefono='".$this->telefono."',
+					correo='".$this->correo."',
 					id_tipo_usuario=".$this->id_tipo_usuario.",
 					id_estado_usuario=".$this->id_estado_usuario."
 					where run = '".$this->run."'");
@@ -90,7 +102,7 @@ class Usuario extends Conexion{
 			// echo "no existe rut";
 				$agregarUsuarios = $this->insertarRegistros
 				("INSERT INTO usuario values ('".$this->run."', '".$this->nombre."' ,'".$this->apellido."',
-				'".$this->password."','".$this->id_tipo_usuario."','".$this->id_estado_usuario."')");
+				'".$this->password."','".$this->telefono."','".$this->correo."','".$this->id_tipo_usuario."','".$this->id_estado_usuario."')");
 		}
 	}
 
@@ -105,6 +117,11 @@ class Usuario extends Conexion{
     }
 		public function cargarReservas($runReserva){
 			$consulta = 'SELECT * FROM verreserva WHERE run = "'.$runReserva.'"';
+			$resultado = $this->consultar($consulta);
+			return $resultado;
+		}
+		public function verDatos($runDatos){
+			$consulta = 'SELECT * FROM verdatos WHERE run = "'.$runDatos.'"';
 			$resultado = $this->consultar($consulta);
 			return $resultado;
 		}
