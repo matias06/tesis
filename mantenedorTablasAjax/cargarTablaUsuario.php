@@ -1,19 +1,21 @@
 
                         <div class="col-xs-8 col-sm-6 col-md-4 col-lg-3">
-                           
+
                             <div class="caption">
                            <!-- Esta funcion carga el modal para modificar datos de la tabla -->
                      <script>
                                function cargarDatosModal(fila){
-                                
+
                                 $("#txt_run_modificar").val($("#txt_run"+fila).html());
                                 $("#txt_nombre_modificar").val($("#txt_nombre"+fila).html());
                                 $("#txt_apellido_modificar").val($("#txt_apellido"+fila).html());
                                 $("#txt_contraseña_modificar").val($("#txt_password"+fila).html());
+                                $("#txt_telefono_modificar").val($("#txt_telefono"+fila).html());
+                                $("#txt_correo_modificar").val($("#txt_correo"+fila).html());
                                 $("#cmb_tipo_modificar").val($("#txt_descripcionTipo1"+fila).html());
                                 $("#cmb_estado_modificar").val($("#txt_descripcion_Estado1"+fila).html());
-                                
-                 
+
+
                                 }
                         </script>
 
@@ -27,10 +29,10 @@
                                               <h3 class="modal-title">Modificar Usuario</h3>
                                           </div>
                                           <!-- Comienzo formulario -->
-                 <div class="container">                       
+                 <div class="container">
                     <form id="formModificarUsuario" name="formModificarUsuario">
                             <fieldset>
-                            
+
                                 <div class="row">
                                     <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
                                         <div class="form-group">
@@ -42,34 +44,53 @@
                                 <div class="row">
                                     <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
                                         <div class="form-group">
-                                            <label for="nombre">Nombre</label>
+                                            <label for="nombre">Nombre:</label>
                                             <input class="form-control" id="txt_nombre_modificar" name="txt_nombre_modificar" placeholder="Nombre Usuario" type="text">
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">    
+                                <div class="row">
                                     <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
                                         <div class="form-group">
-                                            <label for="apellido">Apellido</label>
+                                            <label for="apellido">Apellido:</label>
                                             <input class="form-control" id="txt_apellido_modificar" name="txt_apellido_modificar" placeholder="Apellido Usuario" type="text">
                                         </div>
                                     </div>
-                                </div> 
-                                
+                                </div>
+
                                 <div class="row">
                                      <div style="animation-delay: 0.5s;" class="col-md-3 animated-panel zoomIn">
                                         <div class="form-group">
-                                            <label for="apellido">Contraseña</label>
+                                            <label for="contraseña">Contraseña:</label>
                                             <input class="form-control" id="txt_contraseña_modificar" name="txt_contraseña_modificar" placeholder="Contraseña Usuario" type="text">
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">    
+
+                                <div class="row">
+                                     <div style="animation-delay: 0.5s;" class="col-md-3 animated-panel zoomIn">
+                                        <div class="form-group">
+                                            <label for="telefono">Télefono:</label>
+                                            <input class="form-control" id="txt_telefono_modificar" name="txt_telefono_modificar" placeholder="Contraseña Usuario" type="text">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                     <div style="animation-delay: 0.5s;" class="col-md-3 animated-panel zoomIn">
+                                        <div class="form-group">
+                                            <label for="correo">Correo:</label>
+                                            <input class="form-control" id="txt_correo_modificar" name="txt_correo_modificar" placeholder="Contraseña Usuario" type="text">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
                                     <div style="animation-delay: 0.5s;" class="col-md-3 animated-panel zoomIn">
                                         <div class="form-group">
-                                            <label for="tipoUsuario">Tipo Usuario</label>
+                                            <label for="tipoUsuario">Tipo Usuario:</label>
                                                  <select class="form-control" name="cmb_tipo_modificar" id="cmb_tipo_modificar">
-                                                    <?php 
+                                                    <?php
                                                         require_once '../clases/claseTipoUsuario.php';
                                                         $TipoU= new TipoUsuario();
                                                         $filasTipoU= $TipoU->listarTipoUsuario();
@@ -79,19 +100,19 @@
                                                         }
 
                                                      ?>
-                                                </select> 
+                                                </select>
                                         </div>
                                     </div>
                                 </div>
-                                
-                                   
+
+
                                 <div style="animation-delay: 0.5s;" class="col-md-3 animated-panel zoomIn">
 
                                         <div class="form-group">
 
-                                            <label for="estado">Estado usuario</label>
+                                            <label for="estado">Estado usuario:</label>
                                                  <select class="form-control" name="cmb_estado_modificar" id="cmb_estado_modificar">
-                                                    <?php 
+                                                    <?php
                                                         require_once '../clases/claseEstadoUsuario.php';
                                                         $estadoUsuario= new EstadoUsuario();
                                                         $filasEstado= $estadoUsuario->listarEstadoUsuario();
@@ -100,11 +121,11 @@
                                                             echo '<option value="'.$tipoEst['id_estado_usuario'].'" >'.$tipoEst['descripcion_estado_usuario'].'</option>';
                                                         }
                                                      ?>
-                                                </select> 
+                                                </select>
                                         </div>
                                     </div>
 
-                                
+
                                 <div class="container">
                                         <div class="col-md-8">
                                             <button type="submit" class="btn btn-success" data-toggle="modal" data-target="#modificar" value="Guardar cambios" name="btn_registrar">Modificar</button>
@@ -114,23 +135,23 @@
 
                             </fieldset>
                     </form>
-                    </div> 
+                    </div>
 
                                           <!-- Fin formulario -->
                                 <div class="modal-footer">
                                         <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar Ventana</button>
                                 </div>
                                        </div>
-                                   </div> 
+                                   </div>
                                 </div>
 
                                 <!-- Termino ventana modal -->
-                         
+
                             </div>  <!-- table -->
 
                             <script>
 
-           
+
     $('#modificar').click(function(){
         $('.modal-backdrop').fadeOut('fast');
     });
@@ -140,7 +161,7 @@
 
 
                                     $.ajax({//realiza el envio del formulario pero por ajax para no tener que recargar pagina
-                                       
+
                                         url:"mantenedoresIngresar.php?mant=1&func=2", // donde se va a ingresar "mantenedoresIngresar.php"
                                         data:$("#formModificarUsuario").serialize(),
                                         success:function(respuesta){
@@ -166,20 +187,20 @@
 
                                   function eliminarUsuario(id){
                                     // alert(id);
-                                    swal({   
-                                        title: "Eliminar?",   
-                                        text: "Usuario!",   
-                                        type: "warning",   
-                                        showCancelButton: true,   
-                                        confirmButtonColor: "#DD6B55",   
-                                        confirmButtonText: "Yes, cambiar estado!",   
-                                        cancelButtonText: "Cancelar!",   
-                                        closeOnConfirm: false,   
-                                        closeOnCancel: false }, 
-                                        function(isConfirm){   
-                                            if (isConfirm) {   
+                                    swal({
+                                        title: "Eliminar?",
+                                        text: "Usuario!",
+                                        type: "warning",
+                                        showCancelButton: true,
+                                        confirmButtonColor: "#DD6B55",
+                                        confirmButtonText: "Yes, cambiar estado!",
+                                        cancelButtonText: "Cancelar!",
+                                        closeOnConfirm: false,
+                                        closeOnCancel: false },
+                                        function(isConfirm){
+                                            if (isConfirm) {
                                                  $.ajax({//realiza el envio del formulario pero por ajax para no tener que recargar pagina
-                                               
+
                                                     url:"mantenedoresIngresar.php?mant=1&func=3", // donde se va a ingresar "mantenedoresIngresar.php"
                                                     data:"id="+id,
                                                     success:function(respuesta){
@@ -187,17 +208,16 @@
                                                             cambiarPagina(1);
                                                             cargarDivTablaUsuario();
                                                     }
-                                                });  
-                                                swal("Modificado!", "", "success");   
-                                            } else {    
-                                                swal("Cancelado", "", "error");   
-                                            } 
+                                                });
+                                                swal("Modificado!", "", "success");
+                                            } else {
+                                                swal("Cancelado", "", "error");
+                                            }
                                         });
 
-                            
-                                     
+
+
                                 }
 
 
-    </script>   
- 
+    </script>

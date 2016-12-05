@@ -58,12 +58,24 @@
                                             <input class="form-control" title="Debe ingresar su apellido" required id="txt_apellido" name="txt_apellido" placeholder="Apellido Usuario" type="text">
                                         </div>
                                     </div>
+                                    <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
+                                        <div class="form-group">
+                                            <label for="telefono">Télefono:</label>
+                                            <input class="form-control" title="Debe ingresar su télefono" required id="txt_telefono" name="txt_telefono" placeholder="Télefono Usuario" type="text">
+                                        </div>
+                                    </div>
 
 
                                 </div>
 
 
                                 <div class="row">
+                                  <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
+                                      <div class="form-group">
+                                          <label for="telefono">Correo:</label>
+                                          <input class="form-control" title="Debe ingresar su correo" required id="txt_correo" name="txt_correo" placeholder="Correo Usuario" type="text">
+                                      </div>
+                                  </div>
 
                                      <div style="animation-delay: 0.5s;" class="col-md-3 animated-panel zoomIn">
 

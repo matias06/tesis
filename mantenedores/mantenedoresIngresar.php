@@ -20,6 +20,12 @@ require_once '../clases/usuario.php';
 									$usuario->setapellido($apellido);
                                     $contraseña = filter_var($_REQUEST['txt_password'], FILTER_SANITIZE_STRING);
 									$usuario->setpassword($contraseña);
+                                    $telefono = filter_var($_REQUEST['txt_telefono'], FILTER_SANITIZE_NUMBER_INT);
+                  $usuario->settelefono($telefono);
+                                    $contraseña = filter_var($_REQUEST['txt_correo'], FILTER_SANITIZE_STRING);
+                  $usuario->setcorreo($contraseña);
+
+
 									$usuario->settipo_usuario($_REQUEST['tipousuario']);
 									$usuario->setestado_usuario($_REQUEST['estadousuario']);
 
@@ -38,6 +44,13 @@ require_once '../clases/usuario.php';
 									$usuario->setapellido($apellidoModifcar);
                                     $contraseñaModifcar = filter_var($_REQUEST['txt_contraseña_modificar'], FILTER_SANITIZE_STRING);
 									$usuario->setpassword($contraseñaModifcar);
+
+                                    $telefonoModificar = filter_var($_REQUEST['txt_telefono_modificar'], FILTER_SANITIZE_NUMBER_INT);
+                  $usuario->settelefono($telefonoModificar);
+
+                                    $correoModifcar = filter_var($_REQUEST['txt_correo_modificar'], FILTER_SANITIZE_STRING);
+                  $usuario->setcorreo($correoModifcar);
+
 									$usuario->settipo_usuario($_REQUEST['cmb_tipo_modificar']);
 									$usuario->setestado_usuario($_REQUEST['cmb_estado_modificar']);
 
@@ -65,6 +78,8 @@ require_once '../clases/usuario.php';
                                             <th>Nombre</th>
                                             <th>Apellido</th>
                                             <th>Contraseña</th>
+                                            <th>Télefono</th>
+                                            <th>Correo</th>
                                             <th>Tipo usuario</th>
                                             <th>Estado usuario</th>
                                             <th>Eliminar Editar </th>
@@ -88,6 +103,8 @@ require_once '../clases/usuario.php';
                                             <td><span id="txt_nombre'.$contador.'">'.$user['nombre'].'</span></td>
                                             <td><span id="txt_apellido'.$contador.'">'.$user['apellido'].'</span></td>
                                             <td><span id="txt_password'.$contador.'">'.$user['password'].'</span></td>
+                                            <td><span id="txt_telefono'.$contador.'">'.$user['telefono'].'</span></td>
+                                            <td><span id="txt_correo'.$contador.'">'.$user['correo'].'</span></td>
 
                                             <td><span class="hidden" id="txt_descripcionTipo1'.$contador.'">'.$user['id_tipo_usuario'].'</span>
                                             <span id="txt_descripcionTipo'.$contador.'">'.$user['descripcion_tipo_usuario'].'</span></td>
@@ -311,10 +328,11 @@ require_once '../clases/usuario.php';
                                             <td><span id="txt_descripcion'.$contador.'">'.$user['descripcion_producto'].'</span></td>
                                             <td><span id="txt_valor'.$contador.'">'.$user['valor_producto'].'</span></td>
                                             <span class="hidden" id="txt_imagen'.$contador.'">'.$user['imagen'].'</span>
-                                            <td><span id="txt_proveedor'.$contador.'">'.$user['rut'].'</span></td>
+
+
                                             <!-- combobox -->
-
-
+                                            <td><span class="hidden" id="txt_proveedor'.$contador.'">'.$user['rut'].'</span>
+                                            <span id="cmb_proveedor1'.$contador.'">'.$user['razon_social'].'</span></td>
 
                                             <td><span class="hidden" id="cmb_id_estado_producto'.$contador.'">'.$user['id_estado_producto'].'</span>
                                             <span id="cmb_estado_producto'.$contador.'">'.$user['descripcion_estado_producto'].'</span></td>
@@ -1224,7 +1242,7 @@ $compra=new Compra();
 
 switch($_REQUEST['func']){
 
-    case "1": //echo "se ingresa";
+  case "1": //echo "se ingresa";
 
 
 
@@ -1346,8 +1364,8 @@ switch($_REQUEST['func']){
                       </table>
                     </div>
 <?php
-
-                  }
+}
+break;
                   case "12":
                               require_once'../clases/clasevehiculo.php';
                                switch($_REQUEST['func']){
@@ -1378,22 +1396,22 @@ switch($_REQUEST['func']){
 
                                     break;
                       case "2": //echo "SE MODIFICA";
-                       $subCat=new SubCatProducto();
+                       $vehiculo=new Vehiculo();
 
-                      $subCat->setid_subcategoria_producto($_REQUEST['txt_id_SubProducto_modificar']);
-                      $subCat->setdescripcion_subcategoria_producto($_REQUEST['txt_subCat_modificar']);
-                      $subCat->setid_categoria_producto($_REQUEST['cmb_SubCat_modificar']);
+                      $vehiculo->setid_subcategoria_producto($_REQUEST['txt_id_SubProducto_modificar']);
+                      $vehiculo->setdescripcion_subcategoria_producto($_REQUEST['txt_subCat_modificar']);
+                      $vehiculo->setid_categoria_producto($_REQUEST['cmb_SubCat_modificar']);
 
-                      $subCat->modificarSubCat();
+                      $vehiculo->modificarVehiculo();
                       break;
 
                        case "3": //echo "SE ELIMINA";
-                                        $subCat=new SubCatProducto();
+                                        $vehiculo=new Vehiculo();
 
                                         //$subCat->id_subcategoria_producto($_REQUEST['id']);
-                                          $subCat->setid_subcategoria_producto($_REQUEST['id']);
+                                          $vehiculo->setpatente($_REQUEST['id']);
 
-                                        $subCat->eliminarSubCat();
+                                        $vehiculo->eliminarVehiculo();
 
 
                                         break;
@@ -1422,7 +1440,7 @@ switch($_REQUEST['func']){
                                                 require_once'../clases/clasevehiculo.php';
                                                 $vehiculo = new Vehiculo();
                                                 $buscar = filter_var($_REQUEST['buscar'], FILTER_SANITIZE_STRING);
-                                                $filas = $vehiculo->BuscarFiltarRegistros("vistavehiculos","campoBuscar",$buscar,$_REQUEST['pag'],$_REQUEST['cantidadReg']);
+                                                $filas = $vehiculo->BuscarFiltarRegistros("vervehiculos","campoBuscar",$buscar,$_REQUEST['pag'],$_REQUEST['cantidadReg']);
 
                                                 $contador=0;
 

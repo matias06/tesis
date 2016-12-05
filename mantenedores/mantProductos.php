@@ -59,19 +59,13 @@
 
                                           <label for="imagen">Subir Imagen</label>
                                           <input type="file" id="txt_imagen" name="txt_imagen">
-
                                         </div>
-
                                     </div>
-
                                 </div>
-
 
                                 <div class="row">
                                    <div style="animation-delay: 0.5s;" class="col-md-3 animated-panel zoomIn">
-
                                         <div class="form-group">
-
                                             <label for="cmb_proveedores">Proveedores</label>
                                                  <select class="form-control" name="cmb_proveedores" id="cmb_proveedores">
                                                     <?php
@@ -87,25 +81,19 @@
                                     </div>
 
                                     <div style="animation-delay: 0.5s;" class="col-md-3 animated-panel zoomIn">
-
                                         <div class="form-group">
-
                                             <label for="tipoUsuario">Estado producto</label>
                                                  <select class="form-control" name="cmb_estado_producto" id="cmb_estado_producto">
                                                     <?php
                                                         require_once '../clases/claseEstadoProducto.php';
                                                         $prod= new EstadoProducto();
                                                         $filasProduc= $prod->listarEstadoProducto();
-
                                                         foreach($filasProduc as $tipo){
                                                             echo '<option value="'.$tipo['id_estado_producto'].'" >'.$tipo['descripcion_estado_producto'].'</option>';
                                                         }
-
                                                      ?>
                                                 </select>
-
                                         </div>
-
                                     </div>
 
                                    <div style="animation-delay: 0.5s;" class="col-md-2 animated-panel zoomIn">

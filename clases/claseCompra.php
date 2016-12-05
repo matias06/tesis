@@ -73,11 +73,10 @@ if($this->insertarRegistros("INSERT INTO detallecompra (id_detalle_compra, canti
   }else{
       return false;
   }
-
 }
 
 public function listarDetalleCompra(){
-  $consulta="select * from vistaDetalleCompraProducto where id_compra=".$this->idCompra;
+  $consulta="select * from vistadetallecompraproducto where id_compra=".$this->idCompra;
   $resultado= $this->consultarRegistros($consulta);
   return $resultado;
 }
@@ -85,7 +84,6 @@ public function listarDetalleCompra(){
 public function eliminarDetalle(){
   $eliminarDetalleCompra = $this->insertarRegistros
     ("DELETE FROM detallecompra WHERE id_detalle_compra='".$this->idDetalle."'");
-
 }
 
 

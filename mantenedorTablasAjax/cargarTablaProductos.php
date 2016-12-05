@@ -15,16 +15,15 @@
                                 $("#txt_descripcion_modificar").val($("#txt_descripcion"+fila).html());
                                 $("#txt_valor_modificar").val($("#txt_valor"+fila).html());
                                 $("#txt_imagen_modificar").val($("#txt_imagen"+fila).html());
-                                 $("#txt_proveedor_modificar").val($("#txt_proveedor"+fila).html());
+
+                                 $("#cmb_id_proveedor_producto_modificar").val($("#cmb_proveedor"+fila).html());
+                                 $("#cmb_proveedores_modificar").val($("#cmb_proveedor"+fila).html());
 
                                 $("#cmb_id_estado_producto").val($("#cmb_id_estado_producto"+fila).html());
                                 $("#cmb_estado_producto_modificar").val($("#cmb_id_estado_producto"+fila).html());
 
                                 $("#cmb_id_categoria_producto").val($("#cmb_id_categoria_producto"+fila).html());
                                 $("#cmb_categoria_producto_modificar").val($("#cmb_id_categoria_producto"+fila).html());
-
-
-
 
                                 }
                         </script>
@@ -44,6 +43,7 @@
                             <fieldset>
                                 <!--campos ocultos para guardar -->
                                  <input type="hidden" id="txt_id_producto_modificar" name="txt_id_producto_modificar" >
+                                <input type="hidden" id="cmb_id_proveedor_producto_modificar" name="cmb_id_proveedor_producto" >
                                 <input type="hidden" id="cmb_id_estado_producto" name="txt_id_estado_producto_modificar" >
                                 <input type="hidden" id="cmb_id_categoria_producto" name="txt_id_categoria_producto_modificar" >
 
@@ -73,19 +73,25 @@
                                         </div>
                                     </div>
                                 </div>
-                                 <div class="row">
-                                    <div style="animation-delay: 0.5s;" class="col-md-3 animated-panel zoomIn">
-                                        <div class="form-group">
-                                            <label for="rutProveedor">Rut proovedor:</label>
-                                            <input class="form-control" id="txt_proveedor_modificar" name="txt_proveedor_modificar" placeholder="Rut proveedor" type="">
-                                        </div>
-                                    </div>
-                                </div>
+                                <div style="animation-delay: 0.5s;" class="col-md-3 animated-panel zoomIn">
+                                     <div class="form-group">
+                                         <label for="cmb_proveedores">Proveedores</label>
+                                              <select class="form-control" name="cmb_proveedores_modificar" id="cmb_proveedores_modificar">
+                                                 <?php
+                                                     require_once '../clases/claseProveedor.php';
+                                                     $prov= new Proveedor();
+                                                     $filasProv= $prov->listarProveedor();
+                                                     foreach($filasProv as $tipo){
+                                                         echo '<option value="'.$tipo['rut'].'" >'.$tipo['razon_social'].'</option>';
+                                                     }
+                                                  ?>
+                                       </select>
+                                     </div>
+                                 </div>
+
                                 <div class="row">
                                     <div style="animation-delay: 0.5s;" class="col-md-3 animated-panel zoomIn">
-
                                         <div class="form-group">
-
                                             <label for="estadoProducto">Estado producto</label>
                                                  <select class="form-control" name="cmb_estado_producto_modificar" id="cmb_estado_producto_modificar">
                                                     <?php
@@ -96,12 +102,9 @@
                                                         foreach($filasProduc as $tipo){
                                                             echo '<option value="'.$tipo['id_estado_producto'].'" >'.$tipo['descripcion_estado_producto'].'</option>';
                                                         }
-
                                                      ?>
                                                 </select>
-
                                         </div>
-
                                     </div>
                                 </div>
                                 <div class="row">
