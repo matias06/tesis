@@ -332,7 +332,7 @@ require_once '../clases/usuario.php';
 
                                             <!-- combobox -->
                                             <td><span class="hidden" id="txt_proveedor'.$contador.'">'.$user['rut'].'</span>
-                                            <span id="cmb_proveedor1'.$contador.'">'.$user['razon_social'].'</span></td>
+                                            <span id="cmb_proveedor'.$contador.'">'.$user['razon_social'].'</span></td>
 
                                             <td><span class="hidden" id="cmb_id_estado_producto'.$contador.'">'.$user['id_estado_producto'].'</span>
                                             <span id="cmb_estado_producto'.$contador.'">'.$user['descripcion_estado_producto'].'</span></td>
@@ -1398,11 +1398,13 @@ break;
                       case "2": //echo "SE MODIFICA";
                        $vehiculo=new Vehiculo();
 
-                      $vehiculo->setid_subcategoria_producto($_REQUEST['txt_id_SubProducto_modificar']);
-                      $vehiculo->setdescripcion_subcategoria_producto($_REQUEST['txt_subCat_modificar']);
-                      $vehiculo->setid_categoria_producto($_REQUEST['cmb_SubCat_modificar']);
+                      $vehiculo->setpatente($_REQUEST['txt_patente_modificar']);
+                      $vehiculo->setmarca($_REQUEST['txt_marca_modificar']);
+                      $vehiculo->setmodelo($_REQUEST['txt_modelo_modificar']);
+                      // $vehiculo->setrun($_SESSION['id']);
+                      $vehiculo->setrun($_REQUEST['cmb_usuario_modificar']);
 
-                      $vehiculo->modificarVehiculo();
+                      $vehiculo->insertarVehiculo();
                       break;
 
                        case "3": //echo "SE ELIMINA";

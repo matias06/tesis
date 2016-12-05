@@ -10,8 +10,7 @@
                                 $("#txt_marca_modificar").val($("#txt_marca"+fila).html());
                                 $("#txt_modelo_modificar").val($("#txt_modelo"+fila).html());
                                 $("#txt_run_modificar").val($("#txt_run"+fila).html());
-                                // $("#cmb_nombre_modificar").val($("#txt_nombre"+fila).html());
-                                // $("#cmb_apellido_modificar").val($("#txt_apellido"+fila).html());
+
 
 
                                 }
@@ -30,26 +29,32 @@
                  <div class="container">
                     <form id="formModificarVehiculo" name="formModificarVehiculo">
                             <fieldset>
+                              <br>
                               <div class="row">
                                   <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
                                       <div class="form-group">
                                           <label for="patente">Patente:</label>
-                                          <input class="form-control"  onBlur="validarRun(this) " title="Debe ingresar número patente" required id="txt_patente_modificar" name="txt_patente_modificar" placeholder="Número patente" type="text">
+                                          <input class="form-control"  onBlur="validarRun(this)" readonly title="Debe ingresar número patente" required id="txt_patente_modificar" name="txt_patente_modificar" placeholder="Número patente" type="text">
                                       </div>
                                 </div>
+                              </div>
+                                <div class="row">
                                   <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
                                       <div class="form-group">
                                           <label for="nombre">Marca</label>
                                           <input class="form-control" title="Debe ingresar su marca" required id="txt_marca_modificar" name="txt_marca_modificar" placeholder="Ingresa marca" type="text">
                                       </div>
                                   </div>
+                                </div>
+                                  <div class="row">
                                   <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
                                       <div class="form-group">
                                           <label for="apellido">Modelo</label>
                                           <input class="form-control" title="Debe ingresar su modelo" required id="txt_modelo_modificar" name="txt_modelo_modificar" placeholder="Ingresar modelo" type="text">
                                       </div>
                                   </div>
-
+                                </div>
+                                <div class="row">
                                   <div style="animation-delay: 0.5s;" class="col-md-3 animated-panel zoomIn">
                                       <div class="form-group">
                                           <label for="tipoUsuario">Run Usuario</label>
@@ -66,9 +71,6 @@
                                               </select>
                                       </div>
                                   </div>
-
-
-
                               </div>
                                  <div class="container">
                                       <div class="col-md-3">
@@ -114,7 +116,7 @@
                                         url:"mantenedoresIngresar.php?mant=12&func=2", // donde se va a ingresar "mantenedoresIngresar.php"
                                         data:$("#formModificarVehiculo").serialize(),
                                         success:function(respuesta){
-                                                // alert(respuesta);
+                                                //alert(respuesta);
                                                 cambiarPagina(1);
                                                 cargarDivTablaVehiculo();
                                                 eventoAlertActualizar();
@@ -135,14 +137,14 @@
                               //  $("#formModificarUsuario").validate();
 
                                   function eliminarVehiculo(id){
-                                    // alert(id);
+                                    //alert(id);
                                     swal({
                                         title: "Eliminar?",
                                         text: "Vehiculo!",
                                         type: "warning",
                                         showCancelButton: true,
                                         confirmButtonColor: "#DD6B55",
-                                        confirmButtonText: "Yes, eliminar!",
+                                        confirmButtonText: "Eliminar!",
                                         cancelButtonText: "Cancelar!",
                                         closeOnConfirm: false,
                                         closeOnCancel: false },
@@ -153,7 +155,7 @@
                                                     url:"mantenedoresIngresar.php?mant=12&func=3", // donde se va a ingresar "mantenedoresIngresar.php"
                                                     data:"id="+id,
                                                     success:function(respuesta){
-                                                            // alert(respuesta);
+                                                            //alert(respuesta);
                                                             cambiarPagina(1);
                                                             cargarDivTablaVehiculo();
                                                     }
