@@ -32,7 +32,7 @@
                  <div class="container">
                     <form id="formModificarUsuario" name="formModificarUsuario">
                             <fieldset>
-
+                              <br>
                                 <div class="row">
                                     <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
                                         <div class="form-group">
@@ -71,7 +71,7 @@
                                      <div style="animation-delay: 0.5s;" class="col-md-3 animated-panel zoomIn">
                                         <div class="form-group">
                                             <label for="telefono">Télefono:</label>
-                                            <input class="form-control" id="txt_telefono_modificar" name="txt_telefono_modificar" placeholder="Contraseña Usuario" type="text">
+                                            <input class="form-control" id="txt_telefono_modificar" name="txt_telefono_modificar" placeholder="Ej. 999999999" type="text">
                                         </div>
                                     </div>
                                 </div>
@@ -80,7 +80,7 @@
                                      <div style="animation-delay: 0.5s;" class="col-md-3 animated-panel zoomIn">
                                         <div class="form-group">
                                             <label for="correo">Correo:</label>
-                                            <input class="form-control" id="txt_correo_modificar" name="txt_correo_modificar" placeholder="Contraseña Usuario" type="text">
+                                            <input class="form-control" id="txt_correo_modificar" name="txt_correo_modificar" placeholder="algo@figuesep.cl" type="text">
                                         </div>
                                     </div>
                                 </div>
@@ -105,8 +105,8 @@
                                     </div>
                                 </div>
 
-
-                                <div style="animation-delay: 0.5s;" class="col-md-3 animated-panel zoomIn">
+                                <div class="row">
+                                  <div style="animation-delay: 0.5s;" class="col-md-3 animated-panel zoomIn">
 
                                         <div class="form-group">
 
@@ -123,6 +123,7 @@
                                                      ?>
                                                 </select>
                                         </div>
+                                    </div>
                                     </div>
 
 

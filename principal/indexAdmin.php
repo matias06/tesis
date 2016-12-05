@@ -11,6 +11,7 @@
 <html lang="es">
 <head>
    <title>Pagina principal</title>
+	 
 	<?php 	cargarHeader(); ?>
 
 </head>

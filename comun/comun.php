@@ -6,8 +6,11 @@ function cargarHeader(){
 ?>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="Author" content="nvm" />
+<meta name="Author" content="" />
 <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+
+
 <script src="../js/jquery.js"></script>
 <script src="../js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="../css/bootstrap.min.css">
@@ -47,13 +50,13 @@ function cargarMenu(){
                         <div class="collapse navbar-collapse" id="navbar-1">
                             <ul class="nav navbar-nav">
 
-                                <li><a href="../principal/reportes.php">Reportes</a></li>
-                                <li><a href="../mantenedores/mantenedores.php">Mantenedores</a></li>
-                                <li><a href="../principal/proveedores.php">Proveedores</a></li>
-                                <li><a href="../principal/comprasProveedor.php">Compras proveedor</a></li>
-                                <li><a href="../principal/ventaproducto.php">Venta producto</a></li>
-                                <li><a href="../principal/stockProductos.php">Stock</a></li>
-                                <li><a href="../comun/destruirSesion.php">Cerrar Sesión</a></li>
+                                <li><a href="../principal/reportes.php"><span class="glyphicon glyphicon-file"> Reportes</span></span></a></li>
+                                <li><a href="../mantenedores/mantenedores.php"><span class="glyphicon glyphicon-cog"> Mantenedores</span></a></li>
+                                <li><a href="../principal/proveedores.php"><span class="glyphicon glyphicon-briefcase"></span> Proveedores</a></li>
+                                <li><a href="../principal/comprasProveedor.php"><span class="glyphicon glyphicon-shopping-cart"> Compras proveedor</span></a></li>
+                                <li><a href="../principal/ventaproducto.php"><span class="glyphicon glyphicon-barcode"> Venta producto</span></a></li>
+                                <li><a href="../principal/stockProductos.php"><span class="glyphicon glyphicon-list-alt"> Stock</span></a></li>
+                                <li><a href="../comun/destruirSesion.php"><span class="glyphicon glyphicon-remove-circle"> Cerrar Sesión</span></a></li>
                             </ul>
 
                         </div>
@@ -83,7 +86,7 @@ function cargarMenuUsuario(){
                         </div>
                         <div class="collapse navbar-collapse" id="navbar-1">
                             <ul class="nav navbar-nav navbar-right">
-                                <li><a href="../comun/destruirSesion.php">Cerrar Sesión</a></li>
+                                <li><a href="../comun/destruirSesion.php"><span class="glyphicon glyphicon-off"> Salir</span></a></li>
                             </ul>
 
                         </div>
@@ -112,19 +115,19 @@ function menuPublico(){
             <div class="collapse navbar-collapse navbar-ex1-collapse">
               <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a href="../principal/index.php">Inicio</a>
+                    <a href="../principal/index.php"><span class="glyphicon glyphicon-home"> Inicio</span></a>
                 </li>
                 <li>
-                    <a href="../principal/servicios.php">Servicios</a>
+                    <a href="../principal/servicios.php"><span class="glyphicon glyphicon-wrench"> Servicios</span></a>
                 </li>
                 <li>
-                    <a href="../principal/catalogo.php">Catálogo</a>
+                    <a href="../principal/catalogo.php"><span class="glyphicon glyphicon-picture"> Catálogo</span></a>
                 </li>
                 <li>
-                    <a href="../principal/contacto.php">Contacto</a>
+                    <a href="../principal/contacto.php"><span class="glyphicon glyphicon-envelope"> Contacto</span></a>
                 </li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Ingresar <b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li><a data-toggle="modal" href='#modal-id-1'>Iniciar Sesion</a></li>
                         <li><a href="../principal/registro.php">Registro</a></li>
@@ -143,9 +146,9 @@ function menuPublico(){
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title">Inicie Sesion</h4>
+                <h1 class="text-center login-title">Iniciar Sesion</h1>
             </div>
-            <div class="modal-body">
+            <!-- <div class="modal-body">
 
             <form id="inicio_sesion" name="inicio_sesion" action="#" align="center">
                 <div class="form-group">
@@ -159,9 +162,39 @@ function menuPublico(){
                 <input type="submit" value="Aceptar" class="btn btn-success">
             </form>
 
+            </div> -->
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 col-md-4 col-md-offset-1">
+
+            <div class="account-wall">
+
+<!-- <div class="col-sm-offset-2 col-md-offset-4"> -->
+  <img class="profile-img" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120"
+      alt="">
+<!-- </div> -->
+
+                <form class="form-signin" name="inicio_sesion" id="inicio_sesion" action="">
+                    <input type="text" class="form-control" placeholder="19.050.873-0" name="run_usuario" required autofocus>
+                    <input type="password" class="form-control" placeholder="Contraseña" name="password_usuario" required>
+                    <label class="checkbox pull-left">
+                        <input type="checkbox" value="remember-me">
+                        Recordarme
+                    </label>
+                    <button class="btn btn-lg btn-primary btn-block" type="submit"   >
+                        Aceptar</button>
+                        <button class="btn btn-lg btn-danger btn-block" type="" data-dismiss="modal">
+                        Cancelar</button>
+                 </form>
+
             </div>
+
+        </div>
+    </div>
+</div>
             <div class="modal-footer">
-                <button type="submit" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                <!-- <button type="submit" class="btn btn-default" data-dismiss="modal">Cerrar</button> -->
             </div>
         </div>
     </div>
