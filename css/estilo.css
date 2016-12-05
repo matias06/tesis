@@ -162,6 +162,9 @@ nav.sidebar .navbar-brand, nav.sidebar .navbar-header{
   width: 100%;
   margin-left: 0px;
 }
+nav navbar-nav{
+  z-index: 10 !important;
+}
 
 nav.sidebar a{
   padding-right: 13px;
@@ -257,7 +260,7 @@ padding-left: 15px;
 .navbar{
     padding: 0rem 0 !important;
     background-color: #ffffff;
-    z-index: 2 !important;
+    z-index: 10 !important;
     border-bottom: 1px solid #c0c0c0 !important;
 }
 
@@ -283,5 +286,5 @@ padding-left: 15px;
 }
 
 .modal-backdrop{
-    z-index: 10 !important;
+    z-index: 20 !important;
 }

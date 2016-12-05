@@ -1348,8 +1348,119 @@ switch($_REQUEST['func']){
 <?php
 
                   }
+                  case "12":
+                              require_once'../clases/clasevehiculo.php';
+                               switch($_REQUEST['func']){
+                      case "1": //echo "se ingresa";
 
-      break;
+                                        $vehiculo=new Vehiculo();
+
+                                        $patente = filter_var($_REQUEST['txt_patente'], FILTER_SANITIZE_STRING);
+                                        $vehiculo->setpatente($patente);
+
+                                        $marca = filter_var($_REQUEST['txt_marca'], FILTER_SANITIZE_STRING);
+                                        $vehiculo->setmarca($marca);
+
+                                        $patente = filter_var($_REQUEST['txt_modelo'], FILTER_SANITIZE_STRING);
+                                        $vehiculo->setmodelo($patente);
+
+                                        $vehiculo->setrun($_REQUEST['cmb_usuario']);
+
+                                       $vehiculo->insertarVehiculo();
+
+
+                                          // if($patente->insertarVehiculo()){
+                                          //   echo "1";
+                                          // }else{
+                                          //   echo "error al ingresar.";
+                                          // }
+
+
+                                    break;
+                      case "2": //echo "SE MODIFICA";
+                       $subCat=new SubCatProducto();
+
+                      $subCat->setid_subcategoria_producto($_REQUEST['txt_id_SubProducto_modificar']);
+                      $subCat->setdescripcion_subcategoria_producto($_REQUEST['txt_subCat_modificar']);
+                      $subCat->setid_categoria_producto($_REQUEST['cmb_SubCat_modificar']);
+
+                      $subCat->modificarSubCat();
+                      break;
+
+                       case "3": //echo "SE ELIMINA";
+                                        $subCat=new SubCatProducto();
+
+                                        //$subCat->id_subcategoria_producto($_REQUEST['id']);
+                                          $subCat->setid_subcategoria_producto($_REQUEST['id']);
+
+                                        $subCat->eliminarSubCat();
+
+
+                                        break;
+
+                       case "4":
+                                         ?>
+
+
+                                     <!-- tabla -->
+
+                                     <div class="table-responsive">
+
+
+                                    <table class="table table-bordered table-hover table-condensed" id="fondo">
+                                            <thead class="active danger tablaHead">
+                                                <th>Patente</th>
+                                                <th>Marca</th>
+                                                <th>Modelo</th>
+                                                <th>Run</th>
+                                                <!-- <th>Nombre</th>
+                                                <th>Apellido</th> -->
+
+                                                <th>Editar Eliminar </th>
+                                            </thead>
+                                            <?php
+                                                require_once'../clases/clasevehiculo.php';
+                                                $vehiculo = new Vehiculo();
+                                                $buscar = filter_var($_REQUEST['buscar'], FILTER_SANITIZE_STRING);
+                                                $filas = $vehiculo->BuscarFiltarRegistros("vistavehiculos","campoBuscar",$buscar,$_REQUEST['pag'],$_REQUEST['cantidadReg']);
+
+                                                $contador=0;
+
+                                                foreach($filas[0][0] as $vehiculoUsuario){
+                                                        $contador++;
+
+                                            echo'
+                                            <tr class="tablaFilas">
+                                                <td><span id="txt_patente'.$contador.'">'.$vehiculoUsuario['patente'].'</span></td>
+                                                <td><span id="txt_marca'.$contador.'">'.$vehiculoUsuario['marca'].'</span></td>
+                                                <td><span id="txt_modelo'.$contador.'">'.$vehiculoUsuario['modelo'].'</span></td>
+                                                <td><span id="cmb_usuario'.$contador.'">'.$vehiculoUsuario['run'].'</span></td>
+
+                                                <!--  botones editar -->
+                                                <td><button type="button" onclick="cargarDatosModal('.$contador.')" data-toggle="modal" data-target="#modificar" class="btn btn-warning">
+                                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+
+
+                                                <!--  botones eliminar -->
+                                                <button type="button" class="btn btn-danger" onclick="eliminarVehiculo(\''.$vehiculoUsuario['patente'].'\');" aria-label="left aling">
+                                                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button></td>
+                                            </tr>';
+                                             } ?>
+                                             <tr>
+                                                 <td colspan="7">
+                                                     <center>
+                                                        <?php
+                                                            echo $filas[0][1];
+                                                         ?>
+                                                     </center>
+                                                 </td>
+                                             </tr>
+                                    </table>
+                                    </div>
+                              <?php
+            break;
+            }
+        break;
 
       }
 

@@ -23,8 +23,14 @@ class Usuario extends Conexion{
 	  $resultado= $this->consultarRegistros($consulta);
 	  return $resultado;
 	}
+	public function listarRunUsuario(){
+		$usuarios = $this->consultarRegistros("SELECT run, nombre, apellido, password, usuario.id_tipo_usuario, descripcion_tipo_usuario, usuario.id_estado_usuario, descripcion_estado_usuario
+			FROM usuario
+			inner join tipousuario on tipousuario.id_tipo_usuario = usuario.id_tipo_usuario
+			inner join estadousuario on estadousuario.id_estado_usuario = usuario.id_estado_usuario;");
+		return $usuarios;
 
-
+	}
 
 
 	public function setrun ($arg_run){

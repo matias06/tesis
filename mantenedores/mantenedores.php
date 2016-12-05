@@ -23,7 +23,7 @@
         <?php cargarMenu(); ?>
        <!--  <nav class="navbar navbar-default navbar-fixed-top" role="navigation"> -->
             <!-- Brand and toggle get grouped for better mobile display -->
-            
+
             <div class="container-fluid">
             <div class="navbar-header" -->
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -84,46 +84,6 @@
                             </script>
                     </li>
 
-               <!--     <li class="lineaLi">
-                        <a href="#" value="categoria" onclick="cargarDivCategoria();">Categoria trabajo</a>
-                        <script type="text/javascript">
-                            function cargarDivCategoria(){ /*AQUI LE DOY UN NOMBRE CUALQUIERA A LA FUNCION*/
-
-                                $.ajax({url: '../mantenedores/mantCategoriaTrabajo.php',
-                                        success:function(data){
-                                            $("#page-wrapper").html(data);
-                                        }
-                                });
-                            }
-                            </script>
-                    </li>-->
-                    <!--            <li class="lineaLi">
-                        <a href="#" value="direccion" onclick="cargarDivDireccion();">Dirección</a>
-                         <script type="text/javascript">
-                            function cargarDivDireccion(){ /*AQUI LE DOY UN NOMBRE CUALQUIERA A LA FUNCION*/
-
-                                $.ajax({url: '../mantenedores/mantDireccion.php',
-                                        success:function(data){
-                                            $("#page-wrapper").html(data);
-                                        }
-                                });
-                            }
-                            </script>
-                    </li>-->
-                    <!--<li class="lineaLi">
-                        <a href="#" value="tipoUsuario" onclick="cargarDivTipoUsuario();">Tipo de usuario</a>
-                        <script type="text/javascript">
-                            function cargarDivTipoUsuario(){ /*AQUI LE DOY UN NOMBRE CUALQUIERA A LA FUNCION*/
-
-                                $.ajax({url: '../mantenedores/mantTipoUsuario.php',
-                                        success:function(data){
-                                            $("#page-wrapper").html(data);
-                                        }
-                                });
-                            }
-                            </script>
-                    </li>-->
-
                     <li class="lineaLi">
                         <a href="#" value="servicios" onclick="cargarDivServicios();">Servicios</a>
                         <script type="text/javascript">
@@ -176,6 +136,19 @@
                             }
                             </script>
                     </li>
+                    <li class="lineaLi">
+                        <a href="#" value="vehiculo" onclick="cargarDivVehiculo();">Vehiculo</a>
+                        <script type="text/javascript">
+                            function cargarDivVehiculo(){ /*AQUI LE DOY UN NOMBRE CUALQUIERA A LA FUNCION*/
+
+                                $.ajax({url: '../mantenedores/mantVehiculo.php',
+                                        success:function(data){
+                                            $("#page-wrapper").html(data);
+                                        }
+                                });
+                            }
+                            </script>
+                    </li>
 
                 <li class="lineaLi">
                     <a href="#" value="CatProducto" onclick="cargarDivCatProducto();">Categoria producto</a>
@@ -204,10 +177,7 @@
                         }
                         </script>
                 </li>
-                <li class="lineaLi">
-                    <a href="../principal/indexAdmin.php" value="SubCatProducto" onclick="cargarDivSubCatProducto();">Inicio</a>
-                </li>
-            </ul>
+              </ul>
             </div>
             <!-- /.navbar-collapse -->
 

@@ -47,8 +47,8 @@
                             <li class="dropdown">
                               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Datos usuario <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a>
                               <ul class="dropdown-menu forAnimate" role="menu">
-                                <li><a href="#" onclick="cargarDatosModal()" data-toggle="modal" data-target="#modificar">Crear Usuario</a></li>
-                                <li><a href="#">Sub Menu 2</a></li>
+                                <li><a href="#" onclick="cargarDatosModal()" data-toggle="modal" data-target="#usuario">Crear Usuario</a></li>
+                                <li><a href="#" onclick="cargarDatosModal()" data-toggle="modal" data-target="#vehiculo">CrearVehiculo</a></li>
                                 <li><a href="#">Sub Menu 3</a></li>
                                 <li class="divider"></li>
                                 <li><a href="#">Sub Menu 4</a></li>
@@ -136,7 +136,7 @@
 </div>
 
 <!-- Ventana modal -->
-<div class="modal fade" id="modificar">
+<div class="modal fade" id="usuario">
        <div class="modal-dialog">
            <div class="modal-content">
               <div class="modal-header">
@@ -231,6 +231,62 @@
 
 </fieldset>
 </form>
+</div>
+</div>
+</div>
+</div>
+<!--MODAL VEHICULO  -->
+<!-- Ventana modal -->
+<div class="modal fade" id="vehiculo">
+       <div class="modal-dialog">
+           <div class="modal-content">
+              <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                  <h3 class="modal-title">Crear Vehiculo</h3>
+              </div>
+              <!-- Comienzo formulario -->
+<div class="container">
+<form action="" id="formularioRegistro" name="formularioRegistro" method="POST">
+<fieldset>
+
+    <div class="row">
+        <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
+            <div class="form-group">
+                <label for="run">Patente:</label>
+                <input class="form-control" id="txt_patente" name="txt_patente" placeholder="Rut Usuario" type="text">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
+            <div class="form-group">
+                <label for="nombre">Marca</label>
+                <input class="form-control" id="txt_nombre" name="txt_nombre" placeholder="Nombre Usuario" type="text">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
+            <div class="form-group">
+                <label for="apellido">Modelo</label>
+                <input class="form-control" id="txt_apellido" name="txt_apellido" placeholder="Apellido Usuario" type="text">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
+            <div class="form-group">
+              <input type="submit" id="btn_insert" class="btn btn-success" value="Agregar" name="btn_registrar">
+
+            </div>
+        </div>
+    </div>
+
+</fieldset>
+</form>
+</div>
+</div>
+</div>
 </div>
 
 
