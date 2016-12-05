@@ -174,6 +174,8 @@
                         <th>Modelo</th>
                         <th>Servicio</th>
                         <th>Problema</th>
+                        <th>Fecha</th>
+                        <th>Hora</th>
                         <th>Estado</th>
                         <th>Modificar</th>
                         <th>Eliminar</th>

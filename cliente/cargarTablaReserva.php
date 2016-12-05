@@ -15,6 +15,8 @@ echo $run;
       <td>'.$array['modelo']. '</td>
       <td>'.$array['descripcion_servicio']. '</td>
       <td>'.$array['descripcion_problema']. '</td>
+      <td>'.$array['fecha']. '</td>
+      <td>'.$array['hora']. '</td>
       <td>'.$array['descripcion_estado_reserva']. '</td>
       <td><a href="#" class="btn btn-warning">modificar</a></td>
       <td><a href="#" class="btn btn-danger">eliminar</a></td>
