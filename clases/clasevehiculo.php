@@ -14,19 +14,13 @@ class Vehiculo extends Conexion{
 
 	}
 
-// 	public function listarVehiculos(){
-// 		$vehiculos = $this->consultarRegistros("SELECT patente, marca, modelo, vehiculo.run, nombre, apellido
-//  			FROM vehiculo
-//             inner join usuario on usuario.run = vehiculo.run;");
-// 		return $vehiculos;
-//
-// }
-public function listarVehiculos(){
-		$vehiculos = $this->consultarRegistros("SELECT * FROM vehiculo;");
+	public function listarVehiculos(){
+		$vehiculos = $this->consultarRegistros("SELECT patente, marca, modelo, vehiculo.run, nombre, apellido
+ 			FROM vehiculo
+            inner join usuario on usuario.run = vehiculo.run;");
 		return $vehiculos;
 
 }
-
 public function setpatente ($arg_patente){
 		$this->patente=$arg_patente;
 	}
@@ -41,9 +35,15 @@ public function setmodelo ($arg_modelo){
 public function setrun ($arg_run){
 		$this->run=$arg_run;
 	}
+
 	public function eliminarVehiculo(){
 				$eliminarProv = $this->insertarRegistros
-				("UPDATE proveedor SET id_estado='".$this->id_estado."' WHERE rut='".$this->rut."';");
+				("DELETE FROM vehiculo WHERE patente='".$this->patente."';");
+	}
+	public function modificarVehiculo(){
+		$modificarVehiculo = $this->insertarRegistros
+			("UPDATE vehiculo SET patente='".$this->patente."', marca='".$this->marca."', modelo='".$this->modelo."', run='".$this->run."' WHERE patente='".$this->patente."';");
+	return $modificarVehiculo;
 	}
 
 	public function insertarVehiculo(){
@@ -66,11 +66,14 @@ public function setrun ($arg_run){
 					("INSERT INTO vehiculo (patente, marca, modelo, run) VALUES ('".$this->patente."', '".$this->marca."', '".$this->modelo."', '".$this->run."');");
 			}
 		}
-		public function cargarVehiculos($runVehiculo){
-				$consulta = 'SELECT * FROM vervehiculos WHERE run = "'.$runVehiculo.'"';
-				$resultado = $this->consultar($consulta);
-				return $resultado;
-			}
+
+
+	public function cargarVehiculos($runVehiculo){
+		$consulta = 'SELECT * FROM vervehiculos WHERE run = "'.$runVehiculo.'"';
+		$resultado = $this->consultar($consulta);
+		return $resultado;
+	}
+
 
 }
 ?>

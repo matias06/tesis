@@ -16,8 +16,8 @@
                                 $("#txt_valor_modificar").val($("#txt_valor"+fila).html());
                                 $("#txt_imagen_modificar").val($("#txt_imagen"+fila).html());
 
-                                 $("#cmb_id_proveedor_producto_modificar").val($("#cmb_proveedor"+fila).html());
-                                 $("#cmb_proveedores_modificar").val($("#cmb_proveedor"+fila).html());
+                                 $("#cmb_id_proveedor_producto_modificar").val($("#txt_proveedor"+fila).html());
+                                 $("#cmb_proveedores_modificar").val($("#txt_proveedor"+fila).html());
 
                                 $("#cmb_id_estado_producto").val($("#cmb_id_estado_producto"+fila).html());
                                 $("#cmb_estado_producto_modificar").val($("#cmb_id_estado_producto"+fila).html());

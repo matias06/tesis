@@ -32,7 +32,7 @@
                  <div class="container">
                     <form id="formModificarUsuario" name="formModificarUsuario">
                             <fieldset>
-
+                                
                                 <div class="row">
                                     <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
                                         <div class="form-group">

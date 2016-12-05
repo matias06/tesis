@@ -7,19 +7,24 @@ echo $run;
  $consulta = $user->verDatos($run);
  //  $filas = $user->cantidadRegis($consulta);
  // if($filas > 0){
+ $contador=0;
    while ($array = $user->convertir_array($consulta)) {
+       $contador++;
     echo '
       <tr>
-      <td>'.$array['run']. '</td>
-      <td>'.$array['nombre']. '</td>
-      <td>'.$array['apellido']. '</td>
-      <td>'.$array['password']. '</td>
-      <td>'.$array['telefono']. '</td>
-      <td>'.$array['correo']. '</td>
-      <td><a href="#" class="btn btn-warning">modificar</a></td>
+
+      <td><span id="txt_run'.$contador.'">'.$array['run'].'</span></td>
+      <td><span id="txt_nombre'.$contador.'">'.$array['nombre'].'</span></td>
+      <td><span id="txt_apellido'.$contador.'">'.$array['apellido'].'</span></td>
+      <td><span id="txt_password'.$contador.'">'.$array['password'].'</span></td>
+      <td><span id="txt_telefono'.$contador.'">'.$array['telefono'].'</span></td>
+      <td><span id="txt_correo'.$contador.'">'.$array['correo'].'</span></td>
+      <td><a href="#" class="btn btn-warning" onclick="cargarMisDatos('.$contador.')" data-toggle="modal" data-target="#modal-datos">Modificar</a></td>
+
       </tr>
 
     ';
 
    }
 ?>
+<!-- <li><a href="#" onclick="cargarDatosModal()" data-toggle="modal" data-target="#usuario">Crear Usuario</a></li> -->
