@@ -1,7 +1,8 @@
 <?php
 session_start();
 $run = $_SESSION['id'];
-echo $run;
+echo "el run es: ".$run;
+
  require_once '../clases/usuario.php';
  $user = new Usuario();
  $consulta = $user->cargarReservas($run);
@@ -18,7 +19,7 @@ echo $run;
       <td><span id="txt_servicio'.$contador.'">'.$array['descripcion_servicio']. '</span></td>
       <td><span id="txt_problema'.$contador.'">'.$array['descripcion_problema']. '</span></td>
 
-      <td><span id="txt_problema'.$contador.'">'.$array['descripcion_estado_reserva']. '</span></td>
+      <td><span id="txt_descripcion_estado'.$contador.'">'.$array['descripcion_estado_reserva']. '</span></td>
       <td><a href="#" class="btn btn-warning" onclick="cargarMisReservas('.$contador.')" data-toggle="modal" data-target="#modal-auto">Modificar</a></td>
 
       <td><a href="#" class="btn btn-danger">eliminar</a></td>

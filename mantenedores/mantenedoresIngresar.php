@@ -1396,8 +1396,6 @@ break;
                                           // }else{
                                           //   echo "error al ingresar.";
                                           // }
-
-
                                     break;
                       case "2": //echo "SE MODIFICA";
                        $vehiculo=new Vehiculo();
@@ -1411,18 +1409,42 @@ break;
                       $vehiculo->insertarVehiculo();
                       break;
 
-                       case "3": //echo "SE ELIMINA";
+                      case "3": //echo "SE MODIFICA LA RESERVA" ;
+                       $vehiculo=new Vehiculo();
+
+                      $vehiculo->setpatente($_REQUEST['txt_patente_modificar']);
+                      $vehiculo->setmarca($_REQUEST['txt_marca_modificar']);
+                      $vehiculo->setmodelo($_REQUEST['txt_modelo_modificar']);
+                      // $vehiculo->setrun($_SESSION['id']);
+                      $vehiculo->setrun($_SESSION['id']);
+
+                      $vehiculo->insertarVehiculo();
+                      break;
+
+                       case "4": //echo "SE ELIMINA";
                                         $vehiculo=new Vehiculo();
 
                                         //$subCat->id_subcategoria_producto($_REQUEST['id']);
-                                          $vehiculo->setpatente($_REQUEST['id']);
+                                           $vehiculo->setpatente($_REQUEST['id']);
+                                            // $vehiculo->setpatente($_SESSION['id']);
 
                                         $vehiculo->eliminarVehiculo();
 
 
                                         break;
 
-                       case "4":
+                                      //   case "4": //echo "SE ELIMINA";
+                                      //  $vehiculo=new Vehiculo();
+                                       //
+                                      //  //$subCat->id_subcategoria_producto($_REQUEST['id']);
+                                      //    $vehiculo->setpatente($_REQUEST['id']);
+                                       //
+                                      //  $vehiculo->eliminarVehiculo();
+                                       //
+                                       //
+                                      //  break;
+
+                       case "5":
                                          ?>
 
 
@@ -1483,7 +1505,10 @@ break;
                                     </div>
                               <?php
             break;
+
+
             }
+
         break;
 
       }

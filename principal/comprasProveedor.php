@@ -99,11 +99,12 @@ function guardarDetalle(){
            url:"../mantenedores/mantenedoresIngresar.php?mant=11&func=2", //donde se va a ingresar "mantenedoresIngresar.php"
            data:$("#formularioCompra").serialize(),
            success:function(respuesta){
+              $("#divTablaDetalleCompra").html(respuesta);
                       if(respuesta==1){
                         cargarTablaDetalle();
                       }else{
                         alert(respuesta);
-                        cargarTablaDetalle();
+                        //cargarTablaDetalle();
                       }
                }
        });

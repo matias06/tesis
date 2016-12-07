@@ -152,15 +152,15 @@
                                             if (isConfirm) {
                                                  $.ajax({//realiza el envio del formulario pero por ajax para no tener que recargar pagina
 
-                                                    url:"mantenedoresIngresar.php?mant=12&func=3", // donde se va a ingresar "mantenedoresIngresar.php"
+                                                    url:"mantenedoresIngresar.php?mant=12&func=4", // donde se va a ingresar "mantenedoresIngresar.php"
                                                     data:"id="+id,
                                                     success:function(respuesta){
-                                                            //alert(respuesta);
-                                                            cambiarPagina(1);
+                                                            alert(respuesta);
                                                             cargarDivTablaVehiculo();
+
                                                     }
                                                 });
-                                                swal("Modificado!", "", "success");
+                                                swal("ELIMINADO!", "", "success");
                                             } else {
                                                 swal("Cancelado", "", "error");
                                             }
