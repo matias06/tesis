@@ -47,7 +47,7 @@
                 </div>
 
                 <div class="mini-u-footer">
-                    <a href="#" class="mini-u-btn" id="misdatos">Mis Datos</a>
+                    <a href="#" value="datos" class="mini-u-btn" id="misdatos" onclick="cargarTablaDatos();">Mis Datos</a>
                 </div>
 
             </div>
@@ -61,25 +61,11 @@
                 </div>
 
                 <div class="mini-u-footer">
-                    <a href="#" class="mini-u-btn" id="misreservas">Mis Reservas</a>
+                    <a href="#" class="mini-u-btn" id="misreservas" onclick="cargarTablaReserva();">Mis Reservas</a>
                 </div>
 
             </div>
         </div>
-
-
-
-        <script type="text/javascript">
-            function cargarTablaVehiculos(){
-
-                $.ajax({url: '../cliente/cargarTablaVehiculos.php',
-                        success:function(data){
-
-                            $("#vehiculo").html(data);
-                        }
-                });
-            }
-            </script>
 
         <div class="col-xs-12 col-sm-6 col-md-3">
             <div class="mini-u">
@@ -140,7 +126,7 @@
                               <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
                                   <div class="form-group">
                                     <label for="rut">Rut</label>
-                                    <input type="text" class="form-control" readonly id="txt_run_modificar" name="txt_runDatos_modificar" placeholder="Modifique su run">
+                                    <input type="text" class="form-control" readonly id="txt_run_modificar" name="txt_run_modificar" placeholder="Modifique su run">
                                 </div>
                                 </div>
                                 </div>
@@ -164,7 +150,7 @@
                               <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
                                   <div class="form-group">
                                     <label for="nombre">Contraseña:</label>
-                                    <input type="text" class="form-control" id="txt_password_modificar" name="txt_password_modificar" placeholder="Modifique su nombre">
+                                    <input type="text" class="form-control" id="txt_contraseña_modificar" name="txt_contraseña_modificar" placeholder="Modifique su nombre">
                                 </div>
                                 </div>
                                 </div>
@@ -184,25 +170,69 @@
                                 </div>
                                 </div>
                             </div>
-                            <div class="row">
-                             <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
-                                  <div class="form-group">
-                              <button id="modificar" class="btn btn-primary" data-dismiss="modal" value="Guardar1 cambios" name="btn_registrar">Modificar</button>
+                            <div style="animation-delay: 0.5s;" class="col-md-3 animated-panel zoomIn">
+
+                                <div class="form-group">
+
+                                    <!-- <label for="tipoUsuario">Tipo Usuario</label> -->
+                                         <select class="form-control hidden" name="cmb_tipo_modificar" id="cmb_tipo_modificar">
+                                            <?php
+                                                require_once '../clases/claseTipoUsuario.php';
+                                                $TipoU= new TipoUsuario();
+                                                $filasTipoU= $TipoU->listarTipoUsuario();
+
+                                                foreach($filasTipoU as $tipo){
+                                                    echo '<option value="'.$tipo['id_tipo_usuario'].'" >'.$tipo['descripcion_tipo_usuario'].'</option>';
+                                                }
+
+                                             ?>
+                                        </select>
+
+                                </div>
+
                             </div>
+
+                            <div style="animation-delay: 0.5s;" class="col-md-3 animated-panel zoomIn">
+
+                                <div class="form-group">
+
+                                    <!-- <label for="estado">Estado usuario</label> -->
+                                         <select class="form-control hidden" name="cmb_estado_modificar" id="cmb_estado_modificar">
+                                            <?php
+                                                require_once '../clases/claseEstadoUsuario.php';
+                                                $estadoUsuario= new EstadoUsuario();
+                                                $filasEstado= $estadoUsuario->listarEstadoUsuario();
+
+                                                foreach($filasEstado as $tipoEst){
+                                                    echo '<option value="'.$tipoEst['id_estado_usuario'].'" >'.$tipoEst['descripcion_estado_usuario'].'</option>';
+                                                }
+
+                                             ?>
+                                        </select>
+
+                                </div>
+
+                            </div>
+                            <div class="row">
+                             <div class="col-md-12">
+                                    <!-- <button id="modal-datos" type="submit" class="btn btn-primary" data-toggle="modal" data-target="modal-datos" value="Guardar Cambios" name="btn_datos">Modificar</button> -->
+                                    <button id="modal-datos" type="submit" class="btn btn-primary" data-toggle="modal" data-target="#modal-datos" value="Modificar datos" name="btn_guardar">Crear</button>
+
                             </div>
                         </div>
-                        <div class="row">
-                         <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
+
+                         <div style="animation-delay: 0.2s;" class="col-md-6 animated-panel zoomIn">
                             <div class="modal-footer">
                               <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+
                             </div>
                             </form>
                         </div>
-                    </div>
+
                   </div>
                 </div>
               </div>
-                </div><!-- final modal para modificar datos-->
+           </div><!-- final modal para modificar datos-->
 
             <table class="table table-responsive">
                 <tr>
@@ -238,49 +268,50 @@
                                         </div>
                                         <div class="modal-body">
 
-                                        <form action="" method="POST" role="form">
+                                        <form id="formModReservas" name="formModReservas" method="POST" role="form">
 
                                             <div class="form-group">
                                                 <label for="">Patente</label>
-                                                <input type="text" class="form-control" id="txt_patenteNew_modificar" name="txt_patenteNew_modificar" placeholder="Input field">
+                                                <input type="text" class="form-control" id="txt_patenteReserva_modificar" name="txt_patenteReserva_modificar" placeholder="Input field">
                                             </div>
 
                                             <div class="form-group">
                                                 <label for="">Marca</label>
-                                                <input type="text" class="form-control" id="txt_MarcaNew_modificar" name="txt_MarcaNew_modificar" placeholder="Input field">
+                                                <input type="text" class="form-control" id="txt_marcaReserva_modificar" name="txt_marcaReserva_modificar" placeholder="Input field">
                                             </div>
                                             <div class="form-group">
                                                 <label for="">Modelo</label>
-                                                <input type="text" class="form-control" id="txt_ModeloNew_modificar" name="txt_ModeloNew_modificar" placeholder="Input field">
+                                                <input type="text" class="form-control" id="txt_modeloReserva_modificar" name="txt_modeloReserva_modificar" placeholder="Input field">
                                             </div>
 
                                             <div class="form-group">
                                                 <label for="">Servicio</label>
-                                                <input type="text" class="form-control" id="txt_ServicioNew_modificar" name="txt_ServicioNew_modificar" placeholder="Input field">
+                                                <input type="text" class="form-control" id="txt_descripcionServicioReserva_modificar" name="txt_descripcionServicioReserva_modificar" placeholder="Input field">
                                             </div>
                                             <div class="form-group">
                                                 <label for="">Problema</label>
-                                                <input type="text" class="form-control" id="txt_problemaNew_modificar" name="txt_problemaNew_modificar" placeholder="Input field">
+                                                <input type="text" class="form-control" id="txt_descripcionProblemaReserva_modificar" name="txt_descripcionProblemaReserva_modificar" placeholder="Input field">
                                             </div>
-                                            <!-- <div class="form-group">
-                                                <label for="">Estado</label>
-                                                <input type="text" class="form-control" id="txt_estadoReserva_modificar" name="txt_estadoReserva_modificar" placeholder="Input field">
-                                            </div> -->
+
                                             <div class="form-group">
                                                 <label for="">Descripcion Estado reserva</label>
-                                                <input type="text" class="form-control" id="txt_Descripcion_estadoReserva_modificar" name="txt_Descripcion_estadoReserva_modificar" placeholder="Input field">
+                                                <input type="text" class="form-control" id="txt_descripcionEstadoReserva_modificar" name="txt_descripcionEstadoReserva_modificar" placeholder="Input field">
                                             </div>
 
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                                            <button type="button" class="btn btn-primary">Guardar Cambios</button>
+                                            <!-- <button type="button" class="btn btn-primary">Guardar Cambios</button> -->
+                                            <button id="modal-auto" type="submit" class="btn btn-primary" data-toggle="modal" data-target="#modal-auto" value="Guardar Cambios" name="btn_registrar">Modificar</button>
+
                                         </div>
 
                                         </form>
                                     </div>
                                 </div>
                             </div> <!-- final modal para agregar nuevo vehiculo -->
+
+
                   <table class="table table-responsive">
                       <tr>
                         <th>Patente</th>
@@ -312,11 +343,11 @@
                                </div>
                                <div class="modal-body">
 
-                               <form id="formModificarVehiculo" name="formModificarVehiculo">
+                               <form id="formModificarVehiculo"  name="formModificarVehiculo">
 
                                    <div class="form-group">
                                        <label for="patente">Patente</label>
-                                       <input type="text" class="form-control" id="txt_patente_modificar" name="txt_patente_modificar" placeholder="Modifique su patente">
+                                       <input type="text" class="form-control" readonly id="txt_patente_modificar" name="txt_patente_modificar" placeholder="Modifique su patente">
                                    </div>
 
                                    <div class="form-group">
@@ -329,7 +360,7 @@
                                    </div>
                                    <div class="form-group">
                                        <label for="modelo">Run</label>
-                                       <input type="text" class="form-control" id="txt_runVehiculo_modificar" name="cmb_usuario_modificar" placeholder="Modifique su modelo">
+                                       <input type="text" class="form-control" readonly id="txt_runVehiculo_modificar" name="cmb_usuario_modificar" placeholder="Modifique su modelo">
                                    </div>
                                    <div class="form-group">
                                        <button id="modal-modificar-auto" type="submit" class="btn btn-primary" data-toggle="modal" data-target="#modal-modificar-auto" value="Guardar Cambios" name="btn_registrar">Modificar</button>
@@ -348,12 +379,82 @@
                            </div>
                        </div>
                    </div>
+<!-- MODAL CREACION DE VEHICULOS -->
+                   <div class="modal fade" id="myModal">
+                       <div class="modal-dialog">
+                           <div class="modal-content">
+                               <div class="modal-header">
+                                   <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                   <h4 class="modal-title">Crear Vehiculo</h4>
+                               </div>
+                               <form id="formularioCrearVehiculo"  name="formularioCrearVehiculo">
+                               <div class="modal-body">
+                                 <div class="row">
+                                     <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
+                                         <div class="form-group">
+                                             <label for="patente">Patente:</label>
+                                             <input class="form-control"  onBlur="validarRun(this) " title="Debe ingresar número patente" required id="txt_patente" name="txt_patente" placeholder="Número patente" type="text">
+                                         </div>
+                                   </div>
+                                     <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
+                                         <div class="form-group">
+                                             <label for="nombre">Marca</label>
+                                             <input class="form-control" title="Debe ingresar su marca" required id="txt_marca" name="txt_marca" placeholder="Ingresa marca" type="text">
+                                         </div>
+                                     </div>
+                                     <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
+                                         <div class="form-group">
+                                             <label for="apellido">Modelo</label>
+                                             <input class="form-control" title="Debe ingresar su modelo" required id="txt_modelo" name="txt_modelo" placeholder="Ingresar modelo" type="text">
+                                         </div>
+                                     </div>
+
+                                     <div style="animation-delay: 0.5s;" class="col-md-3 animated-panel zoomIn">
+                                         <div class="form-group">
+                                             <label for="tipoUsuario">Run Usuario</label>
+                                                  <select class="form-control" name="cmb_usuario" id="cmb_usuario">
+                                                     <?php
+                                                         require_once '../clases/usuario.php';
+                                                         $User= new Usuario();
+                                                         $filasUser= $User->listarRunUsuario();
+
+                                                         foreach($filasUser as $tipo){
+                                                             echo '<option value="'.$tipo['run'].'" >'.$tipo['nombre'].'</option>';
+                                                         }
+                                                      ?>
+                                                 </select>
+                                         </div>
+                                     </div>
+                                 </div>
+
+                               </form>
+
+                                   <div class="form-group">
+                                       <button id="myModal" type="submit" class="btn btn-primary" data-toggle="modal" data-target="#myModal" value="crear" name="btn_guardar">Crear</button>
+                                        <!-- <input type="submit" id="btn_insert" class="btn btn-primary" value="Crear" name="btn_crear"> -->
+                                           <!-- <input type="submit" id="btn_insert" class="btn btn-primary" data-dismiss="modal" value="Guardar Cambios" name="btn_registrar"> -->
+                                   </div>
+
+                               </div>
+
+                               <div class="modal-footer">
+                                   <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                   <!-- <button type="button" class="btn btn-primary">Guardar Cambios</button> -->
+
+                               </div>
+
+                               </form>
+                           </div>
+                       </div>
+                   </div>
                      <br>
                    <table class="table table-responsive">
                        <tr>
                          <th>Patente</th>
                          <th>Marca</th>
                          <th>Modelo</th>
+                         <th>Run</th>
+                         <th>Crear</th>
                          <th>Modificar</th>
                          <th>Eliminar</th>
                        </tr>
@@ -410,42 +511,53 @@ footerPublico();
         $("#txt_run_modificar").val($("#txt_run"+fila).html());
         $("#txt_nombre_modificar").val($("#txt_nombre"+fila).html());
         $("#txt_apellido_modificar").val($("#txt_apellido"+fila).html());
-        $("#txt_password_modificar").val($("#txt_password"+fila).html());
+        $("#txt_contraseña_modificar").val($("#txt_password"+fila).html());
         $("#txt_telefono_modificar").val($("#txt_telefono"+fila).html());
         $("#txt_correo_modificar").val($("#txt_correo"+fila).html());
-
+        $("#cmb_tipo_modificar").val($("#txt_descripcionTipo1"+fila).html());
+        $("#cmb_estado_modificar").val($("#txt_descripcion_Estado1"+fila).html());
         }
 
-$.ajax({
-  url:'../cliente/cargarTablaCliente.php',
-  success:function(resultado){
-    $("#cargarDatos").html(resultado);
-
-    }
-});
+// Carga la informacion a el div cargarDatos desde cargarTablaClientes
+           function cargarTablaDatos(){
+            $.ajax({
+              url:'../cliente/cargarTablaCliente.php',
+              success:function(resultado){
+                $("#cargarDatos").html(resultado);
+                }
+            });
+        }
 
 </script>
 <script>
        function cargarMisReservas(fila){
+        $("#txt_id_reserva_modificar").val($("#txt_id_reserva"+fila).html());
+        $("#txt_patenteReserva_modificar").val($("#txt_patente"+fila).html());
 
-        $("#txt_patenteNew_modificar").val($("#txt_patente"+fila).html());
-        $("#txt_MarcaNew_modificar").val($("#txt_marca"+fila).html());
-        $("#txt_ModeloNew_modificar").val($("#txt_modelo"+fila).html());
-        $("#txt_ServicioNew_modificar").val($("#txt_servicio"+fila).html());
-        $("#txt_problemaNew_modificar").val($("#txt_problema"+fila).html());
-        $("#txt_Descripcion_estadoReserva_modificar").val($("#txt_descripcion_estado"+fila).html());
+        $("#txt_runReserva_modificar").val($("#txt_runReserva"+fila).html());
+        $("#txt_patente_modificar").val($("#txt_patente"+fila).html());
+        $("#txt_marcaReserva_modificar").val($("#txt_marca"+fila).html());
+        $("#txt_modeloReserva_modificar").val($("#txt_modelo"+fila).html());
+
+        $("#txt_id_servicio_modificar").val($("#txt_id_servicio"+fila).html());
+        $("#txt_descripcionServicioReserva_modificar").val($("#txt_servicio"+fila).html());
+
+        $("#txt_descripcionProblemaReserva_modificar").val($("#txt_problema"+fila).html());
+        $("#txt_id_estado_reserva_modificar").val($("#txt_id_estado_reserva"+fila).html());
+        $("#txt_descripcionEstadoReserva_modificar").val($("#txt_descripcion_estado"+fila).html());
 
         }
 </script>
 
 <script type="text/javascript">
+function cargarTablaReserva(){
 $.ajax({
   url:'../cliente/cargarTablaReserva.php',
   success:function(resultado){
     $("#cargarReservas").html(resultado);
-
-    }
-});
+                }
+        });
+}
 </script>
 <script>
        function cargarMisVehiculos(fila){
@@ -455,30 +567,59 @@ $.ajax({
         $("#txt_modelo_modificar").val($("#txt_modelo"+fila).html());
         $("#txt_runVehiculo_modificar").val($("#txt_runvehiculo"+fila).html());
        }
+
+
+</script>
+<!-- CARFAR RUN CLIENTE EN VENTANA MODAL CREAR VEHICULO  -->
+<script>
+       function cargarCrearVehiculo(fila){
+
+        $("#cmb_usuario").val($("#txt_runvehiculo"+fila).html());
+       }
+
+
 </script>
 <script type="text/javascript">
-  // function cargarTablaVehiculo(){
-$.ajax({
-  url:'../cliente/cargarTablaVehiculos.php',
-  success:function(resultado){
-    $("#cargarVehiculos").html(resultado);
+   function cargarTablaVehiculos(){
+    $.ajax({
+      url:'../cliente/cargarTablaVehiculos.php',
+      success:function(resultado){
+        $("#cargarVehiculos").html(resultado);
 
-    }
-});
-// }
+        }
+    });
+}
 // MODIFICAR MIS DATOS
 $("#formModificarUsuario").submit(function(){//captura cuando se envia el formulario
    event.preventDefault();//detiene el envio del formulario
-
-
+   //alert("hola");
        $.ajax({//realiza el envio del formulario pero por ajax para no tener que recargar pagina
 
-           url:"../mantenedores/Ingresar.php?mant=1&func=2", // donde se va a ingresar "mantenedoresIngresar.php"
+           url:"../mantenedores/mantenedoresIngresar.php?mant=1&func=2", // donde se va a ingresar "mantenedoresIngresar.php"
            data:$("#formModificarUsuario").serialize(),
            success:function(respuesta){
                    //alert(respuesta);
-                   //alert("hola");
+                  // alert("hola");
+                  // cargarTablaVehiculos();
+                  cargarTablaDatos();
+           }
+       });
+       return false;
+});
 
+// MIS RESERVAS
+$("#formModReservas").submit(function(){//captura cuando se envia el formulario
+   event.preventDefault();//detiene el envio del formulario
+  //  alert("hola");
+       $.ajax({//realiza el envio del formulario pero por ajax para no tener que recargar pagina
+
+           url:"../mantenedores/mantenedoresIngresar.php?mant=13&func=2", // donde se va a ingresar "mantenedoresIngresar.php"
+           data:$("#formModReservas").serialize(),
+           success:function(respuesta){
+                   alert(respuesta);
+                  // alert("hola");
+                  // cargarTablaVehiculos();
+                  cargarTablaReserva();
            }
        });
        return false;
@@ -486,31 +627,45 @@ $("#formModificarUsuario").submit(function(){//captura cuando se envia el formul
 
 
 
-// MODIFICAR MIS VEHICULOS
-$("#formModificarVehiculo").submit(function(){//captura cuando se envia el formulario
-   event.preventDefault();//detiene el envio del formulario
 
+// MIS VEHICULOS
+
+// CREAR VEHICULOS
+$("#formularioCrearVehiculo").submit(function(){//captura cuando se envia el formulario
+   event.preventDefault();//detiene el envio del formulario
 
        $.ajax({//realiza el envio del formulario pero por ajax para no tener que recargar pagina
 
+           url:"../mantenedores/mantenedoresIngresar.php?mant=12&func=1",
+           data:$("#formularioCrearVehiculo").serialize(),
+           success:function(respuesta){
+              cargarTablaVehiculos();
+                //alert("Usuario Agregado correctamente");
+// alert("hola");
+                 //alert(respuesta);
+                   //$("#formularioProveedor").html(respuesta);
+
+
+           }
+       });
+       return false;
+});
+
+// MODIFICAR MIS VEHICULOS
+$("#formModificarVehiculo").submit(function(event){//captura cuando se envia el formulario
+   event.preventDefault();//detiene el envio del formulario
+       $.ajax({//realiza el envio del formulario pero por ajax para no tener que recargar pagina
            url:"../mantenedores/mantenedoresIngresar.php?mant=12&func=3", // donde se va a ingresar "mantenedoresIngresar.php"
            data:$("#formModificarVehiculo").serialize(),
            success:function(respuesta){
+             alert(respuesta);
+             if(respuesta==1){
+
              //alert("Vehiculo modificado");
                    //alert(respuesta);
 
-                   //alert("hola");
-                   //location.reload();
-                  //cargarMisVehiculos();
-                   eventoAlertActualizar();
-                   //$("#misautos").click();
-                  //  cargarActualizarVehiculos();
-                   cargarTablaVehiculos();
-
-
-
-
-
+          cargarTablaVehiculos();
+        }
            }
        });
        return false;
@@ -520,8 +675,9 @@ $("#formModificarVehiculo").submit(function(){//captura cuando se envia el formu
     // swal("Exito!", "Se ha actualizado correctamente!", "success")
     alert("Se ha modificado correctamente su vehiculo");
        }
-
+// ELIMINAR VEHCULOS
        function eliminarVehiculo(id){
+
          //alert(id);
         //  swal({
         //      title: "Eliminar?",
@@ -542,8 +698,8 @@ $("#formModificarVehiculo").submit(function(){//captura cuando se envia el formu
                          success:function(respuesta){
                              $("#formModificarVehiculo").html(respuesta);
                                  //alert(respuesta);
-                                 alert("hola");
-
+                                 //alert("hola");
+                                  cargarTablaVehiculos();
                          }
                      });
             //          swal("Modificado!", "", "success");
@@ -585,9 +741,10 @@ $( "#misautos" ).click(function() {
     $("#reservas-despegable").hide();
 
 });
-
-
-
+//carga al iniciar la pagina
+  cargarTablaDatos();
+  cargarTablaReserva();
+  cargarTablaVehiculos();
 </script> -->
 </body>
 

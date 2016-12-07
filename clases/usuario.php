@@ -25,6 +25,8 @@ class Usuario extends Conexion{
 	  $resultado= $this->consultarRegistros($consulta);
 	  return $resultado;
 	}
+
+
 	public function listarRunUsuario(){
 		$usuarios = $this->consultarRegistros("SELECT run, nombre, apellido, password, usuario.id_tipo_usuario, descripcion_tipo_usuario, usuario.id_estado_usuario, descripcion_estado_usuario
 			FROM usuario
@@ -122,10 +124,11 @@ class Usuario extends Conexion{
 			return $resultado;
 		}
 		public function verDatos($runDatos){
-			$consulta = 'SELECT * FROM verdatos WHERE run = "'.$runDatos.'"';
+			$consulta = 'SELECT * FROM vistausuario WHERE run = "'.$runDatos.'"';
 			$resultado = $this->consultar($consulta);
 			return $resultado;
 		}
+
 }
 
 ?>

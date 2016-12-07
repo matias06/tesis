@@ -88,9 +88,7 @@
 
 
                                     <div style="animation-delay: 0.5s;" class="col-md-3 animated-panel zoomIn">
-
                                         <div class="form-group">
-
                                             <label for="tipoUsuario">Tipo Usuario</label>
                                                  <select class="form-control" name="tipousuario" id="tipousuario">
                                                     <?php
@@ -101,12 +99,9 @@
                                                         foreach($filasTipoU as $tipo){
                                                             echo '<option value="'.$tipo['id_tipo_usuario'].'" >'.$tipo['descripcion_tipo_usuario'].'</option>';
                                                         }
-
                                                      ?>
                                                 </select>
-
                                         </div>
-
                                     </div>
 
                                     <div style="animation-delay: 0.5s;" class="col-md-3 animated-panel zoomIn">

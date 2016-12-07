@@ -58,6 +58,8 @@ require_once '../clases/usuario.php';
 									$usuario->settipo_usuario($_REQUEST['cmb_tipo_modificar']);
 									$usuario->setestado_usuario($_REQUEST['cmb_estado_modificar']);
 
+
+
 									$usuario->insertarUsuario();
 
 								break;
@@ -1354,9 +1356,9 @@ switch($_REQUEST['func']){
                               foreach($filas as $columnas){
                            ?>
                               <tr class="tablaFilas">
-                                <td><?php echo $columnas['id_detalle_compra'];  ?></td>
+                                <!-- <td><?php echo $columnas['id_detalle_compra'];  ?></td>
                                 <td><?php echo $columnas['cantidad'];  ?></td>
-                                <td><?php echo $columnas['valor'];  ?></td>
+                                <td><?php echo $columnas['valor'];  ?></td> -->
 
 
                                 <!--  botones eliminar -->
@@ -1388,14 +1390,14 @@ break;
 
                                         $vehiculo->setrun($_REQUEST['cmb_usuario']);
 
-                                       $vehiculo->insertarVehiculo();
+                                      //  $vehiculo->insertarVehiculo();
 
 
-                                          // if($patente->insertarVehiculo()){
-                                          //   echo "1";
-                                          // }else{
-                                          //   echo "error al ingresar.";
-                                          // }
+                                       if($vehiculo->insertarVehiculo()){
+                                         echo "1";
+                                       }else{
+                                         echo "2";
+                                       }
                                     break;
                       case "2": //echo "SE MODIFICA";
                        $vehiculo=new Vehiculo();
@@ -1418,7 +1420,11 @@ break;
                       // $vehiculo->setrun($_SESSION['id']);
                       $vehiculo->setrun($_SESSION['id']);
 
-                      $vehiculo->insertarVehiculo();
+                      if($vehiculo->insertarVehiculo()){
+                        echo "1";
+                      }else{
+                        echo "2";
+                      }
                       break;
 
                        case "4": //echo "SE ELIMINA";
@@ -1510,6 +1516,77 @@ break;
             }
 
         break;
+
+        case "13": //echo " RESERVAS";
+        require_once'../clases/claseReserva.php';
+        switch($_REQUEST['func']){
+
+            case "1": //echo "se ingresa";
+
+              // $reserva=new Reserva();
+              //
+              //                   $rut = filter_var($_REQUEST['txt_run'], FILTER_SANITIZE_STRING);
+              // $reserva->setrun($rut);
+              //                   $nombre = filter_var($_REQUEST['txt_nombre'], FILTER_SANITIZE_STRING);
+              // $reserva->setnombre($nombre);
+              //                   $apellido = filter_var($_REQUEST['txt_apellido'], FILTER_SANITIZE_STRING);
+              // $reserva->setapellido($apellido);
+              //                   $contraseña = filter_var($_REQUEST['txt_password'], FILTER_SANITIZE_STRING);
+              // $reserva->setpassword($contraseña);
+              //                   $telefono = filter_var($_REQUEST['txt_telefono'], FILTER_SANITIZE_NUMBER_INT);
+              // $reserva->settelefono($telefono);
+              //                   $correo = filter_var($_REQUEST['txt_correo'], FILTER_SANITIZE_STRING);
+              // $reserva->setcorreo($correo);
+              //
+              //
+              // $reserva->settipo_usuario($_REQUEST['tipousuario']);
+              // $reserva->setestado_usuario($_REQUEST['estadousuario']);
+              //
+              // $reserva->insertarUsuario();
+
+            break;
+
+            case "2": //echo "SE MODIFICA";
+            $reserva=new Reserva();
+
+                                $idreserva = filter_var($_REQUEST['txt_id_reserva_modificar'], FILTER_SANITIZE_STRING);
+              $reserva->setid_reserva($idreserva);
+                                $runModificar = filter_var($_REQUEST['txt_runReserva_modificar'], FILTER_SANITIZE_STRING);
+              $reserva->setrun($runModificar);
+                                $patenteModificar = filter_var($_REQUEST['txt_patenteReserva_modificar'], FILTER_SANITIZE_STRING);
+              $reserva->setpatente($patenteModificar);
+                                $marcaModifcar = filter_var($_REQUEST['txt_marcaReserva_modificar'], FILTER_SANITIZE_STRING);
+              $reserva->setmarca($marcaModifcar);
+                                $modeloModifcar = filter_var($_REQUEST['txt_modeloReserva_modificar'], FILTER_SANITIZE_STRING);
+              $reserva->setmodelo($modeloModifcar);
+                                $idServicioModificar = filter_var($_REQUEST['txt_id_servicioReserva_modificar'], FILTER_SANITIZE_NUMBER_INT);
+              $reserva->setid_servicio($idServicioModificar);
+                                $descripcionServicioModificar = filter_var($_REQUEST['txt_descripcionServicioReserva_modificar'], FILTER_SANITIZE_STRING);
+              $reserva->setdescripcion_servicio($descripcionServicioModificar);
+                                $descripcionProblemaModificar = filter_var($_REQUEST['txt_descripcionProblemaReserva_modificar'], FILTER_SANITIZE_STRING);
+              $reserva->setdescripcion_problema($descripcionProblemaModificar);
+                                $idestadoReservaModificar = filter_var($_REQUEST['txt_id_estadoReserva_modificar'], FILTER_SANITIZE_STRING);
+              $reserva->setid_estado_reserva($idestadoReservaModificar);
+                                $DescripcionestadoReservaModificar = filter_var($_REQUEST['txt_descripcionEstadoReserva_modificar'], FILTER_SANITIZE_STRING);
+              $reserva->setdescripcion_estado_reserva($DescripcionestadoReservaModificar);
+
+
+              $reserva->insertarReservas();
+
+            break;
+            case "3": //echo "SE ELIMINA";
+              $usuario=new Usuario();
+
+              $usuario->setrun($_REQUEST['id']);
+
+              $usuario->eliminarUsuario();
+
+
+              break;
+
+
+        }
+  break;
 
       }
 
