@@ -1421,9 +1421,9 @@ break;
                       $vehiculo->setrun($_SESSION['id']);
 
                       if($vehiculo->insertarVehiculo()){
-                        echo "1";
+                        echo "Se modifico correctamente";
                       }else{
-                        echo "2";
+                        echo "No se modifico";
                       }
                       break;
 
@@ -1544,7 +1544,7 @@ break;
               //
               // $reserva->insertarUsuario();
 
-            break;
+            // break;
 
             case "2": //echo "SE MODIFICA";
             $reserva=new Reserva();
@@ -1575,11 +1575,11 @@ break;
 
             break;
             case "3": //echo "SE ELIMINA";
-              $usuario=new Usuario();
+              $reserva=new Reserva();
 
-              $usuario->setrun($_REQUEST['id']);
+              $reserva->setid_reserva($_REQUEST['id_reserva']);
 
-              $usuario->eliminarUsuario();
+              $reserva->insertarReservas();
 
 
               break;

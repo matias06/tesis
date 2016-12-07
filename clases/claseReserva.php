@@ -56,6 +56,7 @@ public function setdescripcion_estado_reserva ($arg_descripcion_estado_reserva){
 }
 
     public function insertarReservas(){
+			
 
 
   $verificar = $this->consultarExistencia("SELECT id_reserva from reserva where id_reserva= '".$this->id_reserva."'");

@@ -264,11 +264,15 @@
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                            <h4 class="modal-title">Agregar Un Nuevo automovil</h4>
+                                            <h4 class="modal-title">Agregar nueva Reserva</h4>
                                         </div>
                                         <div class="modal-body">
 
                                         <form id="formModReservas" name="formModReservas" method="POST" role="form">
+                                          <div class="form-group">
+                                              <label for="">Run</label>
+                                              <input type="text" class="form-control" readonly id="txt_runReserva_modificar" name="txt_runReserva_modificar" placeholder="Input field">
+                                          </div>
 
                                             <div class="form-group">
                                                 <label for="">Patente</label>
@@ -284,10 +288,22 @@
                                                 <input type="text" class="form-control" id="txt_modeloReserva_modificar" name="txt_modeloReserva_modificar" placeholder="Input field">
                                             </div>
 
-                                            <div class="form-group">
-                                                <label for="">Servicio</label>
-                                                <input type="text" class="form-control" id="txt_descripcionServicioReserva_modificar" name="txt_descripcionServicioReserva_modificar" placeholder="Input field">
+                                            <div style="animation-delay: 0.2s;" class="col-md-12 animated-panel zoomIn">
+                                                <div class="form-group">
+                                                    <label for="servicio">Servicio: </label>
+                                                         <select class="form-control" name="txt_descripcionServicioReserva_modificar" id="txt_descripcionServicioReserva_modificar">
+                                                            <?php
+                                                                require_once '../clases/claseServicio.php';
+                                                                $serv= new Servicio();
+                                                                $filasServicio= $serv->listarServicio();
+                                                                foreach($filasServicio as $servicio){
+                                                                    echo '<option value="'.$servicio['id_servicio'].'" >'.$servicio['descripcion_servicio'].'</option>';
+                                                                }
+                                                             ?>
+                                                        </select>
+                                                </div>
                                             </div>
+
                                             <div class="form-group">
                                                 <label for="">Problema</label>
                                                 <input type="text" class="form-control" id="txt_descripcionProblemaReserva_modificar" name="txt_descripcionProblemaReserva_modificar" placeholder="Input field">
@@ -297,6 +313,8 @@
                                                 <label for="">Descripcion Estado reserva</label>
                                                 <input type="text" class="form-control" id="txt_descripcionEstadoReserva_modificar" name="txt_descripcionEstadoReserva_modificar" placeholder="Input field">
                                             </div>
+
+
 
                                         </div>
                                         <div class="modal-footer">
@@ -408,23 +426,15 @@
                                              <input class="form-control" title="Debe ingresar su modelo" required id="txt_modelo" name="txt_modelo" placeholder="Ingresar modelo" type="text">
                                          </div>
                                      </div>
-
-                                     <div style="animation-delay: 0.5s;" class="col-md-3 animated-panel zoomIn">
+                                     <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
                                          <div class="form-group">
-                                             <label for="tipoUsuario">Run Usuario</label>
-                                                  <select class="form-control" name="cmb_usuario" id="cmb_usuario">
-                                                     <?php
-                                                         require_once '../clases/usuario.php';
-                                                         $User= new Usuario();
-                                                         $filasUser= $User->listarRunUsuario();
-
-                                                         foreach($filasUser as $tipo){
-                                                             echo '<option value="'.$tipo['run'].'" >'.$tipo['nombre'].'</option>';
-                                                         }
-                                                      ?>
-                                                 </select>
+                                             <label for="run">Run</label>
+                                             <input class="form-control" title="" readonly id="cmb_usuario" name="cmb_usuario" placeholder="" type="text">
                                          </div>
                                      </div>
+
+
+
                                  </div>
 
                                </form>
