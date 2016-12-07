@@ -113,7 +113,7 @@ function cargarTablaDetalle(){// muestra formulario ingreso de detalle compra
   $.ajax({//realiza el envio del formulario pero por ajax para no tener que recargar pagina
       url:"../mantenedores/mantenedoresIngresar.php?mant=11&func=4",
       success:function(respuesta){
-        alert(respuesta);
+        //alert(respuesta);
            $("#divTablaDetalleCompra").html(respuesta);
       }
   });

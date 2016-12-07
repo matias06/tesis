@@ -131,7 +131,7 @@ require_once '../clases/usuario.php';
 
                                          } ?>
 										    <tr>
-                                              <td colspan="7">
+                                              <td colspan="9">
                                                 <center>
                                                 <?php
                                                   echo $filas[0][1];

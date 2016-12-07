@@ -155,5 +155,32 @@ class Productos extends Conexion{
 				return $consulta;
 		}
 
+		public function detalleProducto($id){
+			// Variable
+			$this->idProducto = $id;
+
+			// Consulta
+			$query = 'select * from tb_producto where idProducto ="'.$this->idProducto.'"';
+
+			// Ejecuto
+			$consulta = $this->conexion->query($query);
+
+			while($row = mysqli_fetch_array($consulta)){
+				echo '<div class="contDetalle">
+						<!-- Contenedor imagen -->
+						<div class="contImgDetalle">
+							<img src="../../img/imagenesSubidas/imagenesProductos/'.$row['rutaImagen'].'" alt="'.$row['nombreProducto'].'">
+						</div>
+						<!-- Contenedor de los detalles escritos -->
+						<div class="contDetalleTxt">
+							<!-- Textos -->
+							<input type="hidden" value="'.$row['idProducto'].'" class="idProducto">
+							<p class="textosDetalle" id="nombreProducto"><span class="tituloProductoDetalle">'.$row['nombreProducto'].' </span></p>
+							<p class="textosDetalle" id="descripcionProducto"><span class="tituloDetalle">Descripcion:</span> '.$row['descripcionProducto'].' </p>
+							<p class="textosDetalle" id="valorProductoo"><span class="tituloDetalle">Valor:</span> $'.$row['valorProducto'].'</p>
+							<p class="txtAgregar">Elegir cotizacion:</p>';
+			}
+		}
+
 }
 ?>
