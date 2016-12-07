@@ -39,6 +39,13 @@ public function setrun ($arg_run){
 	public function eliminarVehiculo(){
 				$eliminarProv = $this->insertarRegistros
 				("DELETE FROM vehiculo WHERE patente='".$this->patente."';");
+				$consulta = $this->consultarRegistros("SELECT * FROM vehiculo where patente='".$this->patente."'");
+				if($consulta = true){
+					return "1";
+				}else{
+					return "2";
+				}
+
 	}
 	public function modificarVehiculo(){
 		$modificarVehiculo = $this->insertarRegistros

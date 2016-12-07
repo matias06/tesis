@@ -58,7 +58,7 @@
 
                     <li class="lineaLi">
                         <a href="#" value="Productos" onclick="cargarDivProductos();">Producto</a>
-
+          
         <script type="text/javascript">
             function cargarDivProductos(){ /*AQUI LE DOY UN NOMBRE CUALQUIERA A LA FUNCION*/
 

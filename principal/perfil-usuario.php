@@ -1,5 +1,7 @@
 <?php
+      // include '../comun/comun.php';
     require_once '../clases/Conexion.php';
+    require_once '../clases/clasevehiculo.php';
     $conexion = new Conexion();
     $conexion->consultarSesion();
 ?>
@@ -65,6 +67,20 @@
             </div>
         </div>
 
+
+
+        <script type="text/javascript">
+            function cargarTablaVehiculos(){
+
+                $.ajax({url: '../cliente/cargarTablaVehiculos.php',
+                        success:function(data){
+
+                            $("#vehiculo").html(data);
+                        }
+                });
+            }
+            </script>
+
         <div class="col-xs-12 col-sm-6 col-md-3">
             <div class="mini-u">
 
@@ -73,7 +89,9 @@
                 </div>
 
                 <div class="mini-u-footer">
-                    <a href="#" class="mini-u-btn" id="misautos">Mis Vehiculos</a>
+                    <a href="#" value="vehiculo" class="mini-u-btn" id="misautos" onclick="cargarTablaVehiculos();">Mis Vehiculos</a>
+
+
                 </div>
 
             </div>
@@ -115,47 +133,77 @@
                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                                 <h4 class="modal-title">Modificar Mis Datos</h4>
                             </div>
-                            <div class="modal-body">
+                            <div class="container">
 
-                            <form action="" method="POST" role="form">
-
-                                <div class="form-group">
+                            <form id="formModificarUsuario" name="formModificarUsuario">
+                              <div class="row">
+                              <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
+                                  <div class="form-group">
                                     <label for="rut">Rut</label>
-                                    <input type="text" class="form-control" readonly id="txt_run_modificar" name="txt_run_modificar" placeholder="Modifique su run">
+                                    <input type="text" class="form-control" readonly id="txt_run_modificar" name="txt_runDatos_modificar" placeholder="Modifique su run">
                                 </div>
-
-                                <div class="form-group">
+                                </div>
+                                </div>
+                                  <div class="row">
+                                <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
+                                    <div class="form-group">
                                     <label for="nombre">Nombre</label>
                                     <input type="text" class="form-control" id="txt_nombre_modificar" name="txt_nombre_modificar" placeholder="Modifique su nombre">
                                 </div>
-                                <div class="form-group">
+                                </div>
+
+                                <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
+                                    <div class="form-group">
                                     <label for="nombre">Apellido</label>
                                     <input type="text" class="form-control" id="txt_apellido_modificar" name="txt_apellido_modificar" placeholder="Modifique su nombre">
                                 </div>
-                                <div class="form-group">
+                                </div>
+                                </div>
+
+                                <div class="row">
+                              <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
+                                  <div class="form-group">
                                     <label for="nombre">Contraseña:</label>
                                     <input type="text" class="form-control" id="txt_password_modificar" name="txt_password_modificar" placeholder="Modifique su nombre">
                                 </div>
-                                <div class="form-group">
+                                </div>
+                                </div>
+                                <div class="row">
+                                <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
+                                    <div class="form-group">
                                     <label for="nombre">Teléfono</label>
                                     <input type="text" class="form-control" id="txt_telefono_modificar" name="txt_telefono_modificar" placeholder="Modifique su nombre">
                                 </div>
-                                <div class="form-group">
-                                    <label for="correo">Correo</label>
-                                    <input type="text" class="form-control" id="txt_correo_modificar" name="txt_correo_modificar" placeholder="Modifique su correo">
                                 </div>
-
+                                </div>
+                                <div class="row">
+                                 <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
+                                      <div class="form-group">
+                                    <label for="correo">Correo</label>
+                                      <input type="text" class="form-control" id="txt_correo_modificar" name="txt_correo_modificar" placeholder="Modifique su correo">
+                                </div>
+                                </div>
                             </div>
+                            <div class="row">
+                             <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
+                                  <div class="form-group">
+                              <button id="modificar" class="btn btn-primary" data-dismiss="modal" value="Guardar1 cambios" name="btn_registrar">Modificar</button>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                         <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                                <button type="button" class="btn btn-primary">Guardar Cambios</button>
+                              <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                             </div>
-
                             </form>
                         </div>
                     </div>
+                  </div>
+                </div>
+              </div>
                 </div><!-- final modal para modificar datos-->
-            <br>
+
             <table class="table table-responsive">
                 <tr>
                   <th>Run</th>
@@ -194,33 +242,33 @@
 
                                             <div class="form-group">
                                                 <label for="">Patente</label>
-                                                <input type="text" class="form-control" id="" placeholder="Input field">
+                                                <input type="text" class="form-control" id="txt_patenteNew_modificar" name="txt_patenteNew_modificar" placeholder="Input field">
                                             </div>
 
                                             <div class="form-group">
                                                 <label for="">Marca</label>
-                                                <input type="text" class="form-control" id="" placeholder="Input field">
+                                                <input type="text" class="form-control" id="txt_MarcaNew_modificar" name="txt_MarcaNew_modificar" placeholder="Input field">
                                             </div>
                                             <div class="form-group">
                                                 <label for="">Modelo</label>
-                                                <input type="text" class="form-control" id="" placeholder="Input field">
+                                                <input type="text" class="form-control" id="txt_ModeloNew_modificar" name="txt_ModeloNew_modificar" placeholder="Input field">
                                             </div>
 
                                             <div class="form-group">
-                                                <label for="">A&ntilde;o</label>
-                                                <input type="text" class="form-control" id="" placeholder="Input field">
-                                            </div>
-                                            <div class="form-group">
                                                 <label for="">Servicio</label>
-                                                <input type="text" class="form-control" id="" placeholder="Input field">
+                                                <input type="text" class="form-control" id="txt_ServicioNew_modificar" name="txt_ServicioNew_modificar" placeholder="Input field">
                                             </div>
                                             <div class="form-group">
                                                 <label for="">Problema</label>
-                                                <input type="text" class="form-control" id="" placeholder="Input field">
+                                                <input type="text" class="form-control" id="txt_problemaNew_modificar" name="txt_problemaNew_modificar" placeholder="Input field">
                                             </div>
-                                            <div class="form-group">
+                                            <!-- <div class="form-group">
                                                 <label for="">Estado</label>
-                                                <input type="text" class="form-control" id="" placeholder="Input field">
+                                                <input type="text" class="form-control" id="txt_estadoReserva_modificar" name="txt_estadoReserva_modificar" placeholder="Input field">
+                                            </div> -->
+                                            <div class="form-group">
+                                                <label for="">Descripcion Estado reserva</label>
+                                                <input type="text" class="form-control" id="txt_Descripcion_estadoReserva_modificar" name="txt_Descripcion_estadoReserva_modificar" placeholder="Input field">
                                             </div>
 
                                         </div>
@@ -250,84 +298,83 @@
                   </table>
 
             </div>
+            <div class="despegable-menu" id="autos-despegable">
 
-        <div class="despegable-menu" id="autos-despegable">
+                   <span class="lead">Mis Automoviles
+                       <!-- <a class="btn btn-info btn-xs" data-toggle="modal" href='#modal-auto'><i class="fa fa-plus-circle fa-1g"></i>  Agregar Autos</a> -->
+                   </span>
+                   <div class="modal fade" id="modal-modificar-auto">
+                       <div class="modal-dialog">
+                           <div class="modal-content">
+                               <div class="modal-header">
+                                   <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                   <h4 class="modal-title">Modificacion del Vehiculo</h4>
+                               </div>
+                               <div class="modal-body">
 
-                <span class="lead">Mis Automoviles
-                    <!-- <a class="btn btn-info btn-xs" data-toggle="modal" href='#modal-auto'><i class="fa fa-plus-circle fa-1g"></i>  Agregar Autos</a> -->
-                </span>
-                <div class="modal fade" id="modal-modificar-auto">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                <h4 class="modal-title">Modificacion del Vehiculo</h4>
-                            </div>
-                            <div class="modal-body">
+                               <form id="formModificarVehiculo" name="formModificarVehiculo">
 
-                            <form id="formModificarVehiculo" name="formModificarVehiculo">
+                                   <div class="form-group">
+                                       <label for="patente">Patente</label>
+                                       <input type="text" class="form-control" id="txt_patente_modificar" name="txt_patente_modificar" placeholder="Modifique su patente">
+                                   </div>
 
-                                <div class="form-group">
-                                    <label for="patente">Patente</label>
-                                    <input type="text" class="form-control" id="txt_patente_modificar" name="txt_patente_modificar" placeholder="Modifique su patente">
-                                </div>
+                                   <div class="form-group">
+                                       <label for="marca">Marca</label>
+                                       <input type="text" class="form-control" id="txt_marca_modificar" name="txt_marca_modificar" placeholder="Modifique su marca">
+                                   </div>
+                                   <div class="form-group">
+                                       <label for="modelo">Modelo</label>
+                                       <input type="text" class="form-control" id="txt_modelo_modificar" name="txt_modelo_modificar" placeholder="Modifique su modelo">
+                                   </div>
+                                   <div class="form-group">
+                                       <label for="modelo">Run</label>
+                                       <input type="text" class="form-control" id="txt_runVehiculo_modificar" name="cmb_usuario_modificar" placeholder="Modifique su modelo">
+                                   </div>
+                                   <div class="form-group">
+                                       <button id="modal-modificar-auto" type="submit" class="btn btn-primary" data-toggle="modal" data-target="#modal-modificar-auto" value="Guardar Cambios" name="btn_registrar">Modificar</button>
+                                        <!-- <input type="submit" id="btn_insert" class="btn btn-primary" value="Guardar Cambios" name="btn_registrar"> -->
+                                           <!-- <input type="submit" id="btn_insert" class="btn btn-primary" data-dismiss="modal" value="Guardar Cambios" name="btn_registrar"> -->
+                                   </div>
 
-                                <div class="form-group">
-                                    <label for="marca">Marca</label>
-                                    <input type="text" class="form-control" id="txt_marca_modificar" name="txt_marca_modificar" placeholder="Modifique su marca">
-                                </div>
-                                <div class="form-group">
-                                    <label for="modelo">Modelo</label>
-                                    <input type="text" class="form-control" id="txt_modelo_modificar" name="txt_modelo_modificar" placeholder="Modifique su modelo">
-                                </div>
-                                <div class="form-group">
-                                    <label for="modelo">Run</label>
-                                    <input type="text" class="form-control" id="cmb_usuario_modificar" name="cmb_usuario_modificar" placeholder="Modifique su modelo">
-                                </div>
-                                <div class="form-group">
-                                        <input type="submit" id="btn_insert" class="btn btn-primary" value="Guardar Cambios" name="btn_registrar">
-                                </div>
+                               </div>
+                               <div class="modal-footer">
+                                   <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                   <!-- <button type="button" class="btn btn-primary">Guardar Cambios</button> -->
 
+                               </div>
 
-                                <!-- <div class="form-group">
-                                    <label for="">A&ntilde;o</label>
-                                    <input type="text" class="form-control" id="" placeholder="Input field">
-                                </div> -->
+                               </form>
+                           </div>
+                       </div>
+                   </div>
+                     <br>
+                   <table class="table table-responsive">
+                       <tr>
+                         <th>Patente</th>
+                         <th>Marca</th>
+                         <th>Modelo</th>
+                         <th>Modificar</th>
+                         <th>Eliminar</th>
+                       </tr>
+                     <tbody id="cargarVehiculos">
 
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                                <!-- <button type="button" class="btn btn-primary">Guardar Cambios</button> -->
-
-                            </div>
-
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                  <br>
-                <table class="table table-responsive">
-                    <tr>
-                      <th>Patente</th>
-                      <th>Marca</th>
-                      <th>Modelo</th>
-                      <th>Modificar</th>
-                      <th>Eliminar</th>
-                    </tr>
-                  <tbody id="cargarVehiculos">
-
-                  </tbody>
-                </table>
+                     </tbody>
+                   </table>
 
 
 
 
 
-              <!-- modal modificacion del vehiculo-->
+                 <!-- modal modificacion del vehiculo-->
 
 
 
-            </div>
+               </div>
+
+
+           </div><!-- final contenido del menu seleccionado-->
+
 
 
         </div><!-- final contenido del menu seleccionado-->
@@ -356,7 +403,7 @@ footerPublico();
 
 <!-- > js agregados por nosotros < -->
 <script src="../js/main.js"></script>
-<script src="../js/validar_sesion.js"></script>
+<!-- <script src="../js/validar_sesion.js"></script> -->
 <script>
        function cargarMisDatos(fila){
 
@@ -377,36 +424,16 @@ $.ajax({
     }
 });
 
-$("#formModificarVehiculo").submit(function(){//captura cuando se envia el formulario
-   event.preventDefault();//detiene el envio del formulario
-
-
-       $.ajax({//realiza el envio del formulario pero por ajax para no tener que recargar pagina
-
-           url:"../mantenedores/mantenedoresIngresar.php?mant=12&func=2", // donde se va a ingresar "mantenedoresIngresar.php"
-           data:$("#formModificarVehiculo").serialize(),
-           success:function(respuesta){
-                   alert(respuesta);
-                   //alert("hola");
-                   eventoAlertActualizar();
-           }
-       });
-       return false;
-});
-
-function eventoAlertActualizar(){
-   swal("Exito!", "Se ha actualizado correctamente!", "success")
-       }
 </script>
 <script>
        function cargarMisReservas(fila){
 
-        $("#txt_run_modificar").val($("#txt_run"+fila).html());
-        $("#txt_nombre_modificar").val($("#txt_nombre"+fila).html());
-        $("#txt_apellido_modificar").val($("#txt_apellido"+fila).html());
-        $("#txt_password_modificar").val($("#txt_password"+fila).html());
-        $("#txt_telefono_modificar").val($("#txt_telefono"+fila).html());
-        $("#txt_correo_modificar").val($("#txt_correo"+fila).html());
+        $("#txt_patenteNew_modificar").val($("#txt_patente"+fila).html());
+        $("#txt_MarcaNew_modificar").val($("#txt_marca"+fila).html());
+        $("#txt_ModeloNew_modificar").val($("#txt_modelo"+fila).html());
+        $("#txt_ServicioNew_modificar").val($("#txt_servicio"+fila).html());
+        $("#txt_problemaNew_modificar").val($("#txt_problema"+fila).html());
+        $("#txt_Descripcion_estadoReserva_modificar").val($("#txt_descripcion_estado"+fila).html());
 
         }
 </script>
@@ -426,9 +453,11 @@ $.ajax({
         $("#txt_patente_modificar").val($("#txt_patente"+fila).html());
         $("#txt_marca_modificar").val($("#txt_marca"+fila).html());
         $("#txt_modelo_modificar").val($("#txt_modelo"+fila).html());
+        $("#txt_runVehiculo_modificar").val($("#txt_runvehiculo"+fila).html());
        }
 </script>
 <script type="text/javascript">
+  // function cargarTablaVehiculo(){
 $.ajax({
   url:'../cliente/cargarTablaVehiculos.php',
   success:function(resultado){
@@ -436,11 +465,102 @@ $.ajax({
 
     }
 });
+// }
+// MODIFICAR MIS DATOS
+$("#formModificarUsuario").submit(function(){//captura cuando se envia el formulario
+   event.preventDefault();//detiene el envio del formulario
+
+
+       $.ajax({//realiza el envio del formulario pero por ajax para no tener que recargar pagina
+
+           url:"../mantenedores/Ingresar.php?mant=1&func=2", // donde se va a ingresar "mantenedoresIngresar.php"
+           data:$("#formModificarUsuario").serialize(),
+           success:function(respuesta){
+                   //alert(respuesta);
+                   //alert("hola");
+
+           }
+       });
+       return false;
+});
+
+
+
+// MODIFICAR MIS VEHICULOS
+$("#formModificarVehiculo").submit(function(){//captura cuando se envia el formulario
+   event.preventDefault();//detiene el envio del formulario
+
+
+       $.ajax({//realiza el envio del formulario pero por ajax para no tener que recargar pagina
+
+           url:"../mantenedores/mantenedoresIngresar.php?mant=12&func=3", // donde se va a ingresar "mantenedoresIngresar.php"
+           data:$("#formModificarVehiculo").serialize(),
+           success:function(respuesta){
+             //alert("Vehiculo modificado");
+                   //alert(respuesta);
+
+                   //alert("hola");
+                   //location.reload();
+                  //cargarMisVehiculos();
+                   eventoAlertActualizar();
+                   //$("#misautos").click();
+                  //  cargarActualizarVehiculos();
+                   cargarTablaVehiculos();
+
+
+
+
+
+           }
+       });
+       return false;
+});
+
+  function eventoAlertActualizar(){
+    // swal("Exito!", "Se ha actualizado correctamente!", "success")
+    alert("Se ha modificado correctamente su vehiculo");
+       }
+
+       function eliminarVehiculo(id){
+         //alert(id);
+        //  swal({
+        //      title: "Eliminar?",
+        //      text: "Vehiculo!",
+        //      type: "warning",
+        //      showCancelButton: true,
+        //      confirmButtonColor: "#DD6B55",
+        //      confirmButtonText: "Eliminar!",
+        //      cancelButtonText: "Cancelar!",
+        //      closeOnConfirm: false,
+        //      closeOnCancel: false },
+        //      function(isConfirm){
+        //          if (isConfirm) {
+                      $.ajax({//realiza el envio del formulario pero por ajax para no tener que recargar pagina
+
+                         url:"../mantenedores/mantenedoresIngresar.php?mant=12&func=4", // donde se va a ingresar "mantenedoresIngresar.php"
+                         data:"id="+id,
+                         success:function(respuesta){
+                             $("#formModificarVehiculo").html(respuesta);
+                                 //alert(respuesta);
+                                 alert("hola");
+
+                         }
+                     });
+            //          swal("Modificado!", "", "success");
+            //      } else {
+            //          swal("Cancelado", "", "error");
+            //      }
+            //  });
+
+
+
+     }
 </script>
 <script>
 $("#datos-despegable").show();
 $("#reservas-despegable").hide();
 $("#autos-despegable").hide();
+
 
 $( "#misdatos" ).click(function() {
 
@@ -466,7 +586,9 @@ $( "#misautos" ).click(function() {
 
 });
 
-</script>
+
+
+</script> -->
 </body>
 
 </html>

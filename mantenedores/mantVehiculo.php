@@ -175,7 +175,7 @@
 
                       $.ajax({
                         url:"mantenedoresIngresar.php",
-                        data:"mant=12&func=4&buscar="+busqueda+"&pag="+pagina+"&cantidadReg="+$("#cmb_cantidadRegistros").val(),
+                        data:"mant=12&func=5&buscar="+busqueda+"&pag="+pagina+"&cantidadReg="+$("#cmb_cantidadRegistros").val(),
                         success:function(respuesta){
                               $("#contenedorMantenedor").html(respuesta);
                         }
