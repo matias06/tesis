@@ -103,6 +103,7 @@ class Usuario extends Conexion{
 				$agregarUsuarios = $this->insertarRegistros
 				("INSERT INTO usuario values ('".$this->run."', '".$this->nombre."' ,'".$this->apellido."',
 				'".$this->password."','".$this->telefono."','".$this->correo."','".$this->id_tipo_usuario."','".$this->id_estado_usuario."')");
+				
 		}
 	}
 

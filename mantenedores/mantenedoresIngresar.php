@@ -22,14 +22,18 @@ require_once '../clases/usuario.php';
 									$usuario->setpassword($contraseña);
                                     $telefono = filter_var($_REQUEST['txt_telefono'], FILTER_SANITIZE_NUMBER_INT);
                   $usuario->settelefono($telefono);
-                                    $contraseña = filter_var($_REQUEST['txt_correo'], FILTER_SANITIZE_STRING);
-                  $usuario->setcorreo($contraseña);
+                                    $correo = filter_var($_REQUEST['txt_correo'], FILTER_SANITIZE_STRING);
+                  $usuario->setcorreo($correo);
 
 
 									$usuario->settipo_usuario($_REQUEST['tipousuario']);
 									$usuario->setestado_usuario($_REQUEST['estadousuario']);
 
-									$usuario->insertarUsuario();
+                  //echo "$rut,$nombre,$apellido,$contaseña,$telefono,$correo ";
+                  $usuario->insertarUsuario();
+
+
+
 
 								break;
 
@@ -82,7 +86,7 @@ require_once '../clases/usuario.php';
                                             <th>Correo</th>
                                             <th>Tipo usuario</th>
                                             <th>Estado usuario</th>
-                                            <th>Eliminar Editar </th>
+                                            <th>Editar/Eliminar</th>
                                         </thead>
 
                                         <?php
@@ -304,10 +308,10 @@ require_once '../clases/usuario.php';
                                             <th>Codigo</th>
                                             <th>Descripción</th>
                                             <th>Valor</th>
-                                            <th>Rut</th>
+                                            <th>Proveedor</th>
                                             <th>Estado producto</th>
                                             <th>Categoría producto</th>
-                                            <th>Eliminar Editar </th>
+                                            <th>Editar/Eliminar </th>
                                         </thead>
 
                                         <?php
@@ -466,7 +470,7 @@ require_once '../clases/usuario.php';
                                             <th>Telefono</th>
                                             <th>Correo</th>
                                             <th>Estado</th>
-                                            <th>Eliminar Editar </th>
+                                            <th>Editar/Eliminar</th>
                                         </thead>
 
 
@@ -526,7 +530,7 @@ require_once '../clases/usuario.php';
                                             <th>Telefono</th>
                                             <th>Correo</th>
                                             <th>Estado</th>
-                                            <th>Eliminar Editar </th>
+                                            <th>Editar/Eliminar</th>
                                         </thead>
 
 
@@ -674,7 +678,7 @@ require_once '../clases/usuario.php';
                                                         <th>Numero Región</th>
                                                         <th>Nombre Región</th>
 
-                                                        <th>Editar Eliminar </th>
+                                                        <th>Editar/Eliminar </th>
                                                     </thead>
                                                     <?php
                                                         require_once'../clases/claseRegion.php';
@@ -776,7 +780,7 @@ require_once '../clases/usuario.php';
                                                         <th>Ciudad</th>
                                                         <th>Region</th>
 
-                                                        <th>Editar Eliminar </th>
+                                                        <th>Editar/Eliminar </th>
                                                     </thead>
                                                     <?php
                                                         require_once'../clases/claseCiudad.php';
@@ -867,7 +871,7 @@ require_once '../clases/usuario.php';
                                                         <th>Numero Servicio</th>
                                                         <th>Servicio</th>
 
-                                                        <th>Editar Eliminar </th>
+                                                        <th>Editar/Eliminar</th>
                                                     </thead>
                                                     <?php
                                                         require_once'../clases/claseServicio.php';
@@ -982,7 +986,7 @@ require_once '../clases/usuario.php';
                                                         <th>Costo</th>
                                                         <th>Servicio</th>
 
-                                                        <th>Editar Eliminar </th>
+                                                        <th>Editar/Eliminar </th>
                                                     </thead>
                                                     <?php
                                                         require_once'../clases/claseTrabajos.php';
@@ -1086,7 +1090,7 @@ require_once '../clases/usuario.php';
 																			 									<th>Numero categoría</th>
 																			 									<th>Categoría producto</th>
 
-																			 									<th>Editar Eliminar </th>
+																			 									<th>Editar/Eliminar </th>
 																			 							</thead>
 																			 							<?php
 																			 									require_once'../clases/claseCategoriaProducto.php';
@@ -1189,7 +1193,7 @@ break;
                                     <th>Sub Categoría producto</th>
                                     <th>Categoría producto</th>
 
-                                    <th>Editar Eliminar </th>
+                                    <th>Editar/Eliminar </th>
                                 </thead>
                                 <?php
                                     require_once'../clases/claseSubCatProducto.php';
@@ -1341,7 +1345,7 @@ switch($_REQUEST['func']){
                                   <th>Cantidad</th>
                                   <th>Valor</th>
 
-                                  <th>Editar Eliminar </th>
+                                  <th>Editar/Eliminar </th>
                               </thead>
                               <tbody>
                               <?php
@@ -1436,7 +1440,7 @@ break;
                                                 <!-- <th>Nombre</th>
                                                 <th>Apellido</th> -->
 
-                                                <th>Editar Eliminar </th>
+                                                <th>Editar/Eliminar </th>
                                             </thead>
                                             <?php
                                                 require_once'../clases/clasevehiculo.php';

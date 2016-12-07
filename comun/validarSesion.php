@@ -21,13 +21,14 @@ session_start();
 
     if($_SESSION['tipo'] == '1'){
         echo "1";
-    }else{
+    }else if($_SESSION['tipo'] == '2'){
         echo "2";
+    }else {
+      echo "3";
     }
-
-
 }else{
-    echo "0";
+  echo "0";
 }
+
 
 ?>

@@ -128,27 +128,10 @@ footerPublico();
 <!-- > js agregados por nosotros < -->
 <script src="../js/main.js"></script>
 <script src="../js/validar_sesion.js"></script>
-<script>
-    $('#inicio_sesion').submit(function(){
-        event.preventDefault();
-        $.ajax({
-            url:"../comun/validarSesion.php",
-            data:$('#inicio_sesion').serialize(),
-            success:function(respuesta){
-
-            if(respuesta == '1'){
-            window.location = 'indexAdmin.php';
-            }else if(respuesta == '2'){
-                window.location = 'perfil-usuario.php';
-
-            }else{
-                 alert("Incorrecto");
-            }
-        }
-
-        });
-    });
-</script>
+<?php
+require_once'../comun/comun.php';
+login();
+?>
 
 </body>
 

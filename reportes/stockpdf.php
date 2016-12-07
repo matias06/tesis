@@ -1,12 +1,10 @@
 <?php ob_start();
 # Cargamos la librería dompdf.
-require_once '../clases/Conexion.php';
-$conexion = new Conexion();
-$conexion->consultarSesion();
-require_once ('dompdf/dompdf_config.inc.php');
-
-
+//require_once '../clases/.php';
 require_once'../clases/claseProductos.php';
+require_once ('dompdf/dompdf_config.inc.php');
+$conexion = new Conexion();
+
 
 $productos=new Productos();
 

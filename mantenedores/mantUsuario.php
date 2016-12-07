@@ -196,6 +196,8 @@
            $("#txt_nombre").val("");
            $("#txt_apellido").val("");
            $("#txt_password").val("");
+           $("#txt_telefono").val("");
+           $("#txt_correo").val("");
 
                             }
                             </script>

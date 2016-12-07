@@ -92,7 +92,7 @@
             <div class="mini-u" style="margin-top: 1rem;">
 
             <?php
-              $fecha = date('d-M-Y');
+              $fecha = date('d-m-Y');
               echo $fecha;
              ?>
 

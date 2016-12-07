@@ -19,12 +19,6 @@
     <link href="../css/font-awesome.min.css" rel="stylesheet" />
     <script src="../js/vendor/modernizr-2.8.3.min.js"></script>
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
 </head>
 <body>
 
@@ -42,32 +36,37 @@ menuPublico();
 
         <div class="col-xs-12 col-sm-6 col-md-5 col-md-offset-3 form-reg">
 
-            <form action="#" method="POST" role="form">
+            <form id="registro" name="registro" method="POST" role="form">
                 <legend>Registrate</legend>
 
                 <div class="form-group col-xs-12 col-sm-7">
                     <label for="nombre">Nombre</label>
-                    <input type="text" class="form-control" id="nombre" placeholder="Nombre">
+                    <input type="text" class="form-control" id="txt_nombre" name="txt_nombre" placeholder="Nombre">
                 </div>
 
                 <div class="form-group col-xs-12 col-sm-7">
                     <label for="apellido">Apellidos</label>
-                    <input type="text" class="form-control" id="apellido" placeholder="Apellido">
+                    <input type="text" class="form-control" id="txt_apellido" name="txt_apellido" placeholder="Apellido">
                 </div>
 
                 <div class="form-group col-xs-12 col-sm-7">
                     <label for="Run">Run</label>
-                    <input type="text" class="form-control" id="run" placeholder="Ej.11111111-1">
+                    <input type="text" class="form-control" id="txt_run" name="txt_run" placeholder="Ej.11111111-1">
                 </div>
 
                 <div class="form-group col-xs-12 col-sm-7">
                     <label for="password">Contrase&ntilde;a</label>
-                    <input type="text" class="form-control" id="password" placeholder="Contrase&ntilde;a">
+                    <input type="password" class="form-control" id="txt_password"  name="txt_password" placeholder="Contrase&ntilde;a">
+                </div>
+
+                <div class="form-group col-xs-12 col-sm-7">
+                    <label for="email">Telefono de Contacto</label>
+                    <input type="text" class="form-control" id="txt_telefono" name="txt_telefono" placeholder="989052072">
                 </div>
 
                 <div class="form-group col-xs-12 col-sm-7">
                     <label for="email">Corre Electronico</label>
-                    <input type="text" class="form-control" id="email" placeholder="x ej: correo@dominio.cl">
+                    <input type="text" class="form-control" id="txt_correo" name="txt_correo" placeholder="x ej: correo@dominio.cl">
                 </div>
 
                 <div class="form-group col-xs-12 col-sm-7">
@@ -165,26 +164,48 @@ footerPublico();
 
 </script>
 <script src="../js/validar_sesion.js"></script>
+<!-- <script src="../js/sweetalert.min.js"></script> -->
+<?php
+require_once'../comun/comun.php';
+login();
+?>
 <script>
-    $('#inicio_sesion').submit(function(){
-        event.preventDefault();
-        $.ajax({
-            url:"../comun/validarSesion.php",
-            data:$('#inicio_sesion').serialize(),
-            success:function(respuesta){
+// function eventoAlertCorrecto(){
+// swal("Exito!", "Se ha agregado correctamente!", "success");
+// }
 
-            if(respuesta == '1'){
-            window.location = 'indexAdmin.php';
-            }else if(respuesta == '2'){
-                window.location = 'perfil-usuario.php';
+   $("#registro").submit(function(){//captura cuando se envia el formulario
+      event.preventDefault();//detiene el envio del formulario
 
-            }else{
-                 alert("Incorrecto");
-            }
-        }
 
-        });
-    });
+          $.ajax({//realiza el envio del formulario pero por ajax para no tener que recargar pagina
+
+              url:"../mantenedores/mantenedoresIngresar.php?mant=1&func=1&tipousuario=2&estadousuario=1", //donde se va a registrar al usuario "mantenedoresIngresar.php"
+              data:$("#registro").serialize(),
+              success:function(){
+                    alert("Registrado Exitosamente.");
+                      //eventoAlertCorrecto();
+                      eliminarCamposRegistro();
+
+                  }
+
+
+          });
+          return false;
+  });
+
+
+  function eliminarCamposRegistro(){ /*AQUI LE DOY UN NOMBRE CUALQUIERA A LA FUNCION*/
+       $("#txt_run").val("");
+       $("#txt_nombre").val("");
+       $("#txt_apellido").val("");
+       $("#txt_password").val("");
+       $("#txt_telefono").val("");
+       $("#txt_correo").val("");
+
+  }
+
+
 </script>
 </body>
 

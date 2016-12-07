@@ -17,12 +17,8 @@
     <link href="../css/font-awesome.min.css" rel="stylesheet" />
     <script src="../js/vendor/modernizr-2.8.3.min.js"></script>
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+
+
 </head>
 <body>
 
@@ -36,26 +32,26 @@ menuPublico();
 
 <main class="contenido-principal"><!--contenido-principal-->
 <div class="container">
-    <form action="#" class="">
+    <form id="formularioMensajes" name="formularioMensajes" method="POST">
                 <div class="form-group">
                    <label for="nombre">Nombre:</label>
-                   <input class="form-control" type="text" placeholder="Nombre">
+                   <input class="form-control" id="nombre" name="nombre" type="text" placeholder="Nombre">
                 </div>
                 <div class="form-group">
                     <label for="apellido">Apellido</label>
-                    <input class="form-control" type="text" placeholder="Apellido">
+                    <input class="form-control" id="apellido" name="apellido" type="text" placeholder="Apellido">
                 </div>
                 <div class="form-group">
                    <label for="correo">Correo Electrónico:</label>
-                   <input class="form-control" type="email" placeholder="Correo">
+                   <input class="form-control" id="correo" name="correo" type="email" placeholder="Correo">
                 </div>
                 <div class="form-group">
                    <label for="mensaje">Mensaje</label>
-                   <textarea class="form-control col-xs-12" id="mensaje"  placeholder="Escriba su mensaje"></textarea>
+                   <textarea class="form-control col-xs-12" id="mensaje"  name="mensaje" placeholder="Escriba su mensaje"></textarea>
                 </div>
 
                 <div class="col-xs-12 col-sm-4 col-sm-offset-4">
-                    <br><a href="index.php" class="btn btn-success col-xs-12">Enviar</a>
+                    <br><input type="submit"  class="btn btn-success col-xs-12"></input>
                 </div>
 
 
@@ -86,26 +82,51 @@ footerPublico();
 <!-- > js agregados por nosotros < -->
 <script src="../js/main.js"></script>
 <script src="../js/validar_sesion.js"></script>
+<script src="../js/sweetalert.min.js"></script>
+<?php
+require_once'../comun/comun.php';
+login();
+?>
+
 <script>
-    $('#inicio_sesion').submit(function(){
-        event.preventDefault();
-        $.ajax({
-            url:"../comun/validarSesion.php",
-            data:$('#inicio_sesion').serialize(),
-            success:function(respuesta){
 
-            if(respuesta == '1'){
-            window.location = 'indexAdmin.php';
-            }else if(respuesta == '2'){
-                window.location = 'perfil-usuario.php';
+function eliminarCamposMensaje(){ /*AQUI LE DOY UN NOMBRE CUALQUIERA A LA FUNCION*/
+        $("#nombre").val("");
+        $("#apellido").val("");
+        $("#correo").val("");
+        $("#mensaje").val("");
 
-            }else{
-                 alert("Incorrecto");
-            }
-        }
+}
 
-        });
-    });
+function eventoAlertCorrecto(){
+swal("Exito!", "Se ha Enviado Mensaje correctamente!", "success")
+ // swal("Se ha agregado correctamente!", "You clicked the button!", "success")
+}
+</script>
+<script>
+   $("#formularioMensajes").submit(function(){//captura cuando se envia el formulario
+      event.preventDefault();//detiene el envio del formulario
+
+
+          $.ajax({//realiza el envio del formulario pero por ajax para no tener que recargar pagina
+
+              url:"insertMensaje.php", //donde se va a ingresar el mensaje "insertarMensaje.php"
+              data:$("#formularioMensajes").serialize(),
+              success:function(respuesta){
+                  if(respuesta == 1){
+                    //alert("mensaje enviado.");
+                      eventoAlertCorrecto();
+                      eliminarCamposMensaje();
+                  }else{
+                      alert("Ha ocurrido un error.");
+                  }
+
+              }
+          });
+          return false;
+  });
+
+
 </script>
 
 </body>

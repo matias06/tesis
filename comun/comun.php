@@ -53,10 +53,11 @@ function cargarMenu(){
                                 <li><a href="../principal/reportes.php"><span class="glyphicon glyphicon-file"> Reportes</span></span></a></li>
                                 <li><a href="../mantenedores/mantenedores.php"><span class="glyphicon glyphicon-cog"> Mantenedores</span></a></li>
                                 <li><a href="../principal/proveedores.php"><span class="glyphicon glyphicon-briefcase"></span> Proveedores</a></li>
-                                <li><a href="../principal/comprasProveedor.php"><span class="glyphicon glyphicon-shopping-cart"> Compras proveedor</span></a></li>
-                                <li><a href="../principal/ventaproducto.php"><span class="glyphicon glyphicon-barcode"> Venta producto</span></a></li>
+                                <li><a href="../principal/comprasProveedor.php"><span class="glyphicon glyphicon-shopping-cart"> Compras</span></a></li>
+                                <li><a href="../principal/ventaproducto.php"><span class="glyphicon glyphicon-barcode"> Venta</span></a></li>
                                 <li><a href="../principal/stockProductos.php"><span class="glyphicon glyphicon-list-alt"> Stock</span></a></li>
-                                <li><a href="../comun/destruirSesion.php"><span class="glyphicon glyphicon-remove-circle"> Cerrar Sesión</span></a></li>
+                                <li><a href="../principal/mensajes.php"><span class="glyphicon glyphicon-envelope"> Mensajes</span></a></li>
+                                <li><a href="../comun/destruirSesion.php"><span class="glyphicon glyphicon-remove-circle"> Salir</span></a></li>
                             </ul>
 
                         </div>
@@ -178,10 +179,10 @@ function menuPublico(){
                 <form class="form-signin" name="inicio_sesion" id="inicio_sesion" action="">
                     <input type="text" class="form-control" placeholder="19.050.873-0" name="run_usuario" required autofocus>
                     <input type="password" class="form-control" placeholder="Contraseña" name="password_usuario" required>
-                    <label class="checkbox pull-left">
+                    <!-- <label class="checkbox pull-left">
                         <input type="checkbox" value="remember-me">
                         Recordarme
-                    </label>
+                    </label> -->
                     <button class="btn btn-lg btn-primary btn-block" type="submit"   >
                         Aceptar</button>
                         <button class="btn btn-lg btn-danger btn-block" type="" data-dismiss="modal">
@@ -200,6 +201,32 @@ function menuPublico(){
     </div>
 </div>
  <?php
+}
+
+function login(){ ?>
+  <script>
+      $('#inicio_sesion').submit(function(){
+          event.preventDefault();
+          $.ajax({
+              url:"../comun/validarSesion.php",
+              data:$('#inicio_sesion').serialize(),
+              success:function(respuesta){
+
+              if(respuesta == '1'){
+              window.location = 'indexAdmin.php';
+              }else if(respuesta == '2'){
+                  window.location = 'perfil-usuario.php';
+
+              }else{
+                   alert("Usuario no Registrado en el sistema o sin los permisos Necesarios.");
+                   location.reload();
+              }
+          }
+
+          });
+      });
+  </script>
+  <?php
 }
 
 function footerPublico(){
