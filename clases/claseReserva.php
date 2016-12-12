@@ -10,6 +10,8 @@ class Reserva extends Conexion{
   private $id_servicio;
   private $descripcion_servicio;
   private $descripcion_problema;
+	private $fecha;
+	private $id_hora;
   private $id_estado_reserva;
   private $descripcion_estado_reserva;
 
@@ -47,48 +49,30 @@ public function setdescripcion_servicio ($arg_descripcion_servicio){
 public function setdescripcion_problema ($arg_descripcion_problema){
         $this->descripcion_problema=$arg_descripcion_problema;
       }
-public function setid_estado_reserva ($arg_id_estado_reserva){
-        $this->id_estado_reserva=$arg_ruid_estado_reserva;
+public function setfechaReserva ($arg_fechaReserva){
+			  $this->fechaReserva=$arg_fechaReserva;
+			 }
+public function set_horaReserva ($arg_horaReserva){
+        $this->horaReserva=$arg_horaReserva;
       }
+public function setid_estado_reserva ($arg_id_estado_reserva){
+				$this->id_estado_reserva=$arg_id_estado_reserva;
+			}
 public function setdescripcion_estado_reserva ($arg_descripcion_estado_reserva){
       	$this->descripcion_estado_reserva=$arg_descripcion_estado_reserva;
-                	}
-}
+      }
+
 
     public function insertarReservas(){
-			
+				$consulta="INSERT INTO reserva (id_reserva,run, patente, id_servicio, descripcion_problema, fecha, id_estado_reserva, id_hora)
+				VALUES (NULL,'".$this->run."','".$this->patente."','".$this->id_servicio."','".$this->descripcion_problema."','".$this->fechaReserva."', '".$this->id_estado_reserva."','".$this->horaReserva."');";
 
 
-  $verificar = $this->consultarExistencia("SELECT id_reserva from reserva where id_reserva= '".$this->id_reserva."'");
+				if($this->insertarRegistros($consulta)){
+					return true;
+				}else{
+					return false;
+				}
 
-
-
-  if($verificar==true){
-
-    // echo "si hay";
-
-    $modificarReservas = $this->insertarRegistros
-      ("UPDATE reserva
-         SET
-          id_reserva='".$this->id_reserva."',
-          run='".$this->run."',
-          patente='".$this->patente."',
-          id_servicio='".$this->id_servicio."',
-          descripcion_problema='".$this->descripcion_problema."',
-          id_estado_reserva='".$this->id_estado_reserva."'
-           WHERE id_reserva='".$this->id_reserva."';");
-
-  }
-  else{
-
-    // echo "no existe rut";
-      $agregarReservas = $this->insertarRegistros
-      ("INSERT INTO reserva (id_reserva, run, patente, id_servicio, descripcion_problema, id_estado_reserva)
-      VALUES ('".$this->id_reserva."',
-      '".$this->id_run."',
-      '".$this->id_patente."',
-      '".$this->id_servicio."',
-      '".$this->descripcion_problema."',
-      '".$this->id_estado_reserva."');");
-  }
+}
 }

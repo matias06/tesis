@@ -1,14 +1,10 @@
 <?php ob_start();
 # Cargamos la librería dompdf.
 //require_once '../clases/.php';
-require_once'../clases/claseProductos.php';
 require_once ('dompdf/dompdf_config.inc.php');
-$conexion = new Conexion();
+require_once'../clases/claseProductos.php';
 
-
-$productos=new Productos();
-
-
+$productos = new Productos();
 // Introducimos HTML1 de prueba
 ?>
 
@@ -29,36 +25,39 @@ $productos=new Productos();
 		<div class="col-xs-12 col-sm-6 col-md-4">
 	      <a href="../principal/indexAdmin.php"><img src="../comun/logo/fsp.png" alt="" width="230" height="60"></a>
 	  </div>
+								<center><h1> Lista Stock </h1></center>
+										<div style="text-align:center;">
+											<table style="margin: 0 auto;" class="tg">
+															<!-- <thead class=""> -->
+															<tr>
 
-		<center><h1> Lista Stock </h1></center>
-				<div style="text-align:center;">
-					<table class="table table-bordered table-hover table-condensed" id="tablaStock">
-									<thead class="active danger tablaHead">
-											<th>Código producto</th>
-											<th>Producto</th>
-											<th>Valor</th>
-											<th>Estado producto</th>
-											<th>Stock</th>
+																	<td>Código producto</td>
+																	<td>Producto</td>
+																	<td>Valor</td>
+																	<td>Estado producto</td>
+																	<td>Stock</td>
+															</tr>
 
-									</thead>
-									<tbody>
-									<?php
+															<!-- </thead> -->
+															<!-- <tbody> -->
+															<?php
 
-									// $productos->setStock($_REQUEST['stock']);
-									$filas= $productos->listarStock();
+															// $productos->setStock($_REQUEST['stock']);
+															$filas= $productos->listarStock();
 
-									foreach($filas as $columnas){
-
-							 ?>
-									<tr>
-										<td><?php echo $columnas['id_producto'];  ?></td>
-										<td><?php echo $columnas['descripcion_producto'];  ?></td>
-										<td><?php echo $columnas['valor_producto'];  ?></td>
-										<td><?php echo $columnas['id_estado_producto'];  ?></td>
-										<td><?php echo $columnas['stock'];  ?></td>
-
-					<?php      } ?>
-						</tbody>
+															foreach($filas as $columnas){
+													 ?>
+															<tr>
+																<td><?php echo $columnas['id_producto'];  ?></td>
+																<td><?php echo $columnas['descripcion_producto'];  ?></td>
+																<td><?php echo $columnas['valor_producto'];  ?></td>
+																<td><?php echo $columnas['id_estado_producto'];  ?></td>
+																<td><?php echo $columnas['stock'];  ?></td>
+															</tr>
+											<?php      } ?>
+												<!-- </tbody> -->
+											</table>
+											</div>
 					</table>
 					</div>
 	</body>
@@ -80,5 +79,4 @@ $nombreArchivo='stockProductos.pdf';
 // Enviamos el fichero PDF al navegador.
 
 $dompdf->stream($nombreArchivo, array('Attachment' => 0));
-
 ?>

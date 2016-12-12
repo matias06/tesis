@@ -32,6 +32,17 @@ class Productos extends Conexion{
 		  $resultado= $this->consultarRegistros($consulta);
 		  return $resultado;
 		}
+
+		public function listarStockPdf(){
+			$consulta="SELECT id_producto,
+			stock(id_producto) as stock,
+												descripcion_producto,
+												valor_producto,
+												id_estado_producto
+												 FROM producto;";
+			$resultado= $this->consultarRegistros($consulta);
+			return $resultado;
+		}
 		// public function listarDetalleCompra(){
 		//   $consulta="select * from vistaDetalleCompraProducto where id_compra=".$this->idCompra;
 		//   $resultado= $this->consultarRegistros($consulta);

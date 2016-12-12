@@ -16,8 +16,6 @@ class Compra extends Conexion{
 
 	public function __construct(){
 		parent::__construct();
-
-
 	}
 public function setidDetalle($arg_idDetalle){
     $this->idDetalle=$arg_idDetalle;
@@ -84,6 +82,8 @@ public function listarDetalleCompra(){
 public function eliminarDetalle(){
   $eliminarDetalleCompra = $this->insertarRegistros
     ("DELETE FROM detallecompra WHERE id_detalle_compra='".$this->idDetalle."'");
+    return $eliminarDetalleCompra;
+
 }
 
 

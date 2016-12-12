@@ -34,7 +34,7 @@
    <div class="col-xs-4 col-xs-offset-">
                   <div class="input-group">
                     <span class="input-group-addon "></span>
-                    <input placeholder="Buscar" onKeyUp="listarTabla()" id="txt_buscar" type="text" class="form-control">
+                    <input placeholder="Buscar" onKeyUp="cambiarPagina(1)" id="txt_buscar" type="text" class="form-control">
                   </div>
                 </div>
 
@@ -42,7 +42,7 @@
 
                     <label class="control-label col-xs-3" for="cmb_cantidadRegistros">Mostrar</label>
                     <div class="col-xs-6">
-                        <select onChange="listarTabla()" name="cmb_cantidadRegistros" class="form-control" id="cmb_cantidadRegistros">
+                        <select onChange="cambiarPagina(1)" name="cmb_cantidadRegistros" class="form-control" id="cmb_cantidadRegistros">
                           <option value="3">3</option>
                           <option value="5">5</option>
                           <option value="10">10</option>
@@ -72,7 +72,7 @@
                   <div class="row  col-sm-12 col-md-10">
                     <div id="contenedorCliente" class="tablaGeneral"></div><!-- DIV DONDE SE CARGA LA TABLA-->
                     <div class="col-md-3">
-                <input type="button" class="btn btn-success" onclick=" location.href='../reportes/stockpdf.php' " value="Generar reporte" name="boton" />
+                <input type="button" class="btn btn-success reporteStock" value="Generar reporte" name="boton" />
                     </div>
                   </div>
           </div>
@@ -82,8 +82,10 @@
           </html>
 
                   <script>
-                      cambiarPagina(1);
-
+                      // cambiarPagina(1);
+                    $('.reporteStock').click(function(){
+                         window.open('../reportes/stockpdf.php','_blank');
+                    });
                     var pagina;
                     //INICIO SCRIPT PARA CARGAR TABLA Y PAGINADA
                       function cambiarPagina(arg_pagina){
