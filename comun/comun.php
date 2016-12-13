@@ -177,7 +177,7 @@ function menuPublico(){
       alt="">
 <!-- </div> -->
 
-                <form class="form-signin" name="inicio_sesion" id="inicio_sesion" action="">
+                <form class="form-signin" name="inicio_sesion" id="inicio_sesion" action="" onsubmit="inicio_sesion">
                     <input type="text" class="form-control" placeholder="19.050.873-0" name="run_usuario" required autofocus>
                     <input type="password" class="form-control" placeholder="Contraseña" name="password_usuario" required>
                     <!-- <label class="checkbox pull-left">

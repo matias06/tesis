@@ -26,6 +26,7 @@ class Conexion{
 
    			}else{
    				//echo "Conexion exitosa";
+					mysqli_set_charset($this->con,"utf8");
    			}
 
 
