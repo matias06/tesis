@@ -4,17 +4,15 @@ class Servicio extends Conexion{
 
 	private $idServicio;
 	private $descripcionServicio;
-	
+
 	public function __construct(){
 		parent::__construct();
-		
-
 	}
 
 	public function listarServicio(){
 		$servicio = $this->consultarRegistros("SELECT * FROM servicio");
 		return $servicio;
-		
+
 	}
 
 
@@ -30,7 +28,7 @@ class Servicio extends Conexion{
 			$eliminarServicio = $this->insertarRegistros
 				("DELETE FROM SERVICIO WHERE id_servicio = '".$this->idServicio."'" );
 	}
-    
+
     public function insertarServicio(){
 
 

@@ -95,7 +95,7 @@ function cargarFormularioDetalle(){// muestra formulario ingreso de detalle comp
 }
 function guardarDetalle(){
        $.ajax({//realiza el envio del formulario pero por ajax para no tener que recargar pagina
-// alert("hola");
+ // alert("hola");
            url:"../mantenedores/mantenedoresIngresar.php?mant=11&func=2", //donde se va a ingresar "mantenedoresIngresar.php"
            data:$("#formularioCompra").serialize(),
            success:function(respuesta){
@@ -103,8 +103,8 @@ function guardarDetalle(){
                       if(respuesta==1){
                         cargarTablaDetalle();
                       }else{
-                        alert(respuesta);
-                        //cargarTablaDetalle();
+                       //alert(respuesta);
+                        cargarTablaDetalle();
                       }
                }
        });
@@ -118,8 +118,12 @@ function cargarTablaDetalle(){// muestra formulario ingreso de detalle compra
       }
   });
 }
+function eventoEliminar(){
+swal("Se ha eliminado correctamente!", "success")
+ // swal("Se ha agregado correctamente!", "You clicked the button!", "success")
+}
 function eliminarDetalle(id){
-  // alert(id);
+  //alert(id);
   swal({
       title: "Eliminar?",
       text: "PRODUCTO!",
@@ -136,8 +140,9 @@ function eliminarDetalle(id){
                   data:"id="+id,
                   success:function(respuesta){
                           // alert(respuesta);
-                            // alert("hola");
+                            alert("hola");
                           cargarTablaDetalle();
+                          eventoEliminar();
                   }
               });
               swal("Modificado!", "", "success");

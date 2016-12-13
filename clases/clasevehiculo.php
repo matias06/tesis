@@ -21,6 +21,11 @@ class Vehiculo extends Conexion{
 		return $vehiculos;
 
 }
+public function listarPatente(){
+	$patente = $this->consultarRegistros("select patente, marca, modelo from vehiculo where run='".$this->run."'");
+	return $patente;
+}
+
 public function setpatente ($arg_patente){
 		$this->patente=$arg_patente;
 	}
@@ -37,16 +42,11 @@ public function setrun ($arg_run){
 	}
 
 	public function eliminarVehiculo(){
-				$eliminarProv = $this->insertarRegistros
-				("DELETE FROM vehiculo WHERE patente='".$this->patente."';");
-				$consulta = $this->consultarRegistros("SELECT * FROM vehiculo where patente='".$this->patente."'");
-				if($consulta = true){
-					return "1";
-				}else{
-					return "2";
-				}
-
+		$eliminarVehiculo = $this->insertarRegistros
+			("DELETE FROM vehiculo WHERE patente = '".$this->patente."'");
+			return $modificarVehiculo;
 	}
+
 	public function modificarVehiculo(){
 		$modificarVehiculo = $this->insertarRegistros
 			("UPDATE vehiculo SET patente='".$this->patente."', marca='".$this->marca."', modelo='".$this->modelo."', run='".$this->run."' WHERE patente='".$this->patente."';");

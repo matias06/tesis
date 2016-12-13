@@ -388,9 +388,9 @@ require_once '../clases/usuario.php';
                         <?php
 
                         // $productos->setStock($_REQUEST['stock']);
-                        $filas= $productos->listarStock();
+                        $filas= $productos->BuscarFiltarRegistros("vistastockproductos","descripcion_producto",$_REQUEST['buscar'],$_REQUEST['pag'],$_REQUEST['cantidadReg']);
 
-                        foreach($filas as $columnas){
+                        foreach($filas[0][0] as $columnas){
 
                      ?>
                         <tr>
@@ -1152,7 +1152,7 @@ break;
                             //$subCatProd->insertarSubCategoria();
 
                             if($subCatProd->insertarSubCategoria()){
-                              echo "1";
+                              //echo "1";
                             }else{
                               echo "error al ingresar.";
                             }
@@ -1281,9 +1281,9 @@ switch($_REQUEST['func']){
                   $compra->setvalor($valor);
 
                   if($compra->insertarDetalle()){
-                      echo "INGRESADO CORRECTAMENTE";
+                      // echo "1";INGRESADO CORRECTAMENTE
                   }else{
-                    echo "2";
+                    echo "Error al modificar";
                   }
 
                 break;
@@ -1356,9 +1356,9 @@ switch($_REQUEST['func']){
                               foreach($filas as $columnas){
                            ?>
                               <tr class="tablaFilas">
-                                <!-- <td><?php echo $columnas['id_detalle_compra'];  ?></td>
+                                <td><?php echo $columnas['id_detalle_compra'];  ?></td>
                                 <td><?php echo $columnas['cantidad'];  ?></td>
-                                <td><?php echo $columnas['valor'];  ?></td> -->
+                                <td><?php echo $columnas['valor'];  ?></td>
 
 
                                 <!--  botones eliminar -->
@@ -1369,7 +1369,17 @@ switch($_REQUEST['func']){
                         </tbody>
                       </table>
                     </div>
+
+
 <?php
+                    case "5":
+                    $compra=new Compra();
+
+                    //$subCat->id_subcategoria_producto($_REQUEST['id']);
+                      $compra->setIdCompra($_SESSION['idCompra']);
+
+                    $compra->eliminarDetalle();
+  break;
 }
 break;
                   case "12":
@@ -1390,14 +1400,14 @@ break;
 
                                         $vehiculo->setrun($_REQUEST['cmb_usuario']);
 
-                                      //  $vehiculo->insertarVehiculo();
+                                       $vehiculo->insertarVehiculo();
 
 
-                                       if($vehiculo->insertarVehiculo()){
-                                         echo "1";
-                                       }else{
-                                         echo "2";
-                                       }
+                                      //  if($vehiculo->insertarVehiculo()){
+                                      //    echo "1";
+                                      //  }else{
+                                      //    echo "2";
+                                      //  }
                                     break;
                       case "2": //echo "SE MODIFICA";
                        $vehiculo=new Vehiculo();
@@ -1421,9 +1431,9 @@ break;
                       $vehiculo->setrun($_SESSION['id']);
 
                       if($vehiculo->insertarVehiculo()){
-                        echo "1";
+                        echo "Se modifico correctamente";
                       }else{
-                        echo "2";
+                        echo "No se modifico";
                       }
                       break;
 
@@ -1438,17 +1448,6 @@ break;
 
 
                                         break;
-
-                                      //   case "4": //echo "SE ELIMINA";
-                                      //  $vehiculo=new Vehiculo();
-                                       //
-                                      //  //$subCat->id_subcategoria_producto($_REQUEST['id']);
-                                      //    $vehiculo->setpatente($_REQUEST['id']);
-                                       //
-                                      //  $vehiculo->eliminarVehiculo();
-                                       //
-                                       //
-                                      //  break;
 
                        case "5":
                                          ?>
@@ -1511,7 +1510,30 @@ break;
                                     </div>
                               <?php
             break;
+            case "6": //echo "CREAR VEHICULO EN RESERVA";
 
+                              $vehiculo=new Vehiculo();
+
+                              $patente = filter_var($_REQUEST['txt_patente'], FILTER_SANITIZE_STRING);
+                              $vehiculo->setpatente($patente);
+
+                              $marca = filter_var($_REQUEST['txt_marca'], FILTER_SANITIZE_STRING);
+                              $vehiculo->setmarca($marca);
+
+                              $patente = filter_var($_REQUEST['txt_modelo'], FILTER_SANITIZE_STRING);
+                              $vehiculo->setmodelo($patente);
+
+                              $vehiculo->setrun($_SESSION['id']);
+
+                              $vehiculo->insertarVehiculo();
+
+
+                            //  if($vehiculo->insertarVehiculo()){
+                            //    echo "1";
+                            //  }else{
+                            //    echo "2";
+                            //  }
+                          break;
 
             }
 
@@ -1523,63 +1545,58 @@ break;
 
             case "1": //echo "se ingresa";
 
-              // $reserva=new Reserva();
-              //
-              //                   $rut = filter_var($_REQUEST['txt_run'], FILTER_SANITIZE_STRING);
-              // $reserva->setrun($rut);
-              //                   $nombre = filter_var($_REQUEST['txt_nombre'], FILTER_SANITIZE_STRING);
-              // $reserva->setnombre($nombre);
-              //                   $apellido = filter_var($_REQUEST['txt_apellido'], FILTER_SANITIZE_STRING);
-              // $reserva->setapellido($apellido);
-              //                   $contraseña = filter_var($_REQUEST['txt_password'], FILTER_SANITIZE_STRING);
-              // $reserva->setpassword($contraseña);
-              //                   $telefono = filter_var($_REQUEST['txt_telefono'], FILTER_SANITIZE_NUMBER_INT);
-              // $reserva->settelefono($telefono);
-              //                   $correo = filter_var($_REQUEST['txt_correo'], FILTER_SANITIZE_STRING);
-              // $reserva->setcorreo($correo);
-              //
-              //
-              // $reserva->settipo_usuario($_REQUEST['tipousuario']);
-              // $reserva->setestado_usuario($_REQUEST['estadousuario']);
-              //
-              // $reserva->insertarUsuario();
+            $reserva=new Reserva();
+            $reserva->setrun($_SESSION['id']);
+            $patenteModificar = filter_var($_REQUEST['txt_patenteReserva'], FILTER_SANITIZE_STRING);
+            $reserva->setpatente($patenteModificar);
+            $idServicioModificar = filter_var($_REQUEST['txt_id_servicioReserva'], FILTER_SANITIZE_NUMBER_INT);
+            $reserva->setid_servicio($idServicioModificar);
+            $descripcionProblemaModificar = filter_var($_REQUEST['txt_descripcionProblemaReserva'], FILTER_SANITIZE_STRING);
+            $reserva->setdescripcion_problema($descripcionProblemaModificar);
+            $fecha = filter_var($_REQUEST['fechareserva'], FILTER_SANITIZE_STRING);
+            $reserva->setfechaReserva($fecha);
+            $horas = filter_var($_REQUEST['cmb_hora_reserva'], FILTER_SANITIZE_STRING);
+            $reserva->set_horaReserva($horas);
+            $reserva->setid_estado_reserva(1);
+            $reserva->insertarReservas();
+
+              // if($reserva->insertarReservas()){
+              //   echo "Ingresado Correctamente";
+              // }else{
+              //   echo "Error al ingresar";
+              // }
 
             break;
 
             case "2": //echo "SE MODIFICA";
             $reserva=new Reserva();
+            $reserva->setrun($_SESSION['id']);
+            $patenteModificar = filter_var($_REQUEST['txt_patenteReserva_modificar'], FILTER_SANITIZE_STRING);
+            $reserva->setpatente($patenteModificar);
+            $idServicioModificar = filter_var($_REQUEST['txt_id_servicioReserva_modificar'], FILTER_SANITIZE_NUMBER_INT);
+            $reserva->setid_servicio($idServicioModificar);
+            $descripcionProblemaModificar = filter_var($_REQUEST['txt_descripcionProblemaReserva_modificar'], FILTER_SANITIZE_STRING);
+            $reserva->setdescripcion_problema($descripcionProblemaModificar);
 
-                                $idreserva = filter_var($_REQUEST['txt_id_reserva_modificar'], FILTER_SANITIZE_STRING);
-              $reserva->setid_reserva($idreserva);
-                                $runModificar = filter_var($_REQUEST['txt_runReserva_modificar'], FILTER_SANITIZE_STRING);
-              $reserva->setrun($runModificar);
-                                $patenteModificar = filter_var($_REQUEST['txt_patenteReserva_modificar'], FILTER_SANITIZE_STRING);
-              $reserva->setpatente($patenteModificar);
-                                $marcaModifcar = filter_var($_REQUEST['txt_marcaReserva_modificar'], FILTER_SANITIZE_STRING);
-              $reserva->setmarca($marcaModifcar);
-                                $modeloModifcar = filter_var($_REQUEST['txt_modeloReserva_modificar'], FILTER_SANITIZE_STRING);
-              $reserva->setmodelo($modeloModifcar);
-                                $idServicioModificar = filter_var($_REQUEST['txt_id_servicioReserva_modificar'], FILTER_SANITIZE_NUMBER_INT);
-              $reserva->setid_servicio($idServicioModificar);
-                                $descripcionServicioModificar = filter_var($_REQUEST['txt_descripcionServicioReserva_modificar'], FILTER_SANITIZE_STRING);
-              $reserva->setdescripcion_servicio($descripcionServicioModificar);
-                                $descripcionProblemaModificar = filter_var($_REQUEST['txt_descripcionProblemaReserva_modificar'], FILTER_SANITIZE_STRING);
-              $reserva->setdescripcion_problema($descripcionProblemaModificar);
-                                $idestadoReservaModificar = filter_var($_REQUEST['txt_id_estadoReserva_modificar'], FILTER_SANITIZE_STRING);
-              $reserva->setid_estado_reserva($idestadoReservaModificar);
-                                $DescripcionestadoReservaModificar = filter_var($_REQUEST['txt_descripcionEstadoReserva_modificar'], FILTER_SANITIZE_STRING);
-              $reserva->setdescripcion_estado_reserva($DescripcionestadoReservaModificar);
+            $reserva = setfecha($_REQUEST['fechareserva']);
 
+            $reserva = sethora($_REQUEST['horareserva']);
 
-              $reserva->insertarReservas();
+            $reserva->setid_estado_reserva(1);
+
+              if($reserva->insertarReservas()){
+                echo "1";
+              }else{
+                echo "2";
+              }
 
             break;
             case "3": //echo "SE ELIMINA";
-              $usuario=new Usuario();
+              $reserva=new Reserva();
 
-              $usuario->setrun($_REQUEST['id']);
+              $reserva->setid_reserva($_REQUEST['id_reserva']);
 
-              $usuario->eliminarUsuario();
+              $reserva->insertarReservas();
 
 
               break;

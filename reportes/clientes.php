@@ -75,7 +75,7 @@
                   </div>
 
                           <div class="col-md-3">
-                      <input type="button" class="btn btn-success" onclick=" location.href='../reportes/clientepdf.php' " value="Generar reporte" name="boton" />
+                      <input type="button" class="btn btn-success clientePdf" value="Generar reporte" name="boton" />
                           </div>
 
           </div>
@@ -85,8 +85,10 @@
           </html>
 
                   <script>
-                      cambiarPagina(1);
-
+                      //cambiarPagina(1);
+                      $('.clientePdf').click(function(){
+                           window.open('../reportes/clientepdf.php','_blank');
+                      });
                     var pagina;
                     //INICIO SCRIPT PARA CARGAR TABLA Y PAGINADA
                       function cambiarPagina(arg_pagina){

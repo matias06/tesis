@@ -22,6 +22,7 @@ $user=new Usuario();
 .tg .tg-ddk4{font-size:18px;font-family:Arial, Helvetica, sans-serif !important;;background-color:#efefef;text-align:center;vertical-align:top}
 .tg .tg-yw4l{vertical-align:top}
 .tg .tg-b7b8{background-color:#f9f9f9;vertical-align:top}
+/*.filasReporte:nth-child(even){background:red;}*/
 </style>
 		<div class="col-xs-12 col-sm-6 col-md-4">
 	      <a href="../principal/indexAdmin.php"><img src="../comun/logo/fsp.png" alt="" width="230" height="60"></a>
@@ -31,9 +32,9 @@ $user=new Usuario();
 				<div style="text-align:center;">
 										<table style="margin: 0 auto;" class="tg">
 										<tr>
-											<th>run</th>
-											<th>nombre</th>
-											<th>apellido</th>
+											<td>run</td>
+											<td>nombre</td>
+											<td>apellido</td>
 
 										</tr>
 										<?php
@@ -42,9 +43,9 @@ $user=new Usuario();
 										foreach($filas as $columnas){
 								 ?>
 										<tr>
-											<td><?php echo $columnas['run'];  ?></td>
-											<td><?php echo $columnas['nombre'];  ?></td>
-											<td><?php echo $columnas['apellido'];  ?></td>
+											<td><?php echo $columnas['run']; ?></td>
+											<td><?php echo $columnas['nombre']; ?></td>
+											<td><?php echo $columnas['apellido']; ?></td>
 
 							</tr>
 							  <?php      } ?>
