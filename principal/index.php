@@ -34,12 +34,7 @@
   ?>
   <!--FinalMenu-->
 
-  <!--MODAL-->
-
-<!-- END MODAL-->
-
 <section class="carousel-informacion">
-
 
 <div id="carousel-id" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
@@ -52,7 +47,7 @@
     </ol>
     <div class="carousel-inner">
         <div class="item active">
-            <img src="../imagenes/slide/gal1.jpg." alt="slider-1" />
+            <img src="../imagenes/slide/gal1.jpg" alt="slider-1" />
             <div class="container">
                 <!--<div class="carousel-caption">
                     <h1>Texto </h1>
@@ -277,7 +272,7 @@ footerPublico();
       'maxWidth':1024
     })
 </script>
-//este script discrimina tipo de usuario (recibe de validarSesion.php)//
+<!-- este script discrimina tipo de usuario (recibe de validarSesion.php) -->
 <?php
 require_once'../comun/comun.php';
 login();
