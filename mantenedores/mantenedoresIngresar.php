@@ -1577,17 +1577,20 @@ break;
             $reserva->setid_servicio($idServicioModificar);
             $descripcionProblemaModificar = filter_var($_REQUEST['txt_descripcionProblemaReserva_modificar'], FILTER_SANITIZE_STRING);
             $reserva->setdescripcion_problema($descripcionProblemaModificar);
-
-            $reserva = setfecha($_REQUEST['fechareserva']);
-
-            $reserva = sethora($_REQUEST['horareserva']);
+            $horasMod = filter_var($_REQUEST['cmb_hora_reserva_modificar'], FILTER_SANITIZE_STRING);
+            $reserva->set_horaReserva($horasMod);
+            //echo $_REQUEST['fechareserva_modificar'];
+            $reserva->setfechaReserva($_REQUEST['fechareserva_modificar']);
+            $reserva->setid_reserva($_REQUEST['txt_id_reserva_modificar']);
+            // $reserva->set_horaReserva($_REQUEST['cmb_hora_reserva_modificar']);
 
             $reserva->setid_estado_reserva(1);
+            // $reserva->modificarReservas();
 
-              if($reserva->insertarReservas()){
-                echo "1";
+              if($reserva->modificarReservas()){
+                echo "Se modifico correctamente";
               }else{
-                echo "2";
+                echo "Error al modificar";
               }
 
             break;

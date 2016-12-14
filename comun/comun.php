@@ -76,28 +76,26 @@ function cargarMenuUsuario(){
             <div class="container">
             <header>
                 <nav class="navbar navbar-fixed-top">
+
                     <div class="container-fluid">
-                        <div class="navbar-header">
-                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-1">
-                                <span class="sr-only">Menu</span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                            </button>
-                        <a href="../principal/indexAdmin.php"><img src="../comun/logo/fsp.png" alt="" width="220" height="50"></a>
-                        </div>
-                        <div class="collapse navbar-collapse" id="navbar-1">
-                            <ul class="nav navbar-nav navbar-right">
-                                <li><a href="../comun/destruirSesion.php"><span class="glyphicon glyphicon-off"> Salir</span></a></li>
-                            </ul>
 
-                        </div>
+                      <ul class="nav navbar-nav">
+                        <li><a href="../principal/perfil-usuario.php"><img src="../comun/logo/fsp.png" alt="" width="220" height="40"></a>
+                        </li>
+                      </ul>
 
-                    </div>
-                </nav>
+                          <ul class="nav navbar-nav navbar-right">
+                            <li><a href="../comun/destruirSesion.php"><span class="glyphicon glyphicon-off" style="text-align: right;">Salir</span></a>
+                            </li>
+                          </ul>
+
+
+                      </div>
+              </nav>
             </header>
+            </div>
         </div>
-        </div>
+
 <?php
 }
 
@@ -141,7 +139,7 @@ function menuPublico(){
         </div>
 
 
-        //modal//
+        <!-- modal -->
 
   <div class="modal" id="modal-id-1">
     <div class="modal-dialog">

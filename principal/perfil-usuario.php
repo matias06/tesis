@@ -18,6 +18,7 @@
     <link href="../css/style.css" rel="stylesheet" />
     <link href="../css/normalize.css" rel="stylesheet" />
     <link href="../css/sweet-alert.css" rel="stylesheet" />
+    <link href="../css/datepicker.css" rel="stylesheet" />
 
     <!-- > Bootstrap v3.3.7 and Font Awesome v4.6.3 < -->
     <link href="../css/bootstrap.min.css" rel="stylesheet" />
@@ -219,8 +220,8 @@
                 </div>
               </div>
            </div><!-- final modal para modificar datos-->
-
-            <table class="table table-responsive">
+           <div class="table-responsive">
+            <table class="table">
                 <tr>
                   <th>Run</th>
                   <th>Nombre</th>
@@ -237,6 +238,7 @@
               </tbody>
             </table>
         </div>
+      </div>
 <!--CREAR RESERVAS -->
         <div class="despegable-menu" id="reservas-despegable">
 
@@ -339,6 +341,9 @@
                                         <div class="modal-body">
 
                                         <form id="formModReservas" name="formModReservas" method="POST" role="form">
+
+                                          <input type="text" class="form-control hidden" id="txt_id_reserva_modificar" name="txt_id_reserva_modificar" placeholder="">
+
                                           <div style="animation-delay: 0.2s;" class="col-md-10 animated-panel zoomIn">
                                               <div class="form-group">
                                                       <label for="servicio">Datos Vehiculo: </label>
@@ -381,7 +386,7 @@
                                               <div style="animation-delay: 0.2s;" class="col-md-10 animated-panel zoomIn">
                                             <div class="form-group">
                                                     <label for="hora">Horas: </label>
-                                                         <select class="form-control" name="cmb_hora_reserva" id="cmb_hora_reserva">
+                                                         <select class="form-control" name="cmb_hora_reserva_modificar" id="cmb_hora_reserva_modificar">
                                                             <?php
                                                                 require_once '../clases/claseHoras.php';
                                                                 $h= new Horas();
@@ -394,12 +399,21 @@
                                                 </div>
                                               </div>
 
-
+                                              <!-- <div class='col-sm-6'> -->
                                     <div style="animation-delay: 0.2s;" class="col-md-10 animated-panel zoomIn">
-                                            <div class="form-group">
-                                                <label for="">Fecha</label>
-                                                <input type="date" class="form-control" id="fechareserva" name="fechareserva" placeholder="Ingrese su problema automotriz">
-                                            </div>
+                                      <!-- <div class="form-group">
+                  <div class='input-group date' id='datetimepicker5'>
+                      <input type='text' class="form-control" />
+                      <span class="input-group-addon">
+                          <span class="glyphicon glyphicon-calendar"></span>
+                      </span>
+                  </div>
+              </div> -->
+                                  <div class="form-group">
+                                      <label for="apellido">Fecha</label>
+                                      <input class="form-control" required title="Debe ingresar fecha" required id="fechareserva_modificar" name="fechareserva_modificar" placeholder="" type="date">
+                                  </div>
+
                                     </div>
                                 </div>
 
@@ -416,8 +430,8 @@
                                 </div>
                             </div> <!-- final modal para agregar nuevo vehiculo -->
 
-
-                  <table class="table table-responsive">
+                <div class="table-responsive">
+                  <table class="table">
                       <tr>
                         <th>Patente</th>
                         <th>Run</th>
@@ -437,7 +451,7 @@
 
                     </tbody>
                   </table>
-
+                  </div>
             </div>
             <div class="despegable-menu" id="autos-despegable">
 
@@ -519,12 +533,7 @@
                                              <input class="form-control" title="Debe ingresar su modelo" required id="txt_modelo" name="txt_modelo" placeholder="Ingresar modelo" type="text">
                                          </div>
                                      </div>
-                                     <!-- <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
-                                         <div class="form-group">
-                                             <label for="run">Run</label>
-                                             <input class="form-control" title="" readonly id="txt_rut_vehiculocrear" name="txt_rut_vehiculocrear" placeholder="" type="text">
-                                         </div>
-                                     </div> -->
+
                                  </div>
                                </form>
                                    <div class="form-group">
@@ -546,7 +555,8 @@
                        </div>
                    </div>
                      <br>
-                   <table class="table table-responsive">
+                     <div class="table-responsive">
+                   <table class="table">
                        <tr>
                          <th>Patente</th>
                          <th>Marca</th>
@@ -561,6 +571,7 @@
 
                      </tbody>
                    </table>
+                 </div>
 
                  <!-- modal modificacion del vehiculo-->
 
@@ -577,7 +588,9 @@
 </div>
 </main><!--contenido-principal-->
 
-
+<!-- <div id="reserva">
+muestra informacion
+</div> -->
 
 <footer>
 
@@ -595,6 +608,7 @@ footerPublico();
 <script src="../js/jquery.min.js"></script><!--version v1.12-->
 <script src="../js/bootstrap.min.js"></script>
 <script src="../js/sweetalert.min.js"></script>
+<script src="../js/bootstrap-datepicker.js"></script>
 
 <!-- > js agregados por nosotros < -->
 <script src="../js/main.js"></script>
@@ -637,7 +651,7 @@ footerPublico();
         $("#txt_descripcionServicioReserva_modificar").val($("#txt_servicio"+fila).html());
 
         $("#txt_descripcionProblemaReserva_modificar").val($("#txt_problema"+fila).html());
-        $("#txt_fecha_modificar").val($("#txt_fecha"+fila).html());
+        $("#fechareserva_modificar").val($("#txt_fecha"+fila).html());
         $("#cmb_hora_reserva").val($("#txt_hora"+fila).html());
         $("#txt_descripcion_hora_modificar").val($("#txt_descripcion_hora"+fila).html());
         $("#txt_id_estado_reserva_modificar").val($("#txt_id_estado_reserva"+fila).html());
@@ -645,6 +659,19 @@ footerPublico();
 
         }
 </script>
+<!-- DATA PICKER -->
+<!-- <script type="text/javascript">
+            $(function () {
+                $('#datetimepicker5').datetimepicker({
+                    defaultDate: "11/1/2013",
+                    disabledDates: [
+                        moment("12/25/2013"),
+                        new Date(2013, 11 - 1, 21),
+                        "11/22/2013 00:53"
+                    ]
+                });
+            });
+        </script> -->
 
 <script type="text/javascript">
 function cargarTablaReserva(){
@@ -725,17 +752,17 @@ $("#formModReservasCrear").submit(function(){//captura cuando se envia el formul
        return false;
 });
 
-$("#formModReservas").submit(function(){//captura cuando se envia el formulario
-   event.preventDefault();//detiene el envio del formulario
+$("#formModReservas").submit(function(){
+   event.preventDefault();
   //  alert("hola");
-       $.ajax({//realiza el envio del formulario pero por ajax para no tener que recargar pagina
+       $.ajax({
 
-           url:"../mantenedores/mantenedoresIngresar.php?mant=13&func=2", // donde se va a ingresar "mantenedoresIngresar.php"
+           url:"../mantenedores/mantenedoresIngresar.php?mant=13&func=2",
            data:$("#formModReservas").serialize(),
            success:function(respuesta){
-                   //alert(respuesta);
-                  // alert("hola");
-                  // cargarTablaVehiculos();
+                //alert(respuesta);
+                 //$("#reserva").html(respuesta); muestra informacion en el div seleccionado
+                  //alert("hola");
                   cargarTablaReserva();
            }
        });

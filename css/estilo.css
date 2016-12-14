@@ -42,9 +42,6 @@ background-color: #fff !important;
     background-color: blue  !important;
 }
 
-/*#page-wrapper{
-  width: 100px;
-}*/
 #fondo{
   background-color: #F8F8F8;
   font-family: "Arial";
@@ -58,27 +55,13 @@ label.error, label span.error {
     margin: 5px 0 0 0;
     font-weight: 400;
 }
-/*.content-central{
-  width: 100%;
-  display:flex;
-  /*flex-flow: column wrap;*/
-  /*justify-content: center; centra */
-
-
-/*.content-proveedor{
-  background: rgba(36, 44, 44, 0.5);
-  width: 90%;
-  height: 100vh;
-}*/
 .fondoCalendario{
   background-color: #F8F8F8;
   width: 60%;
-
 }
 .titleh2{
   font-weight: bold;
-  color:#0B4C5
-  F;
+  color:#0B4C5F;
   text-shadow: 1px 1px gray;
   font-size: 2em;
 }
@@ -88,14 +71,11 @@ label.error, label span.error {
   color:black;
   text-align: center;
   border-radius: 10px;
-
 }
-
 .tablaHead{
   background:teal;
   text-align: center;
   color:#fff;
-
 }
  th,td{
   text-align: center;
@@ -105,39 +85,23 @@ label.error, label span.error {
   background: #FE2E2E;
   color:#fff;
   margin-right: 5px;
-
 }
 
 .tablaFilas:nth-child(even){
   background:#E6E6E6;
 }
-/*@media (max-width: 1300px) {
-  .content-proveedor{
-    background:red;
-
-  }
-  .tablaGeneral{
-    max-width: : 1300px;
-  }
-  .contenedorProveedor{
-    max-width: : 1300px;
-  }
-
-}*/
 .contenido-ventas{
     width: 100%;
     min-height: 100%;
     float: left;
     padding-top: 2rem;
 }
-
 nav.sidebar, .main{
 -webkit-transition: margin 200ms ease-out;
   -moz-transition: margin 200ms ease-out;
   -o-transition: margin 200ms ease-out;
   transition: margin 200ms ease-out;
 }
-
 .main{
 padding: 10px 10px 0 10px;
 }
