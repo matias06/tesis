@@ -18,12 +18,12 @@
     <link href="../css/style.css" rel="stylesheet" />
     <link href="../css/normalize.css" rel="stylesheet" />
     <link href="../css/sweet-alert.css" rel="stylesheet" />
-    <link href="../css/datepicker.css" rel="stylesheet" />
+    <!-- <link href="../css/datepicker.css" rel="stylesheet" /> -->
 
     <!-- > Bootstrap v3.3.7 and Font Awesome v4.6.3 < -->
     <link href="../css/bootstrap.min.css" rel="stylesheet" />
     <link href="../css/font-awesome.min.css" rel="stylesheet" />
-    <script src="../js/vendor/modernizr-2.8.3.min.js"></script>
+    <!-- <script src="../js/vendor/modernizr-2.8.3.min.js"></script> -->
 
 
 </head>
@@ -49,7 +49,7 @@
                 </div>
 
                 <div class="mini-u-footer">
-                    <a href="#" value="datos" class="mini-u-btn" id="misdatos" onclick="cargarTablaDatos();">Mis Datos</a>
+                    <a href="#" value="datos" class="mini-u-btn" id="misdatos" onclick="cargarTablaDatos()">Mis Datos</a>
                 </div>
 
             </div>
@@ -63,7 +63,7 @@
                 </div>
 
                 <div class="mini-u-footer">
-                    <a href="#" value="reserva" class="mini-u-btn" id="misreservas" onclick="cargarTablaReserva();">Mis Reservas</a>
+                    <a href="#" value="reserva" class="mini-u-btn" id="misreservas" onclick="cargarTablaReserva()">Mis Reservas</a>
                 </div>
 
             </div>
@@ -77,7 +77,7 @@
                 </div>
 
                 <div class="mini-u-footer">
-                    <a href="#" value="vehiculo" class="mini-u-btn" id="misautos" onclick="cargarTablaVehiculos();">Mis Vehiculos</a>
+                    <a href="#" value="vehiculo" class="mini-u-btn" id="misautos" onclick="cargarTablaVehiculos()">Mis Vehiculos</a>
 
 
                 </div>
@@ -220,6 +220,7 @@
                 </div>
               </div>
            </div><!-- final modal para modificar datos-->
+
            <div class="table-responsive">
             <table class="table">
                 <tr>
@@ -311,17 +312,19 @@
                           </div>
 
                    <div style="animation-delay: 0.2s;" class="col-md-10 animated-panel zoomIn">
-                           <div class="form-group">
+                           <!-- <div class="form-group">
                                <label for="">Fecha</label>
                                <input type="date" class="form-control" id="fechareserva" name="fechareserva" placeholder="Ingrese su problema automotriz">
-                           </div>
+                           </div> -->
+
+
                    </div>
  </div>
 
                        <div class="modal-footer">
                           <div style="animation-delay: 0.2s;" class="col-md-10 animated-panel zoomIn">
                            <button id="reservaCrear" type="submit" class="btn btn-primary" data-toggle="modal" data-target="#reservaCrear" value="Guardar Cambios" name="btn_CrearReserva">Crear</button>
-                           <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                          </div>
                        </div>
 
@@ -350,9 +353,9 @@
                                                        <select class="form-control" name="txt_patenteReserva_modificar" id="txt_patenteReserva_modificar">
                                                           <?php
                                                               require_once '../clases/clasevehiculo.php';
-                                                              $ver= new Vehiculo();
+                                                              $ver = new Vehiculo();
                                                               $ver->setrun($_SESSION['id']);
-                                                              $filasPatente= $ver->listarPatente();
+                                                              $filasPatente = $ver->listarPatente();
                                                               foreach($filasPatente as $vehiculo){
                                                                   echo '<option value="'.$vehiculo['patente'].'" >'.$vehiculo['patente'].' '.$vehiculo['marca'].' '.$vehiculo['modelo'].'</option>';
                                                               }
@@ -605,10 +608,10 @@ footerPublico();
 </div>
 <!-- > js importados < -->
 <!-- > jquery antes de bootstrap para que funcione > -->
-<script src="../js/jquery.min.js"></script><!--version v1.12-->
+<script src="../js/jquery-3.1.1.min.js"></script>
 <script src="../js/bootstrap.min.js"></script>
 <script src="../js/sweetalert.min.js"></script>
-<script src="../js/bootstrap-datepicker.js"></script>
+<!-- <script src="../js/bootstrap-datepicker.js"></script> -->
 
 <!-- > js agregados por nosotros < -->
 <script src="../js/main.js"></script>
@@ -625,8 +628,19 @@ footerPublico();
         $("#cmb_tipo_modificar").val($("#txt_descripcionTipo1"+fila).html());
         $("#cmb_estado_modificar").val($("#txt_descripcion_Estado1"+fila).html());
         }
+</script>
+ <!-- Carga la informacion a el div cargarDatos desde cargarTablaClientes -->
+<script>
 
-// Carga la informacion a el div cargarDatos desde cargarTablaClientes
+//    $( document ).ready(function cargarTablaDatos(){
+//     $.ajax({
+//       url:'../cliente/cargarTablaCliente.php',
+//       success:function(resultado){
+//         $("#cargarDatos").html(resultado);
+//         }
+//     });
+// });
+
            function cargarTablaDatos(){
             $.ajax({
               url:'../cliente/cargarTablaCliente.php',
@@ -636,8 +650,7 @@ footerPublico();
             });
         }
 
-</script>
-<script>
+
        function cargarMisReservas(fila){
         $("#txt_id_reserva_modificar").val($("#txt_id_reserva"+fila).html());
 
@@ -659,8 +672,8 @@ footerPublico();
 
         }
 </script>
-<!-- DATA PICKER -->
-<!-- <script type="text/javascript">
+
+ <!-- <script type="text/javascript">
             $(function () {
                 $('#datetimepicker5').datetimepicker({
                     defaultDate: "11/1/2013",
@@ -682,6 +695,15 @@ $.ajax({
                 }
         });
 }
+
+    // $( document ).ready(function cargarTablaReserva(){
+    // $.ajax({
+    //   url:'../cliente/cargarTablaReserva.php',
+    //   success:function(resultado){
+    //     $("#cargarReservas").html(resultado);
+    //                 }
+    //         });
+    // });
 </script>
 <script>
        function cargarMisVehiculos(fila){
@@ -713,6 +735,16 @@ $.ajax({
         }
     });
 }
+
+// $( document ).ready(function cargarTablaVehiculos(){
+//  $.ajax({
+//    url:'../cliente/cargarTablaVehiculos.php',
+//    success:function(resultado){
+//      $("#cargarVehiculos").html(resultado);
+//
+//      }
+//  });
+// });
 // MODIFICAR MIS DATOS
 $("#formModificarUsuario").submit(function(){//captura cuando se envia el formulario
    event.preventDefault();//detiene el envio del formulario
@@ -726,6 +758,7 @@ $("#formModificarUsuario").submit(function(){//captura cuando se envia el formul
                   // alert("hola");
                   // cargarTablaVehiculos();
                   cargarTablaDatos();
+                  eventoAlertmodificar();
            }
        });
        return false;
@@ -764,6 +797,7 @@ $("#formModReservas").submit(function(){
                  //$("#reserva").html(respuesta); muestra informacion en el div seleccionado
                   //alert("hola");
                   cargarTablaReserva();
+                  eventoAlertmodificar();
            }
        });
        return false;
@@ -784,10 +818,10 @@ $("#formularioCrearVehiculo").submit(function(){//captura cuando se envia el for
            data:$("#formularioCrearVehiculo").serialize(),
            success:function(respuesta){
               cargarTablaVehiculos();
-              eventoAlertActualizar();
+              eventoAlertIngresar();
                 //alert("Usuario Agregado correctamente");
 // alert("hola");
-                 alert(respuesta);
+                 //alert(respuesta);
                    //$("#formularioProveedor").html(respuesta);
 
 
@@ -806,6 +840,7 @@ $("#formModificarVehiculo").submit(function(event){//captura cuando se envia el 
              //alert(respuesta);
              if(respuesta==1){
                cargarTablaVehiculos();
+               eventoAlertmodificar();
              //alert("Vehiculo modificado");
                    //alert(respuesta);
 
@@ -816,10 +851,14 @@ $("#formModificarVehiculo").submit(function(event){//captura cuando se envia el 
        return false;
 });
 
-  function eventoAlertActualizar(){
+  function eventoAlertIngresar(){
     swal("Exito!", "Se ha ingresado correctamente!", "success")
     // alert("Se ha modificado correctamente su vehiculo");
        }
+       function eventoAlertmodificar(){
+         swal("Exito!", "Se ha ingresado correctamente!", "success")
+         // alert("Se ha modificado correctamente su vehiculo");
+            }
 // ELIMINAR VEHCULOS
        function eliminarVehiculo(id){
 
@@ -888,8 +927,8 @@ $( "#misautos" ).click(function() {
 });
 //carga al iniciar la pagina
   cargarTablaDatos();
-  cargarTablaReserva();
-  cargarTablaVehiculos();
+   cargarTablaReserva();
+ cargarTablaVehiculos();
 </script>
 </body>
 

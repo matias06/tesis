@@ -25,6 +25,9 @@
                                 $("#cmb_id_categoria_producto").val($("#cmb_id_categoria_producto"+fila).html());
                                 $("#cmb_categoria_producto_modificar").val($("#cmb_id_categoria_producto"+fila).html());
 
+                                $("#cmb_id_subcategoria_producto").val($("#cmb_id_subcategoria_producto"+fila).html());
+                                $("#cmb_subcategoria_producto_modificar").val($("#cmb_id_subcategoria_producto"+fila).html());
+
                                 }
                         </script>
 
@@ -46,6 +49,7 @@
                                 <input type="hidden" id="cmb_id_proveedor_producto_modificar" name="cmb_id_proveedor_producto" >
                                 <input type="hidden" id="cmb_id_estado_producto" name="txt_id_estado_producto_modificar" >
                                 <input type="hidden" id="cmb_id_categoria_producto" name="txt_id_categoria_producto_modificar" >
+                                <input type="hidden" id="cmb_id_subcategoria_producto" name="txt_id_subcategoria_producto_modificar" >
 
 
                                 <div class="row">
@@ -73,6 +77,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="row">
                                 <div style="animation-delay: 0.5s;" class="col-md-3 animated-panel zoomIn">
                                      <div class="form-group">
                                          <label for="cmb_proveedores">Proveedores</label>
@@ -89,7 +94,7 @@
                                      </div>
                                  </div>
 
-                                <div class="row">
+
                                     <div style="animation-delay: 0.5s;" class="col-md-3 animated-panel zoomIn">
                                         <div class="form-group">
                                             <label for="estadoProducto">Estado producto</label>
@@ -124,6 +129,22 @@
                                                 </select>
                                         </div>
                                     </div>
+                                    <div style="animation-delay: 0.5s;" class="col-md-3 animated-panel zoomIn">
+                                         <div class="form-group">
+                                             <label for="sub">Sub Categoria</label>
+                                                  <select class="form-control" name="cmb_Subcategoria_producto_modificar" id="cmb_Subcategoria_producto_modificar">
+                                                     <?php
+                                                          require_once '../clases/claseSubCatProducto.php';
+                                                          $Subcat= new SubCatProducto();
+                                                          $filasSubCat= $Subcat->listarSubCategoria();
+
+                                                          foreach($filasSubCat as $tipo){
+                                                          echo '<option value="'.$tipo['id_subcategoria_producto'].'" >'.$tipo['descripcion_subcategoria_producto'].'</option>';
+                                                         }
+                                                      ?>
+                                                 </select>
+                                         </div>
+                                     </div>
                                 </div>
                                          <div class="container">
                                         <div class="col-md-8">
@@ -148,23 +169,28 @@
 
 
                             </div>  <!-- table -->
+<div class="hola">
 
+</div>
                             <script>
 
                 $("#formProductoModificar").submit(function(){//ENVIA FORMULARIO DE MODIFICACION DE REGISTRO
                     event.preventDefault();
-                    //alert("enviado");
+                    alert("enviado");
 
                     $.ajax({
                         url:"mantenedoresIngresar.php?mant=2&prod=2",
                         data: $("#formProductoModificar").serialize(),
 
                         success:function(resultado){
+                          //$("#hola").html(resultado);
+                          alert(respuesta);
                              //alert("MODIFICADO CORRECTAMENTE");
                               cambiarPagina(1);
                               cargarDivTablaProducto();
-                              eventoAlertActualizar();
-                              //cambiarPagina(1);
+                              //eventoAlertActualizar();
+                              cambiarPagina(1);
+
 
 
                         }

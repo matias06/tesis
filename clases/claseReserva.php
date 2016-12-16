@@ -82,7 +82,7 @@ public function setdescripcion_estado_reserva ($arg_descripcion_estado_reserva){
 				 WHERE id_reserva='".$this->id_reserva."'";
 
 		 $modificarReservas = $this->insertarRegistros($consulta);
-		 echo "hola pepo".$consulta;
+		// echo "hola pepo".$consulta;
 				if($modificarReservas==true){
 					return true;
 				}

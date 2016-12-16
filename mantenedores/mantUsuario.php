@@ -1,3 +1,5 @@
+<!-- el sistema realiza backup automaticos por htaccess o por las herramientas del hosting -->
+
 <?php
     require_once '../clases/Conexion.php';
     $conexion = new Conexion();
@@ -42,26 +44,26 @@
                                     <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
                                         <div class="form-group">
                                             <label for="run">Run:</label>
-                                            <input class="form-control"  onBlur="validarRun(this) " title="Debe ingresar un rut valido" required id="txt_run" name="txt_run" placeholder="Rut Usuario" type="text">
+                                            <input class="form-control" required title="Debe ingresar un rut valido" required id="txt_run" name="txt_run" placeholder="Rut Usuario" type="text">
                                         </div>
                                         <!--onkeypress="tecladoooooo"  -->
                                     </div>
                                     <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
                                         <div class="form-group">
                                             <label for="nombre">Nombre</label>
-                                            <input class="form-control" title="Debe ingresar su nombre" required id="txt_nombre" name="txt_nombre" placeholder="Nombre Usuario" type="text">
+                                            <input class="form-control" required title="Debe ingresar su nombre" required id="txt_nombre" name="txt_nombre" placeholder="Nombre Usuario" type="text">
                                         </div>
                                     </div>
                                     <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
                                         <div class="form-group">
                                             <label for="apellido">Apellido</label>
-                                            <input class="form-control" title="Debe ingresar su apellido" required id="txt_apellido" name="txt_apellido" placeholder="Apellido Usuario" type="text">
+                                            <input class="form-control" required title="Debe ingresar su apellido" required id="txt_apellido" name="txt_apellido" placeholder="Apellido Usuario" type="text">
                                         </div>
                                     </div>
                                     <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
                                         <div class="form-group">
                                             <label for="telefono">Télefono:</label>
-                                            <input class="form-control" title="Debe ingresar su télefono" required id="txt_telefono" name="txt_telefono" placeholder="Télefono Usuario" type="text">
+                                            <input class="form-control" required title="Debe ingresar su télefono" required id="txt_telefono" name="txt_telefono" placeholder="Télefono Usuario" type="text">
                                         </div>
                                     </div>
 
@@ -73,7 +75,7 @@
                                   <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
                                       <div class="form-group">
                                           <label for="telefono">Correo:</label>
-                                          <input class="form-control" title="Debe ingresar su correo" required id="txt_correo" name="txt_correo" placeholder="Correo Usuario" type="text">
+                                          <input class="form-control" required title="Debe ingresar su correo" required id="txt_correo" name="txt_correo" placeholder="Correo Usuario" type="text">
                                       </div>
                                   </div>
 
@@ -81,7 +83,7 @@
 
                                         <div class="form-group">
                                             <label for="apellido">Contraseña</label>
-                                            <input class="form-control" title="Debe ingresar contraseña" required id="txt_password" name="txt_password" placeholder="Contraseña Usuario" type="password">
+                                            <input class="form-control" required title="Debe ingresar contraseña" required id="txt_password" name="txt_password" placeholder="Contraseña Usuario" type="password">
                                         </div>
 
                                     </div>
@@ -90,7 +92,8 @@
                                     <div style="animation-delay: 0.5s;" class="col-md-3 animated-panel zoomIn">
                                         <div class="form-group">
                                             <label for="tipoUsuario">Tipo Usuario</label>
-                                                 <select class="form-control" name="tipousuario" id="tipousuario">
+                                                 <select class="form-control" required name="tipousuario" id="tipousuario">
+                                                   <option value="" selected disabled>Selecciones tipo:</option>
                                                     <?php
                                                         require_once '../clases/claseTipoUsuario.php';
                                                         $TipoU= new TipoUsuario();
@@ -109,7 +112,8 @@
                                         <div class="form-group">
 
                                             <label for="estado">Estado usuario</label>
-                                                 <select class="form-control" name="estadousuario" id="estadousuario">
+                                                 <select class="form-control" required name="estadousuario" id="estadousuario">
+                                                    <option value="" selected disabled>Selecciones estado:</option>
                                                     <?php
                                                         require_once '../clases/claseEstadoUsuario.php';
                                                         $estadoUsuario= new EstadoUsuario();
@@ -157,6 +161,51 @@
                 </div>
                    <script>
 
+//         var name = document.getElementById('txt_rut').value;
+//    if(name == null || name.length == 0 || /^\s+$/.test(name)){
+//      alert("Debe ingresar un rut.");
+//      document.getElementById('txt_rut').focus(); /*vuelve el cursor al campo*/
+//      document.getElementById('txt_rut').select();/*hace que pueda escribir sin borrar*/
+//      return false;
+// }
+
+function verificarCamposVacios(){
+  var verificar=true;
+  run= $("#txt_run").val();
+  nombre= $("#txt_nombre").val();
+  apellido= $("#txt_apellido").val();
+  telefono= $("#txt_telefono").val();
+  correo= $("#txt_correo").val();
+  password= $("#txt_password").val();
+
+  if(run==""){
+    $("#txt_run").focus();
+    verificar=false;
+  }
+  if(nombre==""){
+    $("#txt_nombre").focus();
+    verificar=false;
+  }
+  if(apellido==""){
+    $("#txt_apellido").focus();
+    verificar=false;
+  }
+  if(telefono==""){
+    $("#txt_telefono").focus();
+    verificar=false;
+  }
+  if(correo==""){
+    $("#txt_correo").focus();
+    verificar=false;
+  }
+  if(password==""){
+    $("#txt_password").focus();
+    verificar=false;
+  }
+  return verificar;
+}
+
+
               function eventoAlertCorrecto(){
               swal("Exito!", "Se ha agregado correctamente!", "success")
               }
@@ -165,6 +214,9 @@
                              $("#formularioRegistro").submit(function(){//captura cuando se envia el formulario
                                 event.preventDefault();//detiene el envio del formulario
 
+                                if(verificarCamposVacios()==false){
+                                     alert("No puede dejar campos vacios");
+                                }else{
 
                                     $.ajax({//realiza el envio del formulario pero por ajax para no tener que recargar pagina
 
@@ -183,6 +235,7 @@
                                         }
                                     });
                                     return false;
+                                  }
                             });
 
 

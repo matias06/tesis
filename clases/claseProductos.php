@@ -9,6 +9,7 @@ class Productos extends Conexion{
 	private $rut;
 	private $id_estado_producto;
 	private $id_categoria_producto;
+	private $id_subcategoria_producto;
 	private $stock;
 
 	public function __construct(){
@@ -79,6 +80,9 @@ class Productos extends Conexion{
 	public function setcategoria_producto ($arg_categoria_producto){
 		$this->id_categoria_producto=$arg_categoria_producto;
 	}
+	public function setsubcategoria_producto ($arg_subcategoria_producto){
+		$this->id_subcategoria_producto=$arg_subcategoria_producto;
+	}
 
 
 	public function insertarProductos(){
@@ -99,7 +103,8 @@ class Productos extends Conexion{
 					imagen='".$this->imagen."',
 					rut='".$this->rut."',
 					id_estado_producto='".$this->id_estado_producto."',
-                    id_categoria_producto='".$this->id_categoria_producto."'
+                    id_categoria_producto='".$this->id_categoria_producto."',
+										id_subcategoria_producto='".$this->id_subcategoria_producto."'
 					where id_producto ='".$this->id_producto."'");
             return $modificarProducto;
 
@@ -110,7 +115,7 @@ class Productos extends Conexion{
 				$agregarProducto = $this->insertarRegistros
 				("INSERT INTO producto values ('".$this->id_producto."','".$this->descripcion_producto."',
 					'".$this->valor_producto."','".$this->imagen."','".$this->rut."','".$this->id_estado_producto."',
-					'".$this->id_categoria_producto."')");
+					'".$this->id_categoria_producto."', '".$this->id_subcategoria_producto."')");
             return $agregarProducto;
 		}
 
@@ -139,11 +144,11 @@ class Productos extends Conexion{
                 }
     }
 
-    public function modificarProductos(){
-    $consulta="UPDATE producto SET descripcion_producto='".$this->descripcion_producto."',
-		   valor_producto='".$this->valor_producto."', imagen='".$this->imagen."', rut='".$this->rut."',
-		    id_estado_producto='".$this->id_estado_producto."', id_categoria_producto='".$this->id_categoria_producto."'
-		    WHERE id_producto='".$this->id_producto."';";
+  				public function modificarProductos(){
+				$consulta="UPDATE producto SET descripcion_producto='".$this->descripcion_producto."',
+				valor_producto='".$this->valor_producto."', rut='".$this->rut."',
+				id_estado_producto='".$this->id_estado_producto."', id_categoria_producto ='".$this->id_categoria_producto."',
+				id_subcategoria_producto ='".$this->id_subcategoria_producto."' WHERE id_producto='".$this->id_producto."';";
 
     $modificarProducto = $this->insertarRegistros($consulta);
 
