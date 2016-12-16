@@ -18,12 +18,16 @@
     <link href="../css/style.css" rel="stylesheet" />
     <link href="../css/normalize.css" rel="stylesheet" />
     <link href="../css/sweet-alert.css" rel="stylesheet" />
-    <link href="../css/datepicker.css" rel="stylesheet" />
+    <!-- <link href="../css/datepicker.css" rel="stylesheet" /> -->
 
     <!-- > Bootstrap v3.3.7 and Font Awesome v4.6.3 < -->
     <link href="../css/bootstrap.min.css" rel="stylesheet" />
     <link href="../css/font-awesome.min.css" rel="stylesheet" />
     <script src="../js/vendor/modernizr-2.8.3.min.js"></script>
+    <script src="../js/jquery.min.js"></script><!--version v1.12-->
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/sweetalert.min.js"></script>
+    <script src="../js/main.js"></script>
 
 
 </head>
@@ -49,7 +53,7 @@
                 </div>
 
                 <div class="mini-u-footer">
-                    <a href="#" value="datos" class="mini-u-btn" id="misdatos" onclick="cargarTablaDatos();">Mis Datos</a>
+                    <a href="#" value="datos" class="mini-u-btn" id="misdatos" onclick="cargarTablaDatos()">Mis Datos</a>
                 </div>
 
             </div>
@@ -63,7 +67,7 @@
                 </div>
 
                 <div class="mini-u-footer">
-                    <a href="#" value="reserva" class="mini-u-btn" id="misreservas" onclick="cargarTablaReserva();">Mis Reservas</a>
+                    <a href="#" value="reserva" class="mini-u-btn" id="misreservas" onclick="cargarTablaReserva()">Mis Reservas</a>
                 </div>
 
             </div>
@@ -77,7 +81,7 @@
                 </div>
 
                 <div class="mini-u-footer">
-                    <a href="#" value="vehiculo" class="mini-u-btn" id="misautos" onclick="cargarTablaVehiculos();">Mis Vehiculos</a>
+                    <a href="#" value="vehiculo" class="mini-u-btn" id="misautos" onclick="cargarTablaVehiculos()">Mis Vehiculos</a>
 
 
                 </div>
@@ -260,13 +264,13 @@
                                      <label for="servicio">Patente: </label>
                                       <select class="form-control" name="txt_patenteReserva" id="txt_patenteReserva">
                                          <?php
-                                             require_once '../clases/clasevehiculo.php';
-                                             $ver= new Vehiculo();
-                                             $ver->setrun($_SESSION['id']);
-                                             $filasPatente= $ver->listarPatente();
-                                             foreach($filasPatente as $vehiculo){
-                                                 echo '<option value="'.$vehiculo['patente'].'" >'.$vehiculo['patente'].' '.$vehiculo['marca'].' '.$vehiculo['modelo'].'</option>';
-                                             }
+                                            //  require_once '../clases/clasevehiculo.php';
+                                            //  $ver= new Vehiculo();
+                                            //  $ver->setrun($_SESSION['id']);
+                                            //  $filasPatente = $ver->listarPatente();
+                                            //  foreach($filasPatente as $vehiculo){
+                                            //      echo '<option value="'.$vehiculo['patente'].'" >'.$vehiculo['patente'].' '.$vehiculo['marca'].' '.$vehiculo['modelo'].'</option>';
+                                            //  }
                                           ?>
                                      </select>
                              </div>
@@ -349,13 +353,13 @@
                                                       <label for="servicio">Datos Vehiculo: </label>
                                                        <select class="form-control" name="txt_patenteReserva_modificar" id="txt_patenteReserva_modificar">
                                                           <?php
-                                                              require_once '../clases/clasevehiculo.php';
-                                                              $ver= new Vehiculo();
-                                                              $ver->setrun($_SESSION['id']);
-                                                              $filasPatente= $ver->listarPatente();
-                                                              foreach($filasPatente as $vehiculo){
-                                                                  echo '<option value="'.$vehiculo['patente'].'" >'.$vehiculo['patente'].' '.$vehiculo['marca'].' '.$vehiculo['modelo'].'</option>';
-                                                              }
+                                                              // require_once '../clases/clasevehiculo.php';
+                                                              // $ver= new Vehiculo();
+                                                              // $ver->setrun($_SESSION['id']);
+                                                              // $filasPatente= $ver->listarPatente();
+                                                              // foreach($filasPatente as $vehiculo){
+                                                              //     echo '<option value="'.$vehiculo['patente'].'" >'.$vehiculo['patente'].' '.$vehiculo['marca'].' '.$vehiculo['modelo'].'</option>';
+                                                              // }
                                                            ?>
                                                       </select>
                                               </div>
@@ -605,13 +609,11 @@ footerPublico();
 </div>
 <!-- > js importados < -->
 <!-- > jquery antes de bootstrap para que funcione > -->
-<script src="../js/jquery.min.js"></script><!--version v1.12-->
-<script src="../js/bootstrap.min.js"></script>
-<script src="../js/sweetalert.min.js"></script>
-<script src="../js/bootstrap-datepicker.js"></script>
+
+<!-- <script src="../js/bootstrap-datepicker.js"></script> -->
 
 <!-- > js agregados por nosotros < -->
-<script src="../js/main.js"></script>
+
 <!-- <script src="../js/validar_sesion.js"></script> -->
 <script>
        function cargarMisDatos(fila){
@@ -888,8 +890,8 @@ $( "#misautos" ).click(function() {
 });
 //carga al iniciar la pagina
   cargarTablaDatos();
-  cargarTablaReserva();
-  cargarTablaVehiculos();
+  // cargarTablaReserva();
+  // cargarTablaVehiculos();
 </script>
 </body>
 

@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!--developers-->
 <html lang="es" class="no-js">
 <head>
     <meta charset="utf-8">
@@ -17,98 +16,27 @@
     <link href="../css/font-awesome.min.css" rel="stylesheet" />
     <script src="../js/vendor/modernizr-2.8.3.min.js"></script>
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
 </head>
 <body>
-
 <!--MENU-->
 <?php
 require_once'../comun/comun.php';
 menuPublico();
 ?>
+<!--Final Menu-->
 
-<main class="contenido-principal"><!--contenido-principal-->
+<!--contenido-principal-->
+<main class="contenido-principal">
 <div class="container">
-          <h4 class="lead text-center titulo-catalogo">
+        <h4 class="lead text-center titulo-catalogo">
             Catalogo de Productos
         </h4>
-        <?php   include_once("../clases/claseCategoriaProducto.php");
-                include_once("../clases/claseSubCatProducto.php");
-                include_once("../clases/claseProductos.php");
-                $subcategoria = new SubCatProducto();
-                $categp = new CategoriaProducto();
-                $producto = new Productos();
-
-
-
-        $categoria = $categp->listarCategoriaProducto();
-                $contador = 0;
-                foreach($categoria as $vercategoria){
-
-                $categorias = $vercategoria['id_categoria_producto'];
-                $descategoria = $vercategoria['descripcion_categoria_producto'];
-                $contador++;
-                    echo '
-                    <div class="row">
-                    <br>
-                    <div class="col-xs-12 contenido-categoria cb';
-                    echo $contador;
-                    echo'" style="margin-top:3rem;"> <!--contenido-principal-->';
-                        echo '<div class="col-xs-12 col-sm-6 col-md-3">
-                              <span class="lead titulo-categoria text-center c';
-                                 echo $contador;
-                                    echo'">';
-                                echo $descategoria.'</span>              <hr>
-                                      <ul class="nav nav-pills nav-stacked">';
-
-                                        $subcatpro = $subcategoria->listarSubCatProducto($categorias);
-
-                                        foreach($subcatpro as $versubcategoria){
-
-                                        $idsubcategorias = $versubcategoria['id_subcategoria_producto'];
-                                        $descsubcategoria = $versubcategoria['descripcion_subcategoria_producto'];
-
-                                        echo '
-                                              <li><a href="catalogo_2.php?id='.$idsubcategorias.'&categoria='.$categorias.'" >'; echo $descsubcategoria.'</a></li>';
-
-                                            }
-                                        echo  '</ul> </div>
-
-
-
-
-            <div class="col-xs-12 col-sm-6 col-md-9">';
-
-            $listap = $producto->listar_producto_x_categoria($categorias);
-
-            foreach($listap as $verproducto){
-                 ?>
-
-                          <br>
-                          <div class="well well-cw col-xs-12 col-sm-6 col-md-4">
-                              <a href="ficha.php">
-
-                                  <img src="../imagenes/productos/<?php echo $verproducto['imagen']; ?>" class="img-responsive" alt="<?php echo $verproducto['descripcion_producto']; ?>">
-
-                                  <span><?php echo $verproducto['descripcion_producto'].", valor $".$verproducto['valor_producto']; ?></span>
-                                </a>
-                            </div>
-
-
-                            <?php }
-                            echo '</div>';
-                            }
-                            echo '</div>'; ?>
-
-
-
-                </div>
-              </main>
+        <?php
+        require_once'../comun/catalogo.php';
+        catalogo();
+        ?>
+</div>
+</main>
               <!--contenido-principal-->
 <footer>
 
@@ -128,11 +56,12 @@ footerPublico();
 <!-- > js agregados por nosotros < -->
 <script src="../js/main.js"></script>
 <script src="../js/validar_sesion.js"></script>
+<!--Modal de Login-->
 <?php
 require_once'../comun/comun.php';
 login();
 ?>
-
+<!--Final Modal-->
 </body>
 
 </html>
