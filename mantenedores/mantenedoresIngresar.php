@@ -22,7 +22,7 @@ require_once '../clases/usuario.php';
 									$usuario->setpassword($contraseña);
                                     $telefono = filter_var($_REQUEST['txt_telefono'], FILTER_SANITIZE_NUMBER_INT);
                   $usuario->settelefono($telefono);
-                                    $correo = filter_var($_REQUEST['txt_correo'], FILTER_SANITIZE_STRING);
+                                    $correo = filter_var($_REQUEST['txt_correo'], FILTER_SANITIZE_EMAIL);
                   $usuario->setcorreo($correo);
 
 
@@ -52,8 +52,8 @@ require_once '../clases/usuario.php';
                                     $telefonoModificar = filter_var($_REQUEST['txt_telefono_modificar'], FILTER_SANITIZE_NUMBER_INT);
                   $usuario->settelefono($telefonoModificar);
 
-                                    $correoModifcar = filter_var($_REQUEST['txt_correo_modificar'], FILTER_SANITIZE_STRING);
-                  $usuario->setcorreo($correoModifcar);
+                                    $correoModificar = filter_var($_REQUEST['txt_correo_modificar'], FILTER_SANITIZE_EMAIL);
+                  $usuario->setcorreo($correoModificar);
 
 									$usuario->settipo_usuario($_REQUEST['cmb_tipo_modificar']);
 									$usuario->setestado_usuario($_REQUEST['cmb_estado_modificar']);
@@ -223,6 +223,7 @@ require_once '../clases/usuario.php';
 
                             $productos->setestado_producto($_REQUEST['cmb_estado_producto']);
                             $productos->setcategoria_producto($_REQUEST['cmb_categoria_producto']);
+                            $productos->setsubcategoria_producto($_REQUEST['cmb_Subcategoria_producto']);
 
 
 
@@ -279,10 +280,14 @@ require_once '../clases/usuario.php';
 
 									$productos->setestado_producto($_REQUEST['cmb_estado_producto_modificar']);
 									$productos->setcategoria_producto($_REQUEST['cmb_categoria_producto_modificar']);
+                  $productos->setsubcategoria_producto($_REQUEST['cmb_Subcategoria_producto_modificar']);
 
-									if($productos->modificarProductos()==true){
-										echo "2";
+									if($productos->modificarProductos()){
+										echo "1";
 									}
+                  else{
+                    echo "2";
+                  }
 
 								break;
 
@@ -313,6 +318,7 @@ require_once '../clases/usuario.php';
                                             <th>Proveedor</th>
                                             <th>Estado producto</th>
                                             <th>Categoría producto</th>
+                                            <th>Sub Categoría producto</th>
                                             <th>Editar/Eliminar </th>
                                         </thead>
 
@@ -345,6 +351,10 @@ require_once '../clases/usuario.php';
 
                                             <td><span class="hidden" id="cmb_id_categoria_producto'.$contador.'">'.$user['id_categoria_producto'].'</span>
                                             <span id="cmb_categoria_producto'.$contador.'">'.$user['descripcion_categoria_producto'].'</span></td>
+
+                                            <td><span class="hidden" id="cmb_id_subcategoria_producto'.$contador.'">'.$user['id_subcategoria_producto'].'</span>
+                                            <span id="cmb_subcategoria_producto'.$contador.'">'.$user['descripcion_subcategoria_producto'].'</span></td>
+
 
 
 

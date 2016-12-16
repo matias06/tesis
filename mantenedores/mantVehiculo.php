@@ -41,7 +41,7 @@
                                   <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
                                       <div class="form-group">
                                           <label for="patente">Patente:</label>
-                                          <input class="form-control"  onBlur="validarRun(this) " title="Debe ingresar número patente" required id="txt_patente" name="txt_patente" placeholder="Número patente" type="text">
+                                          <input class="form-control" title="Debe ingresar número patente" required id="txt_patente" name="txt_patente" placeholder="Número patente" type="text">
                                       </div>
                                 </div>
                                   <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
@@ -60,7 +60,8 @@
                                   <div style="animation-delay: 0.5s;" class="col-md-3 animated-panel zoomIn">
                                       <div class="form-group">
                                           <label for="tipoUsuario">Run Usuario</label>
-                                               <select class="form-control" name="cmb_usuario" id="cmb_usuario">
+                                               <select class="form-control" required name="cmb_usuario" id="cmb_usuario">
+                                                 <option value="" selected disabled>Selecciones usuario:</option>
                                                   <?php
                                                       require_once '../clases/usuario.php';
                                                       $User= new Usuario();
@@ -90,9 +91,6 @@
                               </div>
                             </fieldset>
                         </form>
-
-
-
                             </div>
                            </div>
                         </div>
@@ -104,15 +102,37 @@
 
                 </div>
                    <script>
+ function verificarCamposVacios(){
+   var verificar=true;
+   patente= $("#txt_patente").val();
+   marca= $("#txt_marca").val();
+   modelo= $("#txt_modelo").val();
+
+   if(patente==""){
+     $("#txt_patente").focus();
+     verificar=false;
+   }
+   if(marca==""){
+     $("#txt_marca").focus();
+     verificar=false;
+   }
+   if(modelo==""){
+     $("#txt_modelo").focus();
+     verificar=false;
+   }
+   return verificar;
+ }
 
               function eventoAlertCorrecto(){
               swal("Exito!", "Se ha agregado correctamente!", "success")
               }
 
-
                              $("#formularioVehiculo").submit(function(){//captura cuando se envia el formulario
                                 event.preventDefault();//detiene el envio del formulario
 
+                                if(verificarCamposVacios()==false){
+                                     alert("No puede dejar campos vacios");
+                                }else{
 
                                     $.ajax({//realiza el envio del formulario pero por ajax para no tener que recargar pagina
 
@@ -131,6 +151,7 @@
                                         }
                                     });
                                     return false;
+                                  }
                             });
 
 

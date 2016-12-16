@@ -119,6 +119,7 @@ class Conexion{
 
 
          public function insertarRegistros($arg_consulta){
+					//  echo $arg_consulta;
                if($this->con->query($arg_consulta)){
                      return true;
                }else{
@@ -127,7 +128,7 @@ class Conexion{
          }
 // modifiar un archivo
         public function consultarExistencia($arg_consulta){
-
+					// echo $arg_consulta;
 
       $resultado= $this->con->query($arg_consulta);
 

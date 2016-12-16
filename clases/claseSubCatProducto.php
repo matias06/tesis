@@ -12,6 +12,12 @@ class SubCatProducto extends Conexion{
 		parent::__construct();
 	}
 
+	public function listarSubCategoria(){
+		$SubcatProducto = $this->consultarRegistros("SELECT * FROM subcategoriaproducto;");
+		return $SubcatProducto;
+
+	}
+
 	public function listarSubCatProducto($categoria){
 		$subCat = $this->consultarRegistros("SELECT * FROM subcategoriaproducto where id_categoria_producto = '$categoria';");
 		return $subCat;

@@ -159,9 +159,48 @@
         $('.modal-backdrop').fadeOut('fast');
     });
 
+    function verificarCamposVacios(){
+      var verificar=true;
+      runMod= $("#txt_run_modificar").val();
+      nombreMod= $("#txt_nombre_modificar").val();
+      apellidoMod= $("#txt_apellido_modificar").val();
+      telefonoMod= $("#txt_telefono_modificar").val();
+      correoMod= $("#txt_correo_modificar").val();
+      passwordMod= $("#txt_contraseña_modificar").val();
+
+      if(runMod==""){
+        $("#txt_run_modificar").focus();
+        verificar=false;
+      }
+      if(nombreMod==""){
+        $("#txt_nombre_modificar").focus();
+        verificar=false;
+      }
+      if(apellidoMod==""){
+        $("#txt_apellido_modificar").focus();
+        verificar=false;
+      }
+      if(telefonoMod==""){
+        $("#txt_telefono_modificar").focus();
+        verificar=false;
+      }
+      if(correoMod==""){
+        $("#txt_correo_modificar").focus();
+        verificar=false;
+      }
+      if(passwordMod==""){
+        $("#txt_contraseña_modificar").focus();
+        verificar=false;
+      }
+      return verificar;
+    }
+
                              $("#formModificarUsuario").submit(function(){//captura cuando se envia el formulario
                                 event.preventDefault();//detiene el envio del formulario
 
+                                if(verificarCamposVacios()==false){
+                                     alert("no puede dejar campos vacios");
+                                }else{
 
                                     $.ajax({//realiza el envio del formulario pero por ajax para no tener que recargar pagina
 
@@ -175,6 +214,7 @@
                                         }
                                     });
                                     return false;
+                                  }
                             });
 
 

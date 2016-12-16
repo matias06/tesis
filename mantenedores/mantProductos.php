@@ -97,9 +97,7 @@
                                     </div>
 
                                    <div style="animation-delay: 0.5s;" class="col-md-2 animated-panel zoomIn">
-
                                         <div class="form-group">
-
                                             <label for="tipoUsuario">Categoria producto</label>
                                                  <select class="form-control" name="cmb_categoria_producto" id="cmb_categoria_producto">
                                                     <?php
@@ -110,14 +108,27 @@
                                                         foreach($filasCat as $tipo){
                                                             echo '<option value="'.$tipo['id_categoria_producto'].'" >'.$tipo['descripcion_categoria_producto'].'</option>';
                                                         }
-
                                                      ?>
                                                 </select>
-
                                         </div>
-
                                     </div>
 
+                                    <div style="animation-delay: 0.5s;" class="col-md-2 animated-panel zoomIn">
+                                         <div class="form-group">
+                                             <label for="sub">Sub Categoria</label>
+                                                  <select class="form-control" name="cmb_Subcategoria_producto" id="cmb_Subcategoria_producto">
+                                                     <?php
+                                                          require_once '../clases/claseSubCatProducto.php';
+                                                          $Subcat= new SubCatProducto();
+                                                          $filasSubCat= $Subcat->listarSubCategoria();
+
+                                                          foreach($filasSubCat as $tipo){
+                                                          echo '<option value="'.$tipo['id_subcategoria_producto'].'" >'.$tipo['descripcion_subcategoria_producto'].'</option>';
+                                                         }
+                                                      ?>
+                                                 </select>
+                                         </div>
+                                     </div>
                                 </div>
                                             <div class="container">
                                                 <div class="col-md-3">
@@ -141,7 +152,7 @@
                     <!-- carga la tabla producto por metodo ajax -->
                 </div>
            <script>
-                //INSERTA TODO EL FORMULARIO Y LA IMAGEN
+                // INSERTA TOdo EL FORMULARIO Y LA IMAGEN
                              $("#formularioProducto").submit(function(){//captura cuando se envia el formulario
                                 event.preventDefault();//detiene el envio del formulario
                                 var formData = new FormData(document.getElementById("formularioProducto"));
