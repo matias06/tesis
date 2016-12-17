@@ -2,6 +2,8 @@
       // include '../comun/comun.php';
     require_once '../clases/Conexion.php';
     require_once '../clases/clasevehiculo.php';
+    require_once '../clases/usuario.php';
+    // require_once '../clases/claseReserva.php';
     $conexion = new Conexion();
     $conexion->consultarSesion();
 ?>
@@ -14,6 +16,13 @@
     <title>Usuario</title>
     <meta name="Author" content="" />
 
+    <!-- <script src="../js/vendor/modernizr-2.8.3.min.js"></script> -->
+
+    <script src="../js/jquery.min.js"></script><!--version v1.12-->
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/sweetalert.min.js"></script>
+    <script src="../js/main.js"></script>
+
     <!-- > css generales < -->
     <link href="../css/style.css" rel="stylesheet" />
     <link href="../css/normalize.css" rel="stylesheet" />
@@ -23,15 +32,6 @@
     <!-- > Bootstrap v3.3.7 and Font Awesome v4.6.3 < -->
     <link href="../css/bootstrap.min.css" rel="stylesheet" />
     <link href="../css/font-awesome.min.css" rel="stylesheet" />
-
-    <script src="../js/vendor/modernizr-2.8.3.min.js"></script>
-    <script src="../js/jquery.min.js"></script><!--version v1.12-->
-    <script src="../js/bootstrap.min.js"></script>
-    <script src="../js/sweetalert.min.js"></script>
-    <script src="../js/main.js"></script>
-
-    <!-- <script src="../js/vendor/modernizr-2.8.3.min.js"></script> -->
-
 
 
 </head>
@@ -656,14 +656,27 @@ footerPublico();
 //     });
 // });
 
-           function cargarTablaDatos(){
-            $.ajax({
-              url:'../cliente/cargarTablaCliente.php',
-              success:function(resultado){
-                $("#cargarDatos").html(resultado);
-                }
-            });
-        }
+
+        //    function cargarTablaDatos(){
+        //     $.ajax({
+        //       url:'../cliente/cargarTablaCliente.php',
+        //       success:function(resultado){
+        //         $("#cargarDatos").html(resultado);
+        //         }
+        //     });
+        // }
+        $(document).ready(function cargarTablaDatos(){
+           $.ajax({
+             url:'../cliente/cargarTablaCliente.php',
+             success:function(resultado){
+               $("#cargarDatos").html(resultado);
+               }
+
+
+
+     });
+  return false;
+});
 
 
        function cargarMisReservas(fila){
@@ -941,14 +954,13 @@ $( "#misautos" ).click(function() {
 
 });
 //carga al iniciar la pagina
-  cargarTablaDatos();
-<<<<<<< HEAD
+  // cargarTablaDatos();
+
   // cargarTablaReserva();
   // cargarTablaVehiculos();
-=======
-   cargarTablaReserva();
- cargarTablaVehiculos();
->>>>>>> origin/master
+
+
+
 </script>
 </body>
 

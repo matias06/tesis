@@ -35,19 +35,19 @@ menuPublico();
     <form id="formularioMensajes" name="formularioMensajes" method="POST">
                 <div class="form-group">
                    <label for="nombre">Nombre:</label>
-                   <input class="form-control" id="nombre" name="nombre" type="text" placeholder="Nombre">
+                   <input class="form-control" required id="nombre" name="nombre" type="text" placeholder="Nombre">
                 </div>
                 <div class="form-group">
                     <label for="apellido">Apellido</label>
-                    <input class="form-control" id="apellido" name="apellido" type="text" placeholder="Apellido">
+                    <input class="form-control" required id="apellido" name="apellido" type="text" placeholder="Apellido">
                 </div>
                 <div class="form-group">
                    <label for="correo">Correo Electrónico:</label>
-                   <input class="form-control" id="correo" name="correo" type="email" placeholder="Correo">
+                   <input class="form-control" required id="correo" name="correo" type="email" placeholder="Correo">
                 </div>
                 <div class="form-group">
                    <label for="mensaje">Mensaje</label>
-                   <textarea class="form-control col-xs-12" id="mensaje"  name="mensaje" placeholder="Escriba su mensaje"></textarea>
+                   <textarea class="form-control col-xs-12" required id="mensaje"  name="mensaje" placeholder="Escriba su mensaje"></textarea>
                 </div>
 
                 <div class="col-xs-12 col-sm-4 col-sm-offset-4">
@@ -107,6 +107,9 @@ swal("Exito!", "Se ha Enviado Mensaje correctamente!", "success")
    $("#formularioMensajes").submit(function(){//captura cuando se envia el formulario
       event.preventDefault();//detiene el envio del formulario
 
+      if($("#nombre").val()=="" || $("#apellido").val()=="" || $("#correo").val()=="" || $("#mensaje").val()==""){
+           alert("No puede dejar campos vacios");
+      }else{
 
           $.ajax({//realiza el envio del formulario pero por ajax para no tener que recargar pagina
 
@@ -124,6 +127,7 @@ swal("Exito!", "Se ha Enviado Mensaje correctamente!", "success")
               }
           });
           return false;
+        }
   });
 
 

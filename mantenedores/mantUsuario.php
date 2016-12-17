@@ -74,7 +74,7 @@
                                   <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
                                       <div class="form-group">
                                           <label for="telefono">Correo:</label>
-                                          <input class="form-control"  title="Debe ingresar su correo" required id="txt_correo" name="txt_correo" placeholder="Correo Usuario" type="text">
+                                          <input class="form-control"  title="Debe ingresar su correo" required id="txt_correo" name="txt_correo" placeholder="Correo Usuario" type="email">
                                       </div>
                                   </div>
 

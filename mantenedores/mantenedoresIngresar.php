@@ -1159,13 +1159,13 @@ break;
 
                             $subCatProd->setid_categoria_producto($_REQUEST['cmb_SubCat']);
 
-                            //$subCatProd->insertarSubCategoria();
+                            $subCatProd->insertarSubCategoria();
 
-                            if($subCatProd->insertarSubCategoria()){
-                              //echo "1";
-                            }else{
-                              echo "error al ingresar.";
-                            }
+                            // if($subCatProd->insertarSubCategoria()){
+                            //   //echo "1";
+                            // }else{
+                            //   echo "error al ingresar.";
+                            // }
 
 
                         break;

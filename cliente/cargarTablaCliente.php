@@ -4,11 +4,12 @@ $run = $_SESSION['id'];
 echo $run;
  require_once '../clases/usuario.php';
  $user = new Usuario();
- $consulta = $user->verDatos($run);
+ $filas = $user->verDatos($run);
+ // $filas= $user->listarUsuarios();
  //  $filas = $user->cantidadRegis($consulta);
  // if($filas > 0){
  $contador=0;
-   while ($array = $user->convertir_array($consulta)) {
+   foreach($filas as $array){
        $contador++;
     echo '
       <tr>

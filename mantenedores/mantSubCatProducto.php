@@ -115,16 +115,16 @@
                                         data:$("#formularioSubCat").serialize(),
                                         success:function(respuesta){
                                         //alert("hola");
-                                                if(respuesta == 1){
-                                                  alert(respuesta);
-                                                alert("hola");
+                                                // if(respuesta == 1){
+                                                  //alert(respuesta);
+                                                //alert("hola");
                                                 cambiarPagina(1);
                                                 cargarDivTablaSubCat();
                                                 eliminarCamposSubCat();
                                                 eventoAlertCorrecto();
-                                            }else{
-                                                alert("Ha ocurrido un error.");
-                                            }
+                                            // }else{
+                                            //     alert("Ha ocurrido un error.");
+                                            // }
 
                                         }
                                     });

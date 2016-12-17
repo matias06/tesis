@@ -82,7 +82,7 @@
                                      <div style="animation-delay: 0.5s;" class="col-md-3 animated-panel zoomIn">
                                         <div class="form-group">
                                             <label for="correo">Correo:</label>
-                                            <input class="form-control" id="txt_correo_modificar" name="txt_correo_modificar" placeholder="algo@figuesep.cl" type="text">
+                                            <input class="form-control" id="txt_correo_modificar" name="txt_correo_modificar" placeholder="algo@figuesep.cl" type="email">
                                         </div>
                                     </div>
                                 </div>
