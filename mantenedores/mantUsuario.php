@@ -1,4 +1,4 @@
-<!-- el sistema realiza backup automaticos por htaccess o por las herramientas del hosting -->
+                    <!-- el sistema realiza backup automaticos por htaccess o por las herramientas del hosting -->
 
 <?php
     require_once '../clases/Conexion.php';
@@ -44,38 +44,37 @@
                                     <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
                                         <div class="form-group">
                                             <label for="run">Run:</label>
-                                            <input class="form-control" required title="Debe ingresar un rut valido" required id="txt_run" name="txt_run" placeholder="Rut Usuario" type="text">
+                                            <input class="form-control"  title="Debe ingresar un rut valido" required id="txt_run" name="txt_run" placeholder="Rut Usuario" type="text">
                                         </div>
                                         <!--onkeypress="tecladoooooo"  -->
                                     </div>
                                     <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
                                         <div class="form-group">
                                             <label for="nombre">Nombre</label>
-                                            <input class="form-control" required title="Debe ingresar su nombre" required id="txt_nombre" name="txt_nombre" placeholder="Nombre Usuario" type="text">
+                                            <input class="form-control"  title="Debe ingresar su nombre" required id="txt_nombre" name="txt_nombre" placeholder="Nombre Usuario" type="text">
                                         </div>
                                     </div>
                                     <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
                                         <div class="form-group">
                                             <label for="apellido">Apellido</label>
-                                            <input class="form-control" required title="Debe ingresar su apellido" required id="txt_apellido" name="txt_apellido" placeholder="Apellido Usuario" type="text">
+                                            <input class="form-control"  title="Debe ingresar su apellido" required id="txt_apellido" name="txt_apellido" placeholder="Apellido Usuario" type="text">
                                         </div>
                                     </div>
                                     <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
                                         <div class="form-group">
                                             <label for="telefono">Télefono:</label>
-                                            <input class="form-control" required title="Debe ingresar su télefono" required id="txt_telefono" name="txt_telefono" placeholder="Télefono Usuario" type="text">
+                                            <input class="form-control"  title="Debe ingresar su télefono" required id="txt_telefono" name="txt_telefono" placeholder="Télefono Usuario" type="text">
                                         </div>
                                     </div>
 
 
                                 </div>
 
-
                                 <div class="row">
                                   <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
                                       <div class="form-group">
                                           <label for="telefono">Correo:</label>
-                                          <input class="form-control" required title="Debe ingresar su correo" required id="txt_correo" name="txt_correo" placeholder="Correo Usuario" type="text">
+                                          <input class="form-control"  title="Debe ingresar su correo" required id="txt_correo" name="txt_correo" placeholder="Correo Usuario" type="text">
                                       </div>
                                   </div>
 
@@ -83,7 +82,7 @@
 
                                         <div class="form-group">
                                             <label for="apellido">Contraseña</label>
-                                            <input class="form-control" required title="Debe ingresar contraseña" required id="txt_password" name="txt_password" placeholder="Contraseña Usuario" type="password">
+                                            <input class="form-control"  title="Debe ingresar contraseña" required id="txt_password" name="txt_password" placeholder="Contraseña Usuario" type="password">
                                         </div>
 
                                     </div>
@@ -113,7 +112,7 @@
 
                                             <label for="estado">Estado usuario</label>
                                                  <select class="form-control" required name="estadousuario" id="estadousuario">
-                                                    <option value="" selected disabled>Selecciones estado:</option>
+                                                      <option value="" selected disabled>Selecciones estado:</option>
                                                     <?php
                                                         require_once '../clases/claseEstadoUsuario.php';
                                                         $estadoUsuario= new EstadoUsuario();
@@ -169,52 +168,14 @@
 //      return false;
 // }
 
-function verificarCamposVacios(){
-  var verificar=true;
-  run= $("#txt_run").val();
-  nombre= $("#txt_nombre").val();
-  apellido= $("#txt_apellido").val();
-  telefono= $("#txt_telefono").val();
-  correo= $("#txt_correo").val();
-  password= $("#txt_password").val();
-
-  if(run==""){
-    $("#txt_run").focus();
-    verificar=false;
-  }
-  if(nombre==""){
-    $("#txt_nombre").focus();
-    verificar=false;
-  }
-  if(apellido==""){
-    $("#txt_apellido").focus();
-    verificar=false;
-  }
-  if(telefono==""){
-    $("#txt_telefono").focus();
-    verificar=false;
-  }
-  if(correo==""){
-    $("#txt_correo").focus();
-    verificar=false;
-  }
-  if(password==""){
-    $("#txt_password").focus();
-    verificar=false;
-  }
-  return verificar;
-}
-
-
               function eventoAlertCorrecto(){
               swal("Exito!", "Se ha agregado correctamente!", "success")
               }
 
-
                              $("#formularioRegistro").submit(function(){//captura cuando se envia el formulario
                                 event.preventDefault();//detiene el envio del formulario
 
-                                if(verificarCamposVacios()==false){
+                                if($("#txt_run").val()=="" || $("#txt_nombre").val()=="" || $("#txt_apellido").val()=="" || $("#txt_telefono").val()=="" || $("#txt_correo").val()=="" || $("#txt_password").val()==""){
                                      alert("No puede dejar campos vacios");
                                 }else{
 

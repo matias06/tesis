@@ -57,7 +57,7 @@
                                 <div class="row">
                                   <div style="animation-delay: 0.5s;" class="col-md-3 animated-panel zoomIn">
                                       <div class="form-group">
-                                          <label for="tipoUsuario">Run Usuario</label>
+                                          <label for="tipoUsuario">Usuario</label>
                                                <select class="form-control" name="cmb_usuario_modificar" id="cmb_usuario_modificar">
                                                   <?php
                                                       require_once '../clases/usuario.php';
@@ -65,7 +65,9 @@
                                                       $filasUser= $User->listarRunUsuario();
 
                                                       foreach($filasUser as $tipo){
-                                                          echo '<option value="'.$tipo['run'].'" >'.$tipo['nombre'].'</option>';
+                                                          // echo '<option value="'.$tipo['run'].'" >'.$tipo['nombre'].'</option>';
+                                                          echo '<option value="'.$tipo['run'].'" >'.$tipo['run'].' '.$tipo['nombre'].' '.$tipo['apellido'].'</option>';
+
                                                       }
                                                    ?>
                                               </select>
@@ -74,7 +76,7 @@
                               </div>
                                  <div class="container">
                                       <div class="col-md-3">
-                                          <input type="submit" id="btn_insert" class="btn btn-success" value="Agregar" name="btn_registrar">
+                                          <input type="submit" id="btn_insert" class="btn btn-success" value="Modificar" name="btn_registrar">
 
                                       </div>
                                   </div>
@@ -107,9 +109,13 @@
         $('.modal-backdrop').fadeOut('fast');
     });
 
+
                              $("#formModificarVehiculo").submit(function(){//captura cuando se envia el formulario
                                 event.preventDefault();//detiene el envio del formulario
-
+                                if($("#txt_patente_modificar").val()=="" || $("#txt_marca_modificar").val()=="" ||
+                                 $("#txt_modelo_modificar").val()==""){
+                                     alert("No puede dejar campos vacios");
+                                }else{
 
                                     $.ajax({//realiza el envio del formulario pero por ajax para no tener que recargar pagina
 
@@ -123,6 +129,7 @@
                                         }
                                     });
                                     return false;
+                                  }
                             });
 
 

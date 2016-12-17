@@ -43,7 +43,8 @@
                                     <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
                                         <div class="form-group">
                                             <label for="rut">Rut:</label>
-                                            <input class="form-control" onBlur="validarRut(this)" id="txt_rut" name="txt_rut" required placeholder="Rut Proveedor" type="text">
+                                            <input class="form-control"  id="txt_rut" name="txt_rut" required placeholder="Rut Proveedor" type="text">
+                                            <!-- onBlur="validarRut(this)" -->
                                         </div>
                                     </div>
                                     <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
@@ -73,12 +74,13 @@
                                             <input class="form-control" id="txt_correo" name="txt_correo" required placeholder="Correo electrónico" type="">
                                         </div>
                                     </div>
-                                     <div style="animation-delay: 0.5s;" class="col-md-3 animated-panel zoomIn">
+                                     <div style="animation-delay: 0.5s;" class="col-md-4 animated-panel zoomIn">
 
                                         <div class="form-group">
 
                                             <label for="estado">Estado</label>
-                                                 <select class="form-control" name="cmb_estado" id="cmb_estado">
+                                                 <select class="form-control" required name="cmb_estado" id="cmb_estado">
+                                                   <option value="" selected disabled>Seleccione estado:</option>
                                                     <?php
                                                         require_once '../clases/claseEstado.php';
                                                         $est= new Estado();
@@ -87,14 +89,10 @@
                                                         foreach($filasEst as $tipo){
                                                             echo '<option value="'.$tipo['id_estado'].'" >'.$tipo['descripcion_estado'].'</option>';
                                                         }
-
                                                      ?>
                                                 </select>
-
                                         </div>
-
                                     </div>
-
                                 </div>
 
                                 <div class="container">
@@ -104,10 +102,8 @@
                                 </div>
                                 <div class="row">
                                   <br>
-                                    <div id="contenedorMantenedor"></div><!-- DIV DONDE SE CARGA LA TABLA-->
+                                    <div id="contenedorMantenedor"></div><!-- DIV DONDE SE CARGA LA TABLA DEL mantenedoresIngresar-->
                                 </div>
-
-
                             </fieldset>
                         </form>
                     </div>
@@ -116,13 +112,18 @@
 
             </div>
            </div> <!-- container -->
+           <div id="tablas">
+              <!-- carga la tabla usuario por metodo ajax -->
+          </div>
 
-            <script>
-
+              <script>
                         //ingresar y recarga la pagina
-
                              $("#formularioProveedor").submit(function(){//captura cuando se envia el formulario
                                 event.preventDefault();//detiene el envio del formulario
+
+                if($("#txt_rut").val()=="" || $("#txt_razon_social").val()=="" || $("#txt_direccion").val()=="" || $("#txt_telefono").val()=="" || $("#txt_correo").val()=="" ){
+                     alert("No puede dejar campos vacios");
+                }else{
 
                                     $.ajax({//realiza el envio del formulario pero por ajax para no tener que recargar pagina
 
@@ -137,42 +138,16 @@
                                                 //alert(respuesta);
                                                 //$("#formularioProveedor").html(respuesta);  //muestra el resultado de la consulta si es error o no
                                                //   if(respuesta=="2"){
-
-
-                                               // }else{
-                                               //       $("#error").html(respuesta);
-                                               // }
-
-                                        }
+                                            }
                                     });
-
+                                  }
                             });
-
- </script>
-           <script>
 
     function eventoAlertCorrecto(){
     swal("Exito!", "Se ha agregado correctamente!", "success")
      // swal("Se ha agregado correctamente!", "You clicked the button!", "success")
     }
-    </script>
 
-
-    <script>
- function eventoAlertEliminar(){
-    swal("Exito!", "Se ha eliminado correctamente!", "success")
-     // swal("Se ha agregado correctamente!", "You clicked the button!", "success")
-    }
-
-    </script>
-
-
-
-
-
-
-
-                <script type="text/javascript">
                             function eliminarCamposProveedores(){ /*AQUI LE DOY UN NOMBRE CUALQUIERA A LA FUNCION*/
                                     $("#txt_rut").val("");
                                     $("#txt_razon_social").val("");
@@ -181,13 +156,7 @@
                                     $("#txt_correo").val("");
 
                             }
-                </script>
 
-                 <div id="tablas">
-                    <!-- carga la tabla usuario por metodo ajax -->
-
-                </div>
-                    <script>
                        function eliminarProveedor(id){
                                     // alert(id);
                                      swal({
@@ -224,11 +193,6 @@
 
                                 }
 
-                                </script>
-
-
-                            <script>
-
             function cargarDivTablaProveedores(){
                                 $.ajax({url: '../mantenedorTablasAjax/cargarTablaProveedores.php',
                                         success:function(data){
@@ -241,8 +205,6 @@
 
                            cargarDivTablaProveedores();
 
-                            </script>
-                               <script>
                 var pagina;
                 //INICIO SCRIPT PARA CARGAR TABLA Y PAGINADA
                   function cambiarPagina(arg_pagina){

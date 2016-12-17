@@ -87,6 +87,9 @@
                              $("#formularioServicio").submit(function(){//captura cuando se envia el formulario
                                 event.preventDefault();//detiene el envio del formulario
 
+                                if($("#txt_descripcionServicio").val()==""){
+                                     alert("No puede dejar campos vacios");
+                                }else{
 
                                     $.ajax({//realiza el envio del formulario pero por ajax para no tener que recargar pagina
 
@@ -101,6 +104,7 @@
                                         }
                                     });
                                     return false;
+                                  }
                             });
 
 

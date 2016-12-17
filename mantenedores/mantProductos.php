@@ -159,7 +159,8 @@
                                 //alert("llega");
 
                                      var formData = new FormData(document.getElementById("formularioProducto"));
-                         //alert("llega");
+
+                      
                                     $.ajax({//realiza el envio del formulario pero por ajax para no tener que recargar pagina
                                         url:"mantenedoresIngresar.php?mant=2&prod=1", //donde se va a ingresar "mantenedoresIngresar.php"
                                         data:formData,

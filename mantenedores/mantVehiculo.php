@@ -59,7 +59,7 @@
 
                                   <div style="animation-delay: 0.5s;" class="col-md-3 animated-panel zoomIn">
                                       <div class="form-group">
-                                          <label for="tipoUsuario">Run Usuario</label>
+                                          <label for="tipoUsuario">Usuario</label>
                                                <select class="form-control" required name="cmb_usuario" id="cmb_usuario">
                                                  <option value="" selected disabled>Selecciones usuario:</option>
                                                   <?php
@@ -68,7 +68,9 @@
                                                       $filasUser= $User->listarRunUsuario();
 
                                                       foreach($filasUser as $tipo){
-                                                          echo '<option value="'.$tipo['run'].'" >'.$tipo['nombre'].'</option>';
+                                                          // echo '<option value="'.$tipo['run'].'" >'.$tipo['nombre'].'</option>';
+                                                          echo '<option value="'.$tipo['run'].'" >'.$tipo['run'].' '.$tipo['nombre'].' '.$tipo['apellido'].'</option>';
+
                                                       }
                                                    ?>
                                               </select>
@@ -102,26 +104,7 @@
 
                 </div>
                    <script>
- function verificarCamposVacios(){
-   var verificar=true;
-   patente= $("#txt_patente").val();
-   marca= $("#txt_marca").val();
-   modelo= $("#txt_modelo").val();
 
-   if(patente==""){
-     $("#txt_patente").focus();
-     verificar=false;
-   }
-   if(marca==""){
-     $("#txt_marca").focus();
-     verificar=false;
-   }
-   if(modelo==""){
-     $("#txt_modelo").focus();
-     verificar=false;
-   }
-   return verificar;
- }
 
               function eventoAlertCorrecto(){
               swal("Exito!", "Se ha agregado correctamente!", "success")
@@ -130,7 +113,8 @@
                              $("#formularioVehiculo").submit(function(){//captura cuando se envia el formulario
                                 event.preventDefault();//detiene el envio del formulario
 
-                                if(verificarCamposVacios()==false){
+                                if($("#txt_patente").val()=="" || $("#txt_marca").val()=="" ||
+                                 $("#txt_modelo").val()==""){
                                      alert("No puede dejar campos vacios");
                                 }else{
 

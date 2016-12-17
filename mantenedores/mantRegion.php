@@ -76,8 +76,9 @@
 
                              $("#formularioRegion").submit(function(){//captura cuando se envia el formulario
                                 event.preventDefault();//detiene el envio del formulario
-
-
+                                if($("#txt_region").val()==""){
+                                     alert("No puede dejar campos vacios");
+                                }else{
                                     $.ajax({//realiza el envio del formulario pero por ajax para no tener que recargar pagina
 
                                         url:"mantenedoresIngresar.php?mant=5&func=1", //donde se va a ingresar "mantenedoresIngresar.php"
@@ -91,6 +92,7 @@
                                         }
                                     });
                                     return false;
+                                  }
                             });
 
 

@@ -1,14 +1,14 @@
 
                         <div class="col-xs-8 col-sm-6 col-md-4 col-lg-3">
-                           
+
                             <div class="caption">
                            <!-- Esta funcion carga el modal para modificar datos de la tabla -->
                      <script>
                                function cargarDatosModal(fila){
-                                
+
                                 $("#txt_idregion_modificar").val($("#txt_idregion"+fila).html());
-                                $("#txt_nombreRegion_modificar").val($("#txt_region"+fila).html());               
-                 
+                                $("#txt_nombreRegion_modificar").val($("#txt_region"+fila).html());
+
                                 }
                         </script>
 
@@ -22,7 +22,7 @@
                                               <h3 class="modal-title">Modificar Region</h3>
                                           </div>
                                           <!-- Comienzo formulario -->
-                                            <div class="modal-body">                       
+                                            <div class="modal-body">
                                               <form id="formModificarRegion" name="formModificarRegion">
                                                     <fieldset>
                                                     <div class="row">
@@ -44,23 +44,23 @@
                                                      <button type="submit" class="btn btn-success" data-toggle="modal" data-target="#modificarRegion" id="modificar" value="Guardar cambios" name="btn_registrar">Modificar</button>
                                                     </fieldset>
                                                 </form>
-                                            </div> 
+                                            </div>
 
                                           <!-- Fin formulario -->
                                           <div class="modal-footer">
                                              <div class="col-md-8">
-                                                       
+
                                                     </div>
                                               <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar Ventana</button>
                                           </div>
-                                          
+
                                        </div>
-                                   </div> 
+                                   </div>
                                 </div>
 
                                 <!-- Termino ventana modal -->
-                        
-                                        
+
+
 
                             </div>  <!-- table -->
 
@@ -68,10 +68,12 @@
 
                              $("#formModificarRegion").submit(function(){//captura cuando se envia el formulario
                                 event.preventDefault();//detiene el envio del formulario
-
+                                if($("#txt_nombreRegion_modificar").val()==""){
+                                     alert("No puede dejar campos vacios");
+                                }else{
 
                                     $.ajax({//realiza el envio del formulario pero por ajax para no tener que recargar pagina
-                                       
+
                                         url:"mantenedoresIngresar.php?mant=5&func=2", // donde se va a ingresar "mantenedoresIngresar.php"
                                         data:$("#formModificarRegion").serialize(),
                                         success:function(respuesta){
@@ -82,6 +84,7 @@
                                         }
                                     });
                                     return false;
+                                  }
                             });
 
 
@@ -90,20 +93,20 @@
 
                                 function eliminarRegion(id){
                                     // alert(id);
-                                     swal({   
-                                        title: "Eliminar?",   
-                                        text: "Region!",   
-                                        type: "warning",   
-                                        showCancelButton: true,   
-                                        confirmButtonColor: "#DD6B55",   
-                                        confirmButtonText: "Eliminar",   
-                                        cancelButtonText: "Cancelar",   
-                                        closeOnConfirm: false,   
-                                        closeOnCancel: false }, 
-                                        function(isConfirm){   
-                                            if (isConfirm) {   
+                                     swal({
+                                        title: "Eliminar Region?",
+                                        text: "",
+                                        type: "warning",
+                                        showCancelButton: true,
+                                        confirmButtonColor: "#DD6B55",
+                                        confirmButtonText: "Eliminar",
+                                        cancelButtonText: "Cancelar",
+                                        closeOnConfirm: false,
+                                        closeOnCancel: false },
+                                        function(isConfirm){
+                                            if (isConfirm) {
                                      $.ajax({//realiza el envio del formulario pero por ajax para no tener que recargar pagina
-                                       
+
                                         url:"mantenedoresIngresar.php?mant=5&func=3", // donde se va a ingresar "mantenedoresIngresar.php"
                                         data:"id="+id,
                                         success:function(respuesta){
@@ -112,35 +115,35 @@
                                                 cargarDivTablaRegion();
                                                 eventoAlertEliminar();
                                   }
-                                                });  
-                                                swal("Eliminado", "", "success");   
-                                            } else {    
-                                                swal("Cancelado", "", "error");   
-                                            } 
+                                                });
+                                                swal("Eliminado", "", "success");
+                                            } else {
+                                                swal("Cancelado", "", "error");
+                                            }
                                         });
 
-                            
-                                     
+
+
                                 }
 
                                 /*Aquí se le da la propiedad al boton modificar para que cierre el modal*/
                                 $('#modificar').click(function(){
                                     $('.modal-backdrop').hide()
                                 });
-                                
-                        </script> 
-                        
+
+                        </script>
+
 <script>
  function eventoAlertActualizar(){
     swal("Exito!", "Se ha actualizado correctamente!", "success")
      // swal("Se ha agregado correctamente!", "You clicked the button!", "success")
     }
 
-    </script>   
+    </script>
     <script>
  function eventoAlertEliminar(){
     swal("Exito!", "Se ha eliminado correctamente!", "success")
      // swal("Se ha agregado correctamente!", "You clicked the button!", "success")
     }
 
-    </script> 
+    </script>

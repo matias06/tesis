@@ -21,14 +21,14 @@
                   <h3 class="modal-title">Modificar Trabajo</h3>
           </div>
 <!-- Comienzo formulario -->
-         <div class="modal-body">                       
+         <div class="modal-body">
             <form id="formModificarTrabajo" name="formModificarTrabajo">
                 <fieldset>
                     <div class="row">
                         <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
                             <div class="form-group">
                                 <label for="run">Numero Trabajo:</label>
-                                <input class="form-control" id="txt_idtrabajo_modificar"  readonly name="txt_idtrabajo_modificar" placeholder="Numero Trabajo" type="text">
+                                <input class="form-control" required id="txt_idtrabajo_modificar"  readonly name="txt_idtrabajo_modificar" placeholder="Numero Trabajo" type="text">
                             </div>
                         </div>
                     </div>
@@ -36,7 +36,7 @@
                         <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
                             <div class="form-group">
                                 <label for="nombre">Trabajo:</label>
-                                <input class="form-control" id="txt_nombreTrabajo_modificar" name="txt_nombreTrabajo_modificar" placeholder="Trabajo" type="text">
+                                <input class="form-control" required id="txt_nombreTrabajo_modificar" name="txt_nombreTrabajo_modificar" placeholder="Trabajo" type="text">
                             </div>
                         </div>
                     </div>
@@ -44,7 +44,7 @@
                         <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
                             <div class="form-group">
                                 <label for="descripcion">Detalle Trabajo:</label>
-                                <input class="form-control" id="txt_descripcionTrabajo_modificar" name="txt_descripcionTrabajo_modificar" placeholder="Detalle" type="text">
+                                <input class="form-control" required id="txt_descripcionTrabajo_modificar" name="txt_descripcionTrabajo_modificar" placeholder="Detalle" type="text">
                             </div>
                         </div>
                     </div>
@@ -52,7 +52,7 @@
                         <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
                             <div class="form-group">
                                 <label for="costo">Valor:</label>
-                                <input class="form-control" id="txt_costo_modificar" name="txt_costo_modificar" placeholder="$$$$$$" type="text">
+                                <input class="form-control" required id="txt_costo_modificar" name="txt_costo_modificar" placeholder="$$$$$$" type="text">
                             </div>
                         </div>
                     </div>
@@ -60,8 +60,9 @@
                         <div style="animation-delay: 0.5s;" class="col-md-3 animated-panel zoomIn">
                             <div class="form-group">
                                 <label for="servicio">Servicio</label>
-                                <select class="form-control" name="cmb_servicio_modificar" id="cmb_servicio_modificar">
-                                <?php 
+                                <select class="form-control" required name="cmb_servicio_modificar" id="cmb_servicio_modificar">
+                                  <option value="" selected disabled>Selecciones servicio:</option>
+                                <?php
                                 require_once '../clases/claseServicio.php';
                                 $serv= new Servicio();
                                 $filasServ= $serv->listarServicio();
@@ -69,43 +70,49 @@
                                 echo '<option value="'.$servicio['id_servicio'].'" >'.$servicio['descripcion_servicio'].'</option>';
                                 }
                                 ?>
-                                </select> 
+                                </select>
                             </div>
                         </div>
                     </div>
                     <div class="container">
                         <div class="col-md-8">
-                        <button id="modificar" type="submit" class="btn btn-success" data-toggle="modal" data-target="#modificarTrabajo" value="Guardar cambios" name="btn_registrar">Modificar</button>
+                        <button id="modificar" type="submit" class="btn btn-success" data-toggle="modal" value="Guardar cambios" name="btn_registrar">Modificar</button>
                         </div>
                     </div>
                 </fieldset>
             </form>
-        </div> 
+        </div>
  <!-- Fin formulario -->
         <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar Ventana</button>
         </div>
     </div>
-</div> 
+</div>
 </div><!-- Termino ventana modal -->
-                        
-                                        
-<script>
-    $("#formModificarTrabajo").submit(function(){//captura cuando se envia el formulario
-    event.preventDefault();//detiene el envio del formulario
 
-        $.ajax({//realiza el envio del formulario pero por ajax para no tener que recargar pagina
-        url:"mantenedoresIngresar.php?mant=8&func=2", // donde se va a ingresar "mantenedoresIngresar.php"
-        data:$("#formModificarTrabajo").serialize(),
-        success:function(respuesta){
-        
-        cambiarPagina(1);
-        cargarDivTablaTrabajo();
-        eventoAlertActualizar();
-                                        }
-                                    });
-                                    return false;
-                            });
+
+<script>
+
+                $("#formModificarTrabajo").submit(function(){//captura cuando se envia el formulario
+                event.preventDefault();//detiene el envio del formulario
+
+                if($("#txt_nombreTrabajo_modificar").val()=="" || $("#txt_descripcionTrabajo_modificar").val()=="" ||
+                 $("#txt_costo_modificar").val()==""){
+                     alert("No puede dejar campos vacios");
+                }else{
+                    $.ajax({//realiza el envio del formulario pero por ajax para no tener que recargar pagina
+                    url:"mantenedoresIngresar.php?mant=8&func=2", // donde se va a ingresar "mantenedoresIngresar.php"
+                    data:$("#formModificarTrabajo").serialize(),
+                    success:function(respuesta){
+
+                    cambiarPagina(1);
+                    cargarDivTablaTrabajo();
+                    eventoAlertActualizar();
+                                                    }
+                                                });
+                                                return false;
+                                              }
+                                        });
 
 
                 // dejar inactivo a un usuario
@@ -113,21 +120,21 @@
 
                                 function eliminarTrabajo(id){
                                     // alert(id);
-                                    swal({   
-                                        title: "Eliminar?",   
-                                        text: "Trabajo!",   
-                                        type: "warning",   
-                                        showCancelButton: true,   
-                                        confirmButtonColor: "#DD6B55",   
-                                        confirmButtonText: "Si, Eliminar trabajo!",   
-                                        cancelButtonText: "Cancelar!",   
-                                        closeOnConfirm: false,   
-                                        closeOnCancel: false }, 
-                                        function(isConfirm){   
-                                            if (isConfirm) {   
+                                    swal({
+                                        title: "Eliminar trabajo?",
+                                        text: "",
+                                        type: "warning",
+                                        showCancelButton: true,
+                                        confirmButtonColor: "#DD6B55",
+                                        confirmButtonText: "Si, Eliminar trabajo!",
+                                        cancelButtonText: "Cancelar!",
+                                        closeOnConfirm: false,
+                                        closeOnCancel: false },
+                                        function(isConfirm){
+                                            if (isConfirm) {
 
                                      $.ajax({//realiza el envio del formulario pero por ajax para no tener que recargar pagina
-                                       
+
                                         url:"mantenedoresIngresar.php?mant=8&func=3", // donde se va a ingresar "mantenedoresIngresar.php"
                                         data:"id="+id,
                                         success:function(respuesta){
@@ -135,24 +142,24 @@
                                                 cambiarPagina(1);
                                                 cargarDivTablaTrabajo();
                                          }
-                                                });  
-                                                swal("Eliminado!", "", "success");   
-                                            } else {    
-                                                swal("Cancelado", "", "error");   
-                                            } 
+                                                });
+                                                swal("Eliminado!", "", "success");
+                                            } else {
+                                                swal("Cancelado", "", "error");
+                                            }
                                         });
 
-                            
-                                     
+
+
                                 }
 
 
-    
+
     $('#modificar').click(function(){
         $('.modal-backdrop').fadeOut('fast');
     });
-    
-    
+
+
 </script>
 
 <script>
@@ -161,11 +168,11 @@
      // swal("Se ha agregado correctamente!", "You clicked the button!", "success")
     }
 
-    </script>   
+    </script>
     <script>
  function eventoAlertEliminar(){
     swal("Exito!", "Se ha eliminado correctamente!", "success")
      // swal("Se ha agregado correctamente!", "You clicked the button!", "success")
     }
 
-    </script>  
+    </script>

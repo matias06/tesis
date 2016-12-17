@@ -55,7 +55,9 @@
                                         <div class="form-group">
 
                                             <label for="region">Categoría</label>
-                                                 <select class="form-control" name="cmb_SubCat" id="cmb_SubCat">
+                                                 <select class="form-control" required name="cmb_SubCat" id="cmb_SubCat">
+                                                   <option value="" selected disabled>Seleccione Sub Categoría:</option>
+
                                                     <?php
                                                         require_once '../clases/claseCategoriaProducto.php';
                                                         $CatP= new CategoriaProducto();
@@ -103,6 +105,10 @@
                              $("#formularioSubCat").submit(function(){//captura cuando se envia el formulario
                                 event.preventDefault();//detiene el envio del formulario
 
+                                if($("#txt_subCat").val()==""){
+                                     alert("No puede dejar campos vacios");
+                                }else{
+
                                     $.ajax({//realiza el envio del formulario pero por ajax para no tener que recargar pagina
 
                                         url:"mantenedoresIngresar.php?mant=10&func=1", //donde se va a ingresar "mantenedoresIngresar.php"
@@ -110,7 +116,8 @@
                                         success:function(respuesta){
                                         //alert("hola");
                                                 if(respuesta == 1){
-                                                //alert("hola");
+                                                  alert(respuesta);
+                                                alert("hola");
                                                 cambiarPagina(1);
                                                 cargarDivTablaSubCat();
                                                 eliminarCamposSubCat();
@@ -122,6 +129,7 @@
                                         }
                                     });
                                     return false;
+                                  }
                             });
 
 

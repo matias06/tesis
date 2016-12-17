@@ -19,7 +19,7 @@
                   <h3 class="modal-title">Modificar Ciudad</h3>
           </div>
 <!-- Comienzo formulario -->
-         <div class="modal-body">                       
+         <div class="modal-body">
             <form id="formModificarCiudad" name="formModificarCiudad">
                 <fieldset>
                     <div class="row">
@@ -43,7 +43,7 @@
                             <div class="form-group">
                                 <label for="region">Region</label>
                                 <select class="form-control" name="cmb_region_modificar" id="cmb_region_modificar">
-                                <?php 
+                                <?php
                                 require_once '../clases/claseRegion.php';
                                 $region= new Region();
                                 $filasReg= $region->listarRegion();
@@ -51,42 +51,47 @@
                                 echo '<option value="'.$regi['id_region'].'" >'.$regi['nombre_region'].'</option>';
                                 }
                                 ?>
-                                </select> 
+                                </select>
                             </div>
                         </div>
                     </div>
                     <div class="container">
                         <div class="col-md-8">
-                        <button id="modificar" type="submit" class="btn btn-success" data-toggle="modal" data-target="#modificarCiudad" value="Guardar cambios" name="btn_registrar">Modificar</button>
+                        <button id="modificar" type="submit" class="btn btn-success" data-toggle="modal" value="Guardar cambios" name="btn_registrar">Modificar</button>
                         </div>
                     </div>
                 </fieldset>
             </form>
-        </div> 
+        </div>
  <!-- Fin formulario -->
         <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar Ventana</button>
         </div>
     </div>
-</div> 
+</div>
 </div><!-- Termino ventana modal -->
-                        
-                                        
+
+
                 <script>
                             $("#formModificarCiudad").submit(function(){//captura cuando se envia el formulario
                             event.preventDefault();//detiene el envio del formulario
+
+                            if($("#txt_nombreCiudad_modificar").val()==""){
+                                 alert("No puede dejar campos vacios");
+                            }else{
 
                                 $.ajax({//realiza el envio del formulario pero por ajax para no tener que recargar pagina
                                 url:"mantenedoresIngresar.php?mant=6&func=2", // donde se va a ingresar "mantenedoresIngresar.php"
                                 data:$("#formModificarCiudad").serialize(),
                                 success:function(respuesta){
-                                
+
                                 cambiarPagina(1);
                                 cargarDivTablaCiudad();
                                 eventoAlertActualizar();
                                                                 }
                                                             });
                                                             return false;
+                                                          }
                                                     });
 
 
@@ -95,21 +100,21 @@
 
                                 function eliminarCiudad(id){
                                     // alert(id);
-                                    swal({   
-                                        title: "Eliminar?",   
-                                        text: "Ciudad!",   
-                                        type: "warning",   
-                                        showCancelButton: true,   
-                                        confirmButtonColor: "#DD6B55",   
-                                        confirmButtonText: "Eliminar",   
-                                        cancelButtonText: "Cancelar!",   
-                                        closeOnConfirm: false,   
-                                        closeOnCancel: false }, 
-                                        function(isConfirm){   
-                                            if (isConfirm) {   
+                                    swal({
+                                        title: "Eliminar Ciudad?",
+                                        text: "",
+                                        type: "warning",
+                                        showCancelButton: true,
+                                        confirmButtonColor: "#DD6B55",
+                                        confirmButtonText: "Eliminar",
+                                        cancelButtonText: "Cancelar!",
+                                        closeOnConfirm: false,
+                                        closeOnCancel: false },
+                                        function(isConfirm){
+                                            if (isConfirm) {
 
                                      $.ajax({//realiza el envio del formulario pero por ajax para no tener que recargar pagina
-                                       
+
                                         url:"mantenedoresIngresar.php?mant=6&func=3", // donde se va a ingresar "mantenedoresIngresar.php"
                                         data:"id="+id,
                                         success:function(respuesta){
@@ -118,21 +123,21 @@
                                                 cargarDivTablaCiudad();
                                                 eventoAlertEliminar();
                                    }
-                                                });  
-                                                swal("Eliminado", "", "success");   
-                                            } else {    
-                                                swal("Cancelado", "", "error");   
-                                            } 
+                                                });
+                                                swal("Eliminado", "", "success");
+                                            } else {
+                                                swal("Cancelado", "", "error");
+                                            }
                                         });
                                     }
 
-    
+
     $('#modificar').click(function(){
         $('.modal-backdrop').fadeOut('fast');
     });
-    
-    
-    </script> 
+
+
+    </script>
     <script>
  function eventoAlertActualizar(){
     swal("Exito!", "Se ha actualizado correctamente!", "success")
@@ -145,4 +150,4 @@
      // swal("Se ha agregado correctamente!", "You clicked the button!", "success")
     }
 
-    </script> 
+    </script>

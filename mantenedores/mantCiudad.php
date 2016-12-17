@@ -53,7 +53,9 @@
                                         <div class="form-group">
 
                                             <label for="region">Region</label>
-                                                 <select class="form-control" name="region" id="region">
+                                                 <select class="form-control" required name="region" id="region">
+                                                   <option value="" selected disabled>Selecciones región:</option>
+
                                                     <?php
                                                         require_once '../clases/claseRegion.php';
                                                         $regi= new Region();
@@ -103,6 +105,9 @@
                              $("#formularioCiudad").submit(function(){//captura cuando se envia el formulario
                                 event.preventDefault();//detiene el envio del formulario
 
+                                if($("#txt_ciudad").val()==""){
+                                     alert("No puede dejar campos vacios");
+                                }else{
 
                                     $.ajax({//realiza el envio del formulario pero por ajax para no tener que recargar pagina
 
@@ -121,6 +126,7 @@
                                         }
                                     });
                                     return false;
+                                  }
                             });
 
 

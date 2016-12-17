@@ -1115,22 +1115,22 @@ require_once '../clases/usuario.php';
 																			 									foreach($filas[0][0] as $categoriaProducto){
 																			 													$contador++;
 
-																			 							echo'
-																			 							<tr class="tablaFilas">
-																			 									<td><span id="txt_num'.$contador.'">'.$categoriaProducto['id_categoria_producto'].'</span></td>
-																			 									<td><span id="txt_catProd'.$contador.'">'.$categoriaProducto['descripcion_categoria_producto'].'</span></td>
+                                                          echo'
+                                                          <tr class="tablaFilas">
+                                                          <td><span id="txt_num'.$contador.'">'.$categoriaProducto['id_categoria_producto'].'</span></td>
+                                                          <td><span id="txt_catProd'.$contador.'">'.$categoriaProducto['descripcion_categoria_producto'].'</span></td>
 
-																			 									<!--  botones editar -->
-																			 									<td><button type="button" onclick="cargarDatosModal('.$contador.')" data-toggle="modal" data-target="#modificarCatProd" class="btn btn-warning">
-																			 									<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                                          <!--  botones editar -->
+                                                          <td><button type="button" onclick="cargarDatosModal('.$contador.')" data-toggle="modal" data-target="#modificarCatProd" class="btn btn-warning">
+                                                          <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
 
 
 
-																			 									<!--  botones eliminar -->
-																			 									<button type="button" class="btn btn-danger" onclick="eliminarCatProducto(\''.$categoriaProducto['id_categoria_producto'].'\');" aria-label="left aling">
-																			 									<span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button></td>
-																			 							</tr>';
-																			 							 } ?>
+                                                          <!--  botones eliminar -->
+                                                          <button type="button" class="btn btn-danger" onclick="eliminarCatProducto(\''.$categoriaProducto['id_categoria_producto'].'\');" aria-label="left aling">
+                                                          <span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button></td>
+                                                          </tr>';
+                                                          } ?>
 																			 							 <tr>
 																			 									 <td colspan="7">
 																			 											 <center>

@@ -25,12 +25,7 @@
                       <form id="formModificarCatProd" name="formModificarCatProd">
                         <fieldset>
                               <div class="row">
-                                  <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
-                                      <div class="form-group">
-                                          <label for="numeroCat">Número categoría:</label>
-                                          <input class="form-control" title="" required id="txt_num_Modificar" name="txt_num_Modificar" placeholder="" type="text">
-                                      </div>
-                              </div>
+
                               <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
                                   <div class="form-group">
                                       <label for="CatProd">Categoría producto:</label>
@@ -71,6 +66,9 @@
      $("#formModificarCatProd").submit(function(){//captura cuando se envia el formulario
         event.preventDefault();//detiene el envio del formulario
 
+        if($("#txt_catProdModificar").val()==""){
+             alert("No puede dejar campos vacios");
+        }else{
 
             $.ajax({//realiza el envio del formulario pero por ajax para no tener que recargar pagina
 
@@ -84,6 +82,7 @@
                 }
             });
             return false;
+          }
     });
 
 
@@ -93,8 +92,8 @@
         function eliminarCatProducto(id){
             //alert(id);
              swal({
-                title: "Eliminar?",
-                text: "Categoría de trabajo!",
+                title: "Eliminar Categoría de trabajo?",
+                text: "",
                 type: "warning",
                 showCancelButton: true,
                 confirmButtonColor: "#DD6B55",

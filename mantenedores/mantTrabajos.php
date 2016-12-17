@@ -65,7 +65,9 @@
                                         <div class="form-group">
 
                                             <label for="servicio">Servicio: </label>
-                                                 <select class="form-control" name="servicio" id="servicio">
+                                                 <select class="form-control" required  name="servicio" id="servicio">
+                                                   <option value="" selected disabled>Seleccione servicio:</option>
+
                                                     <?php
                                                         require_once '../clases/claseServicio.php';
                                                         $serv= new Servicio();
@@ -107,9 +109,14 @@
 
  <script>
 
+
                              $("#formularioTrabajo").submit(function(){//captura cuando se envia el formulario
                                 event.preventDefault();//detiene el envio del formulario
 
+                                if($("#txt_nombreTrabajo").val()=="" || $("#txt_descripcionTrabajo").val()=="" ||
+                                 $("#txt_costo").val()==""){
+                                     alert("No puede dejar campos vacios");
+                                }else{
 
                                     $.ajax({//realiza el envio del formulario pero por ajax para no tener que recargar pagina
 
@@ -128,6 +135,7 @@
                                         }
                                     });
                                     return false;
+                                  }
                             });
 
 
