@@ -3,15 +3,13 @@
 	require_once '../clases/Conexion.php';
 	$conexion = new Conexion();
 	$conexion->consultarSesion();
-
-
 ?>
 
 <!DOCTYPE html>
 <html lang="es">
 <head>
    <title>Pagina principal</title>
-	 
+
 	<?php 	cargarHeader(); ?>
 
 </head>

@@ -22,8 +22,8 @@ echo "el run es: ".$run;
     <span id="txt_servicio'.$contador.'">'.$array['descripcion_servicio']. '</span></td>
     <td><span id="txt_problema'.$contador.'">'.$array['descripcion_problema']. '</span></td>
     <td><span id="txt_fecha'.$contador.'">'.$array['fecha'].'</span></td>
-    <td><span id="txt_hora'.$contador.'">'.$array['id_hora'].'</span></td>
-    <td><span id="txt_descripcion_hora'.$contador.'">'.$array['descripcion_hora'].'</span></td>
+    <td><span class="hidden" id="txt_hora'.$contador.'">'.$array['id_hora'].'</span>
+    <span id="txt_descripcion_hora'.$contador.'">'.$array['descripcion_hora'].'</span></td>
     <td><span class="hidden" id="txt_id_estado_reserva'.$contador.'">'.$array['id_estado_reserva'].'</span>
     <span id="txt_descripcion_estado'.$contador.'">'.$array['descripcion_estado_reserva']. '</span></td>
 
