@@ -54,7 +54,7 @@ function cargarMenu(){
                                 <li><a href="../mantenedores/mantenedores.php"><span class="glyphicon glyphicon-cog">Mantenedores</span></a></li>
                                 <li><a href="../principal/proveedores.php"><span class="glyphicon glyphicon-briefcase"> Proveedores</span></a></li>
                                 <li><a href="../principal/comprasProveedor.php"><span class="glyphicon glyphicon-shopping-cart"> Compras</span></a></li>
-                                <li><a href="../principal/ventaproducto.php"><span class="glyphicon glyphicon-barcode"> Venta</span></a></li>
+                                <li><a href="../principal/venta.php"><span class="glyphicon glyphicon-barcode"> Venta</span></a></li>
                                 <li><a href="../principal/stockProductos.php"><span class="glyphicon glyphicon-list-alt"> Stock</span></a></li>
                                 <li><a href="../principal/mensajes.php"><span class="glyphicon glyphicon-envelope"> Mensajes</span></a></li>
                                 <li><a href="../comun/destruirSesion.php"><span class="glyphicon glyphicon-remove-circle"> Salir</span></a></li>
