@@ -22,6 +22,10 @@
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/sweetalert.min.js"></script>
     <script src="../js/main.js"></script>
+    <script type="text/javascript">
+
+    </script>
+
 
     <!-- > css generales < -->
     <link href="../css/style.css" rel="stylesheet" />
@@ -213,7 +217,7 @@
                             </div>
                             <div class="row">
                              <div class="col-md-12">
-                                    <button id="modal-datos" type="submit" class="btn btn-primary" data-toggle="modal" data-target="#modal-datos" value="Modificar datos" name="btn_guardar">Crear</button>
+                                    <button id="modal-datos" type="submit" class="btn btn-primary" data-toggle="modal" data-target="#modal-datos" value="Modificar datos" name="btn_guardar">Modificar</button>
                             </div>
                         </div>
 
@@ -269,13 +273,13 @@
                                      <label for="servicio">Patente: </label>
                                       <select class="form-control" name="txt_patenteReserva" id="txt_patenteReserva">
                                          <?php
-                                            //  require_once '../clases/clasevehiculo.php';
-                                            //  $ver= new Vehiculo();
-                                            //  $ver->setrun($_SESSION['id']);
-                                            //  $filasPatente = $ver->listarPatente();
-                                            //  foreach($filasPatente as $vehiculo){
-                                            //      echo '<option value="'.$vehiculo['patente'].'" >'.$vehiculo['patente'].' '.$vehiculo['marca'].' '.$vehiculo['modelo'].'</option>';
-                                            //  }
+                                             require_once '../clases/clasevehiculo.php';
+                                             $ver= new Vehiculo();
+                                             $ver->setrun($_SESSION['id']);
+                                             $filasPatente = $ver->listarPatente();
+                                             foreach($filasPatente as $vehiculo){
+                                                 echo '<option value="'.$vehiculo['patente'].'" >'.$vehiculo['patente'].' '.$vehiculo['marca'].' '.$vehiculo['modelo'].'</option>';
+                                             }
                                           ?>
                                      </select>
                              </div>
@@ -368,14 +372,6 @@
                                                               foreach($filasPatente as $vehiculo){
                                                                   echo '<option value="'.$vehiculo['patente'].'" >'.$vehiculo['patente'].' '.$vehiculo['marca'].' '.$vehiculo['modelo'].'</option>';
                                                               }
-
-                                                              // require_once '../clases/clasevehiculo.php';
-                                                              // $ver = new Vehiculo();
-                                                              // $ver->setrun($_SESSION['id']);
-                                                              // $filasPatente = $ver->listarPatente();
-                                                              // foreach($filasPatente as $vehiculo){
-                                                              //     echo '<option value="'.$vehiculo['patente'].'" >'.$vehiculo['patente'].' '.$vehiculo['marca'].' '.$vehiculo['modelo'].'</option>';
-                                                              // }
 
                                                            ?>
                                                       </select>
@@ -657,22 +653,12 @@ footerPublico();
 // });
 
 
-        //    function cargarTablaDatos(){
-        //     $.ajax({
-        //       url:'../cliente/cargarTablaCliente.php',
-        //       success:function(resultado){
-        //         $("#cargarDatos").html(resultado);
-        //         }
-        //     });
-        // }
         $(document).ready(function cargarTablaDatos(){
            $.ajax({
              url:'../cliente/cargarTablaCliente.php',
              success:function(resultado){
                $("#cargarDatos").html(resultado);
                }
-
-
 
      });
   return false;
@@ -713,25 +699,18 @@ footerPublico();
                 });
             });
         </script> -->
-
 <script type="text/javascript">
-function cargarTablaReserva(){
-$.ajax({
-  url:'../cliente/cargarTablaReserva.php',
-  success:function(resultado){
-    $("#cargarReservas").html(resultado);
-                }
-        });
-}
 
-    // $( document ).ready(function cargarTablaReserva(){
-    // $.ajax({
-    //   url:'../cliente/cargarTablaReserva.php',
-    //   success:function(resultado){
-    //     $("#cargarReservas").html(resultado);
-    //                 }
-    //         });
-    // });
+$(document).ready(function cargarTablaReserva(){
+   $.ajax({
+     url:'../cliente/cargarTablaReserva.php',
+     success:function(resultado){
+       $("#cargarReservas").html(resultado);
+       }
+});
+return false;
+});
+
 </script>
 <script>
        function cargarMisVehiculos(fila){
@@ -754,6 +733,17 @@ $.ajax({
 
 </script>
 <script type="text/javascript">
+
+
+// $(document).ready(function cargarTablaVehiculos(){
+//    $.ajax({
+//      url:'../cliente/cargarTablaVehiculos.php',
+//      success:function(resultado){
+//        $("#cargarVehiculos").html(resultado);
+//        }
+// });
+// return false;
+// });
    function cargarTablaVehiculos(){
     $.ajax({
       url:'../cliente/cargarTablaVehiculos.php',
@@ -764,15 +754,7 @@ $.ajax({
     });
 }
 
-// $( document ).ready(function cargarTablaVehiculos(){
-//  $.ajax({
-//    url:'../cliente/cargarTablaVehiculos.php',
-//    success:function(resultado){
-//      $("#cargarVehiculos").html(resultado);
-//
-//      }
-//  });
-// });
+
 // MODIFICAR MIS DATOS
 $("#formModificarUsuario").submit(function(){//captura cuando se envia el formulario
    event.preventDefault();//detiene el envio del formulario
@@ -821,10 +803,10 @@ $("#formModReservas").submit(function(){
            url:"../mantenedores/mantenedoresIngresar.php?mant=13&func=2",
            data:$("#formModReservas").serialize(),
            success:function(respuesta){
+             cargarTablaReserva();
                 //alert(respuesta);
                  //$("#reserva").html(respuesta); muestra informacion en el div seleccionado
                   //alert("hola");
-                  cargarTablaReserva();
                   eventoAlertmodificar();
            }
        });
@@ -932,15 +914,16 @@ $("#autos-despegable").hide();
 
 $( "#misdatos" ).click(function() {
 
-    $("#datos-despegable").fadeIn(2000);
+    $("#datos-despegable").fadeIn(1000);
     $("#reservas-despegable").hide();
     $("#autos-despegable").hide();
+
 
 });
 
 $( "#misreservas" ).click(function() {
 
-    $("#reservas-despegable").fadeIn(2000);
+    $("#reservas-despegable").fadeIn(1000);
     $("#datos-despegable").hide();
     $("#autos-despegable").hide();
 
@@ -948,18 +931,15 @@ $( "#misreservas" ).click(function() {
 
 $( "#misautos" ).click(function() {
 
-    $("#autos-despegable").fadeIn(2000);
+    $("#autos-despegable").fadeIn(1000);
     $("#datos-despegable").hide();
     $("#reservas-despegable").hide();
 
 });
 //carga al iniciar la pagina
-  // cargarTablaDatos();
-
-  // cargarTablaReserva();
-  // cargarTablaVehiculos();
-
-
+cargarTablaDatos();
+cargarTablaReserva();
+cargarTablaVehiculos();
 
 </script>
 </body>

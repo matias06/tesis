@@ -160,12 +160,12 @@
                        function eliminarProveedor(id){
                                     // alert(id);
                                      swal({
-                                        title: "Eliminar?",
-                                        text: "Proveedor!",
+                                        title: "Eliminar Proveedor?",
+                                        text: "",
                                         type: "warning",
                                         showCancelButton: true,
                                         confirmButtonColor: "#DD6B55",
-                                        confirmButtonText: "Yes, cambiar estado!",
+                                        confirmButtonText: "Eliminar",
                                         cancelButtonText: "No, cancelar!",
                                         closeOnConfirm: false,
                                         closeOnCancel: false },
@@ -183,7 +183,7 @@
                                                 eventoAlertEliminar();
                                      }
                                                 });
-                                                swal("Modificado!", "", "success");
+                                                swal("Proveedor eliminado!", "", "success");
                                             } else {
                                                 swal("Cancelado", "", "error");
                                             }

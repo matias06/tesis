@@ -199,12 +199,12 @@
                                   function eliminarUsuario(id){
                                     // alert(id);
                                     swal({
-                                        title: "Eliminar?",
-                                        text: "Usuario!",
+                                        title: "Eliminar Usuario?",
+                                        text: "",
                                         type: "warning",
                                         showCancelButton: true,
                                         confirmButtonColor: "#DD6B55",
-                                        confirmButtonText: "Yes, cambiar estado!",
+                                        confirmButtonText: "Eliminar!",
                                         cancelButtonText: "Cancelar!",
                                         closeOnConfirm: false,
                                         closeOnCancel: false },
@@ -220,7 +220,7 @@
                                                             cargarDivTablaUsuario();
                                                     }
                                                 });
-                                                swal("Modificado!", "", "success");
+                                                swal("Usuario Eliminado", "", "success");
                                             } else {
                                                 swal("Cancelado", "", "error");
                                             }
