@@ -91,4 +91,18 @@ public function setdescripcion_estado_reserva ($arg_descripcion_estado_reserva){
 				}
 
 		 }
+public function reservaAdmin(){
+	$consulta="UPDATE reserva SET
+	 id_estado_reserva='".$this->setid_estado_reserva."'
+	 WHERE id_reserva='".$this->id_reserva."'";
+	 $modificarReserva = $this->insertarRegistros($consulta);
+	// echo "hola pepo".$consulta;
+			if($modificarReserva==true){
+				return true;
+			}
+			else{
+				echo "ERROR AL MODIFICAR RESERVA; ERROR: ".$consulta;
+			}
+}
+
 }

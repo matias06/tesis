@@ -2,6 +2,7 @@
 require_once '../clases/Conexion.php';
 class Mensaje extends Conexion{
 
+	private $id;
 	private $fecha;
 	private $nombre;
 	private $apellido;
@@ -12,6 +13,10 @@ class Mensaje extends Conexion{
 
 	public function __construct(){
 		parent::__construct();
+	}
+
+	public function setid ($arg_id){
+		$this->id=$arg_id;
 	}
 
 	public function setfecha ($arg_fecha){
@@ -46,6 +51,10 @@ class Mensaje extends Conexion{
 
   }
 
+	public function eliminarMensaje(){
+		$fun = $this->insertarRegistros("DELETE FROM mensajes WHERE id_mensaje = '".$this->id."'");
+		return $fun;
+	}
 
 	}
 

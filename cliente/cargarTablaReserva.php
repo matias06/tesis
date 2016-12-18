@@ -1,7 +1,7 @@
 <?php
 session_start();
 $run = $_SESSION['id'];
-echo "el run es: ".$run;
+// echo "el run es: ".$run;
 
  require_once '../clases/usuario.php';
  $user = new Usuario();

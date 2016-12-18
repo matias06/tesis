@@ -1,7 +1,7 @@
 <?php
 session_start();
 $run = $_SESSION['id'];
-echo $run;
+// echo $run;
  require_once '../clases/usuario.php';
  $user = new Usuario();
  $filas = $user->verDatos($run);
