@@ -1597,7 +1597,7 @@ break;
             $reserva->setid_estado_reserva(1);
             // $reserva->modificarReservas();
 
-              if($reserva->modificarReservas()){
+              if($reserva->insertarReservas()){
                 echo "Se modifico correctamente";
               }else{
                 echo "Error al modificar";

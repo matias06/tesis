@@ -44,7 +44,7 @@ public function setrun ($arg_run){
 	public function eliminarVehiculo(){
 		$eliminarVehiculo = $this->insertarRegistros
 			("DELETE FROM vehiculo WHERE patente = '".$this->patente."'");
-			return $modificarVehiculo;
+			return $eliminarVehiculo;
 	}
 
 	public function modificarVehiculo(){

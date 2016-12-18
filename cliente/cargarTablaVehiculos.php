@@ -5,11 +5,11 @@
     //echo "<tr><td>el run es: ".$run."</td></tr>";
      require_once '../clases/clasevehiculo.php';
      $veh = new Vehiculo();
-     $consulta = $veh->cargarVehiculos($run);
+     $filas = $veh->cargarVehiculos($run);
      //  $filas = $user->cantidadRegis($consulta);
      // if($filas > 0){
      $contador=0;
-       while ($array = $veh->convertir_array($consulta)) {
+        foreach($filas as $array){
          $contador++;
         echo '
           <tr>

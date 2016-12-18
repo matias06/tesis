@@ -146,13 +146,13 @@
                                   function eliminarVehiculo(id){
                                     //alert(id);
                                     swal({
-                                        title: "Eliminar?",
-                                        text: "Vehiculo!",
+                                        title: "Eliminar Vehiculo?",
+                                        text: "",
                                         type: "warning",
                                         showCancelButton: true,
                                         confirmButtonColor: "#DD6B55",
-                                        confirmButtonText: "Eliminar!",
-                                        cancelButtonText: "Cancelar!",
+                                        confirmButtonText: "Eliminar",
+                                        cancelButtonText: "Cancelar",
                                         closeOnConfirm: false,
                                         closeOnCancel: false },
                                         function(isConfirm){
@@ -162,12 +162,12 @@
                                                     url:"mantenedoresIngresar.php?mant=12&func=4", // donde se va a ingresar "mantenedoresIngresar.php"
                                                     data:"id="+id,
                                                     success:function(respuesta){
-                                                            alert(respuesta);
+                                                            //alert(respuesta);
                                                             cargarDivTablaVehiculo();
 
                                                     }
                                                 });
-                                                swal("ELIMINADO!", "", "success");
+                                                swal("VEHICULO ELIMINADO!", "", "success");
                                             } else {
                                                 swal("Cancelado", "", "error");
                                             }

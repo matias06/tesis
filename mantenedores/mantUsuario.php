@@ -5,6 +5,37 @@
     $conexion = new Conexion();
     $conexion->consultarSesion();
 ?>
+<?php
+function validaRut($rut){
+    if(strpos($rut,"-")==false){
+        $RUT[0] = substr($rut, 0, -1);
+        $RUT[1] = substr($rut, -1);
+    }else{
+        $RUT = explode("-", trim($rut));
+    }
+    $elRut = str_replace(".", "", trim($RUT[0]));
+    $factor = 2;
+    for($i = strlen($elRut)-1; $i >= 0; $i--):
+        $factor = $factor > 7 ? 2 : $factor;
+        $suma += $elRut{$i}*$factor++;
+    endfor;
+    $resto = $suma % 11;
+    $dv = 11 - $resto;
+    if($dv == 11){
+        $dv=0;
+    }else if($dv == 10){
+        $dv="k";
+    }else{
+        $dv=$dv;
+    }
+   if($dv == trim(strtolower($RUT[1]))){
+       return true;
+   }else{
+       return false;
+   }
+}
+
+?>
 <div class="container">
    <div class="col-xs-12 col-md-4 col-md-offset-4">
                   <div class="input-group">
@@ -44,7 +75,7 @@
                                     <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
                                         <div class="form-group">
                                             <label for="run">Run:</label>
-                                            <input class="form-control"  title="Debe ingresar un rut valido" required id="txt_run" name="txt_run" placeholder="Rut Usuario" type="text">
+                                            <input class="form-control" validaRut($rut)  title="Debe ingresar un rut valido" required id="txt_run" name="txt_run" placeholder="Rut Usuario" type="text">
                                         </div>
                                         <!--onkeypress="tecladoooooo"  -->
                                     </div>
