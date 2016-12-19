@@ -118,6 +118,11 @@ class Usuario extends Conexion{
 			$resultado = $this->consultar($consulta);
 			return $resultado;
 		}
+		public function cargarReservasAll(){
+			$consulta = 'SELECT * FROM verreserva';
+			$resultado = $this->consultar($consulta);
+			return $resultado;
+		}
 		public function verDatos($runDatos){
 			$consulta = 'SELECT * FROM vistausuario WHERE run = "'.$runDatos.'"';
 			$resultado = $this->consultar($consulta);

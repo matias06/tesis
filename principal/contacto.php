@@ -19,8 +19,6 @@
     <script src="../js/vendor/modernizr-2.8.3.min.js"></script>
     <script src="../js/sweetalert.min.js"></script>
 
-
-
 </head>
 <body>
 
@@ -29,12 +27,11 @@
 require_once'../comun/comun.php';
 menuPublico();
 ?>
-
-<!-- END MODAL-->
-
+<br>
 <main class="contenido-principal"><!--contenido-principal-->
 <div class="container">
-    <form id="formularioMensajes" name="formularioMensajes" method="POST">
+    <form id="formularioMensajes" name="formularioMensajes" method="POST" class="col-md-8 col-md-offset-2">
+      <legend align="center">Contacto</legend>
                 <div class="form-group">
                    <label for="nombre">Nombre:</label>
                    <input class="form-control" required id="nombre" name="nombre" type="text" placeholder="Nombre">
@@ -51,11 +48,11 @@ menuPublico();
                    <label for="mensaje">Mensaje</label>
                    <textarea class="form-control col-xs-12" required id="mensaje"  name="mensaje" placeholder="Escriba su mensaje"></textarea>
                 </div>
-
-                <div class="col-xs-12 col-sm-4 col-sm-offset-4">
-                    <br><input type="submit"  class="btn btn-success col-xs-12"></input>
+                <div class="form-group">
+                  <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+                      <br><input type="submit"  class="btn btn-success col-xs-12"></input>
+                  </div>
                 </div>
-
 
            </form>
 
@@ -63,7 +60,7 @@ menuPublico();
 
 </main><!--contenido-principal-->
 
-
+<br>
 
 <footer>
 

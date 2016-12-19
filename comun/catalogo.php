@@ -19,10 +19,7 @@ function catalogo(){
               echo $contador;
               echo'" style="margin-top:3rem;"> <!--contenido-principal-->';
                   echo '<div class="col-xs-12 col-sm-6 col-md-3">
-                        <span class="lead titulo-categoria text-center c';
-                           echo $contador;
-                              echo'">';
-                          echo $descategoria.'</span>              <hr>
+                        <span class="lead titulo-categoria text-center c';echo $contador; echo'">'; echo $descategoria.'</span>              <hr>
                                 <ul class="nav nav-pills nav-stacked">';
                                   $subcatpro = $subcategoria->listarSubCatProducto($categorias);
                                   foreach($subcatpro as $versubcategoria){
@@ -31,23 +28,22 @@ function catalogo(){
                                   echo '
                                         <li><a href="catalogo_2.php?id='.$idsubcategorias.'&categoria='.$categorias.'" >'; echo $descsubcategoria.'</a></li>';
                                       }
-                                  echo  '
-                                  </ul>
+                                  echo  '</ul>
                           </div>
                     <div class="col-xs-12 col-sm-6 col-md-9">';
                     $listap = $producto->listar_producto_x_categoria($categorias);
                     foreach($listap as $verproducto){?>
                     <div class="well well-cw col-xs-12 col-md-4 col-lg-3">
-                        <a href="ficha.php">
+                        <a href="#">
                             <img src="../imagenes/productos/<?php echo $verproducto['imagen']; ?>" class="img-responsive" alt="<?php echo $verproducto['descripcion_producto']; ?>">
                             <span><?php echo $verproducto['descripcion_producto'].", valor $".$verproducto['valor_producto']; ?></span>
                           </a>
-                      </div>
+                    </div>
                       <?php }
                       echo '</div>
-                    </div>';
+                    </div> </div>';
                       }
-                      echo '</div>';
+
 }
 
 function cargarProductoxCategoria(){
@@ -60,7 +56,7 @@ function cargarProductoxCategoria(){
     ?>
 
     <div class="well well-cw col-xs-12 col-sm-6 col-md-4 col-lg-3">
-        <a href="ficha.php">
+        <a href="#">
             <img src="../imagenes/productos/<?php echo $verproducto['imagen']; ?>" class="img-responsive" alt="<?php echo $verproducto['descripcion_producto']; ?>">
             <span><?php echo $verproducto['descripcion_producto'].", valor $".$verproducto['valor_producto']; ?></span>
         </a>

@@ -9,8 +9,6 @@ function cargarHeader(){
 <meta name="Author" content="" />
 <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 
-
-
 <script src="../js/jquery.js"></script>
 <script src="../js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="../css/bootstrap.min.css">
@@ -24,9 +22,6 @@ function cargarHeader(){
 <link rel="stylesheet" href="../js/validar_formulario.js"> -->
 <link rel="stylesheet" type="text/css" href="../css/sweet-alert.css">
 <link rel="stylesheet" href="../css/estilo.css">
-
-
-
 
 <?php
 }
@@ -45,19 +40,153 @@ function cargarMenu(){
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                             </button>
-                        <a href="../principal/indexAdmin.php"><img src="../comun/logo/fsp.png" alt="" width="220" height="50"></a>
+                            <a href="../principal/indexAdmin.php"><img src="../comun/logo/fsp.png" alt="" width="220" height="50"></a>
                         </div>
                         <div class="collapse navbar-collapse" id="navbar-1">
-                            <ul class="nav navbar-nav">
+                            <ul class="nav navbar-nav navbar-right">
 
+                                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-cog">Mantenedores</span><b class="caret"></b></a>
+                                    <ul class="dropdown-menu">
+                                        <li class="fondo lineaLi">
+                                            <a href="../mantenedores/mantenedores.php" value="Usuario" onclick="cargarDivUsuario();"> Usuario</a>
+                                          </li>
+                                          <script type="text/javascript">
+                                          function cargarDivUsuario(){ /*AQUI LE DOY UN NOMBRE CUALQUIERA A LA FUNCION*/
+                                            $.ajax({url: '../mantenedores/mantUsuario.php',
+                                             success:function(data){
+                                               $("#page-wrapper").html(data);
+                                                            }
+                                                    });
+                                                }
+                                            </script>
+
+                                        <li class="lineaLi">
+                                            <a href="#" value="Productos" onclick="cargarDivProductos();">Producto</a>
+
+                                            <script type="text/javascript">
+                                            function cargarDivProductos(){ /*AQUI LE DOY UN NOMBRE CUALQUIERA A LA FUNCION*/
+                                              $.ajax({url: '../mantenedores/mantProductos.php',
+                                            success:function(data){
+                                            $("#page-wrapper").html(data);
+                                                                  }
+                                                });
+                                                                  }
+                                          </script>
+                                          </li>
+                                        <li class="lineaLi">
+                                            <a href="#" value="proveedor" onclick="cargarDivProveedor();">Proveedor</a>
+                                            <script type="text/javascript">
+                                                function cargarDivProveedor(){ /*AQUI LE DOY UN NOMBRE CUALQUIERA A LA FUNCION*/
+
+                                                    $.ajax({url: '../mantenedores/mantProveedor.php',
+                                                            success:function(data){
+                                                                $("#page-wrapper").html(data);
+                                                            }
+                                                    });
+                                                }
+                                                </script>
+                                        </li>
+                                        <li class="lineaLi">
+                                            <a href="#" value="servicios" onclick="cargarDivServicios();">Servicios</a>
+                                            <script type="text/javascript">
+                                                function cargarDivServicios(){ /*AQUI LE DOY UN NOMBRE CUALQUIERA A LA FUNCION*/
+
+                                                    $.ajax({url: '../mantenedores/mantServicios.php',
+                                                            success:function(data){
+                                                                $("#page-wrapper").html(data);
+                                                            }
+                                                    });
+                                                }
+                                                </script>
+                                        </li>
+                                        <li class="lineaLi">
+                                            <a href="#" value="trabajos" onclick="cargarDivTrabajos();">Trabajos</a>
+                                            <script type="text/javascript">
+                                                function cargarDivTrabajos(){ /*AQUI LE DOY UN NOMBRE CUALQUIERA A LA FUNCION*/
+
+                                                    $.ajax({url: '../mantenedores/mantTrabajos.php',
+                                                            success:function(data){
+                                                                $("#page-wrapper").html(data);
+                                                            }
+                                                    });
+                                                }
+                                                </script>
+                                        </li>
+                                        <li class="lineaLi">
+                                            <a href="#" value="servicios" onclick="cargarDivRegion();">Región</a>
+                                            <script type="text/javascript">
+                                                function cargarDivRegion(){ /*AQUI LE DOY UN NOMBRE CUALQUIERA A LA FUNCION*/
+
+                                                    $.ajax({url: '../mantenedores/mantRegion.php',
+                                                            success:function(data){
+                                                                $("#page-wrapper").html(data);
+                                                            }
+                                                    });
+                                                }
+                                                </script>
+                                        </li>
+                                        <li class="lineaLi">
+                                            <a href="#" value="ciudad" onclick="cargarDivCiudad();">Ciudad</a>
+                                            <script type="text/javascript">
+                                                function cargarDivCiudad(){ /*AQUI LE DOY UN NOMBRE CUALQUIERA A LA FUNCION*/
+
+                                                    $.ajax({url: '../mantenedores/mantCiudad.php',
+                                                            success:function(data){
+                                                                $("#page-wrapper").html(data);
+                                                            }
+                                                    });
+                                                }
+                                                </script>
+                                        </li>
+                                        <li class="lineaLi">
+                                            <a href="#" value="vehiculo" onclick="cargarDivVehiculo();">Vehiculo</a>
+                                            <script type="text/javascript">
+                                                function cargarDivVehiculo(){ /*AQUI LE DOY UN NOMBRE CUALQUIERA A LA FUNCION*/
+
+                                                    $.ajax({url: '../mantenedores/mantVehiculo.php',
+                                                            success:function(data){
+                                                                $("#page-wrapper").html(data);
+                                                            }
+                                                    });
+                                                }
+                                                </script>
+                                        </li>
+                                        <li class="lineaLi">
+                                        <a href="#" value="CatProducto" onclick="cargarDivCatProducto();">Categoria producto</a>
+                                        <script type="text/javascript">
+                                            function cargarDivCatProducto(){ /*AQUI LE DOY UN NOMBRE CUALQUIERA A LA FUNCION*/
+
+                                                $.ajax({url: '../mantenedores/mantCatProducto.php',
+                                                        success:function(data){
+                                                            $("#page-wrapper").html(data);
+                                                        }
+                                                });
+                                              }
+                                            </script>
+                                          </li>
+                                        <li class="lineaLi">
+                                        <a href="#" value="SubCatProducto" onclick="cargarDivSubCatProducto();">Sub Categoria producto</a>
+                                        <script type="text/javascript">
+                                            function cargarDivSubCatProducto(){ /*AQUI LE DOY UN NOMBRE CUALQUIERA A LA FUNCION*/
+
+                                                $.ajax({url: '../mantenedores/mantSubCatProducto.php',
+                                                        success:function(data){
+                                                            $("#page-wrapper").html(data);
+                                                        }
+                                                });
+                                            }
+                                            </script>
+                                          </li>
+
+                                    </ul>
+                                </li>
+                                <li><a href="../principal/proveedores.php"><span class="glyphicon glyphicon-briefcase">Proveedores</span></a></li>
+                                <li><a href="../principal/comprasProveedor.php"><span class="glyphicon glyphicon-shopping-cart">Compras</span></a></li>
+                                <li><a href="../principal/venta.php"><span class="glyphicon glyphicon-barcode">Venta</span></a></li>
                                 <li><a href="../principal/reportes.php"><span class="glyphicon glyphicon-file">Reportes</span></span></a></li>
-                                <li><a href="../mantenedores/mantenedores.php"><span class="glyphicon glyphicon-cog">Mantenedores</span></a></li>
-                                <li><a href="../principal/proveedores.php"><span class="glyphicon glyphicon-briefcase"> Proveedores</span></a></li>
-                                <li><a href="../principal/comprasProveedor.php"><span class="glyphicon glyphicon-shopping-cart"> Compras</span></a></li>
-                                <li><a href="../principal/venta.php"><span class="glyphicon glyphicon-barcode"> Venta</span></a></li>
-                                <li><a href="../principal/stockProductos.php"><span class="glyphicon glyphicon-list-alt"> Stock</span></a></li>
-                                <li><a href="../principal/mensajes.php"><span class="glyphicon glyphicon-envelope"> Mensajes</span></a></li>
-                                <li><a href="../comun/destruirSesion.php"><span class="glyphicon glyphicon-remove-circle"> Salir</span></a></li>
+                                <li><a href="../principal/reservas.php"><span class="glyphicon glyphicon-list-alt">Reservas</span></a></li>
+                                <li><a href="../principal/mensajes.php"><span class="glyphicon glyphicon-envelope">Mensajes</span></a></li>
+                                <li><a href="../comun/destruirSesion.php"><span class="glyphicon glyphicon-remove-circle">Salir</span></a></li>
 
                             </ul>
 
@@ -72,30 +201,31 @@ function cargarMenu(){
 }
 function cargarMenuUsuario(){
 ?>
-           <div class="row">
-            <div class="container">
-            <header>
-                <nav class="navbar navbar-fixed-top">
-
-                    <div class="container-fluid">
-
-                      <ul class="nav navbar-nav">
-                        <li><a href="../principal/perfil-usuario.php"><img src="../comun/logo/fsp.png" alt="" width="220" height="40"></a>
-                        </li>
-                      </ul>
-
-                          <ul class="nav navbar-nav navbar-right">
-                            <li><a href="../comun/destruirSesion.php"><span class="glyphicon glyphicon-off" style="text-align: right;">Salir</span></a>
-                            </li>
-                          </ul>
-
-
-                      </div>
-              </nav>
-            </header>
+<div class="row">
+  <div class="container">
+  <header>
+      <nav class="navbar navbar-fixed-top">
+          <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-1">
+                    <span class="sr-only">Menu</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            <a href="../principal/perfil-usuario.php"><img src="../comun/logo/fsp.png" alt="" width="220" height="50"></a>
             </div>
-        </div>
-
+            <div class="collapse navbar-collapse" id="navbar-1">
+                <ul class="nav navbar-nav navbar-right">
+                  <li><a href="../comun/destruirSesion.php"><span class="glyphicon glyphicon-off" style="text-align: right;">Salir</span></a>
+                  </li>
+                </ul>
+            </div>
+          </div>
+    </nav>
+  </header>
+  </div>
+</div>
 <?php
 }
 
@@ -148,21 +278,6 @@ function menuPublico(){
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 <h1 class="text-center login-title">Iniciar Sesion</h1>
             </div>
-            <!-- <div class="modal-body">
-
-            <form id="inicio_sesion" name="inicio_sesion" action="#" align="center">
-                <div class="form-group">
-                <label for="run">Digite su RUN:</label><br>
-                <input class="" name="run_usuario" type="text" placeholder="Run Usuario">
-                </div><br>
-                <div class="form-group">
-                <label for="password">Ingrese Contraseña:</label><br>
-                <input class="" name="password_usuario" type="password" placeholder="Contraseña">
-                </div>
-                <input type="submit" value="Aceptar" class="btn btn-success">
-            </form>
-
-            </div> -->
 
 <div class="container">
     <div class="row">
@@ -176,26 +291,27 @@ function menuPublico(){
 <!-- </div> -->
 
                 <form class="form-signin" name="inicio_sesion" id="inicio_sesion" action="">
+                  <div class="form-group">
                     <input type="text" class="form-control" placeholder="19.050.873-0" name="run_usuario" required autofocus>
+                    <br>
                     <input type="password" class="form-control" placeholder="Contraseña" name="password_usuario" required>
-                    <!-- <label class="checkbox pull-left">
-                        <input type="checkbox" value="remember-me">
-                        Recordarme
-                    </label> -->
+
+                  </div>
+
                     <button class="btn btn-lg btn-primary btn-block" type="submit"   >
                         Aceptar</button>
                         <button class="btn btn-lg btn-danger btn-block" type="" data-dismiss="modal">
                         Cancelar</button>
                  </form>
-
+<br>
             </div>
 
         </div>
     </div>
 </div>
-            <div class="modal-footer">
-                <!-- <button type="submit" class="btn btn-default" data-dismiss="modal">Cerrar</button> -->
-            </div>
+            <!-- <div class="modal-footer">
+                 <button type="submit" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            </div> -->
         </div>
     </div>
 </div>
@@ -234,14 +350,11 @@ function footerPublico(){
     <div class="row">
 
     <div class="col-xs-12 col-sm-6 col-md-4">
-
-        <li><a href="contacto.php">Preguntas Frecuentes</a></li>
-        <li><a href="catalogo.php">Categorias</a></li>
-        <li><a href="#">Sobre Nosotros</a></li>
+        <li><a href="contacto.php">Contacto</a></li>
+        <li><a href="catalogo.php">Productos</a></li>
+        <li><a href="servicios.php">Servicios</a></li>
         <li><a href="registro.php">Registrate</a></li>
-
     </div>
-
     </div>
 </div>
   <?php

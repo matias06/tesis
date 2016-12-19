@@ -19,7 +19,7 @@ session_start();
       <td><span id="txt_mensaje'.$contador.'">'.$array['mensaje']. '</span></td>
       <td><button type="button" onclick="" data-toggle="#" data-target="#" class="btn btn-success">
       <span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span></td>
-      <td><button type="button" onclick="" data-toggle="#" data-target="#" class="btn btn-danger">
+      <td><button type="button" onclick="eliminarMensaje(\''.$array['id_mensaje'].'\');" class="btn btn-danger">
       <span class="glyphicon glyphicon-trash" aria-hidden="true"></span></td>
         </tr>
 

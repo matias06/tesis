@@ -17,12 +17,6 @@
     <link href="../css/font-awesome.min.css" rel="stylesheet" />
     <script src="../js/vendor/modernizr-2.8.3.min.js"></script>
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
 </head>
 <body>
 
@@ -32,8 +26,6 @@ require_once'../comun/comun.php';
 menuPublico();
 ?>
 <!--FinalMenu-->
-<!--MODAL-->
-<!-- END MODAL-->
 
 <main class="contenido-principal"><!--contenido-principal-->
 <div class="container">
@@ -44,12 +36,12 @@ menuPublico();
 
                 Nuestros Servicios <br>
 
-                <small>nuestros servicios pueden añadir valor a su empresa.</small>
+                <small>Ofrecemos Servicios de la mejor Calidad y en tiempo record de Eficiencia.</small>
             </h4>
 
             <hr>
 
-            <div class="clearfix"></div>
+            <!-- <div class="clearfix"></div> -->
 
             <div class="col-xs-12 col-sm-6 col-md-4 col-xs-offset-1 col-sm-offset-0 text-center box-servicios">
 
@@ -58,7 +50,6 @@ menuPublico();
                 </div>
                 <div class="contenido-servicio">
                     <span class="lead">Lavado Automotriz</span> <br>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos non minima expedita repellat sit,.</p>
                     <a class="btn btn-default" data-toggle="modal" href='#modal-srv-1'>Ver M&aacute;s</a>
                 </div>
 
@@ -71,7 +62,6 @@ menuPublico();
                 </div>
                 <div class="contenido-servicio">
                     <span class="lead">Mantención Electrica</span> <br>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos non minima expedita repellat sit,.</p>
                     <a class="btn btn-default" data-toggle="modal" href='#modal-srv-2'>Ver M&aacute;s</a>
                 </div>
 
@@ -84,7 +74,6 @@ menuPublico();
                 </div>
                 <div class="contenido-servicio">
                     <span class="lead">Venta de Accesorios</span> <br>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos non minima expedita repellat sit,.</p>
                     <a class="btn btn-default" data-toggle="modal" href='#modal-srv-3'>Ver M&aacute;s</a>
                 </div>
 
@@ -188,9 +177,9 @@ menuPublico();
                 </div>
             </div>
 
-            </div>
         </div>
     </div>
+</div>
 
 
 

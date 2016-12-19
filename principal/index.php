@@ -18,12 +18,6 @@
     <link href="../css/font-awesome.min.css" rel="stylesheet" />
     <script src="../js/vendor/modernizr-2.8.3.min.js"></script>
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
 </head>
 <body>
 
@@ -43,62 +37,20 @@
         <li data-target="#carousel-id" data-slide-to="2" class=""></li>
         <li data-target="#carousel-id" data-slide-to="3" class=""></li>
 
-
     </ol>
+
     <div class="carousel-inner">
         <div class="item active">
             <img src="../imagenes/slide/gal1.jpg" alt="slider-1" />
-            <div class="container">
-                <!--<div class="carousel-caption">
-                    <h1>Texto </h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt eaque doloribus, veritatis dolor odit minus nemo ipsum commodi amet aspernatur cumque necessitatibus voluptates enim sapiente recusandae autem sequi suscipit? Dignissimos!</p>
-
-                    <button type="button" class="btn btn-success">Enviar</button>
-
-                </div>-->
-            </div>
         </div>
         <div class="item">
-
             <img src="../imagenes/slide/gal2.jpg" alt="slider-1" />
-
-            <div class="container">
-                <!--<div class="carousel-caption">
-                    <h1>Texto </h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt eaque doloribus, veritatis dolor odit minus nemo ipsum commodi amet aspernatur cumque necessitatibus voluptates enim sapiente recusandae autem sequi suscipit? Dignissimos!</p>
-
-                    <button type="button" class="btn btn-success">Enviar</button>
-
-                </div>-->
-            </div>
         </div>
         <div class="item">
-
             <img src="../imagenes/slide/gal3.jpg" alt="slider-1" />
-
-            <div class="container">
-                <!--<div class="carousel-caption">
-                    <h1>Texto </h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt eaque doloribus, veritatis dolor odit minus nemo ipsum commodi amet aspernatur cumque necessitatibus voluptates enim sapiente recusandae autem sequi suscipit? Dignissimos!</p>
-
-                <button type="button" class="btn btn-success">Enviar</button>
-
-                </div>-->
-            </div>
         </div>
         <div class="item">
-
             <img src="../imagenes/slide/gal4.jpg" alt="slider-1" />
-
-            <div class="container">
-                <!--<div class="carousel-caption">
-                    <h1>Texto </h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt eaque doloribus, veritatis dolor odit minus nemo ipsum commodi amet aspernatur cumque necessitatibus voluptates enim sapiente recusandae autem sequi suscipit? Dignissimos!</p>
-
-                <button type="button" class="btn btn-success">Enviar</button>
-
-                </div>-->
-            </div>
         </div>
     </div>
     <a class="left carousel-control" href="#carousel-id" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
@@ -109,37 +61,32 @@
 
 <aside class="servicios">
     <div class="container">
-
         <div class="row">
-
             <div class="col-xs-12">
                 <h4 class="text-center">
                     Nuestros Servicios <br/>
-
-                    <small> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates alias, porro consequatur  </small>
-
+                    <small> Para más información, accede a nuestra área de Servicios  </small>
                 </h4>
             </div>
-
         </div>
 
         <hr>
 
         <div class="row">
-
             <div class="col-xs-12 col-sm-6 col-md-4 text-center">
                 <i class="fa fa-car fa-3x"></i>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti fuga sequi atque assumenda maiores, nesciunt consectetur quas error iure sit excepturi fugit voluptatum cupiditate, impedit officia soluta itaque commodi voluptatibus.</p>
+                <span class="glyphicon glyphicon-tint"></span>
+                <p>Lavado Automotriz</p>
             </div>
 
             <div class="col-xs-12 col-sm-6 col-md-4 text-center">
                 <i class="fa fa-wrench fa-3x"></i>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti fuga sequi atque assumenda maiores, nesciunt consectetur quas error iure sit excepturi fugit voluptatum cupiditate, impedit officia soluta itaque commodi voluptatibus.</p>
+                <p>Reparación y Mantención en toda el área Eléctrica de tu Vehículo</p>
             </div>
 
             <div class="col-xs-12 col-sm-6 col-md-4 text-center">
-                <i class="fa fa-music fa-3x"></i>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti fuga sequi atque assumenda maiores, nesciunt consectetur quas error iure sit excepturi fugit voluptatum cupiditate, impedit officia soluta itaque commodi voluptatibus.</p>
+                <i class="fa fa-cc-visa fa-3x"></i>
+                <p>Venta de Accesorios y Repuestos para tu Vehículo</p>
             </div>
 
         </div>
@@ -158,44 +105,44 @@
         </div>
 
         <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
-            <a href="../imagenes/galeriaInicio/276775621_439.jpg" data-lightbox="image-1" data-title="Informacion sobre la imagen">
+            <a href="../imagenes/galeriaInicio/276775621_439.jpg" data-lightbox="image-1" data-title="Gran Variedad de Insumos Eléctricos">
             <img src="../imagenes/galeriaInicio/276775621_439.jpg" alt="wall" class="img-responsive img-rounded"></a>
         </div>
 
         <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
-            <a href="../imagenes/galeriaInicio/556242.jpg" data-lightbox="image-1" data-title="Informacion sobre la imagen">
+            <a href="../imagenes/galeriaInicio/556242.jpg" data-lightbox="image-1" data-title="Reparación de Arranques">
             <img src="../imagenes/galeriaInicio/556242.jpg" alt="wall" class="img-responsive img-rounded"></a>
         </div>
 
         <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
-            <a href="../imagenes/galeriaInicio/audio2.jpg" data-lightbox="image-1" data-title="Informacion sobre la imagen">
+            <a href="../imagenes/galeriaInicio/audio2.jpg" data-lightbox="image-1" data-title="Venta e Intalación de Audio para tu Vehículo">
             <img src="../imagenes/galeriaInicio/audio2.jpg" alt="wall" class="img-responsive img-rounded"></a>
         </div>
 
         <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
-            <a href="../imagenes/galeriaInicio/marcas.jpg" data-lightbox="image-1" data-title="Informacion sobre la imagen">
+            <a href="../imagenes/galeriaInicio/marcas.jpg" data-lightbox="image-1" data-title="Repuestos y Accesorios para muchas Marcas">
             <img src="../imagenes/galeriaInicio/marcas.jpg" alt="wall" class="img-responsive img-rounded"></a>
         </div>
     </div>
         <div class="row">
 
         <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
-            <a href="../imagenes/galeriaInicio/parts2.jpg" data-lightbox="image-1" data-title="Informacion sobre la imagen">
+            <a href="../imagenes/galeriaInicio/parts2.jpg" data-lightbox="image-1" data-title="Venta e Instalación de Alarmas">
             <img src="../imagenes/galeriaInicio/parts2.jpg" alt="wall" class="img-responsive img-rounded"></a>
         </div>
 
         <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
-            <a href="../imagenes/galeriaInicio/faros.jpg" data-lightbox="image-1" data-title="Informacion sobre la imagen">
+            <a href="../imagenes/galeriaInicio/faros.jpg" data-lightbox="image-1" data-title="Gran Stock de Faros y Ampolletas">
             <img src="../imagenes/galeriaInicio/faros.jpg" alt="wall" class="img-responsive img-rounded"></a>
         </div>
 
         <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
-            <a href="../imagenes/galeriaInicio/img.jpg" data-lightbox="image-1" data-title="Informacion sobre la imagen">
+            <a href="../imagenes/galeriaInicio/img.jpg" data-lightbox="image-1" data-title="Cables de Bujia de Alta y Baja Gama">
             <img src="../imagenes/galeriaInicio/img.jpg" alt="wall" class="img-responsive img-rounded"></a>
         </div>
 
         <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
-            <a href="../imagenes/galeriaInicio/teaserbox_5225130.png" data-lightbox="image-1" data-title="Informacion sobre la imagen">
+            <a href="../imagenes/galeriaInicio/teaserbox_5225130.png" data-lightbox="image-1" data-title="Amplia variedad de Conectores">
             <img src="../imagenes/galeriaInicio/teaserbox_5225130.png" alt="wall" class="img-responsive img-rounded"></a>
         </div>
 
@@ -208,38 +155,30 @@
 <section class="sobre_nosotros">
 
 <div class="container">
-
     <div class="row">
-
+      <div class="col-xs-12 text-center">
+          <span class="lead"><i class="fa fa-users fa-1g"></i>&nbsp;Sobre Nosotros</span>
+      </div>
+      <hr><hr>
         <div class="col-xs-12 col-sm-6 col-md-4">
             <h4 class="text-center">
-                Nuestros Servicios <br/>
-
+                Misión <br/><hr>
                 <small> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates alias, porro consequatur  </small>
-
             </h4>
         </div>
-
         <div class="col-xs-12 col-sm-6 col-md-4">
             <h4 class="text-center">
-                Nuestros Servicios <br/>
-
-                <small> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates alias, porro consequatur  </small>
-
+                Personal <br/><hr>
+                <small> Dueño y Representante Legal Sr. Osvaldo Figueroa Vera <br>Profesional en Electridad Automotriz  </small>
             </h4>
         </div>
-
         <div class="col-xs-12 col-sm-6 col-md-4">
             <h4 class="text-center">
-                Nuestros Servicios <br/>
-
+                Visión <br/><hr>
                 <small> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates alias, porro consequatur  </small>
-
             </h4>
         </div>
-
     </div>
-
 </div>
 
 </section>

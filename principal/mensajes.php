@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-   <title>Proveedores</title>
+   <title>Mensajes</title>
   <?php   cargarHeader(); ?>
 
 </head>
@@ -46,13 +46,49 @@
             </div>
         </div>
 <script type="text/javascript">
-$.ajax({
-    url:'../mantenedorTablasAjax/cargarTablaMensajes.php',
-    success:function(resultado){
-    $("#cargarMensajes").html(resultado);
 
-      }
-});
+function cargarDivTablaMensajes(){
+                    $.ajax({url:'../mantenedorTablasAjax/cargarTablaMensajes.php',
+                    success:function(resultado){
+                    $("#cargarMensajes").html(resultado);
+                            }
+                    });
+                }
+                cargarDivTablaMensajes();
+</script>
+<script>
+function eliminarMensaje(id){
+    // alert(id);
+    swal({
+        title: "¿Eliminar Mensaje?",
+        text: "",
+        type: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#DD6B55",
+        confirmButtonText: "Eliminar",
+        cancelButtonText: "Cancelar!",
+        closeOnConfirm: false,
+        closeOnCancel: false },
+        function(isConfirm){
+            if (isConfirm) {
+
+     $.ajax({//realiza el envio del formulario pero por ajax para no tener que recargar pagina
+
+        url:"elimMensaje.php", // donde se va a ingresar "mantenedoresIngresar.php"
+        data:"id="+id,
+        success:function(respuesta){
+                 //alert(respuesta);
+                 cargarDivTablaMensajes();
+
+                // eventoAlertEliminar();
+   }
+                });
+                swal("Eliminado", "", "success");
+            } else {
+                swal("Cancelado", "", "error");
+            }
+        });
+    }
 </script>
 
 

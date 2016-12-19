@@ -16,11 +16,11 @@
 
 
 <body>
-
+<?php cargarMenu(); ?>
     <div id="wrapper">
 
         <!-- Navigation -->
-        <?php cargarMenu(); ?>
+
        <!--  <nav class="navbar navbar-default navbar-fixed-top" role="navigation"> -->
             <!-- Brand and toggle get grouped for better mobile display -->
 
@@ -37,8 +37,8 @@
             <!-- Top Menu Items -->
 
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
-            <div class="collapse navbar-collapse navbar-ex1-collapse">
-                <ul class="nav navbar-nav side-nav" id="fondo">
+            <!-- <div class="collapse navbar-collapse navbar-ex1-collapse"> -->
+                <!-- <ul class="nav navbar-nav side-nav" id="fondo">
                     <li class="fondo lineaLi">
                         <a href="mantenedores.php" value="Usuario" onclick="cargarDivUsuario();"> Usuario</a>
                     </li>
@@ -176,12 +176,12 @@
                         }
                         </script>
                 </li>
-              </ul>
-            </div>
+              </ul> -->
+            <!-- </div> -->
             <!-- /.navbar-collapse -->
 
 
-<div id="page-wrapper">
+<div class="container" id="page-wrapper">
 
 </div>
 

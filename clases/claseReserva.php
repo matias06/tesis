@@ -64,14 +64,9 @@ public function setdescripcion_estado_reserva ($arg_descripcion_estado_reserva){
 
 
 		 public function insertarReservas(){
-
-
 	 		$verificar = $this->consultarExistencia("SELECT id_reserva from reserva where id_reserva= '".$this->id_reserva."'");
-
-	 		if($verificar==true){
-
-	 			// echo "si hay";
-
+			if($verificar==true){
+				// echo "si hay"
 	 			$modificarUsuarios = $this->insertarRegistros
 	 				("UPDATE reserva SET
 		 			id_servicio='".$this->id_servicio."',
@@ -80,16 +75,33 @@ public function setdescripcion_estado_reserva ($arg_descripcion_estado_reserva){
 		 				 WHERE id_reserva='".$this->id_reserva."'");
 
 	 		}
-	 		else{
 
+			else{
 
-	 					"INSERT INTO reserva (id_reserva,run, patente, id_servicio, descripcion_problema, fecha, id_estado_reserva, id_hora)
+						"INSERT INTO reserva (id_reserva,run, patente, id_servicio, descripcion_problema, fecha, id_estado_reserva, id_hora)
+
 					VALUES (NULL,'".$this->run."','".$this->patente."','".$this->id_servicio."','".$this->descripcion_problema."','".$this->fechaReserva."', '".$this->id_estado_reserva."','".$this->horaReserva."');";
 					if($this->insertarRegistros($consulta)){
 						return true;
 					}else{
 						return false;
 					}
-	 		}
 			}
+		}
+
+public function reservaAdmin(){
+	$consulta="UPDATE reserva SET
+	 id_estado_reserva='".$this->setid_estado_reserva."'
+	 WHERE id_reserva='".$this->id_reserva."'";
+	 $modificarReserva = $this->insertarRegistros($consulta);
+	// echo "hola pepo".$consulta;
+			if($modificarReserva==true){
+				return true;
+			}
+			else{
+				echo "ERROR AL MODIFICAR RESERVA; ERROR: ".$consulta;
+			}
+}
+
+
 }
