@@ -621,13 +621,7 @@ footerPublico();
 <div class="sub_footer">
     <span>&copy;Todos Los Derechos Reservados</span>
 </div>
-<!-- > js importados < -->
-<!-- > jquery antes de bootstrap para que funcione > -->
-<!-- <script src="../js/bootstrap-datepicker.js"></script> -->
 
-<!-- > js agregados por nosotros < -->
-
-<!-- <script src="../js/validar_sesion.js"></script> -->
 <script>
        function cargarMisDatos(fila){
 
@@ -644,16 +638,6 @@ footerPublico();
  <!-- Carga la informacion a el div cargarDatos desde cargarTablaClientes -->
 <script>
 
-//    $( document ).ready(function cargarTablaDatos(){
-//     $.ajax({
-//       url:'../cliente/cargarTablaCliente.php',
-//       success:function(resultado){
-//         $("#cargarDatos").html(resultado);
-//         }
-//     });
-// });
-
-
         $(document).ready(function cargarTablaDatos(){
            $.ajax({
              url:'../cliente/cargarTablaCliente.php',
@@ -664,7 +648,14 @@ footerPublico();
      });
   return false;
 });
-
+//    function cargarTablaDatos(){
+     //     $.ajax({
+     //       url:'../cliente/cargarTablaCliente.php',
+     //       success:function(resultado){
+     //         $("#cargarDatos").html(resultado);
+     //         }
+     //     });
+     // }
 
        function cargarMisReservas(fila){
         $("#txt_id_reserva_modificar").val($("#txt_id_reserva"+fila).html());
@@ -701,16 +692,25 @@ footerPublico();
             });
         </script> -->
 <script type="text/javascript">
+//
+// $(document).ready(function cargarTablaReserva(){
+//    $.ajax({
+//      url:'../cliente/cargarTablaReserva.php',
+//      success:function(resultado){
+//        $("#cargarReservas").html(resultado);
+//        }
+// });
+// return false;
+// });
 
-$(document).ready(function cargarTablaReserva(){
-   $.ajax({
-     url:'../cliente/cargarTablaReserva.php',
-     success:function(resultado){
-       $("#cargarReservas").html(resultado);
-       }
-});
-return false;
-});
+function cargarTablaReserva(){
+$.ajax({
+  url:'../cliente/cargarTablaReserva.php',
+  success:function(resultado){
+    $("#cargarReservas").html(resultado);
+                }
+        });
+}
 
 </script>
 <script>

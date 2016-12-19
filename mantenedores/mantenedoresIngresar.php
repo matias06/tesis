@@ -25,15 +25,15 @@ require_once '../clases/usuario.php';
                                     $correo = filter_var($_REQUEST['txt_correo'], FILTER_SANITIZE_EMAIL);
                   $usuario->setcorreo($correo);
 
-
 									$usuario->settipo_usuario($_REQUEST['tipousuario']);
 									$usuario->setestado_usuario($_REQUEST['estadousuario']);
 
                   //echo "$rut,$nombre,$apellido,$contaseña,$telefono,$correo ";
-                  $usuario->insertarUsuario();
-
-
-
+                  if($usuario->insertarUsuario()){
+                    echo "1";
+                  }else{
+                    echo "2";
+                  }
 
 								break;
 
@@ -68,9 +68,11 @@ require_once '../clases/usuario.php';
 
 									$usuario->setrun($_REQUEST['id']);
 
-									$usuario->eliminarUsuario();
-
-
+									if($usuario->eliminarUsuario()){
+                    echo "1";
+                  }else{
+                  echo "2";
+                        }
 									break;
 
 								case "4":
@@ -864,9 +866,11 @@ require_once '../clases/usuario.php';
 
                                                 $serv->setidServicio($_REQUEST['id']);
 
-                                                $serv->eliminarServicio();
-
-
+                                                if($serv->eliminarServicio()){
+                                                echo "1";
+                                              }else{
+                                                echo "2";
+                                              }
                                                 break;
 
                             case "4":
@@ -977,8 +981,11 @@ require_once '../clases/usuario.php';
 
                                                 $trabajo->setidTrabajo($_REQUEST['id']);
 
-                                                $trabajo->eliminarTrabajo();
-
+                                                if($trabajo->eliminarTrabajo()){
+                                                  echo "1";
+                                                }else{
+                                                  echo "2";
+                                                }
 
                                                 break;
 
@@ -1051,29 +1058,25 @@ require_once '../clases/usuario.php';
 																			require_once'../clases/claseCategoriaProducto.php';
 																			 switch($_REQUEST['func']){
 															case "1": //echo "se ingresa";
-                              // $nombreTrabajo = filter_var($_REQUEST['txt_nombreTrabajo_modificar'], FILTER_SANITIZE_STRING);
-                              //     $trabajo->setnombreTrabajo($nombreTrabajo);
 
 																			 					$catProd=new CategoriaProducto();
 
                                                 $descripcionProd = filter_var($_REQUEST['txt_catProd'], FILTER_SANITIZE_STRING);
 																			 					$catProd->setdescripcion_categoria_producto($descripcionProd);
 
-																			 					if($catProd->insertarCatProducto()){
-																									echo "1";
-																								}else{
-																									echo "error al ingresar.";
-																								}
+																			 					$catProd->insertarCatProducto();
+
 
 																			 			break;
 															case "2": //echo "SE MODIFICA";
-	                                            $catProd=new CategoriaProducto();
+	                                            $catProdMod=new CategoriaProducto();
 
-	                                            $catProd->setid_categoria_producto($_REQUEST['txt_num_Modificar']);
-
+	                                            $catProdMod->setid_categoria_producto($_REQUEST['txt_num_Modificar']);
+                                              // echo $_REQUEST['txt_catProdModificar'];
                                               $descProd = filter_var($_REQUEST['txt_catProdModificar'], FILTER_SANITIZE_STRING);
-                                              $catProd->setdescripcion_categoria_producto($descProd);
-	                                            $catProd->insertarCatProducto();
+                                              $catProdMod->setdescripcion_categoria_producto($descProd);
+
+	                                            $catProdMod->modificarCatProducto();
 
 	                                            break;
 
@@ -1083,10 +1086,13 @@ require_once '../clases/usuario.php';
 
 																			 					$catProd->setid_categoria_producto($_REQUEST['id']);
 
-																			 					$catProd->eliminarCatProducto();
+																			 					if($catProd->eliminarCatProducto()){
+                                                  echo "1";
+                                                }else{
+                                                  echo "2";
+                                                }
 
-
-																			 					break;
+                          		 					break;
 
 															 case "4":
 																			 					 ?>
@@ -1185,10 +1191,12 @@ break;
                             //$subCat->id_subcategoria_producto($_REQUEST['id']);
                             	$subCat->setid_subcategoria_producto($_REQUEST['id']);
 
-                            $subCat->eliminarSubCat();
-
-
-                            break;
+                            if($subCat->eliminarSubCat()){
+                              echo "1";
+                            }else{
+                              echo "2";
+                            }
+            break;
 
            case "4":
                              ?>
@@ -1454,7 +1462,11 @@ break;
                                            $vehiculo->setpatente($_REQUEST['id']);
                                             // $vehiculo->setpatente($_SESSION['id']);
 
-                                        $vehiculo->eliminarVehiculo();
+                                        if($vehiculo->eliminarVehiculo()){
+                                          echo "1";
+                                        }else{
+                                          echo "2";
+                                        }
 
 
                                         break;
@@ -1568,13 +1580,10 @@ break;
             $horas = filter_var($_REQUEST['cmb_hora_reserva'], FILTER_SANITIZE_STRING);
             $reserva->set_horaReserva($horas);
             $reserva->setid_estado_reserva(1);
+
             $reserva->insertarReservas();
 
-              // if($reserva->insertarReservas()){
-              //   echo "Ingresado Correctamente";
-              // }else{
-              //   echo "Error al ingresar";
-              // }
+
 
             break;
 
@@ -1592,10 +1601,9 @@ break;
             //echo $_REQUEST['fechareserva_modificar'];
             $reserva->setfechaReserva($_REQUEST['fechareserva_modificar']);
             $reserva->setid_reserva($_REQUEST['txt_id_reserva_modificar']);
-            // $reserva->set_horaReserva($_REQUEST['cmb_hora_reserva_modificar']);
 
             $reserva->setid_estado_reserva(1);
-            // $reserva->modificarReservas();
+
 
               if($reserva->insertarReservas()){
                 echo "Se modifico correctamente";

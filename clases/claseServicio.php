@@ -27,6 +27,7 @@ class Servicio extends Conexion{
 	public function eliminarServicio(){
 			$eliminarServicio = $this->insertarRegistros
 				("DELETE FROM SERVICIO WHERE id_servicio = '".$this->idServicio."'" );
+				return $eliminarServicio;
 	}
 
     public function insertarServicio(){

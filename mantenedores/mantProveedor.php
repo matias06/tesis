@@ -43,7 +43,7 @@
                                     <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
                                         <div class="form-group">
                                             <label for="rut">Rut:</label>
-                                            <input class="form-control"  id="txt_rut" name="txt_rut" required placeholder="Rut Proveedor" type="text">
+                                            <input class="form-control" required id="txt_rut" name="txt_rut" placeholder="Rut Proveedor" type="text">
                                             <!-- onBlur="validarRut(this)" -->
                                         </div>
                                     </div>
@@ -160,7 +160,7 @@
                        function eliminarProveedor(id){
                                     // alert(id);
                                      swal({
-                                        title: "Eliminar Proveedor?",
+                                        title: "¿Eliminar Proveedor?",
                                         text: "",
                                         type: "warning",
                                         showCancelButton: true,

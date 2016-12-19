@@ -134,13 +134,16 @@
                                         url:"mantenedoresIngresar.php?mant=7&func=3", // donde se va a ingresar "mantenedoresIngresar.php"
                                         data:"id="+id,
                                         success:function(respuesta){
+                                          if(respuesta==1){
                                                 // alert(respuesta);
                                                 cambiarPagina(1);
                                                 cargarDivTablaServicio();
-                                                eventoAlertEliminar();
+                                                swal("SERVICIO ELIMINADO!", "", "success");
+                                          }else{
+                                            swal("No se puede eliminar servicio, favor verifique si tiene datos asociadas a la cuenta.", "", "error");
+                                          }
                                        }
-                                                });
-                                                swal("Eliminado!", "", "success");
+                                    });
                                             } else {
                                                 swal("Cancelado", "", "error");
                                             }

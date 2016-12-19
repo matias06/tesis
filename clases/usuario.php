@@ -70,21 +70,17 @@ class Usuario extends Conexion{
 	}
 
 	public function eliminarUsuario(){
-		// deja inactivos los clientes
-			$agregarUsuarios = $this->insertarRegistros
+
+			$eliminarUsuarios = $this->insertarRegistros
 				("UPDATE USUARIO SET id_estado_usuario = 2 WHERE run = '".$this->run."'" );
+				return $eliminarUsuarios;
 	}
 
 	public function insertarUsuario(){
 
-
 		$verificar = $this->consultarExistencia("SELECT run from usuario where run= '".$this->run."'");
 
-
-
 		if($verificar==true){
-
-			// echo "si hay";
 
 			$modificarUsuarios = $this->insertarRegistros
 				("update usuario
@@ -101,11 +97,10 @@ class Usuario extends Conexion{
 		}
 		else{
 
-			// echo "no existe rut";
 				$agregarUsuarios = $this->insertarRegistros
 				("INSERT INTO usuario values ('".$this->run."', '".$this->nombre."' ,'".$this->apellido."',
 				'".$this->password."','".$this->telefono."','".$this->correo."','".$this->id_tipo_usuario."','".$this->id_estado_usuario."')");
-				
+
 		}
 	}
 

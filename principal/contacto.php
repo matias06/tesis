@@ -11,11 +11,13 @@
     <!-- > css generales < -->
     <link href="../css/style.css" rel="stylesheet" />
     <link href="../css/normalize.css" rel="stylesheet" />
+    <link href="../css/sweet-alert.css" rel="stylesheet" />
 
     <!-- > Bootstrap v3.3.7 and Font Awesome v4.6.3 < -->
     <link href="../css/bootstrap.min.css" rel="stylesheet" />
     <link href="../css/font-awesome.min.css" rel="stylesheet" />
     <script src="../js/vendor/modernizr-2.8.3.min.js"></script>
+    <script src="../js/sweetalert.min.js"></script>
 
 
 
@@ -99,8 +101,12 @@ function eliminarCamposMensaje(){ /*AQUI LE DOY UN NOMBRE CUALQUIERA A LA FUNCIO
 }
 
 function eventoAlertCorrecto(){
-swal("Exito!", "Se ha Enviado Mensaje correctamente!", "success")
- // swal("Se ha agregado correctamente!", "You clicked the button!", "success")
+  swal({
+    title: "Mensaje enviado correctamente",
+    text: "",
+    timer: 2000,
+    showConfirmButton: false,
+    });
 }
 </script>
 <script>
@@ -120,6 +126,7 @@ swal("Exito!", "Se ha Enviado Mensaje correctamente!", "success")
                     //alert("mensaje enviado.");
                       eventoAlertCorrecto();
                       eliminarCamposMensaje();
+
                   }else{
                       alert("Ha ocurrido un error.");
                   }

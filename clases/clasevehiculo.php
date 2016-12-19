@@ -60,7 +60,7 @@ public function setrun ($arg_run){
 
 			if($verificar==true){
 
-				// echo "si hay";
+
 
 				$modificarVehiculo = $this->insertarRegistros
 					("UPDATE vehiculo SET patente='".$this->patente."', marca='".$this->marca."', modelo='".$this->modelo."', run='".$this->run."' WHERE patente='".$this->patente."';");
@@ -69,7 +69,7 @@ public function setrun ($arg_run){
 			}
 			else{
 
-				// echo "no existe vehiculo";
+
 					$agregarVehiculo = $this->insertarRegistros
 					("INSERT INTO vehiculo (patente, marca, modelo, run) VALUES ('".$this->patente."', '".$this->marca."', '".$this->modelo."', '".$this->run."');");
 						return $agregarVehiculo;

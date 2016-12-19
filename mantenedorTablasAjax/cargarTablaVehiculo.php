@@ -123,8 +123,8 @@
                                         data:$("#formModificarVehiculo").serialize(),
                                         success:function(respuesta){
                                                 //alert(respuesta);
-                                                cambiarPagina(1);
                                                 cargarDivTablaVehiculo();
+                                                cambiarPagina(1);
                                                 eventoAlertActualizar();
                                         }
                                     });
@@ -162,19 +162,22 @@
                                                     url:"mantenedoresIngresar.php?mant=12&func=4", // donde se va a ingresar "mantenedoresIngresar.php"
                                                     data:"id="+id,
                                                     success:function(respuesta){
+                                                      if(respuesta == 1){
                                                             //alert(respuesta);
+                                                            cambiarPagina(1);
                                                             cargarDivTablaVehiculo();
+                                                              swal("VEHICULO ELIMINADO!", "", "success");
+                                                            }else{
+                                                              swal("No se puede eliminar vehiculo, favor verifique si tiene reservas asociadas.", "", "error");
+                                                            }
 
                                                     }
                                                 });
-                                                swal("VEHICULO ELIMINADO!", "", "success");
+
                                             } else {
                                                 swal("Cancelado", "", "error");
                                             }
                                         });
-
-
-
                                 }
 
 

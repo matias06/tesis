@@ -125,7 +125,7 @@
                                         success:function(respuesta){
                                              //alert("Usuario Agregado correctamente");
 
-                                              alert(respuesta);
+                                              //alert(respuesta);
                                                 //$("#formularioProveedor").html(respuesta);
                                                 cambiarPagina(1);
                                                 cargarDivTablaVehiculo();

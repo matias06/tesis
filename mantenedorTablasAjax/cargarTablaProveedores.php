@@ -40,7 +40,7 @@
                                     <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
                                         <div class="form-group">
                                             <label for="rut">Rut:</label>
-                                            <input class="form-control" id="txt_rut_modificar" name="txt_rut_modificar" placeholder="Rut Usuario" type="text">
+                                            <input class="form-control" readonly id="txt_rut_modificar" name="txt_rut_modificar" placeholder="Rut Usuario" type="text">
                                         </div>
                                     </div>
                                  </div>
@@ -100,12 +100,12 @@
 
                                     </div>
                                 </div>
-                               <div class="container">
+                               <!-- <div class="container">
                                         <div class="col-md-8">
                                             <button type="submit" class="btn btn-success" data-toggle="modal" id="modificar" >Modificar</button>
 
                                         </div>
-                                    </div>
+                                    </div> -->
 
                                     <!-- <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button> -->
                                <!-- <input type="submit" class="btn btn-success" data-dismiss="modal" data-target="#modificar">Modificar</button> -->
@@ -116,6 +116,8 @@
                     </div>
                                           <!-- Fin formulario -->
                                           <div class="modal-footer">
+                                            <button type="submit" class="btn btn-success" data-toggle="modal" id="modificar" >Modificar</button>
+
                                               <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar Ventana</button>
                                           </div>
                                        </div>
@@ -141,9 +143,7 @@
                                         url:"mantenedoresIngresar.php?mant=3&prov=2", // donde se va a ingresar "mantenedoresIngresar.php"
                                         data: $("#formModificarProveedor").serialize(),
                                         success:function(resultado){
-
                                                // $("#formModificarProveedor").html(resultado);
-
                                                    cargarDivTablaProveedores();
                                                    cambiarPagina(1);
                                                    eventoAlertActualizar();

@@ -83,7 +83,7 @@
                                             //alert(respuesta);
                                         cambiarPagina(1);
                                         cargarDivTablaSubCat();
-                                        //eventoAlertActualizar();
+                                        eventoAlertActualizar();
                                           }
                                     });
                                         return false;
@@ -96,13 +96,13 @@
                                 function eliminarSubCat(id){
                                     // alert(id);
                                     swal({
-                                        title: "Eliminar?",
-                                        text: "Sub Categoria!",
+                                        title: "¿Eliminar Sub Categoria?",
+                                        text: "",
                                         type: "warning",
                                         showCancelButton: true,
                                         confirmButtonColor: "#DD6B55",
                                         confirmButtonText: "Eliminar",
-                                        cancelButtonText: "Cancelar!",
+                                        cancelButtonText: "Cancelar",
                                         closeOnConfirm: false,
                                         closeOnCancel: false },
                                         function(isConfirm){
@@ -113,14 +113,17 @@
                                         url:"mantenedoresIngresar.php?mant=10&func=3", // donde se va a ingresar "mantenedoresIngresar.php"
                                         data:"id="+id,
                                         success:function(respuesta){
+                                          if(respuesta==1){
                                                 //alert(respuesta);
                                                 cambiarPagina(1);
                                                 cargarDivTablaSubCat();
-                                                eventoAlertEliminar();
+                                                swal("SUB CATEGORÍA ELIMINADA!", "", "success");
+                                          }else{
+                                            swal("No se puede eliminar sub categoría, favor verifique si tiene productos asociadas a la sub categoría.", "", "error");
+                                          }
                                    }
-                                                });
-                                                swal("Eliminado", "", "success");
-                                            } else {
+                                });
+                                          } else {
                                                 swal("Cancelado", "", "error");
                                             }
                                         });

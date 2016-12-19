@@ -47,6 +47,7 @@ class SubCatProducto extends Conexion{
 			$eliminarSubCat = $this->insertarRegistros
 				("DELETE FROM subcategoriaproducto WHERE id_subcategoria_producto = '".$this->id_subcategoria_producto."'");
 			//	DELETE FROM subcategoriaproducto WHERE id_subcategoria_producto='3';
+			return $eliminarSubCat;
 	}
 
 	public function modificarSubCat(){

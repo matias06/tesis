@@ -199,7 +199,7 @@
                                   function eliminarUsuario(id){
                                     // alert(id);
                                     swal({
-                                        title: "Eliminar Usuario?",
+                                        title: "¿Eliminar Usuario?",
                                         text: "",
                                         type: "warning",
                                         showCancelButton: true,
@@ -215,19 +215,21 @@
                                                     url:"mantenedoresIngresar.php?mant=1&func=3", // donde se va a ingresar "mantenedoresIngresar.php"
                                                     data:"id="+id,
                                                     success:function(respuesta){
+                                                      if(respuesta==1){
                                                             // alert(respuesta);
                                                             cambiarPagina(1);
                                                             cargarDivTablaUsuario();
+                                                            swal("USUARIO ELIMINADO!", "", "success");
+                                                          }else{
+                                                            swal("No se puede eliminar usuario, favor verifique si tiene datos asociadas a la cuenta.", "", "error");
+                                                          }
                                                     }
                                                 });
-                                                swal("Usuario Eliminado", "", "success");
+
                                             } else {
                                                 swal("Cancelado", "", "error");
                                             }
                                         });
-
-
-
                                 }
 
 

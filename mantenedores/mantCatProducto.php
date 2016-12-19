@@ -25,6 +25,7 @@
                     </div>
                 </div>
 </div>
+
 <br>
 
 
@@ -92,14 +93,12 @@
                                         data:$("#formularioCatProducto").serialize(),
                                         success:function(respuesta){
 
-                                                if(respuesta == 1){
+                                                // if(respuesta == 1){
                                                 cambiarPagina(1);
                                                 cargarDivTablaCatProducto();
                                                 eliminarCamposCatProducto();
                                                 eventoAlertCorrecto();
-                                            }else{
-                                                alert("Ha ocurrido un error.");
-                                            }
+                                          // }
 
                                         }
                                     });
