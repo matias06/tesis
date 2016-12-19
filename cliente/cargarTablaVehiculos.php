@@ -19,7 +19,7 @@
           <td><span id="txt_modelo'.$contador.'">'.$array['modelo']. '</span></td>
           <td><span id="txt_runvehiculo'.$contador.'">'.$run.'</span></td>
 
-          <td><a href="#" class="btn btn-warning" onclick="cargarMisVehiculos('.$contador.')" data-toggle="modal" data-target="#modal-modificar-auto">Modificar</a></td>
+          <td><a href="#" class="btn btn-warning" onclick="cargarMisVehiculos('.$contador.')" data-toggle="modal" data-target="#modalmodificar">Modificar</a></td>
           <td><a href="#" class="btn btn-danger" onclick="eliminarVehiculo(\''.$array['patente'].'\')">Eliminar</a></td>
 
           </tr>

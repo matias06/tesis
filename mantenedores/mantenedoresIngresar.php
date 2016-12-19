@@ -277,7 +277,7 @@ require_once '../clases/usuario.php';
 
 									$productos->setimagen($imagenModificar);
 
-                                    $proveedorModificar = filter_var($_REQUEST['txt_proveedor_modificar'], FILTER_SANITIZE_STRING);
+                                    $proveedorModificar = filter_var($_REQUEST['cmb_id_proveedor_producto_modificar'], FILTER_SANITIZE_STRING);
 									$productos->setrut($proveedorModificar);
 
 									$productos->setestado_producto($_REQUEST['cmb_estado_producto_modificar']);
@@ -1449,9 +1449,9 @@ break;
                       $vehiculo->setrun($_SESSION['id']);
 
                       if($vehiculo->insertarVehiculo()){
-                        echo "Se modifico correctamente";
+                        echo "1";
                       }else{
-                        echo "No se modifico";
+                        echo "2";
                       }
                       break;
 
@@ -1603,13 +1603,13 @@ break;
             $reserva->setid_reserva($_REQUEST['txt_id_reserva_modificar']);
 
             $reserva->setid_estado_reserva(1);
+            $reserva->modificarReservas();
 
-
-              if($reserva->insertarReservas()){
-                echo "Se modifico correctamente";
-              }else{
-                echo "Error al modificar";
-              }
+              // if($reserva->insertarReservas()){
+              //   echo "1";
+              // }else{
+              //   echo "2";
+              // }
 
             break;
             case "3": //echo "SE ELIMINA";
@@ -1617,14 +1617,36 @@ break;
 
               $reserva->setid_reserva($_REQUEST['id_reserva']);
 
-              $reserva->insertarReservas();
-
+              if($reserva->eliminarReservas()){
+                echo "1";
+              }else{
+                echo "2";
+              }
 
               break;
 
 
         }
   break;
+
+  case '14'://algunas cosas extras te amo
+       switch ($_REQUEST['func']) {
+         case '1':
+         $categoriasRecibida=$_REQUEST['categoria'];
+         echo' <select class="form-control" name="cmb_Subcategoria_producto" id="cmb_Subcategoria_producto">';
+
+                 require_once '../clases/claseSubCatProducto.php';
+                 $Subcat= new SubCatProducto();
+                 $filasSubCat= $Subcat->listarSubCatProducto($categoriasRecibida);
+
+                 foreach($filasSubCat as $tipo){
+                 echo '<option value="'.$tipo['id_subcategoria_producto'].'" >'.$tipo['descripcion_subcategoria_producto'].'</option>';
+                }
+
+        echo'</select>';
+           break;
+       }
+    break;
 
       }
 

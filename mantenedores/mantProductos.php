@@ -95,11 +95,21 @@
                                                 </select>
                                         </div>
                                     </div>
-
+                                    <script type="text/javascript">
+                                      function cargarSubcategorias(categoria){
+                                        //alert(categoria);
+                                        $.ajax({
+                                          url:"mantenedoresIngresar.php?mant=14&func=1&categoria="+categoria,
+                                          success:function(respuesta){
+                                             $("#divSubcategorias").html(respuesta);
+                                          }
+                                        });
+                                      }
+                                    </script>
                                    <div style="animation-delay: 0.5s;" class="col-md-2 animated-panel zoomIn">
                                         <div class="form-group">
-                                            <label for="tipoUsuario">Categoria producto</label>
-                                                 <select class="form-control" name="cmb_categoria_producto" id="cmb_categoria_producto">
+                                            <label for="categoria">Categoria producto</label>
+                                                 <select class="form-control" name="cmb_categoria_producto" onchange="cargarSubcategorias(this.value)" id="cmb_categoria_producto">
                                                     <?php
                                                         require_once '../clases/claseCategoriaProducto.php';
                                                         $cat= new CategoriaProducto();
@@ -116,17 +126,13 @@
                                     <div style="animation-delay: 0.5s;" class="col-md-2 animated-panel zoomIn">
                                          <div class="form-group">
                                              <label for="sub">Sub Categoria</label>
-                                                  <select class="form-control" name="cmb_Subcategoria_producto" id="cmb_Subcategoria_producto">
-                                                     <?php
-                                                          require_once '../clases/claseSubCatProducto.php';
-                                                          $Subcat= new SubCatProducto();
-                                                          $filasSubCat= $Subcat->listarSubCategoria();
+                                             <div id="divSubcategorias">
 
-                                                          foreach($filasSubCat as $tipo){
-                                                          echo '<option value="'.$tipo['id_subcategoria_producto'].'" >'.$tipo['descripcion_subcategoria_producto'].'</option>';
-                                                         }
-                                                      ?>
+                                                  <select class="form-control" name="cmb_Subcategoria_producto"  id="cmb_Subcategoria_producto">
+                                                           <option value="" disabled >seleccione categoria</option>
                                                  </select>
+                                              </div>
+
                                          </div>
                                      </div>
                                 </div>
@@ -160,7 +166,7 @@
 
                                      var formData = new FormData(document.getElementById("formularioProducto"));
 
-                      
+
                                     $.ajax({//realiza el envio del formulario pero por ajax para no tener que recargar pagina
                                         url:"mantenedoresIngresar.php?mant=2&prod=1", //donde se va a ingresar "mantenedoresIngresar.php"
                                         data:formData,
@@ -187,10 +193,7 @@
                // swal("Se ha agregado correctamente!", "You clicked the button!", "success")
               }
 
-             function eventoAlertEliminar(){
-                swal("Exito!", "Se ha eliminado correctamente!", "success")
-                 // swal("Se ha agregado correctamente!", "You clicked the button!", "success")
-                }
+
 
 
                             function eliminarCamposProducto(){ /*AQUI LE DOY UN NOMBRE CUALQUIERA A LA FUNCION*/

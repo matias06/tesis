@@ -46,7 +46,7 @@
                             <fieldset>
                                 <!--campos ocultos para guardar -->
                                  <input type="hidden" id="txt_id_producto_modificar" name="txt_id_producto_modificar" >
-                                <input type="hidden" id="cmb_id_proveedor_producto_modificar" name="cmb_id_proveedor_producto" >
+                                <input type="hidden" id="cmb_id_proveedor_producto_modificar" name="cmb_id_proveedor_producto_modificar" >
                                 <input type="hidden" id="cmb_id_estado_producto" name="txt_id_estado_producto_modificar" >
                                 <input type="hidden" id="cmb_id_categoria_producto" name="txt_id_categoria_producto_modificar" >
                                 <input type="hidden" id="cmb_id_subcategoria_producto" name="txt_id_subcategoria_producto_modificar" >
@@ -184,12 +184,12 @@
 
                         success:function(resultado){
                           //$("#hola").html(resultado);
-                          alert(respuesta);
+                          alert(resultado);
                              //alert("MODIFICADO CORRECTAMENTE");
                               cambiarPagina(1);
                               cargarDivTablaProducto();
                               //eventoAlertActualizar();
-                              cambiarPagina(1);
+                              //cambiarPagina(1);
 
 
 

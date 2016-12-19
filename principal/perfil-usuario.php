@@ -3,7 +3,7 @@
     require_once '../clases/Conexion.php';
     require_once '../clases/clasevehiculo.php';
     require_once '../clases/usuario.php';
-    // require_once '../clases/claseReserva.php';
+    require_once '../clases/claseReserva.php';
     $conexion = new Conexion();
     $conexion->consultarSesion();
 ?>
@@ -141,7 +141,7 @@
                               <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
                                   <div class="form-group">
                                     <label for="rut">Rut</label>
-                                    <input type="text" class="form-control" readonly id="txt_run_modificar" name="txt_run_modificar" placeholder="Modifique su run">
+                                    <input type="text" class="form-control" readonly id="txt_run_modificar" name="txt_run_modificar" required placeholder="Modifique su run">
                                 </div>
                                 </div>
                                 </div>
@@ -149,14 +149,14 @@
                                 <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
                                     <div class="form-group">
                                     <label for="nombre">Nombre</label>
-                                    <input type="text" class="form-control" id="txt_nombre_modificar" name="txt_nombre_modificar" placeholder="Modifique su nombre">
+                                    <input type="text" class="form-control" id="txt_nombre_modificar" name="txt_nombre_modificar" required placeholder="Modifique su nombre">
                                 </div>
                                 </div>
 
                                 <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
                                     <div class="form-group">
                                     <label for="nombre">Apellido</label>
-                                    <input type="text" class="form-control" id="txt_apellido_modificar" name="txt_apellido_modificar" placeholder="Modifique su nombre">
+                                    <input type="text" class="form-control" id="txt_apellido_modificar" name="txt_apellido_modificar" required placeholder="Modifique su nombre">
                                 </div>
                                 </div>
                                 </div>
@@ -165,7 +165,7 @@
                               <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
                                   <div class="form-group">
                                     <label for="nombre">Contraseña:</label>
-                                    <input type="text" class="form-control" id="txt_contraseña_modificar" name="txt_contraseña_modificar" placeholder="Modifique su nombre">
+                                    <input type="text" class="form-control" id="txt_contraseña_modificar" name="txt_contraseña_modificar" required placeholder="Modifique su nombre">
                                 </div>
                                 </div>
                                 </div>
@@ -173,7 +173,7 @@
                                 <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
                                     <div class="form-group">
                                     <label for="nombre">Teléfono</label>
-                                    <input type="text" class="form-control" id="txt_telefono_modificar" name="txt_telefono_modificar" placeholder="Modifique su nombre">
+                                    <input type="text" class="form-control" id="txt_telefono_modificar" name="txt_telefono_modificar" required placeholder="Modifique su nombre">
                                 </div>
                                 </div>
                                 </div>
@@ -181,14 +181,14 @@
                                  <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
                                       <div class="form-group">
                                     <label for="correo">Correo</label>
-                                      <input type="text" class="form-control" id="txt_correo_modificar" name="txt_correo_modificar" placeholder="Modifique su correo">
+                                      <input class="form-control" id="txt_correo_modificar" name="txt_correo_modificar" required placeholder="Modifique su correo" type="email">
                                 </div>
                                 </div>
                             </div>
                             <div style="animation-delay: 0.5s;" class="col-md-3 animated-panel zoomIn">
                                 <div class="form-group">
                                     <!-- <label for="tipoUsuario">Tipo Usuario</label> -->
-                                         <select class="form-control hidden" name="cmb_tipo_modificar" id="cmb_tipo_modificar">
+                                         <select class="form-control hidden" name="cmb_tipo_modificar" id="cmb_tipo_modificar" required>
                                             <?php
                                                 require_once '../clases/claseTipoUsuario.php';
                                                 $TipoU= new TipoUsuario();
@@ -204,7 +204,7 @@
                             <div style="animation-delay: 0.5s;" class="col-md-3 animated-panel zoomIn">
                                 <div class="form-group">
                                     <!-- <label for="estado">Estado usuario</label> -->
-                                         <select class="form-control hidden" name="cmb_estado_modificar" id="cmb_estado_modificar">
+                                         <select class="form-control hidden" name="cmb_estado_modificar" id="cmb_estado_modificar" required>
                                             <?php
                                                 require_once '../clases/claseEstadoUsuario.php';
                                                 $estadoUsuario= new EstadoUsuario();
@@ -218,7 +218,7 @@
                             </div>
                             <div class="row">
                              <div class="col-md-12">
-                                    <button id="modal-datos" type="submit" class="btn btn-primary" data-toggle="modal" data-target="#modal-datos" value="Modificar datos" name="btn_guardar">Modificar</button>
+                                    <button type="submit" class="btn btn-primary" data-toggle="modal" value="Modificar datos" name="btn_guardar">Modificar</button>
                             </div>
                         </div>
 
@@ -271,8 +271,9 @@
                        <form id="formModReservasCrear" name="formModReservasCrear" method="POST" role="form">
                          <div style="animation-delay: 0.2s;" class="col-md-12 animated-panel zoomIn">
                              <div class="form-group">
-                                     <label for="servicio">Patente: </label>
-                                      <select class="form-control" name="txt_patenteReserva" id="txt_patenteReserva">
+                                     <label for="servicio">Datos vehículo: </label>
+                                      <select class="form-control" required name="txt_patenteReserva" id="txt_patenteReserva">
+                                        <option value="" selected disabled>Seleccione su vehículo:</option>
                                          <?php
                                              require_once '../clases/clasevehiculo.php';
                                              $ver= new Vehiculo();
@@ -289,7 +290,8 @@
                            <div style="animation-delay: 0.2s;" class="col-md-12 animated-panel zoomIn">
                                <div class="form-group">
                                    <label for="servicio">Servicio: </label>
-                                        <select class="form-control" name="txt_id_servicioReserva" id="txt_id_servicioReserva">
+                                        <select class="form-control" required name="txt_id_servicioReserva" id="txt_id_servicioReserva">
+                                          <option value="" selected disabled>Seleccione servicio:</option>
                                            <?php
                                                require_once '../clases/claseServicio.php';
                                                $serv= new Servicio();
@@ -304,14 +306,15 @@
                         <div style="animation-delay: 0.2s;" class="col-md-10 animated-panel zoomIn">
                            <div class="form-group">
                                <label for="">Problema</label>
-                               <input type="text" class="form-control" id="txt_descripcionProblemaReserva" name="txt_descripcionProblemaReserva" placeholder="Ingrese su problema automotriz">
+                               <input type="text" class="form-control" required id="txt_descripcionProblemaReserva" name="txt_descripcionProblemaReserva" placeholder="Ingrese su problema automotriz">
                            </div>
                          </div>
 
                            <div style="animation-delay: 0.2s;" class="col-md-10 animated-panel zoomIn">
                            <div class="form-group">
                                    <label for="hora">Horas: </label>
-                                        <select class="form-control" name="cmb_hora_reserva" id="cmb_hora_reserva">
+                                        <select class="form-control" required name="cmb_hora_reserva" id="cmb_hora_reserva">
+                                          <option value="" selected disabled>Seleccione hora:</option>
                                            <?php
                                                require_once '../clases/claseHoras.php';
                                                $h= new Horas();
@@ -325,10 +328,10 @@
                           </div>
 
                    <div style="animation-delay: 0.2s;" class="col-md-10 animated-panel zoomIn">
-                           <!-- <div class="form-group">
+                           <div class="form-group">
                                <label for="">Fecha</label>
-                               <input type="date" class="form-control" id="fechareserva" name="fechareserva" placeholder="Ingrese su problema automotriz">
-                           </div> -->
+                               <input type="date" class="form-control" required id="fechareserva" name="fechareserva" placeholder="Ingrese su problema automotriz">
+                           </div>
 
 
                    </div>
@@ -363,9 +366,9 @@
                                           <div style="animation-delay: 0.2s;" class="col-md-10 animated-panel zoomIn">
                                               <div class="form-group">
                                                       <label for="servicio">Datos Vehiculo: </label>
-                                                       <select class="form-control" name="txt_patenteReserva_modificar" id="txt_patenteReserva_modificar">
+                                                       <select class="form-control" required name="txt_patenteReserva_modificar" id="txt_patenteReserva_modificar">
+                                                         <option value="" selected disabled>Seleccione su vehículo:</option>
                                                           <?php
-
                                                               require_once '../clases/clasevehiculo.php';
                                                               $ver= new Vehiculo();
                                                               $ver->setrun($_SESSION['id']);
@@ -382,7 +385,9 @@
                                             <div style="animation-delay: 0.2s;" class="col-md-10 animated-panel zoomIn">
                                                 <div class="form-group">
                                                     <label for="servicio">Servicio: </label>
-                                                         <select class="form-control" name="txt_id_servicioReserva_modificar" id="txt_id_servicioReserva_modificar">
+                                                         <select class="form-control" required name="txt_id_servicioReserva_modificar" id="txt_id_servicioReserva_modificar">
+                                                           <option value="" selected disabled>Seleccione servicio:</option>
+
                                                             <?php
                                                                 require_once '../clases/claseServicio.php';
                                                                 $serv= new Servicio();
@@ -397,14 +402,16 @@
                                             <div style="animation-delay: 0.2s;" class="col-md-10 animated-panel zoomIn">
                                             <div class="form-group">
                                                 <label for="">Problema</label>
-                                                <input type="text" class="form-control" id="txt_descripcionProblemaReserva_modificar" name="txt_descripcionProblemaReserva_modificar" placeholder="Ingrese su problema automotriz">
+                                                <input type="text" class="form-control" required id="txt_descripcionProblemaReserva_modificar" name="txt_descripcionProblemaReserva_modificar" placeholder="Ingrese su problema automotriz">
                                             </div>
                                               </div>
 
                                               <div style="animation-delay: 0.2s;" class="col-md-10 animated-panel zoomIn">
                                             <div class="form-group">
                                                     <label for="hora">Horas: </label>
-                                                         <select class="form-control" name="cmb_hora_reserva_modificar" id="cmb_hora_reserva_modificar">
+                                                         <select class="form-control" required name="cmb_hora_reserva_modificar" id="cmb_hora_reserva_modificar">
+                                                           <option value="" selected disabled>Seleccione hora:</option>
+
                                                             <?php
                                                                 require_once '../clases/claseHoras.php';
                                                                 $h= new Horas();
@@ -428,8 +435,8 @@
                   </div>
               </div> -->
                                   <div class="form-group">
-                                      <label for="apellido">Fecha</label>
-                                      <input class="form-control" required title="Debe ingresar fecha" required id="fechareserva_modificar" name="fechareserva_modificar" placeholder="" type="date">
+                                      <label for="fecha">Fecha</label>
+                                      <input class="form-control" required title="Debe ingresar fecha" id="fechareserva_modificar" name="fechareserva_modificar" type="date">
                                   </div>
 
                                     </div>
@@ -477,7 +484,7 @@
                        <!-- <a class="btn btn-info btn-xs" data-toggle="modal" href='#modal-auto'><i class="fa fa-plus-circle fa-1g"></i>  Agregar Autos</a> -->
                    </span>
         <!-- MODIFICAR VEHICULO -->
-                   <div class="modal fade" id="modal-modificar-auto">
+                   <div class="modal fade" id="modalmodificar">
                        <div class="modal-dialog">
                            <div class="modal-content">
                                <div class="modal-header">
@@ -495,18 +502,18 @@
 
                                    <div class="form-group">
                                        <label for="marca">Marca</label>
-                                       <input type="text" class="form-control" id="txt_marca_modificar" name="txt_marca_modificar" placeholder="Modifique su marca">
+                                       <input type="text" class="form-control" required id="txt_marca_modificar" name="txt_marca_modificar" placeholder="Modifique su marca">
                                    </div>
                                    <div class="form-group">
                                        <label for="modelo">Modelo</label>
-                                       <input type="text" class="form-control" id="txt_modelo_modificar" name="txt_modelo_modificar" placeholder="Modifique su modelo">
+                                       <input type="text" class="form-control" required id="txt_modelo_modificar" name="txt_modelo_modificar" placeholder="Modifique su modelo">
                                    </div>
                                    <div class="form-group">
                                        <label for="modelo">Run</label>
                                        <input type="text" class="form-control" readonly id="txt_runVehiculo_modificar" name="txt_runVehiculo_modificar" placeholder="Modifique su modelo">
                                    </div>
                                    <div class="form-group">
-                                       <button id="modal-modificar-auto" type="submit" class="btn btn-primary" data-toggle="modal" data-target="#modal-modificar-auto" value="Guardar Cambios" name="btn_registrar">Modificar</button>
+                                       <button  type="submit" class="btn btn-primary" data-toggle="modal" data-target="#modal-modificar-auto" value="Guardar Cambios" name="btn_registrar">Modificar</button>
                                         <!-- <input type="submit" id="btn_insert" class="btn btn-primary" value="Guardar Cambios" name="btn_registrar"> -->
                                            <!-- <input type="submit" id="btn_insert" class="btn btn-primary" data-dismiss="modal" value="Guardar Cambios" name="btn_registrar"> -->
                                    </div>
@@ -536,7 +543,7 @@
                                      <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
                                          <div class="form-group">
                                              <label for="patente">Patente:</label>
-                                             <input class="form-control"  onBlur="validarRun(this) " title="Debe ingresar número patente" required id="txt_patente" name="txt_patente" placeholder="Número patente" type="text">
+                                             <input class="form-control" title="Debe ingresar número patente" required id="txt_patente" name="txt_patente" placeholder="Número patente" type="text">
                                          </div>
                                    </div>
                                      <div style="animation-delay: 0.2s;" class="col-md-3 animated-panel zoomIn">
@@ -638,24 +645,24 @@ footerPublico();
  <!-- Carga la informacion a el div cargarDatos desde cargarTablaClientes -->
 <script>
 
-        $(document).ready(function cargarTablaDatos(){
-           $.ajax({
-             url:'../cliente/cargarTablaCliente.php',
-             success:function(resultado){
-               $("#cargarDatos").html(resultado);
-               }
-
-     });
-  return false;
-});
-//    function cargarTablaDatos(){
-     //     $.ajax({
-     //       url:'../cliente/cargarTablaCliente.php',
-     //       success:function(resultado){
-     //         $("#cargarDatos").html(resultado);
-     //         }
-     //     });
-     // }
+//         $(document).ready(function cargarTablaDatos(){
+//            $.ajax({
+//              url:'../cliente/cargarTablaCliente.php',
+//              success:function(resultado){
+//                $("#cargarDatos").html(resultado);
+//                }
+//
+//      });
+//   return false;
+// });
+   function cargarTablaDatos(){
+         $.ajax({
+           url:'../cliente/cargarTablaCliente.php',
+           success:function(resultado){
+             $("#cargarDatos").html(resultado);
+             }
+         });
+     }
 
        function cargarMisReservas(fila){
         $("#txt_id_reserva_modificar").val($("#txt_id_reserva"+fila).html());
@@ -666,7 +673,7 @@ footerPublico();
         $("#txt_marcaReserva_modificar").val($("#txt_marca"+fila).html());
         $("#txt_modeloReserva_modificar").val($("#txt_modelo"+fila).html());
 
-        $("#txt_id_servicio_modificar").val($("#txt_id_servicio"+fila).html());
+        $("#txt_id_servicioReserva_modificar").val($("#txt_id_servicio"+fila).html());
         $("#txt_descripcionServicioReserva_modificar").val($("#txt_servicio"+fila).html());
 
         $("#txt_descripcionProblemaReserva_modificar").val($("#txt_problema"+fila).html());
@@ -759,12 +766,15 @@ $.ajax({
 // MODIFICAR MIS DATOS
 $("#formModificarUsuario").submit(function(){//captura cuando se envia el formulario
    event.preventDefault();//detiene el envio del formulario
-   //alert("hola");
+   if($("#txt_run_modificar").val()=="" || $("#txt_nombre_modificar").val()=="" || $("#txt_apellido_modificar").val()=="" || $("#txt_telefono_modificar").val()=="" || $("#txt_correo_modificar").val()==""){
+        alert("No puede dejar campos vacios");
+   }else{
        $.ajax({//realiza el envio del formulario pero por ajax para no tener que recargar pagina
 
            url:"../mantenedores/mantenedoresIngresar.php?mant=1&func=2", // donde se va a ingresar "mantenedoresIngresar.php"
            data:$("#formModificarUsuario").serialize(),
            success:function(respuesta){
+
                    //alert(respuesta);
                   // alert("hola");
                   // cargarTablaVehiculos();
@@ -773,11 +783,16 @@ $("#formModificarUsuario").submit(function(){//captura cuando se envia el formul
            }
        });
        return false;
+     }
 });
 
 // MIS RESERVAS
 $("#formModReservasCrear").submit(function(){//captura cuando se envia el formulario
    event.preventDefault();//detiene el envio del formulario
+   if($("#txt_patenteReserva").val()=="" || $("#txt_id_servicioReserva").val()=="" ||
+    $("#txt_descripcionProblemaReserva").val()==""){
+        alert("No puede dejar campos vacios");
+   }else{
 
        $.ajax({//realiza el envio del formulario pero por ajax para no tener que recargar pagina
 
@@ -794,11 +809,16 @@ $("#formModReservasCrear").submit(function(){//captura cuando se envia el formul
            }
        });
        return false;
+     }
 });
 
 $("#formModReservas").submit(function(){
-   event.preventDefault();
-  //  alert("hola");
+   event.preventDefault();+
+  //  if($("#txt_patenteReserva_modificar").val()=="" || $("#txt_id_servicioReserva_modificar").val()=="" ||
+  //   $("#txt_descripcionProblemaReserva_modificar").val()==""){
+  //       alert("No puede dejar campos vacios");
+  //  }else{
+
        $.ajax({
 
            url:"../mantenedores/mantenedoresIngresar.php?mant=13&func=2",
@@ -812,9 +832,43 @@ $("#formModReservas").submit(function(){
            }
        });
        return false;
+    //  }
 });
 
+// ELIMINAR RESERVAS
+function eliminarReservas(idProd){
+      // alert(id);
+      swal({
+          title: "¿Eliminar reserva?",
+          text: "",
+          type: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#DD6B55",
+          confirmButtonText: "Eliminar",
+          cancelButtonText: "Cancelar!",
+          closeOnConfirm: false,
+          closeOnCancel: false },
+          function(isConfirm){
+              if (isConfirm) {
+                   $.ajax({//realiza el envio del formulario pero por ajax para no tener que recargar pagina
 
+                      url:"mantenedoresIngresar.php?mant=2&prod=3", // donde se va a ingresar "mantenedoresIngresar.php"
+                     data:"idProd="+idProd,
+                      success:function(respuesta){
+                              // alert(respuesta);
+                               cargarDivTablaProducto();
+                               cambiarPagina(1);
+                      }
+                  });
+                  swal("ELIMINADO", "", "success");
+              } else {
+                  swal("Cancelado", "", "error");
+              }
+          });
+
+
+
+  }
 
 
 // MIS VEHICULOS
@@ -822,6 +876,7 @@ $("#formModReservas").submit(function(){
 // CREAR VEHICULOS
 $("#formularioCrearVehiculo").submit(function(){//captura cuando se envia el formulario
    event.preventDefault();//detiene el envio del formulario
+
 
        $.ajax({//realiza el envio del formulario pero por ajax para no tener que recargar pagina
 
@@ -839,11 +894,14 @@ $("#formularioCrearVehiculo").submit(function(){//captura cuando se envia el for
            }
        });
        return false;
+
 });
 
 // MODIFICAR MIS VEHICULOS
 $("#formModificarVehiculo").submit(function(event){//captura cuando se envia el formulario
    event.preventDefault();//detiene el envio del formulario
+
+
        $.ajax({//realiza el envio del formulario pero por ajax para no tener que recargar pagina
            url:"../mantenedores/mantenedoresIngresar.php?mant=12&func=3", // donde se va a ingresar "mantenedoresIngresar.php"
            data:$("#formModificarVehiculo").serialize(),
@@ -860,6 +918,7 @@ $("#formModificarVehiculo").submit(function(event){//captura cuando se envia el 
            }
        });
        return false;
+
 });
 
   function eventoAlertIngresar(){
@@ -875,8 +934,8 @@ $("#formModificarVehiculo").submit(function(event){//captura cuando se envia el 
 
          //alert(id);
          swal({
-             title: "Eliminar?",
-             text: "Vehiculo!",
+             title: "¿Eliminar Vehiculo?",
+             text: "",
              type: "warning",
              showCancelButton: true,
              confirmButtonColor: "#DD6B55",
@@ -891,20 +950,22 @@ $("#formModificarVehiculo").submit(function(event){//captura cuando se envia el 
                          url:"../mantenedores/mantenedoresIngresar.php?mant=12&func=4", // donde se va a ingresar "mantenedoresIngresar.php"
                          data:"id="+id,
                          success:function(respuesta){
+                           if(respuesta==1){
                              //$("#formModificarVehiculo").html(respuesta);
                                  //alert(respuesta);
                                  //alert("hola");
                                   cargarTablaVehiculos();
+                                  swal("VEHICULO ELIMINADO!", "", "success");
+                            }else{
+                              swal("No se puede eliminar vehiculo, favor verifique si tiene reservas asociadas a la cuenta.", "", "error");
+
+                            }
                          }
                      });
-                     swal("Eliminado correctamente!", "", "success");
                  } else {
                      swal("Cancelado", "", "error");
                  }
              });
-
-
-
      }
 </script>
 <script>
@@ -940,7 +1001,7 @@ $( "#misautos" ).click(function() {
 //carga al iniciar la pagina
 cargarTablaDatos();
 cargarTablaReserva();
-cargarTablaVehiculos();
+// cargarTablaVehiculos();
 
 </script>
 </body>

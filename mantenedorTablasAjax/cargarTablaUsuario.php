@@ -92,6 +92,8 @@
                                         <div class="form-group">
                                             <label for="tipoUsuario">Tipo Usuario:</label>
                                                  <select class="form-control" name="cmb_tipo_modificar" id="cmb_tipo_modificar">
+                                                   <option value="" selected disabled>Seleccione tipo:</option>
+
                                                     <?php
                                                         require_once '../clases/claseTipoUsuario.php';
                                                         $TipoU= new TipoUsuario();
@@ -114,6 +116,8 @@
 
                                             <label for="estado">Estado usuario:</label>
                                                  <select class="form-control" name="cmb_estado_modificar" id="cmb_estado_modificar">
+                                                   <option value="" selected disabled>Seleccione estado:</option>
+
                                                     <?php
                                                         require_once '../clases/claseEstadoUsuario.php';
                                                         $estadoUsuario= new EstadoUsuario();

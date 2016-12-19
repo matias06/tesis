@@ -41,32 +41,32 @@ menuPublico();
 
                 <div class="form-group col-xs-12 col-sm-7">
                     <label for="nombre">Nombre</label>
-                    <input type="text" class="form-control" id="txt_nombre" name="txt_nombre" placeholder="Nombre">
+                    <input type="text" required class="form-control" id="txt_nombre" name="txt_nombre" placeholder="Nombre">
                 </div>
 
                 <div class="form-group col-xs-12 col-sm-7">
                     <label for="apellido">Apellidos</label>
-                    <input type="text" class="form-control" id="txt_apellido" name="txt_apellido" placeholder="Apellido">
+                    <input type="text" required class="form-control" id="txt_apellido" name="txt_apellido" placeholder="Apellido">
                 </div>
 
                 <div class="form-group col-xs-12 col-sm-7">
                     <label for="Run">Run</label>
-                    <input type="text" class="form-control" id="txt_run" name="txt_run" placeholder="Ej.11111111-1">
+                    <input type="text" required class="form-control" id="txt_run" name="txt_run" placeholder="Ej.11111111-1">
                 </div>
 
                 <div class="form-group col-xs-12 col-sm-7">
                     <label for="password">Contrase&ntilde;a</label>
-                    <input type="password" class="form-control" id="txt_password"  name="txt_password" placeholder="Contrase&ntilde;a">
+                    <input type="password" required class="form-control" id="txt_password"  name="txt_password" placeholder="Contrase&ntilde;a">
                 </div>
 
                 <div class="form-group col-xs-12 col-sm-7">
                     <label for="email">Telefono de Contacto</label>
-                    <input type="text" class="form-control" id="txt_telefono" name="txt_telefono" placeholder="989052072">
+                    <input type="text" required class="form-control" id="txt_telefono" name="txt_telefono" placeholder="989052072">
                 </div>
 
                 <div class="form-group col-xs-12 col-sm-7">
                     <label for="email">Corre Electronico</label>
-                    <input type="text" class="form-control" id="txt_correo" name="txt_correo" placeholder="x ej: correo@dominio.cl">
+                    <input type="email" required class="form-control" id="txt_correo" name="txt_correo" placeholder="x ej: correo@dominio.cl">
                 </div>
 
                 <div class="form-group col-xs-12 col-sm-7">
@@ -176,7 +176,9 @@ login();
 
    $("#registro").submit(function(){//captura cuando se envia el formulario
       event.preventDefault();//detiene el envio del formulario
-
+      if($("#txt_nombre").val()=="" || $("#txt_apellido").val()=="" || $("#txt_run").val()=="" || $("#txt_password").val()=="" || $("#txt_telefono").val()=="" || $("#txt_correo").val()==""){
+           alert("No puede dejar campos vacios");
+      }else{
 
           $.ajax({//realiza el envio del formulario pero por ajax para no tener que recargar pagina
 
@@ -192,6 +194,7 @@ login();
 
           });
           return false;
+        }
   });
 
 

@@ -20,6 +20,7 @@ class SubCatProducto extends Conexion{
 
 	public function listarSubCatProducto($categoria){
 		$subCat = $this->consultarRegistros("SELECT * FROM subcategoriaproducto where id_categoria_producto = '$categoria';");
+		//echo "SELECT * FROM subcategoriaproducto where id_categoria_producto = '$categoria'";
 		return $subCat;
 
 	}

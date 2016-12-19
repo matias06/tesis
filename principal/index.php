@@ -184,7 +184,10 @@
 </section>
 
 <footer>
-
+  <!-- <div id="fb-root"></div> -->
+<center>
+  <div class="fb-like" data-href="http://proinforla.com/figuesep/principal/index.php" data-width="300" data-layout="standard" data-action="like" data-size="small" data-show-faces="" data-share="true"></div>
+</center>
 <?php
 require_once'../comun/comun.php';
 footerPublico();
@@ -202,6 +205,13 @@ footerPublico();
 <script src="../js/lightbox.min.js"></script>
 <!-- > js agregados por nosotros < -->
 <script src="../js/validar_sesion.js"></script>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.8";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 
 <script>
     lightbox.option({
