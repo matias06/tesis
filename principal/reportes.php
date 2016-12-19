@@ -19,7 +19,7 @@
     <div id="wrapper">
 
         <!-- Navigation -->
-        <?php cargarMenu(); ?>
+        <?php cargarMenuSD(); ?>
 
             <!-- Top Menu Items -->
 

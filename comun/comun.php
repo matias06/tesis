@@ -199,6 +199,44 @@ function cargarMenu(){
         </div>
 <?php
 }
+function cargarMenuSD(){
+  ?>
+             <div class="row">
+              <div class="container">
+              <header>
+                  <nav class="navbar navbar-default navbar-fixed-top">
+                      <div class="container-fluid">
+                          <div class="navbar-header">
+                              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-1">
+                                  <span class="sr-only">Menu</span>
+                                  <span class="icon-bar"></span>
+                                  <span class="icon-bar"></span>
+                                  <span class="icon-bar"></span>
+                              </button>
+                              <a href="../principal/indexAdmin.php"><img src="../comun/logo/fsp.png" alt="" width="220" height="50"></a>
+                          </div>
+                          <div class="collapse navbar-collapse" id="navbar-1">
+                              <ul class="nav navbar-nav navbar-right">
+                                  <li><a href="../mantenedores/mantenedores.php"><span class="glyphicon glyphicon-cog">Mantenedores</span></a></li>
+                                  <li><a href="../principal/proveedores.php"><span class="glyphicon glyphicon-briefcase">Proveedores</span></a></li>
+                                  <li><a href="../principal/comprasProveedor.php"><span class="glyphicon glyphicon-shopping-cart">Compras</span></a></li>
+                                  <li><a href="../principal/venta.php"><span class="glyphicon glyphicon-barcode">Venta</span></a></li>
+                                  <li><a href="../principal/reportes.php"><span class="glyphicon glyphicon-file">Reportes</span></span></a></li>
+                                  <li><a href="../principal/reservas.php"><span class="glyphicon glyphicon-list-alt">Reservas</span></a></li>
+                                  <li><a href="../principal/mensajes.php"><span class="glyphicon glyphicon-envelope">Mensajes</span></a></li>
+                                  <li><a href="../comun/destruirSesion.php"><span class="glyphicon glyphicon-remove-circle">Salir</span></a></li>
+
+                              </ul>
+
+                          </div>
+
+                      </div>
+                  </nav>
+              </header>
+          </div>
+          </div>
+  <?php
+}
 function cargarMenuUsuario(){
 ?>
 <div class="row">

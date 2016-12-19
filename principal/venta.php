@@ -11,7 +11,7 @@
 <body>
 
   <header>
-    <?php cargarMenu(); ?>
+    <?php cargarMenuSD(); ?>
   </header>
 
 <?php

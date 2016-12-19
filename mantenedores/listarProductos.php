@@ -9,7 +9,7 @@
                                 <th>Estado producto</th>
                                 <th>Categoría producto</th>
                                 <th>Sub Categoría producto</th>
-                                <th>Editar/Eliminar </th>
+                                <th>Seleccione </th>
                             </thead>
 
                             <?php
@@ -49,11 +49,10 @@ $filas = $producto->BuscarFiltarRegistros("vistaproducto","campoBuscar",$_REQUES
 
 
 
-                                <td><button type="button" onclick="cargarDatosModal('.$contador.')" data-toggle="modal" data-target="#modificar" class="btn btn-warning">
-                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                <td><button type="button" onclick="cargarDatosModal('.$contador.')" data-toggle="modal" data-target="#modificar" class="btn btn-success">
+                                <span>Agregar</span>
 
-                              <button type="button" class="btn btn-danger" onclick="eliminarProductos(\''.$user['id_producto'].'\');" aria-label="left aling">
-                                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button></td>
+                              </td>
                                 </tr>
                             </div>';
 

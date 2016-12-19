@@ -10,7 +10,7 @@
 </head>
 <body>
   <header>
-    <?php cargarMenu(); ?>
+    <?php cargarMenuSD(); ?>
   </header>
 <?php
     require_once '../clases/Conexion.php';
