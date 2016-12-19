@@ -77,17 +77,23 @@ function eliminarMensaje(id){
         url:"elimMensaje.php", // donde se va a ingresar "mantenedoresIngresar.php"
         data:"id="+id,
         success:function(respuesta){
+          if(respuesta == 1){
                  //alert(respuesta);
                  cargarDivTablaMensajes();
+                  swal("Eliminado", "", "success");
+                }else {
+                  alert("No se pudo eliminar");
+                }
+              }});
 
+           } else {
+               swal("Cancelado", "", "error");
+           }
                 // eventoAlertEliminar();
+
    }
-                });
-                swal("Eliminado", "", "success");
-            } else {
-                swal("Cancelado", "", "error");
-            }
-        });
+
+        );
     }
 </script>
 
